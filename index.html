@@ -95,10 +95,7 @@ svg.ic{width:22px;height:22px;flex:none}
 .toast.show{opacity:1;transform:translate(-50%,0)}.toast.bad{color:var(--red)}
 .lockv{min-height:100vh;display:grid;place-items:center;padding:24px}
 .lockc{width:100%;max-width:340px;text-align:center}
-.lock-icon{width:72px;height:72px;border-radius:18px;margin:0 auto 18px;display:grid;place-items:center;background:linear-gradient(180deg,#0a84ff,#0060df);color:#fff}.lock-icon .ic{width:36px;height:36px}
 .lockc h1{font-size:28px;margin:0 0 6px}.lockc p{color:var(--sec);font-size:15px;margin:0 0 22px}
-.lockc input{width:100%;height:50px;border:0;border-radius:12px;background:var(--card);color:var(--text);padding:0 16px;font-size:17px;margin-bottom:12px;text-align:center;outline:none}
-.err{color:var(--red);font-size:14px;min-height:18px}
 @keyframes up{from{transform:translateY(100%)}}@keyframes fade{from{opacity:0}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -112,9 +109,8 @@ svg.ic{width:22px;height:22px;flex:none}
 <script>
 'use strict';
 const SUPABASE_URL='https://zfihwiolrxddfphehngt.supabase.co';
-const SUPABASE_KEY='sb_publishable_U_bLYn66mCOH_liYsGEDFw_bL2WzC6K'; // public key, safe to publish
+const SUPABASE_KEY='sb_publishable_U_bLYn66mCOH_liYsGEDFw_bL2WzC6K';
 const GMAIL='gsenterprises.digital@gmail.com';
-const KEY_STORE='gs_tracker_passcode';
 const XLSX_URL='https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
 const IST=330*60000,MONS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 const C={red:'#FF3B30',green:'#34C759',blue:'#007AFF',orange:'#FF9500',gray:'#8E8E93',purple:'#AF52DE',teal:'#30B0C7',indigo:'#5856D6'};
@@ -135,8 +131,7 @@ clock:I('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'),
 check:I('<path d="m5 12.5 4.5 4.5L19 7.5"/>'),
 x:I('<path d="M6 6l12 12M18 6 6 18"/>'),
 cal:I('<rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/>'),
-arrows:I('<path d="M7 4v16M3 8l4-4 4 4M17 20V4M13 16l4 4 4-4"/>'),
-lock:I('<rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>')};
+arrows:I('<path d="M7 4v16M3 8l4-4 4 4M17 20V4M13 16l4 4 4-4"/>')};
 
 function cols(src){let g='';return src.trim().split('\n').map(l=>l.trim()).filter(Boolean).flatMap(l=>{if(l[0]==='#'){g=l.slice(1);return[]}const [k,label,type='text',opts='']=l.split('|');return [{k,label,type,g,opts:opts?opts.split(','):[]}]})}
 const OUT={'No reply':'gray','Replied':'green','Interested':'green','Meeting booked':'indigo','Not interested':'gray','Bounced':'red','Needs review':'orange','Converted':'purple'};
@@ -379,8 +374,7 @@ function moreView(){const item=(nav,label,cnt,color,icon)=>`<button class="row p
 return topbar()+`<main class="wrap"><h1 class="lt">More</h1><p class="ls">GS Enterprises Digital tracker</p>
 <div class="group">${item('outreach','Creator outreach',data.outreach.length,'purple',ICON.star)}${item('emails','Email log',data.emails.length,'blue',ICON.mail)}${item('activity','Activity log',data.activity.length,'orange',ICON.clock)}</div>
 <div class="group">${item('io','Import and export',null,'green',ICON.arrows)}</div>
-<div class="group"><button class="row plain center" data-x="lock"><span class="t danger">Lock this device</span></button></div>
-<p class="foot">Data is stored in your Supabase project. Only devices with your passcode can open it.</p></main>`}
+<p class="foot" style="margin-top:0">Data is saved in your Supabase project. Download an Excel backup every week.</p></main>`}
 
 function ioView(){const n=data.leads.filter(needsPlan).length;
 return topbar('<button class="nav-btn" data-nav="more">‹ More</button>')+`<main class="wrap"><h1 class="lt">Import and export</h1><p class="ls">Works with your GS Tracker Excel file.</p>
@@ -476,16 +470,11 @@ try{for(let i=0;i<up.length;i+=500){const {error}=await sb.from('gs_leads').upse
 
 async function fetchAll(t){let all=[];for(let s=0;;s+=1000){const {data:d,error}=await sb.from(t).select('*').order('id').range(s,s+999);if(error)throw error;all.push(...d);if(d.length<1000)return all}}
 async function loadAll(){const ks=Object.keys(T),res=await Promise.all(ks.map(k=>fetchAll(T[k].t)));ks.forEach((k,i)=>data[k]=res[i])}
-function lockScreen(msg=''){sb=null;$('tabbar').hidden=true;app.innerHTML=`<div class="lockv"><div class="lockc"><div class="lock-icon">${ICON.lock}</div><h1>GS Tracker</h1><p>Enter your passcode to open the tracker on this device. You'll only need to do this once.</p><form id="unlock"><input id="pass" type="password" placeholder="Passcode" autocomplete="current-password" enterkeyhint="go" required aria-label="Passcode"><button class="btn" type="submit">Unlock</button></form><p class="err" id="lerr">${esc(msg)}</p></div></div>`}
-async function unlock(key){if(!key)return 'Enter your passcode.';
-const client=supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false},global:{headers:{'x-gs-key':key}}});
-const {data:ok,error}=await client.rpc('gs_check_key');if(error)return /gs_check_key|function/i.test(error.message)?'Run the setup SQL in Supabase first.':error.message;if(!ok)return "That passcode isn't right.";
-sb=client;try{localStorage.setItem(KEY_STORE,key)}catch(_){}app.innerHTML='<div class="lockv"><p class="ls">Loading your tracker…</p></div>';
-try{await loadAll()}catch(e){lockScreen('Could not load data: '+e.message);return null}render();return null}
-function lock(){try{localStorage.removeItem(KEY_STORE)}catch(_){}data=emptyData();sheet=null;renderSheet();lockScreen()}
-async function boot(){if(!window.supabase?.createClient){app.innerHTML='<div class="lockv"><div class="lockc"><h1>No connection</h1><p>Connect to the internet and refresh.</p></div></div>';return}
-let key='';try{key=localStorage.getItem(KEY_STORE)||''}catch(_){}if(!key)return lockScreen();const msg=await unlock(key);
-if(msg){if(/isn't right/.test(msg)){try{localStorage.removeItem(KEY_STORE)}catch(_){}}lockScreen(msg)}}
+function fatal(msg){$('tabbar').hidden=true;app.innerHTML=`<div class="lockv"><div class="lockc"><h1>Couldn't open GS Tracker</h1><p>${esc(msg)}</p><button class="btn" data-x="retry">Try again</button></div></div>`}
+async function boot(){if(!window.supabase?.createClient)return fatal('Connect to the internet and refresh.');
+sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});
+app.innerHTML='<div class="lockv"><p class="ls">Loading your tracker…</p></div>';
+try{await loadAll();render()}catch(e){fatal(/does not exist|schema cache/i.test(e.message)?'Run the setup SQL in Supabase first.':e.message)}}
 
 document.addEventListener('click',e=>{const el=e.target.closest('[data-nav],[data-new],[data-open],[data-flt],[data-more],[data-x],[data-act]');if(!el||el.disabled)return;const d=el.dataset;
 if(d.nav){view=d.nav;q='';limit=150;render();window.scrollTo(0,0)}
@@ -494,12 +483,11 @@ else if(d.open){const [k,id]=d.open.split(':'),r=data[k].find(x=>String(x.id)===
 else if(d.flt){flt[view]=d.flt;limit=150;render()}
 else if(d.more!==undefined){limit+=150;$('list').innerHTML=listBody(view)}
 else if(d.act)leadAct(d.act);
-else ({close:closeSheet,save:()=>save(),delete:del,export:exportXlsx,planall:planAll,doimport:doImport,cancelimport:()=>{plan=null;render()},lock}[d.x]||(()=>{}))()});
+else ({close:closeSheet,save:()=>save(),delete:del,export:exportXlsx,planall:planAll,doimport:doImport,cancelimport:()=>{plan=null;render()},retry:boot}[d.x]||(()=>{}))()});
 document.addEventListener('input',e=>{if(e.target.id!=='q')return;q=e.target.value;limit=150;const l=$('list'),c=$('cnt');if(l)l.innerHTML=listBody(view);if(c)c.textContent=cntText(view)});
 document.addEventListener('change',e=>{const el=e.target;if(el.id==='file'&&el.files[0]){onFile(el.files[0]);el.value=''}else if(el.dataset.pick!==undefined&&plan)plan.sheets[+el.dataset.pick].target=el.value});
 sh.addEventListener('input',onDraft);sh.addEventListener('change',onDraft);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&sheet)closeSheet()});
-document.addEventListener('submit',async e=>{if(e.target.id!=='unlock')return;e.preventDefault();const b=e.target.querySelector('button');b.disabled=true;b.textContent='Checking…';const msg=await unlock($('pass').value.trim());const le=$('lerr');if(msg&&le){le.textContent=msg;b.disabled=false;b.textContent='Unlock'}});
 boot();
 </script>
 </body>
