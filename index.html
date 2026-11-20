@@ -4,107 +4,78 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="GS Tracker">
-<title>GS Tracker</title>
+<meta name="apple-mobile-web-app-title" content="GS Leads">
+<meta name="theme-color" content="#f2f2f7">
+<title>GS Leads</title>
 <style>
-:root{--bg:#f2f2f7;--card:#fff;--text:#000;--sec:rgba(60,60,67,.6);--sep:rgba(60,60,67,.29);--fill:rgba(118,118,128,.12);--blue:#007aff;--red:#ff3b30;--green:#34c759;--bar:rgba(249,249,249,.86);--chev:#c4c4c6}
-@media(prefers-color-scheme:dark){:root{--bg:#000;--card:#1c1c1e;--text:#fff;--sec:rgba(235,235,245,.6);--sep:rgba(84,84,88,.65);--fill:rgba(118,118,128,.24);--blue:#0a84ff;--red:#ff453a;--green:#30d158;--bar:rgba(22,22,24,.86);--chev:#5a5a5e}}
+:root{--bg:#f2f2f7;--card:#fff;--text:#000;--sec:rgba(60,60,67,.6);--sep:rgba(60,60,67,.18);--fill:rgba(118,118,128,.12);--blue:#007aff;--red:#ff3b30;--green:#34c759;--bar:rgba(249,249,249,.86)}
+@media(prefers-color-scheme:dark){:root{--bg:#000;--card:#1c1c1e;--text:#fff;--sec:rgba(235,235,245,.6);--sep:rgba(84,84,88,.5);--fill:rgba(118,118,128,.24);--blue:#0a84ff;--red:#ff453a;--green:#30d158;--bar:rgba(22,22,24,.86)}}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--text);font:17px/1.3 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;letter-spacing:-.2px}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.3 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 body.lock{overflow:hidden}
-button,input,select,textarea{font:inherit;color:inherit;letter-spacing:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
 button{background:none;border:0;padding:0;cursor:pointer;text-align:left}
 button:disabled{opacity:.4;cursor:default}
-svg.ic{width:22px;height:22px;flex:none}
-.topbar{position:sticky;top:0;z-index:10;background:var(--bar);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);padding-top:env(safe-area-inset-top)}
-.topbar-in{max-width:760px;margin:0 auto;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 12px}
-.nav-btn{color:var(--blue);font-size:17px;padding:8px 4px;display:inline-flex;align-items:center;gap:2px}
-.nav-btn.bold{font-weight:600}.nav-btn .ic{width:26px;height:26px}
-.wrap{max-width:760px;margin:0 auto;padding:0 16px calc(100px + env(safe-area-inset-bottom))}
-.lt{font-size:34px;font-weight:700;letter-spacing:.3px;margin:2px 0;line-height:1.15}
-.ls{color:var(--sec);font-size:15px;margin:0 0 14px}
-.search{display:flex;align-items:center;gap:6px;background:var(--fill);border-radius:10px;padding:0 10px;height:36px;margin-bottom:12px;color:var(--sec)}
-.search .ic{width:17px;height:17px}
-.search input{flex:1;border:0;background:none;outline:none;font-size:17px;color:var(--text);min-width:0}
-.chips{display:flex;gap:8px;overflow-x:auto;margin:0 -16px 14px;padding:0 16px;scrollbar-width:none}
-.chips::-webkit-scrollbar{display:none}
-.chip{flex:none;padding:7px 14px;border-radius:999px;background:var(--card);font-size:15px;font-weight:500}
-.chip span{color:var(--sec);font-weight:400;margin-left:6px}
-.chip.on{background:var(--blue);color:#fff}.chip.on span{color:rgba(255,255,255,.8)}
-.sec{font-size:13px;color:var(--sec);text-transform:uppercase;margin:0 16px 7px}
-.foot{font-size:13px;color:var(--sec);margin:-18px 16px 26px}
-.group{background:var(--card);border-radius:12px;overflow:hidden;margin-bottom:26px}
-.row{display:flex;align-items:center;gap:12px;width:100%;min-height:44px;padding:10px 16px;position:relative;color:var(--text);text-decoration:none}
-.row+.row::before{content:'';position:absolute;top:0;right:0;left:68px;height:.5px;background:var(--sep)}
-.row.plain+.row.plain::before{left:16px}
-.row:active{background:var(--fill)}
+.top{position:sticky;top:0;z-index:5;background:var(--bar);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);padding-top:env(safe-area-inset-top)}
+.top-in{max-width:760px;margin:0 auto;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 12px}
+.nb{color:var(--blue);font-size:17px;padding:8px 6px}.nb.b{font-weight:600}.nb.plus{font-size:26px;line-height:1}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px calc(40px + env(safe-area-inset-bottom))}
+h1{font-size:34px;font-weight:700;margin:2px 0;letter-spacing:.3px}
+.sub{color:var(--sec);font-size:15px;margin:0 0 14px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:14px}
+.stat{background:var(--card);border-radius:12px;padding:10px 12px}.stat b{display:block;font-size:22px;font-weight:700}.stat span{font-size:12px;color:var(--sec)}
+.search{display:flex;align-items:center;background:var(--fill);border-radius:10px;height:36px;padding:0 10px;margin-bottom:10px}
+.search input{flex:1;border:0;background:none;outline:none;font-size:17px;min-width:0}
+.chips{display:flex;gap:8px;overflow-x:auto;margin:0 -16px 14px;padding:0 16px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;padding:7px 13px;border-radius:999px;background:var(--card);font-size:15px;font-weight:500}.chip.on{background:var(--blue);color:#fff}
+.chip i{font-style:normal;opacity:.6;margin-left:6px}
+.group{background:var(--card);border-radius:12px;overflow:hidden;margin-bottom:22px}
+.row{display:flex;gap:10px;align-items:center;width:100%;padding:11px 16px;position:relative;color:var(--text)}
+.row+.row::before{content:'';position:absolute;top:0;left:16px;right:0;height:.5px;background:var(--sep)}
+button.row:active{background:var(--fill)}
 .rc{flex:1;min-width:0;display:grid;gap:2px}
 .t{font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.subj{font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .s{font-size:14px;color:var(--sec);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.chev{color:var(--chev);font-size:24px;line-height:1}
-.when,.cnt2{color:var(--sec);font-size:15px;white-space:nowrap}
-.av{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-size:15px;font-weight:600;background:linear-gradient(180deg,#a5abb7,#848a96)}
-.av.big{width:76px;height:76px;font-size:28px}
-.sq{width:30px;height:30px;border-radius:7px;display:grid;place-items:center;color:#fff;flex:none}.sq .ic{width:18px;height:18px}
 .badge{flex:none;font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;color:var(--c);background:color-mix(in srgb,var(--c) 15%,transparent);white-space:nowrap}
-.link{color:var(--blue)}.danger{color:var(--red)}.center{justify-content:center}
-.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:28px}
-@media(min-width:620px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.tile{background:var(--card);border-radius:16px;padding:14px 14px 12px}
-.tile b{display:block;font-size:28px;font-weight:700;letter-spacing:-.4px;margin-top:10px}
-.tile>span:last-child{font-size:13px;color:var(--sec)}
-.dot{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff}.dot .ic{width:17px;height:17px}
+.chev{color:#c4c4c6;font-size:22px}
 .btn{display:block;width:100%;background:var(--blue);color:#fff;border-radius:12px;padding:14px;font-weight:600;text-align:center;margin-bottom:10px}
-.btn.ghost{background:var(--card);color:var(--blue)}
-.empty{text-align:center;color:var(--sec);padding:40px 20px;font-size:15px}
-.empty b{display:block;color:var(--text);font-size:20px;margin-bottom:4px}
-.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--bar);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-top:.5px solid var(--sep);padding-bottom:env(safe-area-inset-bottom)}
-.tabbar-in{max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
-.tab{display:grid;justify-items:center;gap:1px;padding:7px 0 5px;font-size:10px;font-weight:500;color:#999;text-align:center}
-.tab .ic{width:26px;height:26px}.tab.on{color:var(--blue)}
-.scrim{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:30;animation:fade .25s ease}
-.sheet{position:fixed;left:0;right:0;bottom:0;top:calc(env(safe-area-inset-top) + 12px);z-index:31;max-width:680px;margin:0 auto;background:var(--bg);border-radius:12px 12px 0 0;display:flex;flex-direction:column;animation:up .35s cubic-bezier(.2,.9,.25,1);overflow:hidden}
+.btn.g{background:var(--card);color:var(--blue)}
+.empty{text-align:center;color:var(--sec);padding:36px 16px;font-size:15px}.empty b{display:block;color:var(--text);font-size:20px;margin-bottom:4px}
+.sec{font-size:13px;color:var(--sec);text-transform:uppercase;margin:0 16px 7px}
+.note{font-size:13px;color:var(--sec);margin:-14px 16px 22px}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:20;animation:fa .25s}
+.sheet{position:fixed;left:0;right:0;bottom:0;top:calc(env(safe-area-inset-top) + 12px);z-index:21;max-width:680px;margin:0 auto;background:var(--bg);border-radius:12px 12px 0 0;display:flex;flex-direction:column;overflow:hidden;animation:up .35s cubic-bezier(.2,.9,.25,1)}
 @media(min-width:700px){.sheet{top:40px;bottom:40px;border-radius:14px}}
-.sheet-bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:6px 12px;background:var(--bar);border-bottom:.5px solid var(--sep)}
-.sheet-bar strong{font-size:17px;font-weight:600}.sheet-bar .nav-btn:last-child{justify-self:end}
-.sheet-body{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:18px 16px calc(40px + env(safe-area-inset-bottom))}
-.hero{text-align:center;margin-bottom:16px;display:grid;justify-items:center;gap:6px}
-.hero h2{margin:6px 0 0;font-size:24px;font-weight:600}.hero p{margin:0;color:var(--sec);font-size:15px}
-.qa{display:flex;gap:8px;justify-content:center;margin:0 0 26px}
-.qa a{flex:1;max-width:86px;background:var(--card);border-radius:12px;padding:9px 2px 7px;display:grid;justify-items:center;gap:3px;font-size:12px;color:var(--blue);text-decoration:none}
-.qa a.off{opacity:.35;pointer-events:none}
+.sbar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:6px 12px;background:var(--bar);border-bottom:.5px solid var(--sep)}
+.sbar strong{font-weight:600}.sbar .nb:last-child{justify-self:end}
+.sbody{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:16px 16px calc(40px + env(safe-area-inset-bottom))}
+.acts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:22px}
+.act{display:block;background:var(--card);border-radius:12px;padding:12px;text-align:center;color:var(--blue);font-size:15px;font-weight:500;text-decoration:none}
+.act.off{opacity:.35;pointer-events:none}
 .f{display:block;padding:9px 16px;position:relative}
-.f+.f::before{content:'';position:absolute;top:0;right:0;left:16px;height:.5px;background:var(--sep)}
+.f+.f::before{content:'';position:absolute;top:0;left:16px;right:0;height:.5px;background:var(--sep)}
 .f small{display:block;font-size:13px;color:var(--sec);margin-bottom:2px}
-.f input,.f select,.f textarea,.ro{width:100%;border:0;background:none;outline:none;padding:2px 0;font-size:17px;color:var(--text);min-height:24px;-webkit-appearance:none;appearance:none;text-align:left}
+.f input,.f select,.f textarea{width:100%;border:0;background:none;outline:none;padding:2px 0;font-size:17px;min-height:24px;-webkit-appearance:none;appearance:none;text-align:left}
 .f input::-webkit-date-and-time-value{text-align:left}
-.f textarea{resize:vertical;min-height:68px;line-height:1.35}
-.f select{color:var(--blue)}.ro{color:var(--sec)}
-.f.sw{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px}
-.f input.switch{width:51px;height:31px;min-height:0;padding:0;border-radius:31px;background:var(--fill);position:relative;transition:background .2s;flex:none;cursor:pointer}
-.switch::after{content:'';position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,.15),0 1px 1px rgba(0,0,0,.16);transition:transform .2s}
-.f input.switch:checked{background:var(--green)}.switch:checked::after{transform:translateX(20px)}
-.pick{border:0;background:none;color:var(--blue);font-size:15px;max-width:45%}
-.toast{position:fixed;top:calc(env(safe-area-inset-top) + 10px);left:50%;transform:translate(-50%,-20px);opacity:0;pointer-events:none;z-index:60;background:var(--card);color:var(--text);padding:11px 18px;border-radius:999px;font-size:15px;font-weight:500;box-shadow:0 8px 30px rgba(0,0,0,.18);transition:.3s;max-width:90vw;text-align:center}
+.f textarea{min-height:70px;resize:vertical}
+.f select{color:var(--blue)}
+.f.bold input{font-weight:600}
+.sw{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px}
+.switch{-webkit-appearance:none;appearance:none;width:51px;height:31px;border-radius:31px;background:var(--fill);position:relative;flex:none;transition:.2s;cursor:pointer;margin:0}
+.switch::after{content:'';position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:.2s}
+.switch:checked{background:var(--green)}.switch:checked::after{transform:translateX(20px)}
+.toast{position:fixed;top:calc(env(safe-area-inset-top) + 10px);left:50%;transform:translate(-50%,-20px);opacity:0;pointer-events:none;z-index:40;background:var(--card);padding:11px 18px;border-radius:999px;font-size:15px;font-weight:500;box-shadow:0 8px 30px rgba(0,0,0,.18);transition:.3s;max-width:90vw;text-align:center}
 .toast.show{opacity:1;transform:translate(-50%,0)}.toast.bad{color:var(--red)}
-.lockv{min-height:100vh;display:grid;place-items:center;padding:24px}
-.lockc{width:100%;max-width:340px;text-align:center}
-.lockc h1{font-size:28px;margin:0 0 6px}.lockc p{color:var(--sec);font-size:15px;margin:0 0 22px}
-@keyframes up{from{transform:translateY(100%)}}@keyframes fade{from{opacity:0}}
+@keyframes up{from{transform:translateY(100%)}}@keyframes fa{from{opacity:0}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div id="app"></div>
-<nav id="tabbar" class="tabbar" hidden></nav>
-<div id="sheet"></div>
-<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="app"></div><div id="sheet"></div><div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 'use strict';
@@ -113,204 +84,23 @@ const SUPABASE_KEY='sb_publishable_U_bLYn66mCOH_liYsGEDFw_bL2WzC6K';
 const GMAIL='gsenterprises.digital@gmail.com';
 const XLSX_URL='https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
 const IST=330*60000,MONS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const C={red:'#FF3B30',green:'#34C759',blue:'#007AFF',orange:'#FF9500',gray:'#8E8E93',purple:'#AF52DE',teal:'#30B0C7',indigo:'#5856D6'};
-const I=p=>`<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
-const ICON={
-chart:I('<path d="M4 20V11M10 20V5M16 20v-6M21 20H3"/>'),
-mail:I('<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/>'),
-case:I('<rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 12.5h18"/>'),
-star:I('<path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/>'),
-more:I('<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01" stroke-width="2.8"/>'),
-plus:I('<path d="M12 5v14M5 12h14"/>'),
-search:I('<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/>'),
-reply:I('<path d="M9 8 4 12l5 4M4 12h10a6 6 0 0 1 6 6"/>'),
-phone:I('<path d="M5.5 4h3l1.8 4.5-2.3 1.4a11 11 0 0 0 5.1 5.1l1.4-2.3L19 14.5v3A2.5 2.5 0 0 1 16.5 20 13.5 13.5 0 0 1 4 7.5 2.5 2.5 0 0 1 5.5 4z"/>'),
-msg:I('<path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4A8 8 0 1 1 20 11.5z"/>'),
-globe:I('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/>'),
-clock:I('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'),
-check:I('<path d="m5 12.5 4.5 4.5L19 7.5"/>'),
-x:I('<path d="M6 6l12 12M18 6 6 18"/>'),
-cal:I('<rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/>'),
-arrows:I('<path d="M7 4v16M3 8l4-4 4 4M17 20V4M13 16l4 4 4-4"/>')};
+const STATUS=['To send','No reply','Replied','Interested','Meeting booked','Not interested','Bounced','Needs review'];
+const REPLY=['Replied','Interested','Meeting booked','Not interested'];
+const CLOSED=[...REPLY,'Bounced','Converted'];
+const COLOR={'To send':'#007AFF','No reply':'#8E8E93','Replied':'#34C759','Interested':'#34C759','Meeting booked':'#5856D6','Not interested':'#8E8E93','Bounced':'#FF3B30','Needs review':'#FF9500','Follow-up due':'#FF9500','Converted':'#AF52DE','New':'#34C759','Update':'#FF9500'};
+const COLS=[['lead_id','Lead ID'],['business_name','Business name'],['industry','Industry'],['contact_person','Contact person'],['email','Email'],['phone','Phone'],['website','Website'],['city','City'],['lead_source','Lead source'],['cold_email_sent','Cold email sent?','bool'],['date_sent','Date sent','ts'],['subject','Subject'],['follow_up_1','Follow-up 1 date','date'],['follow_up_2','Follow-up 2 date','date'],['follow_up_3','Follow-up 3 date','date'],['reply_received','Reply received?','bool'],['reply_date','Reply date','ts'],['reply_text','Reply text'],['outcome','Outcome'],['converted','Converted to client?','bool'],['client_id','Client ID'],['gmail_thread','Gmail thread link'],['last_updated','Last updated','ts'],['email_sent_at','Email sent date','ts'],['last_email_sent_at','Last email sent date','ts']].map(([k,label,type='text'])=>({k,label,type}));
+const ALIAS={business_name:['business','company','company name','brand','name','shop','store','clinic'],email:['e-mail','email address','email id','mail'],subject:['email subject','subject line'],contact_person:['contact','contact name','owner','founder','person'],phone:['mobile','phone number','mobile number','whatsapp','number'],website:['url','site'],city:['location','area'],industry:['category','niche'],gmail_thread:['thread','gmail link','thread link'],reply_text:['notes','note','reply']};
+const KEYS=['business_name','contact_person','email','subject','date_sent','follow_up_1','gmail_thread','reply_text','cold_email_sent','outcome','reply_received','reply_date','email_sent_at','last_email_sent_at'];
+const $=id=>document.getElementById(id),app=$('app'),sh=$('sheet');
+let sb=null,data=[],view='list',q='',flt='All',limit=150,sheet=null,up=null,busy=false;
 
-function cols(src){let g='';return src.trim().split('\n').map(l=>l.trim()).filter(Boolean).flatMap(l=>{if(l[0]==='#'){g=l.slice(1);return[]}const [k,label,type='text',opts='']=l.split('|');return [{k,label,type,g,opts:opts?opts.split(','):[]}]})}
-const OUT={'No reply':'gray','Replied':'green','Interested':'green','Meeting booked':'indigo','Not interested':'gray','Bounced':'red','Needs review':'orange','Converted':'purple'};
-const STAGE={Onboarding:'blue',Active:'green',Paused:'orange',Completed:'gray',Lost:'red'};
-const OST={'Waiting for reply':'gray','Interested':'green','Negotiating':'blue','Confirmed':'purple','Declined':'red','No response':'gray','Needs review':'orange'};
-
-const T={
-leads:{t:'gs_leads',sheet:'Leads',name:'Leads',one:'lead',id:'lead_id',pre:'L',pad:4,st:'outcome',sortBy:'lead_id',req:['business_name'],
-cols:cols(`
-#Lead
-lead_id|Lead ID|id
-business_name|Business name
-industry|Industry
-contact_person|Contact person
-email|Email|email
-phone|Phone|tel
-website|Website|url
-city|City
-lead_source|Lead source|select|Cold email,LinkedIn,Instagram,Referral,Website,Justdial,IndiaMART,Needs review
-#Cold email
-cold_email_sent|Cold email sent?|bool
-date_sent|Date sent|ts
-subject|Subject
-#Follow-ups
-follow_up_1|Follow-up 1 date|date
-follow_up_2|Follow-up 2 date|date
-follow_up_3|Follow-up 3 date|date
-#Reply and outcome
-reply_received|Reply received?|bool
-reply_date|Reply date|ts
-reply_text|Reply text|long
-outcome|Outcome|select|No reply,Replied,Interested,Meeting booked,Not interested,Bounced,Needs review,Converted
-converted|Converted to client?|bool
-client_id|Client ID
-#Tracking
-gmail_thread|Gmail thread link|url
-last_updated|Last updated|auto
-email_sent_at|Email sent date|ts
-last_email_sent_at|Last email sent date|ts`),
-title:r=>r.business_name||r.lead_id||'Untitled',sub:r=>[r.contact_person,firstEmail(r)].filter(Boolean).join(' · ')||r.industry||'',
-badge:r=>leadDue(r)?['Follow-up due','orange']:r.outcome?[r.outcome,OUT[r.outcome]||'gray']:null,
-key:r=>r.lead_id||'',def:()=>({lead_source:'Cold email',outcome:'No reply',cold_email_sent:false}),
-filters:[['All',()=>true],['Due',leadDue],['No reply',r=>r.outcome==='No reply'],['Replied',r=>!!r.reply_received||['Replied','Interested','Meeting booked'].includes(r.outcome)],['Bounced',r=>r.outcome==='Bounced'],['Review',r=>r.outcome==='Needs review'||r.lead_source==='Needs review']]},
-
-clients:{t:'gs_clients',sheet:'Clients',name:'Clients',one:'client',id:'client_id',pre:'C',pad:3,st:'stage',sortBy:'client_id',req:['business_name'],
-cols:cols(`
-#Client
-client_id|Client ID|id
-lead_id|Lead ID
-business_name|Business name
-industry|Industry
-lead_source|Lead source
-#Contact
-contact_person|Contact person
-phone|Phone|tel
-whatsapp|WhatsApp|tel
-email|Email|email
-website|Website|url
-#Work
-service|Service we provide
-campaign_goal|Campaign goal|long
-client_budget|Client budget
-our_fee|Our fee
-date_signed|Date signed|date
-stage|Stage|select|Onboarding,Active,Paused,Completed,Lost
-next_action|Next action
-next_follow_up|Next follow-up date|date
-payment_status|Payment status|select|Pending,Partially paid,Paid,Overdue
-notes|Notes|long
-last_updated|Last updated|auto`),
-title:r=>r.business_name||r.client_id||'Untitled',sub:r=>[r.service,r.contact_person].filter(Boolean).join(' · ')||r.industry||'',
-badge:r=>clientDue(r)?['Follow-up due','orange']:r.stage?[r.stage,STAGE[r.stage]||'gray']:null,
-key:r=>r.client_id||'',def:()=>({stage:'Onboarding',payment_status:'Pending',date_signed:today()}),
-filters:[['All',()=>true],['Due',clientDue],['Active',r=>['Active','Onboarding'].includes(r.stage)],['Payment due',r=>['Pending','Partially paid','Overdue'].includes(r.payment_status)]]},
-
-creators:{t:'gs_creators',sheet:'Creators',name:'Creators',one:'creator',id:'creator_id',pre:'CR',pad:3,sortBy:'creator_id',req:['creator_name','handle','email'],
-cols:cols(`
-#Creator
-creator_id|Creator ID|id
-creator_name|Creator name
-platform|Platform
-handle|Handle
-profile_link|Profile link|url
-niche|Niche
-followers|Followers
-#Contact
-email|Email|email
-phone|Phone / WhatsApp|tel
-manager|Manager / agency
-#Notes
-found_where|Where we found them
-rate_card|Standard rate card|long
-notes|Notes|long
-last_updated|Last updated|auto`),
-title:r=>r.creator_name||r.handle||firstEmail(r)||r.creator_id||'Creator',sub:r=>[r.niche,r.followers,r.platform].filter(Boolean).join(' · ')||firstEmail(r)||'',
-badge:r=>/needs review/i.test(r.notes||'')?['Review','orange']:null,key:r=>r.creator_id||'',def:()=>({}),
-filters:[['All',()=>true],['Named',r=>!!r.creator_name],['Review',r=>/needs review/i.test(r.notes||'')]]},
-
-outreach:{t:'gs_creator_outreach',sheet:'Creator Outreach',name:'Creator outreach',one:'outreach',st:'status',sortBy:'date_sent',req:['creator_id','creator_name'],
-cols:cols(`
-#Campaign
-business_name|Business name
-client_id|Client ID
-creator_id|Creator ID
-creator_name|Creator name
-#Email
-email_sent|Email sent?|bool
-date_sent|Date sent|ts
-reply_received|Reply received?|bool
-reply_date|Reply date|ts
-reply_text|Reply text|long
-#Deal
-rate_quoted|Rate quoted
-deliverables|Deliverables|long
-payment_terms|Payment terms
-final_rate|Final agreed rate
-status|Status|select|Waiting for reply,Interested,Negotiating,Confirmed,Declined,No response,Needs review
-decline_reason|Decline reason
-#Tracking
-gmail_thread|Gmail thread link|url
-next_follow_up|Next follow-up date|date
-last_updated|Last updated|auto
-email_sent_at|Email sent date|ts
-last_email_sent_at|Last email sent date|ts`),
-title:r=>r.creator_name||creatorName(r.creator_id)||r.creator_id||'Creator',sub:r=>[r.creator_id,r.business_name,r.date_sent&&shortDate(r.date_sent)].filter(Boolean).join(' · '),
-badge:r=>outDue(r)?['Follow-up due','orange']:r.status?[r.status,OST[r.status]||'gray']:null,
-key:r=>[r.creator_id,r.gmail_thread,r.business_name].map(x=>x||'').join('|'),def:()=>({status:'Waiting for reply',email_sent:true,date_sent:new Date().toISOString()}),
-filters:[['All',()=>true],['Due',outDue],['Waiting',r=>!r.status||r.status==='Waiting for reply'],['Interested',r=>['Interested','Negotiating'].includes(r.status)],['Confirmed',r=>r.status==='Confirmed'],['Review',r=>r.status==='Needs review']]},
-
-activity:{t:'gs_activity',sheet:'Activity Log',name:'Activity log',one:'activity',sortBy:'occurred_at',req:['event'],
-cols:cols(`
-#Activity
-occurred_at|Date and time|ts
-ref_id|Lead/Client ID
-creator_id|Creator ID
-event|Event|select|Email sent,Reply received,Status changed,Follow-ups planned,Converted to client,Note
-details|Details|long
-gmail_thread|Gmail thread link|url`),
-title:r=>r.event||'Activity',sub:r=>[r.ref_id||r.creator_id,r.details].filter(Boolean).join(' · '),when:r=>r.occurred_at&&shortDate(r.occurred_at),
-key:r=>[kts(r.occurred_at),r.ref_id,r.creator_id,r.event,r.details].map(x=>x||'').join('|'),def:()=>({occurred_at:new Date().toISOString(),event:'Note'}),
-filters:[['All',()=>true],['Emails',r=>r.event==='Email sent'],['Replies',r=>r.event==='Reply received'],['Status',r=>r.event==='Status changed']]},
-
-emails:{t:'gs_email_log',sheet:'Email Log',name:'Email log',one:'email',id:'email_log_id',pre:'E',pad:4,sortBy:'sent_at',req:['to_email','name'],
-cols:cols(`
-#Email
-email_log_id|Email Log ID|id
-sent_at|Email sent date and time|ts
-type|Type|select|Cold email,Follow-up,Creator email,Client email,Needs review
-lead_id|Lead ID
-client_id|Client ID
-creator_id|Creator ID
-name|Business or creator name
-to_email|To (email address)|email
-subject|Subject
-reply_received|Reply received?|bool
-reply_at|Reply date and time|ts
-gmail_thread|Gmail thread link|url`),
-title:r=>r.name||r.to_email||'Email',sub:r=>r.subject||r.to_email||'',when:r=>r.sent_at&&shortDate(r.sent_at),
-key:r=>[r.email_log_id,(r.to_email||'').toLowerCase(),r.subject].map(x=>x||'').join('|'),def:()=>({sent_at:new Date().toISOString(),type:'Cold email'}),
-filters:[['All',()=>true],['Cold',r=>r.type==='Cold email'],['Follow-ups',r=>r.type==='Follow-up'],['Creators',r=>r.type==='Creator email'],['Replied',r=>!!r.reply_received]]}
-};
-
-const $=id=>document.getElementById(id);
-const app=$('app'),sh=$('sheet');
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
 const p2=n=>String(n).padStart(2,'0');
-const uid=()=>window.crypto?.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2);
-const emptyData=()=>Object.fromEntries(Object.keys(T).map(k=>[k,[]]));
-const SUB={outreach:'more',activity:'more',emails:'more',io:'more'};
-const TABS=[['summary','Summary',ICON.chart],['leads','Leads',ICON.mail],['clients','Clients',ICON.case],['creators','Creators',ICON.star],['more','More',ICON.more]];
-let sb=null,data=emptyData(),view='summary',q='',flt={},limit=150,sheet=null,plan=null,busy=false;
-
 function istParts(d){const x=new Date(d.getTime()+IST);return{y:x.getUTCFullYear(),m:x.getUTCMonth(),d:x.getUTCDate(),h:x.getUTCHours(),mi:x.getUTCMinutes()}}
 function ymd(d){const p=istParts(d);return `${p.y}-${p2(p.m+1)}-${p2(p.d)}`}
 function ymdhm(d){const p=istParts(d);return `${ymd(d)}T${p2(p.h)}:${p2(p.mi)}`}
 function today(){return ymd(new Date())}
-function addDaysStr(s,n){const [y,m,d]=s.split('-').map(Number);return new Date(Date.UTC(y,m-1,d+n)).toISOString().slice(0,10)}
-function kts(v){return v?ymdhm(new Date(v)):''}
+function addDays(s,n){const [y,m,d]=s.split('-').map(Number);return new Date(Date.UTC(y,m-1,d+n)).toISOString().slice(0,10)}
 function fromLocal(s){const [d,t='0:0']=s.split('T');const [y,m,dd]=d.split('-').map(Number);const [h,mi]=t.split(':').map(Number);return new Date(Date.UTC(y,m-1,dd,h,mi)-IST).toISOString()}
 function toDate(v){if(v==null||v==='')return null;if(v instanceof Date)return isNaN(v)?null:v;
 if(typeof v==='number'){if(v<20000||v>80000)return null;return new Date(Math.round((v-25569)*864e5)-IST)}
@@ -319,173 +109,128 @@ let m=s.match(/^(\d{1,2})-([A-Za-z]{3})-(\d{4})(?:\s+(\d{1,2}):(\d{2})\s*([AP]M)
 if(m){const mo=M[m[2].toLowerCase()];if(mo===undefined)return null;let h=+(m[4]||0);const ap=(m[6]||'').toUpperCase();if(ap==='PM'&&h<12)h+=12;if(ap==='AM'&&h===12)h=0;return new Date(Date.UTC(+m[3],mo,+m[1],h,+(m[5]||0))-IST)}
 m=s.match(/^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2}))?/);if(m&&!/[zZ]|[+-]\d{2}:?\d{2}$/.test(s))return new Date(Date.UTC(+m[1],+m[2]-1,+m[3],+(m[4]||0),+(m[5]||0))-IST);
 const d=new Date(s);return isNaN(d)?null:d}
-function shortDate(iso){const p=istParts(new Date(iso));return `${p.d} ${MONS[p.m]}`}
-function niceDate(s){const [y,m,d]=s.split('-');return `${+d} ${MONS[+m-1]} ${y}`}
-function niceTs(iso){const p=istParts(new Date(iso)),h=p.h%12||12;return `${p.d} ${MONS[p.m]} ${p.y}, ${h}:${p2(p.mi)} ${p.h<12?'am':'pm'}`}
-function nice(col,v){if(v==null||v==='')return '';if(col.type==='bool')return v?'Yes':'No';if(col.type==='date')return niceDate(v);if(col.type==='ts'||col.type==='auto')return niceTs(v);return String(v)}
+function conv(type,v){if(v==null)return null;if(typeof v==='string'){v=v.trim();if(!v)return null}
+if(type==='bool'){const s=String(v).toLowerCase();return /^(yes|y|true|1)$/.test(s)?true:/^(no|n|false|0)$/.test(s)?false:null}
+if(type==='date'){const d=toDate(v);return d?ymd(d):null}
+if(type==='ts'){const d=toDate(v);return d?d.toISOString():null}
+return String(v)}
 function xDate(s){const [y,m,d]=s.split('-');return `${d}-${MONS[+m-1]}-${y}`}
 function xTs(iso){const p=istParts(new Date(iso)),h=p.h%12||12;return `${p2(p.d)}-${MONS[p.m]}-${p.y} ${h}:${p2(p.mi)} ${p.h<12?'AM':'PM'} IST`}
-function xval(col,v){if(v==null||v==='')return '';if(col.type==='bool')return v?'Yes':'No';if(col.type==='date')return xDate(v);if(col.type==='ts'||col.type==='auto')return xTs(v);return v}
-function initials(s){return String(s||'').replace(/[^\p{L}\p{N}\s]/gu,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase()||'#'}
-function badge(l,c){return `<span class="badge" style="--c:${C[c]||C.gray}">${esc(l)}</span>`}
-function firstEmail(r){return String(r.email||r.to_email||'').split(/[;,\s]+/).find(x=>x.includes('@'))||''}
-function creatorName(id){if(!id)return '';const c=data.creators.find(x=>x.creator_id===id);return c?(c.creator_name||c.handle||''):''}
-function digits(p){let d=String(p||'').replace(/\D/g,'');if(d.length===10)d='91'+d;return d.length>=11&&d.length<=13?d:''}
+function xval(c,v){if(v==null||v==='')return '';if(c.type==='bool')return v?'Yes':'No';if(c.type==='date')return xDate(v);if(c.type==='ts')return xTs(v);return v}
+function firstEmail(r){return String(r.email||'').split(/[;,\s]+/).find(x=>x.includes('@'))||''}
 function gmailCompose(to,su){return `https://mail.google.com/mail/?authuser=${encodeURIComponent(GMAIL)}&view=cm&fs=1&to=${encodeURIComponent(to)}${su?'&su='+encodeURIComponent(su):''}`}
+function badge(l,c){return `<span class="badge" style="--c:${c||COLOR[l]||'#8E8E93'}">${esc(l)}</span>`}
 function toast(m,bad){const t=$('toast');t.textContent=m;t.className='toast show'+(bad?' bad':'');clearTimeout(toast.t);toast.t=setTimeout(()=>t.className='toast',2800)}
+function loadXLSX(){if(window.XLSX)return Promise.resolve();return new Promise((res,rej)=>{const s=document.createElement('script');s.src=XLSX_URL;s.onload=res;s.onerror=()=>rej(new Error('Could not load the Excel library. Check your connection.'));document.head.appendChild(s)})}
 
-const CLOSED=['Bounced','Not interested','Converted','Replied','Interested','Meeting booked'];
-function leadDue(r){if(r.reply_received||CLOSED.includes(r.outcome))return false;const t=today(),last=r.last_email_sent_at?ymd(new Date(r.last_email_sent_at)):'';return [r.follow_up_1,r.follow_up_2,r.follow_up_3].some(f=>f&&f<=t&&(!last||last<f))}
-function clientDue(r){return !!r.next_follow_up&&r.next_follow_up<=today()&&!['Completed','Lost'].includes(r.stage)}
-function outDue(r){return !!r.next_follow_up&&r.next_follow_up<=today()&&!r.reply_received&&!['Confirmed','Declined'].includes(r.status)}
-function needsPlan(r){return !!r.cold_email_sent&&!r.follow_up_1&&!r.reply_received&&!['Bounced','Not interested','Converted'].includes(r.outcome)}
-function dueItems(){return [...data.leads.filter(leadDue).map(r=>['leads',r]),...data.outreach.filter(outDue).map(r=>['outreach',r]),...data.clients.filter(clientDue).map(r=>['clients',r])]}
-function stats(){const L=data.leads,O=data.outreach,sent=L.filter(r=>r.cold_email_sent).length,replies=L.filter(r=>r.reply_received).length;
-return{sent,replies,rate:sent?Math.round(replies/sent*1000)/10:0,interested:L.filter(r=>r.outcome==='Interested').length,meetings:L.filter(r=>r.outcome==='Meeting booked').length,bounced:L.filter(r=>r.outcome==='Bounced').length,notint:L.filter(r=>r.outcome==='Not interested').length,clients:data.clients.length,cSent:O.filter(r=>r.email_sent).length,cReplies:O.filter(r=>r.reply_received).length,confirmed:O.filter(r=>r.status==='Confirmed').length,declined:O.filter(r=>r.status==='Declined').length,overdue:dueItems().length}}
-function sorted(kind){const k=T[kind].sortBy;return [...data[kind]].sort((a,b)=>String(b[k]||'').localeCompare(String(a[k]||''))||b.id-a.id)}
-function filtered(kind){const c=T[kind],f=(c.filters.find(x=>x[0]===(flt[kind]||'All'))||c.filters[0])[1],s=q.trim().toLowerCase();return sorted(kind).filter(f).filter(r=>!s||Object.values(r).some(v=>typeof v==='string'&&v.toLowerCase().includes(s)))}
-function rowKey(kind,r){const k=T[kind].key(r);return k.replace(/\|/g,'').trim()?k:'app:'+uid()}
-function nextId(kind){const c=T[kind],re=new RegExp('^'+c.pre+'(\\d+)$','i');let max=0;for(const r of data[kind]){const m=String(r[c.id]||'').match(re);if(m)max=Math.max(max,+m[1])}return c.pre+String(max+1).padStart(c.pad,'0')}
-function replaceRow(kind,r){const i=data[kind].findIndex(x=>x.id===r.id);if(i>=0)data[kind][i]=r;else data[kind].push(r)}
+function status(r){if(!r.cold_email_sent)return 'To send';if(r.reply_received&&!CLOSED.includes(r.outcome))return 'Replied';return r.outcome||'No reply'}
+function due(r){return !!r.cold_email_sent&&!r.reply_received&&!CLOSED.includes(r.outcome)&&!!r.follow_up_1&&r.follow_up_1<=today()}
+function applyStatus(r,v){const now=new Date().toISOString();if(v==='To send'){r.cold_email_sent=false;return}r.cold_email_sent=true;r.outcome=v;if(REPLY.includes(v)){r.reply_received=true;r.reply_date=r.reply_date||now}else if(v==='No reply')r.reply_received=false}
+const FILTERS=[['All',()=>true],['To send',r=>!r.cold_email_sent],['Follow-up due',due],['Waiting',r=>status(r)==='No reply'&&!due(r)],['Replied',r=>['Replied','Interested','Meeting booked'].includes(status(r))],['Bounced',r=>r.outcome==='Bounced'],['Review',r=>r.outcome==='Needs review']];
+function seqOf(id){const m=/^L(\d+)$/i.exec(id||'');return m?+m[1]:0}
+function nextId(){return 'L'+String(Math.max(0,...data.map(r=>seqOf(r.lead_id)))+1).padStart(4,'0')}
+function filtered(){const fn=(FILTERS.find(f=>f[0]===flt)||FILTERS[0])[1],s=q.trim().toLowerCase();return data.filter(fn).filter(r=>!s||[r.business_name,r.email,r.subject,r.contact_person,r.lead_id].some(v=>String(v||'').toLowerCase().includes(s))).sort((a,b)=>seqOf(b.lead_id)-seqOf(a.lead_id)||b.id-a.id)}
 
-const topbar=(l,r)=>`<div class="topbar"><div class="topbar-in">${l||'<span></span>'}${r||'<span></span>'}</div></div>`;
-function rowHtml(kind,r){const c=T[kind],title=c.title(r),b=c.badge&&c.badge(r),w=c.when&&c.when(r);
-return `<button class="row" data-open="${kind}:${r.id}"><span class="av">${esc(initials(title))}</span><span class="rc"><span class="t">${esc(title)}</span><span class="s">${esc(c.sub(r)||' ')}</span></span>${b?badge(b[0],b[1]):w?`<span class="when">${esc(w)}</span>`:''}<span class="chev">›</span></button>`}
-function cntText(kind){return `${filtered(kind).length} of ${data[kind].length}`}
-function listBody(kind){const rows=filtered(kind),c=T[kind];
-if(!rows.length)return `<div class="empty"><b>${q?'No results':'Nothing here yet'}</b>${q?'Try a different search.':`Tap + to add a ${c.one}, or import your Excel file.`}</div>`;
-return `<div class="group">${rows.slice(0,limit).map(r=>rowHtml(kind,r)).join('')}</div>${rows.length>limit?`<button class="btn ghost" data-more>Show ${Math.min(150,rows.length-limit)} more</button>`:''}`}
-function listView(kind){const c=T[kind],f=flt[kind]||'All';
-return topbar(SUB[kind]?'<button class="nav-btn" data-nav="more">‹ More</button>':'',`<button class="nav-btn" data-new="${kind}" aria-label="Add ${c.one}">${ICON.plus}</button>`)+
-`<main class="wrap"><h1 class="lt">${c.name}</h1><p class="ls" id="cnt">${cntText(kind)}</p>
-<label class="search">${ICON.search}<input id="q" type="search" placeholder="Search" value="${esc(q)}" autocomplete="off" enterkeyhint="search" aria-label="Search ${esc(c.name)}"></label>
-${c.filters.length>1?`<div class="chips">${c.filters.map(([l,fn])=>`<button class="chip ${f===l?'on':''}" data-flt="${esc(l)}">${esc(l)}<span>${data[kind].filter(fn).length}</span></button>`).join('')}</div>`:''}
-<div id="list">${listBody(kind)}</div></main>`}
+function rowHtml(r){const st=due(r)?'Follow-up due':status(r);return `<button class="row" data-open="${r.id}"><span class="rc"><span class="t">${esc(r.business_name||'Untitled')}</span>${r.subject?`<span class="subj">${esc(r.subject)}</span>`:''}<span class="s">${esc(firstEmail(r)||'No email')}</span></span>${badge(st)}<span class="chev">›</span></button>`}
+function listHtml(){const rows=filtered();
+if(!rows.length)return `<div class="empty"><b>${data.length?'No leads here':'No leads yet'}</b>${data.length?'Try another filter or search.':'Tap Upload to add your Excel or CSV file.'}</div>${data.length?'':'<button class="btn" data-x="upload">Upload leads</button>'}`;
+return `<div class="group">${rows.slice(0,limit).map(rowHtml).join('')}</div>${rows.length>limit?`<button class="btn g" data-x="more">Show more</button>`:''}`}
+function render(){if(view==='upload')return renderUpload();const L=data;
+app.innerHTML=`<div class="top"><div class="top-in"><button class="nb" data-x="export">Export</button><span><button class="nb" data-x="upload">Upload</button><button class="nb b plus" data-x="new" aria-label="Add lead">+</button></span></div></div>
+<main class="wrap"><h1>Leads</h1><p class="sub">GS Enterprises Digital · email outreach</p>
+<div class="stats"><div class="stat"><b>${L.length}</b><span>Total</span></div><div class="stat"><b>${L.filter(r=>r.cold_email_sent).length}</b><span>Emailed</span></div><div class="stat"><b>${L.filter(r=>['Replied','Interested','Meeting booked'].includes(status(r))).length}</b><span>Replied</span></div><div class="stat"><b>${L.filter(due).length}</b><span>Follow-up</span></div></div>
+<label class="search"><input id="q" type="search" placeholder="Search business, email or subject" value="${esc(q)}" autocomplete="off" aria-label="Search leads"></label>
+<div class="chips">${FILTERS.map(([l,fn])=>`<button class="chip ${flt===l?'on':''}" data-flt="${l}">${l}<i>${L.filter(fn).length}</i></button>`).join('')}</div>
+<div id="list">${listHtml()}</div></main>`}
 
-function summaryView(){const s=stats(),h=istParts(new Date()).h,greet=h<12?'Good morning':h<17?'Good afternoon':'Good evening';
-const tiles=[['Cold emails sent',s.sent,'blue',ICON.mail],['Real replies',s.replies,'green',ICON.reply],['Reply rate',s.rate+'%','teal',ICON.chart],['Interested',s.interested,'green',ICON.star],['Meetings booked',s.meetings,'indigo',ICON.cal],['Bounced',s.bounced,'red',ICON.x],['Not interested',s.notint,'gray',ICON.x],['Clients',s.clients,'purple',ICON.case],['Creator emails sent',s.cSent,'blue',ICON.mail],['Creator replies',s.cReplies,'green',ICON.reply],['Confirmed creators',s.confirmed,'purple',ICON.check],['Declined',s.declined,'red',ICON.x],['Overdue follow-ups',s.overdue,'orange',ICON.clock]];
-const due=dueItems().slice(0,8),recent=sorted('activity').slice(0,5),day=new Date().toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',timeZone:'Asia/Kolkata'});
-return topbar('','<button class="nav-btn" data-nav="io">Import</button>')+`<main class="wrap"><h1 class="lt">${greet}, Harsh</h1><p class="ls">${esc(day)}</p>
-<div class="tiles">${tiles.map(([l,v,c,i])=>`<div class="tile"><span class="dot" style="background:${C[c]}">${i}</span><b>${v}</b><span>${l}</span></div>`).join('')}</div>
-<p class="sec">Follow-ups due</p><div class="group">${due.length?due.map(([k,r])=>rowHtml(k,r)).join(''):'<div class="row plain"><span class="rc"><span class="t">You\'re all caught up</span><span class="s">No follow-ups due today.</span></span></div>'}</div>
-<p class="sec">Recent activity</p><div class="group">${recent.length?recent.map(r=>rowHtml('activity',r)).join(''):'<div class="row plain"><span class="rc"><span class="t">No activity yet</span></span></div>'}</div></main>`}
-
-function moreView(){const item=(nav,label,cnt,color,icon)=>`<button class="row plain" data-nav="${nav}"><span class="sq" style="background:${C[color]}">${icon}</span><span class="rc"><span class="t">${label}</span></span><span class="cnt2">${cnt??''}</span><span class="chev">›</span></button>`;
-return topbar()+`<main class="wrap"><h1 class="lt">More</h1><p class="ls">GS Enterprises Digital tracker</p>
-<div class="group">${item('outreach','Creator outreach',data.outreach.length,'purple',ICON.star)}${item('emails','Email log',data.emails.length,'blue',ICON.mail)}${item('activity','Activity log',data.activity.length,'orange',ICON.clock)}</div>
-<div class="group">${item('io','Import and export',null,'green',ICON.arrows)}</div>
-<p class="foot" style="margin-top:0">Data is saved in your Supabase project. Download an Excel backup every week.</p></main>`}
-
-function ioView(){const n=data.leads.filter(needsPlan).length;
-return topbar('<button class="nav-btn" data-nav="more">‹ More</button>')+`<main class="wrap"><h1 class="lt">Import and export</h1><p class="ls">Works with your GS Tracker Excel file.</p>
-<p class="sec">Export</p><div class="group"><button class="row plain" data-x="export"><span class="rc"><span class="t link">Download Excel (.xlsx)</span><span class="s">All 7 sheets, same columns as your tracker</span></span></button></div>
-<p class="sec">Import</p><div class="group"><label class="row plain"><span class="rc"><span class="t link">Choose Excel or CSV file</span><span class="s">Matching IDs are updated, new rows are added</span></span><input type="file" id="file" accept=".xlsx,.xls,.csv" hidden></label></div>
-${plan?`<p class="sec">Ready to import · ${esc(plan.file)}</p><div class="group">${plan.sheets.map((s,i)=>`<div class="row plain"><span class="rc"><span class="t">${esc(s.name)}</span><span class="s">${s.rows.length} rows</span></span><select class="pick" data-pick="${i}" aria-label="Import ${esc(s.name)} as"><option value="">Skip</option>${Object.entries(T).map(([k,c])=>`<option value="${k}" ${s.target===k?'selected':''}>${c.name}</option>`).join('')}</select></div>`).join('')}</div>
-<button class="btn" data-x="doimport" ${busy?'disabled':''}>${busy?'Importing…':'Import now'}</button><button class="btn ghost" data-x="cancelimport">Cancel</button><p class="foot" style="margin-top:4px">Values in the file replace the matching rows in the app.</p>`:''}
-<p class="sec">Tools</p><div class="group"><button class="row plain" data-x="planall" ${n?'':'disabled'}><span class="rc"><span class="t link">Plan follow-ups for ${n} leads</span><span class="s">Adds dates 3, 7 and 14 days after the cold email</span></span></button></div></main>`}
-
-function render(){const tb=$('tabbar'),active=SUB[view]||view;tb.hidden=false;
-tb.innerHTML=`<div class="tabbar-in">${TABS.map(([k,l,i])=>`<button class="tab ${active===k?'on':''}" data-nav="${k}">${i}<span>${l}</span></button>`).join('')}</div>`;
-app.innerHTML=({summary:summaryView,more:moreView,io:ioView}[view]||(()=>listView(view)))()}
-
-function fieldHtml(col,v,isNew){const lab=`<small>${esc(col.label)}</small>`;
-switch(col.type){
-case 'bool':return `<label class="f sw"><span>${esc(col.label)}</span><input type="checkbox" class="switch" data-f="${col.k}" ${v?'checked':''}></label>`;
-case 'long':return `<label class="f">${lab}<textarea data-f="${col.k}" rows="3">${esc(v??'')}</textarea></label>`;
-case 'select':{const o=[...col.opts];if(v&&!o.includes(v))o.unshift(v);return `<label class="f">${lab}<select data-f="${col.k}"><option value="">None</option>${o.map(x=>`<option ${x===v?'selected':''}>${esc(x)}</option>`).join('')}</select></label>`}
-case 'date':return `<label class="f">${lab}<input type="date" data-f="${col.k}" value="${esc(v||'')}"></label>`;
-case 'ts':return `<label class="f">${lab}<input type="datetime-local" data-f="${col.k}" value="${v?ymdhm(new Date(v)):''}"></label>`;
-case 'id':case 'auto':return `<div class="f">${lab}<div class="ro">${esc(nice(col,v)||(isNew?'Added automatically':'—'))}</div></div>`;
-default:{const t=col.type==='tel'?'tel':col.type==='url'?'url':'text';return `<label class="f">${lab}<input type="${t}" ${col.type==='email'?'inputmode="email" autocapitalize="off"':''} data-f="${col.k}" value="${esc(v??'')}" autocomplete="off"></label>`}}}
-function quickActions(r){const email=firstEmail(r),phone=digits(r.whatsapp||r.phone),web=r.website||r.profile_link,thread=r.gmail_thread;
-const a=(href,label,icon)=>href?`<a href="${esc(href)}" ${/^https?:/.test(href)?'target="_blank" rel="noopener"':''}>${icon}<span>${label}</span></a>`:`<a class="off" aria-disabled="true">${icon}<span>${label}</span></a>`;
-return `<div class="qa">${a(email&&gmailCompose(email,r.subject?'Re: '+r.subject:''),'Email',ICON.mail)}${a(thread&&/^https?:/i.test(thread)?thread:'','Thread',ICON.reply)}${a(phone&&'tel:+'+phone,'Call',ICON.phone)}${a(phone&&'https://wa.me/'+phone,'WhatsApp',ICON.msg)}${a(web?(/^https?:/i.test(web)?web:'https://'+web):'','Website',ICON.globe)}</div>`}
-function leadActions(r){const acts=[];
-if(!r.cold_email_sent)acts.push(['sent','Mark cold email sent','Also plans follow-ups for 3, 7 and 14 days']);else acts.push(['fu','Follow-up sent','Adds it to the email log']);
-if(!r.reply_received)acts.push(['reply','Mark replied','']);
-if(r.cold_email_sent&&!r.follow_up_1)acts.push(['plan','Plan follow-ups','3, 7 and 14 days after the email']);
-if(!r.converted)acts.push(['convert','Convert to client','Creates a client with these details']);
-return `<p class="sec">Quick actions</p><div class="group">${acts.map(([k,l,s])=>`<button class="row plain" data-act="${k}"><span class="rc"><span class="t link">${l}</span>${s?`<span class="s">${s}</span>`:''}</span></button>`).join('')}</div>`}
 function renderSheet(){if(!sheet){sh.innerHTML='';document.body.classList.remove('lock');return}document.body.classList.add('lock');
-const {kind,draft:r,isNew}=sheet,c=T[kind],title=isNew?'New '+c.one:c.title(r),b=!isNew&&c.badge&&c.badge(r);
-let groups='',g=null;for(const col of c.cols){if(col.g!==g){if(g!==null)groups+='</div>';g=col.g;groups+=`<p class="sec">${esc(g)}</p><div class="group">`}groups+=fieldHtml(col,r[col.k],isNew)}groups+='</div>';
-sh.innerHTML=`<div class="scrim" data-x="close"></div><section class="sheet" role="dialog" aria-modal="true" aria-label="${esc(title)}"><header class="sheet-bar"><button class="nav-btn" data-x="close">Cancel</button><strong>${esc(isNew?'New '+c.one:cap(c.one))}</strong><button class="nav-btn bold" data-x="save">${isNew?'Add':'Save'}</button></header><div class="sheet-body">
-<div class="hero"><span class="av big">${esc(initials(title))}</span><h2>${esc(title)}</h2>${isNew?'':`<p>${esc(c.sub(r))}</p>`}${b?badge(b[0],b[1]):''}</div>
-${quickActions(r)}${!isNew&&kind==='leads'?leadActions(r):''}${groups}
-${isNew?'':`<div class="group"><button class="row plain center" data-x="delete"><span class="t danger">Delete ${esc(c.one)}</span></button></div>`}</div></section>`}
-function onDraft(e){const el=e.target,k=el.dataset.f;if(!k||!sheet)return;const col=T[sheet.kind].cols.find(x=>x.k===k);let v=el.type==='checkbox'?el.checked:el.value;if(col.type==='ts')v=v?fromLocal(v):null;sheet.draft[k]=v===''?null:v;sheet.dirty=true}
+const r=sheet.draft,isNew=!r.id,st=status(r),em=firstEmail(r),opts=STATUS.includes(st)?STATUS:[st,...STATUS],thread=/^https?:/i.test(r.gmail_thread||'');
+const field=(k,label,type='text',cls='')=>`<label class="f ${cls}"><small>${label}</small><input type="${type}" data-k="${k}" value="${esc(type==='datetime-local'?(r[k]?ymdhm(new Date(r[k])):''):(r[k]??''))}" ${k==='email'?'inputmode="email" autocapitalize="off"':''} autocomplete="off"></label>`;
+const acts=isNew?'':`<div class="acts"><a class="act ${em?'':'off'}" href="${em?esc(gmailCompose(em,r.subject||'')):'#'}" target="_blank" rel="noopener">Open in Gmail</a><a class="act ${thread?'':'off'}" href="${thread?esc(r.gmail_thread):'#'}" target="_blank" rel="noopener">Open thread</a>
+${!r.cold_email_sent?'<button class="act" data-a="sent">Mark emailed</button>':(r.reply_received||CLOSED.includes(r.outcome))?'':'<button class="act" data-a="fu">Follow-up sent</button>'}
+${r.reply_received?'':'<button class="act" data-a="reply">Mark replied</button>'}${r.outcome==='Bounced'?'':'<button class="act" data-a="bounce" style="color:var(--red)">Bounced</button>'}</div>`;
+sh.innerHTML=`<div class="scrim" data-x="close"></div><section class="sheet" role="dialog" aria-modal="true" aria-label="${esc(r.business_name||'New lead')}"><header class="sbar"><button class="nb" data-x="close">Cancel</button><strong>${isNew?'New lead':esc(r.lead_id||'Lead')}</strong><button class="nb b" data-x="save">${isNew?'Add':'Save'}</button></header><div class="sbody">
+${isNew?'':`<p class="sub" style="text-align:center;margin:0 0 14px">${badge(due(r)?'Follow-up due':st)}</p>`}${acts}
+<div class="group">${field('business_name','Business name')}${field('contact_person','Contact person')}${field('email','Email')}${field('subject','Subject','text','bold')}</div>
+<div class="group"><label class="f"><small>Status</small><select data-k="_status">${opts.map(s=>`<option ${s===st?'selected':''}>${esc(s)}</option>`).join('')}</select></label>${field('date_sent','Emailed on','datetime-local')}${field('follow_up_1','Next follow-up','date')}${field('gmail_thread','Gmail thread link','url')}<label class="f"><small>Reply / notes</small><textarea data-k="reply_text">${esc(r.reply_text||'')}</textarea></label></div>
+${isNew?'':'<div class="group"><button class="row" data-x="delete" style="justify-content:center;color:var(--red)">Delete lead</button></div>'}</div></section>`}
+function onDraft(e){const el=e.target,k=el.dataset.k;if(!k||!sheet)return;const r=sheet.draft;sheet.dirty=true;
+if(k==='_status'){if(e.type==='change')applyStatus(r,el.value);return}
+r[k]=el.type==='datetime-local'?(el.value?fromLocal(el.value):null):el.value}
 function closeSheet(){if(sheet?.dirty&&!confirm('Discard your changes?'))return;sheet=null;renderSheet()}
 
-async function save(opts={}){if(!sheet||busy)return;const {kind,isNew}=sheet,c=T[kind],before=isNew?null:data[kind].find(x=>x.id===sheet.draft.id);
-const row={};for(const col of c.cols){if(col.type==='auto')continue;const v=sheet.draft[col.k];row[col.k]=v===''||v===undefined?null:v}
-if(c.cols.some(x=>x.k==='last_updated'))row.last_updated=new Date().toISOString();
-if(!c.req.some(k=>row[k]))return toast(`Add ${c.cols.find(x=>x.k===c.req[0]).label.toLowerCase()} first`,true);
-if(isNew&&c.id&&!row[c.id])row[c.id]=nextId(kind);
-const k=c.key(row);row.row_key=k.replace(/\|/g,'').trim()?k:(before?.row_key||'app:'+uid());
-busy=true;const btn=sh.querySelector('[data-x="save"]');if(btn)btn.disabled=true;
-const {data:d,error}=await (isNew?sb.from(c.t).insert(row):sb.from(c.t).update(row).eq('id',before.id)).select().single();busy=false;
-if(error){if(btn)btn.disabled=false;return toast(error.code==='23505'?'A matching row already exists':error.message,true)}
-replaceRow(kind,d);const ref=d.lead_id||d.client_id||null;
-if(opts.event)await logActivity({ref_id:ref,creator_id:d.creator_id||null,event:opts.event,details:opts.details||null,gmail_thread:d.gmail_thread||null});
-else if(c.st&&before&&before[c.st]!==d[c.st])await logActivity({ref_id:ref,creator_id:d.creator_id||null,event:'Status changed',details:`${before[c.st]||'None'} → ${d[c.st]||'None'}`,gmail_thread:d.gmail_thread||null});
-if(opts.email&&firstEmail(d))await logEmail({type:opts.email.type,lead_id:d.lead_id||null,client_id:d.client_id||null,creator_id:d.creator_id||null,name:d.business_name||d.creator_name||null,to_email:firstEmail(d),subject:opts.email.subject||null,reply_received:false,gmail_thread:d.gmail_thread||null});
-sheet=opts.keep?{kind,draft:{...d},isNew:false}:null;renderSheet();render();toast(isNew?'Added':opts.event||'Saved')}
-async function logActivity(a){const row={occurred_at:new Date().toISOString(),...a};row.row_key=rowKey('activity',row);const {data:d,error}=await sb.from('gs_activity').upsert(row,{onConflict:'row_key'}).select().single();if(!error)replaceRow('activity',d)}
-async function logEmail(e){const row={email_log_id:nextId('emails'),sent_at:new Date().toISOString(),...e};row.row_key=rowKey('emails',row);const {data:d,error}=await sb.from('gs_email_log').upsert(row,{onConflict:'row_key'}).select().single();if(!error)replaceRow('emails',d)}
-async function del(){const {kind,draft}=sheet,c=T[kind];if(!confirm(`Delete this ${c.one}? This can't be undone.`))return;const {error}=await sb.from(c.t).delete().eq('id',draft.id);if(error)return toast(error.message,true);data[kind]=data[kind].filter(x=>x.id!==draft.id);sheet=null;renderSheet();render();toast('Deleted')}
+async function save(keep){if(!sheet||busy)return;const d=sheet.draft,isNew=!d.id;
+if(!String(d.business_name||'').trim())return toast('Add a business name first',true);
+const row={};KEYS.forEach(k=>{let v=d[k];if(typeof v==='string'){v=v.trim();if(!v)v=null}row[k]=v??null});row.last_updated=new Date().toISOString();
+const em=firstEmail(row).toLowerCase();const dup=em&&data.find(x=>x.id!==d.id&&firstEmail(x).toLowerCase()===em);if(dup)return toast(`This email is already saved for ${dup.business_name} (${dup.lead_id})`,true);
+if(isNew){row.lead_id=nextId();row.row_key=row.lead_id;row.lead_source='Cold email'}
+busy=true;const b=sh.querySelector('[data-x="save"]');if(b)b.disabled=true;
+const {data:res,error}=await (isNew?sb.from('gs_leads').insert(row):sb.from('gs_leads').update(row).eq('id',d.id)).select().single();busy=false;
+if(error){if(b)b.disabled=false;return toast(error.message,true)}
+const i=data.findIndex(x=>x.id===res.id);if(i>=0)data[i]=res;else data.push(res);
+sheet=keep?{draft:{...res}}:null;renderSheet();render();toast(isNew?'Lead added':'Saved')}
+async function act(k){if(!sheet||busy)return;const r=sheet.draft,now=new Date().toISOString();
+if(k==='sent')Object.assign(r,{cold_email_sent:true,date_sent:r.date_sent||now,email_sent_at:r.email_sent_at||now,last_email_sent_at:now,outcome:'No reply',follow_up_1:addDays(today(),3)});
+else if(k==='fu')Object.assign(r,{last_email_sent_at:now,follow_up_1:addDays(today(),4)});
+else if(k==='reply')applyStatus(r,'Replied');
+else if(k==='bounce')applyStatus(r,'Bounced');
+await save(true)}
+async function del(){const r=sheet.draft;if(!confirm(`Delete ${r.business_name||'this lead'}? This can't be undone.`))return;const {error}=await sb.from('gs_leads').delete().eq('id',r.id);if(error)return toast(error.message,true);data=data.filter(x=>x.id!==r.id);sheet=null;renderSheet();render();toast('Deleted')}
 
-async function leadAct(k){if(!sheet||busy)return;const r=sheet.draft,now=new Date().toISOString();
-if(k==='sent'){const base=today();Object.assign(r,{cold_email_sent:true,date_sent:r.date_sent||now,email_sent_at:r.email_sent_at||now,last_email_sent_at:now,outcome:r.outcome||'No reply',follow_up_1:addDaysStr(base,3),follow_up_2:addDaysStr(base,7),follow_up_3:addDaysStr(base,14)});await save({keep:true,event:'Email sent',details:'Cold email sent',email:{type:'Cold email',subject:r.subject}})}
-else if(k==='fu'){r.last_email_sent_at=now;await save({keep:true,event:'Email sent',details:'Follow-up sent',email:{type:'Follow-up',subject:r.subject?'Re: '+r.subject:''}})}
-else if(k==='reply'){Object.assign(r,{reply_received:true,reply_date:r.reply_date||now,outcome:['Interested','Meeting booked'].includes(r.outcome)?r.outcome:'Replied'});await save({keep:true,event:'Reply received',details:'Marked as replied'})}
-else if(k==='plan'){const base=ymd(new Date(r.email_sent_at||r.date_sent||r.last_email_sent_at||now));Object.assign(r,{follow_up_1:addDaysStr(base,3),follow_up_2:addDaysStr(base,7),follow_up_3:addDaysStr(base,14)});await save({keep:true,event:'Follow-ups planned',details:`${r.follow_up_1}, ${r.follow_up_2}, ${r.follow_up_3}`})}
-else if(k==='convert'){if(!confirm(`Create a client for ${r.business_name||'this lead'}?`))return;const cid=nextId('clients');
-const cl={client_id:cid,lead_id:r.lead_id,business_name:r.business_name,industry:r.industry,lead_source:r.lead_source,contact_person:r.contact_person,phone:r.phone,email:r.email,website:r.website,stage:'Onboarding',payment_status:'Pending',date_signed:today(),last_updated:now};cl.row_key=rowKey('clients',cl);
-const {data:d,error}=await sb.from('gs_clients').insert(cl).select().single();if(error)return toast(error.message,true);replaceRow('clients',d);
-Object.assign(r,{converted:true,client_id:cid,outcome:'Converted'});await save({keep:true,event:'Converted to client',details:`Client ${cid} created`})}}
+const byLabel=Object.fromEntries(COLS.map(c=>[c.label.toLowerCase(),c]));
+function colFor(h){const k=String(h).trim().toLowerCase();if(byLabel[k])return byLabel[k];const key=Object.keys(ALIAS).find(a=>ALIAS[a].includes(k));return key?COLS.find(c=>c.k===key):null}
+function renderUpload(){const u=up;
+app.innerHTML=`<div class="top"><div class="top-in"><button class="nb" data-x="back">‹ Leads</button><span></span></div></div><main class="wrap"><h1>Upload leads</h1><p class="sub">Excel or CSV. Everything is saved to Supabase.</p>
+<div class="group"><label class="row"><span class="rc"><span class="t" style="color:var(--blue)">${u?'Choose another file':'Choose Excel or CSV file'}</span><span class="s">${u?esc(u.file):'Needs a Business name column. Email and Subject are picked up too.'}</span></span><input type="file" id="file" accept=".csv,.xlsx,.xls" hidden></label>
+<button class="row" data-x="template"><span class="rc"><span class="t" style="color:var(--blue)">Download blank template</span><span class="s">Business name, Contact person, Email, Subject</span></span></button></div>
+${u?uploadPreview(u):''}</main>`}
+function uploadPreview(u){const n=u.items.filter(x=>!x.ex).length;
+return `<div class="stats" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="stat"><b>${n}</b><span>New</span></div><div class="stat"><b>${u.items.length-n}</b><span>Update</span></div><div class="stat"><b>${u.skipped}</b><span>Skipped</span></div></div>
+<div class="group"><label class="sw"><span>Mark all as already emailed<span class="s" style="display:block;white-space:normal">Turn on only if you have already sent these emails</span></span><input type="checkbox" class="switch" id="upsent" ${u.sent?'checked':''}></label></div>
+<p class="sec">Preview</p><div class="group">${u.items.slice(0,10).map(({row,ex})=>`<div class="row"><span class="rc"><span class="t">${esc(row.business_name)}</span>${row.subject?`<span class="subj">${esc(row.subject)}</span>`:''}<span class="s">${esc(firstEmail(row)||'No email')}</span></span>${badge(ex?'Update':'New')}</div>`).join('')}${u.items.length>10?`<div class="row"><span class="s">and ${u.items.length-10} more</span></div>`:''}</div>
+${u.skipped?`<p class="note">${u.skipped} rows had no business name and were skipped.</p>`:''}
+<button class="btn" data-x="upsave" ${busy||!u.items.length?'disabled':''}>${busy?'Saving…':`Save ${u.items.length} leads`}</button><button class="btn g" data-x="upcancel">Cancel</button>`}
+async function onUpFile(file){try{await loadXLSX();const wb=XLSX.read(await file.arrayBuffer(),{type:'array'});const sn=wb.SheetNames.find(n=>n.trim().toLowerCase()==='leads')||wb.SheetNames[0];
+const raw=XLSX.utils.sheet_to_json(wb.Sheets[sn],{defval:null,raw:true});if(!raw.length)return toast('No rows found in that file',true);
+const map={},used=new Set();for(const h of Object.keys(raw[0])){const c=colFor(h);if(c&&!used.has(c.k)){map[h]=c;used.add(c.k)}}
+if(!used.has('business_name'))return toast('Your file needs a "Business name" column',true);
+const byId=new Map(data.filter(r=>r.lead_id).map(r=>[r.lead_id,r])),byEm=new Map();data.forEach(r=>{const e=firstEmail(r).toLowerCase();if(e)byEm.set(e,r)});
+const seen=new Map();let skipped=0;
+for(const r of raw){const row={};for(const [h,c] of Object.entries(map)){const v=conv(c.type,r[h]);if(v!==null)row[c.k]=v}
+if(!row.business_name){if(Object.keys(row).length)skipped++;continue}
+const em=firstEmail(row).toLowerCase(),ex=(row.lead_id&&byId.get(row.lead_id))||(em&&byEm.get(em))||null,key=ex?'id:'+ex.id:(em||'b:'+row.business_name.toLowerCase());
+if(seen.has(key))Object.assign(seen.get(key).row,row);else seen.set(key,{row,ex})}
+up={file:file.name,items:[...seen.values()],skipped,sent:false,keys:[...used]};view='upload';render()}catch(e){toast('Could not read file: '+e.message,true)}}
+async function saveUpload(){if(!up||busy)return;busy=true;render();const now=new Date().toISOString(),ins=[],upd=[];
+const used=new Set(data.map(r=>r.lead_id).filter(Boolean));up.items.forEach(({row})=>{if(row.lead_id)used.add(row.lead_id)});
+let seq=Math.max(0,...[...used].map(seqOf));const newId=()=>{let id;do{id='L'+String(++seq).padStart(4,'0')}while(used.has(id));used.add(id);return id};
+const finish=o=>{if(up.sent){o.cold_email_sent=true;o.date_sent=o.date_sent||now;o.email_sent_at=o.email_sent_at||o.date_sent}
+if(o.cold_email_sent&&!o.outcome)o.outcome='No reply';
+if(o.cold_email_sent&&!o.follow_up_1&&!o.reply_received&&!CLOSED.includes(o.outcome))o.follow_up_1=addDays(ymd(new Date(o.last_email_sent_at||o.email_sent_at||o.date_sent||o.last_updated||now)),3);
+o.last_updated=now;return o};
+const UK=[...new Set([...up.keys,'cold_email_sent','date_sent','email_sent_at','outcome','follow_up_1','last_updated'])].filter(k=>k!=='lead_id');
+for(const {row,ex} of up.items){if(ex){const m=finish({...ex,...row});const p={row_key:ex.row_key,lead_id:ex.lead_id};UK.forEach(k=>p[k]=m[k]??null);upd.push(p)}
+else{const o=finish({lead_source:'Cold email',...row});o.lead_id=o.lead_id||newId();o.row_key=o.lead_id;ins.push(o)}}
+try{for(let i=0;i<ins.length;i+=500){const {error}=await sb.from('gs_leads').insert(ins.slice(i,i+500));if(error)throw error}
+for(let i=0;i<upd.length;i+=500){const {error}=await sb.from('gs_leads').upsert(upd.slice(i,i+500),{onConflict:'row_key'});if(error)throw error}
+const msg=`Saved: ${ins.length} new, ${upd.length} updated`;up=null;view='list';await load();toast(msg)}catch(e){toast('Upload failed: '+e.message,true)}finally{busy=false;render()}}
+function downloadTemplate(){const blob=new Blob(['\ufeffBusiness name,Contact person,Email,Subject\r\n'],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='GS leads template.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1500)}
+async function exportXlsx(){try{await loadXLSX()}catch(e){return toast(e.message,true)}
+const rows=[...data].sort((a,b)=>a.id-b.id).map(r=>Object.fromEntries(COLS.map(c=>[c.label,xval(c,r[c.k])])));
+const ws=XLSX.utils.json_to_sheet(rows,{header:COLS.map(c=>c.label)});const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Leads');XLSX.writeFile(wb,`GS Leads ${today()}.xlsx`);toast('Excel downloaded')}
 
-function loadXLSX(){if(window.XLSX)return Promise.resolve();return new Promise((res,rej)=>{const s=document.createElement('script');s.src=XLSX_URL;s.onload=res;s.onerror=()=>rej(new Error('Could not load the Excel library. Check your connection.'));document.head.appendChild(s)})}
-function conv(col,v){if(v==null)return null;if(typeof v==='string'){v=v.trim();if(!v)return null}
-if(col.type==='bool'){const s=String(v).toLowerCase();return /^(yes|y|true|1)$/.test(s)?true:/^(no|n|false|0)$/.test(s)?false:null}
-if(col.type==='date'){const d=toDate(v);return d?ymd(d):null}
-if(col.type==='ts'||col.type==='auto'){const d=toDate(v);return d?d.toISOString():null}
-return String(v)}
-async function onFile(file){try{await loadXLSX();const wb=XLSX.read(await file.arrayBuffer(),{type:'array'});
-plan={file:file.name,sheets:wb.SheetNames.map(n=>({name:n,rows:XLSX.utils.sheet_to_json(wb.Sheets[n],{defval:null,raw:true}),target:Object.keys(T).find(k=>T[k].sheet.toLowerCase()===n.trim().toLowerCase())||''})).filter(s=>s.rows.length)};
-if(!plan.sheets.length){plan=null;return toast('No rows found in that file',true)}render()}catch(e){toast('Could not read file: '+e.message,true)}}
-async function doImport(){if(!plan||busy)return;busy=true;render();let total=0;
-try{for(const s of plan.sheets){if(!s.target)continue;const c=T[s.target],map={};c.cols.forEach(col=>map[col.label.toLowerCase()]=col);const out=new Map();
-for(const raw of s.rows){const row={};let any=false;for(const [h,v] of Object.entries(raw)){const col=map[String(h).trim().toLowerCase()];if(!col)continue;const val=conv(col,v);row[col.k]=val;if(val!==null)any=true}
-if(!any)continue;row.row_key=rowKey(s.target,row);out.set(row.row_key,row)}
-const rows=[...out.values()];for(let i=0;i<rows.length;i+=500){const {error}=await sb.from(c.t).upsert(rows.slice(i,i+500),{onConflict:'row_key'});if(error)throw new Error(`${s.name}: ${error.message}`)}total+=rows.length}
-plan=null;await loadAll();toast(`Imported ${total} rows`)}catch(e){toast(e.message,true)}finally{busy=false;render()}}
-async function exportXlsx(){try{await loadXLSX()}catch(e){return toast(e.message,true)}const wb=XLSX.utils.book_new();
-const add=k=>{const c=T[k],labels=c.cols.map(x=>x.label),rows=[...data[k]].sort((a,b)=>a.id-b.id).map(r=>Object.fromEntries(c.cols.map(col=>[col.label,xval(col,r[col.k])])));const ws=XLSX.utils.json_to_sheet(rows,{header:labels});ws['!cols']=labels.map(l=>({wch:Math.min(42,Math.max(12,l.length+4))}));XLSX.utils.book_append_sheet(wb,ws,c.sheet)};
-['leads','clients','creators','outreach','activity'].forEach(add);const s=stats();
-XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet([{'Cold emails sent':s.sent,'Real replies':s.replies,'Reply rate %':s.rate,'Interested':s.interested,'Meetings booked':s.meetings,'Bounced':s.bounced,'Not interested':s.notint,'Clients':s.clients,'Creator emails sent':s.cSent,'Creator replies':s.cReplies,'Confirmed creators':s.confirmed,'Declined':s.declined,'Overdue follow-ups':s.overdue}]),'Summary');
-add('emails');XLSX.writeFile(wb,`GS Tracker ${today()}.xlsx`);toast('Excel downloaded')}
-async function planAll(){const rows=data.leads.filter(needsPlan);if(!rows.length||busy)return;if(!confirm(`Add follow-up dates to ${rows.length} leads?`))return;busy=true;
-const up=rows.map(r=>{const base=ymd(new Date(r.email_sent_at||r.date_sent||r.last_email_sent_at||r.last_updated||Date.now()));return{row_key:r.row_key,follow_up_1:addDaysStr(base,3),follow_up_2:addDaysStr(base,7),follow_up_3:addDaysStr(base,14)}});
-try{for(let i=0;i<up.length;i+=500){const {error}=await sb.from('gs_leads').upsert(up.slice(i,i+500),{onConflict:'row_key'});if(error)throw error}await loadAll();toast(`Follow-ups planned for ${rows.length} leads`)}catch(e){toast(e.message,true)}finally{busy=false;render()}}
+async function load(){let all=[];for(let s=0;;s+=1000){const {data:d,error}=await sb.from('gs_leads').select('*').order('id').range(s,s+999);if(error)throw error;all.push(...d);if(d.length<1000)break}data=all}
+async function boot(){if(!window.supabase?.createClient){app.innerHTML='<div class="empty"><b>No connection</b>Connect to the internet and refresh.</div>';return}
+sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:false,autoRefreshToken:false}});app.innerHTML='<div class="empty">Loading leads…</div>';
+try{await load();render()}catch(e){app.innerHTML=`<div class="empty"><b>Couldn't load leads</b>${esc(e.message)}<br><br><button class="btn" data-x="retry">Try again</button></div>`}}
 
-async function fetchAll(t){let all=[];for(let s=0;;s+=1000){const {data:d,error}=await sb.from(t).select('*').order('id').range(s,s+999);if(error)throw error;all.push(...d);if(d.length<1000)return all}}
-async function loadAll(){const ks=Object.keys(T),res=await Promise.all(ks.map(k=>fetchAll(T[k].t)));ks.forEach((k,i)=>data[k]=res[i])}
-function fatal(msg){$('tabbar').hidden=true;app.innerHTML=`<div class="lockv"><div class="lockc"><h1>Couldn't open GS Tracker</h1><p>${esc(msg)}</p><button class="btn" data-x="retry">Try again</button></div></div>`}
-async function boot(){if(!window.supabase?.createClient)return fatal('Connect to the internet and refresh.');
-sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});
-app.innerHTML='<div class="lockv"><p class="ls">Loading your tracker…</p></div>';
-try{await loadAll();render()}catch(e){fatal(/does not exist|schema cache/i.test(e.message)?'Run the setup SQL in Supabase first.':e.message)}}
-
-document.addEventListener('click',e=>{const el=e.target.closest('[data-nav],[data-new],[data-open],[data-flt],[data-more],[data-x],[data-act]');if(!el||el.disabled)return;const d=el.dataset;
-if(d.nav){view=d.nav;q='';limit=150;render();window.scrollTo(0,0)}
-else if(d.new){sheet={kind:d.new,draft:T[d.new].def(),isNew:true};renderSheet()}
-else if(d.open){const [k,id]=d.open.split(':'),r=data[k].find(x=>String(x.id)===id);if(r){sheet={kind:k,draft:{...r},isNew:false};renderSheet()}}
-else if(d.flt){flt[view]=d.flt;limit=150;render()}
-else if(d.more!==undefined){limit+=150;$('list').innerHTML=listBody(view)}
-else if(d.act)leadAct(d.act);
-else ({close:closeSheet,save:()=>save(),delete:del,export:exportXlsx,planall:planAll,doimport:doImport,cancelimport:()=>{plan=null;render()},retry:boot}[d.x]||(()=>{}))()});
-document.addEventListener('input',e=>{if(e.target.id!=='q')return;q=e.target.value;limit=150;const l=$('list'),c=$('cnt');if(l)l.innerHTML=listBody(view);if(c)c.textContent=cntText(view)});
-document.addEventListener('change',e=>{const el=e.target;if(el.id==='file'&&el.files[0]){onFile(el.files[0]);el.value=''}else if(el.dataset.pick!==undefined&&plan)plan.sheets[+el.dataset.pick].target=el.value});
+document.addEventListener('click',e=>{const el=e.target.closest('[data-x],[data-open],[data-flt],[data-a]');if(!el||el.disabled)return;const d=el.dataset;
+if(d.open){const r=data.find(x=>String(x.id)===d.open);if(r){sheet={draft:{...r}};renderSheet()}}
+else if(d.flt){flt=d.flt;limit=150;render()}
+else if(d.a)act(d.a);
+else ({new:()=>{sheet={draft:{cold_email_sent:false}};renderSheet()},close:closeSheet,save:()=>save(false),delete:del,upload:()=>{view='upload';render();window.scrollTo(0,0)},back:()=>{view='list';render()},upcancel:()=>{up=null;view='list';render()},upsave:saveUpload,template:downloadTemplate,export:exportXlsx,more:()=>{limit+=150;$('list').innerHTML=listHtml()},retry:boot}[d.x]||(()=>{}))()});
+document.addEventListener('input',e=>{if(e.target.id==='q'){q=e.target.value;limit=150;$('list').innerHTML=listHtml()}});
+document.addEventListener('change',e=>{const el=e.target;if(el.id==='file'&&el.files[0]){onUpFile(el.files[0]);el.value=''}else if(el.id==='upsent'&&up)up.sent=el.checked});
 sh.addEventListener('input',onDraft);sh.addEventListener('change',onDraft);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&sheet)closeSheet()});
 boot();
