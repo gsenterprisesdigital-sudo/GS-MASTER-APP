@@ -7,20 +7,19 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="GS Contacts">
+<meta name="apple-mobile-web-app-title" content="GS Master">
 <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
-<title>GS Contacts</title>
+<title>GS Master</title>
 <style>
-:root{--bg:#f2f2f7;--card:#fff;--text:#000;--sec:rgba(60,60,67,.6);--sep:rgba(60,60,67,.18);--fill:rgba(118,118,128,.12);--blue:#007aff;--red:#ff3b30;--green:#34c759;--orange:#ff9500;--bar:rgba(249,249,249,.86)}
-@media(prefers-color-scheme:dark){:root{--bg:#000;--card:#1c1c1e;--text:#fff;--sec:rgba(235,235,245,.6);--sep:rgba(84,84,88,.5);--fill:rgba(118,118,128,.24);--blue:#0a84ff;--red:#ff453a;--green:#30d158;--orange:#ff9f0a;--bar:rgba(22,22,24,.86)}}
+:root{--bg:#f2f2f7;--card:#fff;--text:#000;--sec:rgba(60,60,67,.6);--sep:rgba(60,60,67,.18);--fill:rgba(118,118,128,.12);--blue:#007aff;--red:#ff3b30;--green:#34c759;--bar:rgba(249,249,249,.86)}
+@media(prefers-color-scheme:dark){:root{--bg:#000;--card:#1c1c1e;--text:#fff;--sec:rgba(235,235,245,.6);--sep:rgba(84,84,88,.5);--fill:rgba(118,118,128,.24);--blue:#0a84ff;--red:#ff453a;--green:#30d158;--bar:rgba(22,22,24,.86)}}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--text);font:17px/1.3 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.35 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
 body.lock{overflow:hidden}
 button,input,select,textarea{font:inherit;color:inherit}
 button{background:none;border:0;padding:0;cursor:pointer;text-align:left}
-button:disabled{opacity:.4;cursor:default}
 svg.ic{width:22px;height:22px;flex:none}
 .top{position:sticky;top:0;z-index:5;padding-top:env(safe-area-inset-top);background:var(--bg);border-bottom:.5px solid transparent;transition:background .2s,border-color .2s}
 .scrolled .top{background:var(--bar);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-color:var(--sep)}
@@ -29,348 +28,253 @@ svg.ic{width:22px;height:22px;flex:none}
 .tt{font-size:17px;font-weight:600;opacity:0;transition:opacity .2s}.scrolled .tt{opacity:1}
 .nb{color:var(--blue);font-size:17px;padding:8px 6px;display:inline-flex;align-items:center;min-height:44px}.nb.b{font-weight:600}.nb .ic{width:28px;height:28px}
 .wrap{max-width:760px;margin:0 auto;padding:0 16px calc(110px + env(safe-area-inset-bottom))}
-h1{font-size:34px;font-weight:700;margin:0 0 2px;letter-spacing:.3px;line-height:1.15}
-.sub{color:var(--sec);font-size:15px;margin:0 0 16px}
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:12px}
-.stat{background:var(--card);border-radius:12px;padding:10px 12px}.stat b{display:block;font-size:22px;font-weight:700}.stat span{font-size:12px;color:var(--sec)}
-.goal{background:var(--card);border-radius:16px;padding:16px;margin-bottom:24px;display:flex;align-items:center;gap:16px}
-.goal b{display:block;font-size:24px;font-weight:700}.goal span{font-size:14px;color:var(--sec)}
-.ring{width:64px;height:64px;transform:rotate(-90deg);flex:none}.ring circle{fill:none;stroke-width:4;stroke-linecap:round}.rt{stroke:var(--fill)}.rv{stroke:var(--green);transition:stroke-dasharray .5s}
-.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--fill);border-radius:9px;padding:2px;margin-bottom:12px}
-.seg button{text-align:center;padding:7px;border-radius:7px;font-size:14px;font-weight:500}.seg button.on{background:var(--card);box-shadow:0 3px 8px rgba(0,0,0,.12)}
-.search{display:flex;align-items:center;gap:6px;background:var(--fill);border-radius:10px;height:38px;padding:0 10px;margin-bottom:10px;color:var(--sec)}
-.search .ic{width:17px;height:17px}
-.search input{flex:1;border:0;background:none;outline:none;font-size:17px;min-width:0;color:var(--text)}
-.chips{display:flex;gap:8px;overflow-x:auto;margin:0 -16px 16px;padding:0 16px;scrollbar-width:none}.chips::-webkit-scrollbar{display:none}
-.chip{flex:none;padding:8px 14px;border-radius:999px;background:var(--card);font-size:15px;font-weight:500;min-height:36px}.chip.on{background:var(--blue);color:#fff}
-.chip i{font-style:normal;opacity:.6;margin-left:6px}
-.shead{display:flex;align-items:baseline;justify-content:space-between}
+h1{font-size:32px;font-weight:700;margin:0 0 2px;letter-spacing:.2px;line-height:1.15}
+.sub{color:var(--sec);font-size:15px;margin:0 0 18px}
 .sec{font-size:13px;color:var(--sec);text-transform:uppercase;margin:0 16px 7px}
+.shead{display:flex;align-items:baseline;justify-content:space-between}
 .small{font-size:15px;padding:4px 16px 7px}
+.link{color:var(--blue)}.danger{color:var(--red)}
+.card{display:block;width:100%;background:var(--card);border-radius:16px;padding:16px;margin-bottom:22px;text-align:left;color:var(--text)}
+.card.plan{margin-bottom:12px}
+.card .meta,.meta{font-size:13px;color:var(--sec);margin:8px 0 0}
+.body{margin:0;font-size:16px;white-space:pre-wrap}
+.who{display:flex;align-items:center;gap:12px;margin-bottom:16px}.who b{display:block;font-size:18px}.who span{font-size:14px;color:var(--sec)}
+.av{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(#5aa2ff,#007aff)}
+.av.lg{width:56px;height:56px;font-size:20px;background:linear-gradient(#0066ff,#081534)}
+.av.sm{width:34px;height:34px;font-size:12px}
+.cbtns{display:flex;justify-content:space-around;gap:6px}
+.cb{flex:1;max-width:76px;display:grid;justify-items:center;gap:5px;font-size:11px;color:var(--blue);text-decoration:none;text-align:center}
+.cbi{width:48px;height:48px;border-radius:50%;background:var(--fill);display:grid;place-items:center}.cbi .ic{width:22px;height:22px}
+.cb.off{opacity:.35;pointer-events:none}
+.ring{width:56px;height:56px;transform:rotate(-90deg);flex:none}.ring circle{fill:none;stroke-width:4;stroke-linecap:round}.rt{stroke:var(--fill)}.rv{stroke:var(--green);transition:stroke-dasharray .4s}
+.th{display:flex;align-items:center;gap:14px}.th b{display:block;font-size:22px}.th span{font-size:14px;color:var(--sec)}
 .group{background:var(--card);border-radius:12px;overflow:hidden;margin-bottom:24px}
-.row{display:flex;gap:12px;align-items:center;width:100%;min-height:52px;padding:10px 16px;position:relative;color:var(--text);text-decoration:none;cursor:pointer}
+.row{display:flex;gap:12px;align-items:center;width:100%;min-height:50px;padding:9px 16px;position:relative;color:var(--text);text-decoration:none}
 .row+.row::before{content:'';position:absolute;top:0;left:68px;right:0;height:.5px;background:var(--sep)}
-.row.plain+.row.plain::before{left:16px}
-.row:active{background:var(--fill)}
+.row.plain+.row.plain::before{left:52px}
+button.row:active,.rowlink:active{opacity:.6}
+.rowlink{display:flex;gap:12px;align-items:center;flex:1;min-width:0;color:inherit;text-decoration:none;cursor:pointer}
 .rc{flex:1;min-width:0;display:grid;gap:2px}
 .t{font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.subj{font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .s{font-size:14px;color:var(--sec);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .when{color:var(--sec);font-size:14px;white-space:nowrap}
-.av{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(#5aa2ff,#007aff)}
-.av.cr{background:linear-gradient(#d39af5,#af52de)}
-.av.big{width:84px;height:84px;font-size:30px}
+.struck{text-decoration:line-through;color:var(--sec)}
+.ck{width:24px;height:24px;border-radius:50%;border:2px solid var(--sep);flex:none;display:grid;place-items:center;color:transparent}
+.ck .ic{width:15px;height:15px}.ck.on{background:var(--blue);border-color:var(--blue);color:#fff}.ck.add{border-style:dashed;color:var(--blue)}
+.step{display:inline-flex;background:var(--fill);border-radius:9px;flex:none}
+.step button{width:42px;height:34px;font-size:22px;line-height:1;text-align:center;color:var(--blue)}
+.step button+button{border-left:.5px solid var(--sep)}
+.gl{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.gl b{display:block;font-size:22px}.gl span{font-size:14px;color:var(--sec)}
+.bar{height:6px;background:var(--fill);border-radius:3px;overflow:hidden;margin-top:10px}.bar i{display:block;height:100%;background:var(--blue);border-radius:3px;transition:width .4s}
+.ph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}.ph b{font-size:17px}
+.qlinks{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:24px}
+.ql{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:12px;padding:10px;color:var(--text);text-decoration:none;font-size:15px;min-width:0}
+.ql span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .badge{flex:none;font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;color:var(--c);background:color-mix(in srgb,var(--c) 15%,transparent);white-space:nowrap}
-.pill{flex:none;background:color-mix(in srgb,var(--blue) 14%,transparent);color:var(--blue);font-size:14px;font-weight:600;padding:8px 14px;border-radius:999px}
-.chev{color:#c4c4c6;font-size:22px}
-.link{color:var(--blue)}.danger{color:var(--red)}.center{justify-content:center}
-.btn{display:block;width:100%;background:var(--blue);color:#fff;border-radius:14px;padding:15px;font-weight:600;text-align:center;margin-bottom:10px;min-height:50px}
-.btn.g{background:var(--card);color:var(--blue)}
-.two{display:grid;grid-template-columns:2fr 1fr;gap:8px;margin-bottom:20px}.two .btn{margin:0}
+.more{color:var(--sec);padding:8px;flex:none}.more .ic{width:22px;height:22px}
+.search{display:flex;align-items:center;gap:6px;background:var(--fill);border-radius:10px;height:38px;padding:0 10px;margin-bottom:16px;color:var(--sec)}
+.search .ic{width:17px;height:17px}
+.search input{flex:1;border:0;background:none;outline:none;font-size:17px;min-width:0;color:var(--text)}
 .empty{text-align:center;color:var(--sec);padding:40px 16px;font-size:15px}.empty b{display:block;color:var(--text);font-size:20px;margin-bottom:6px}
-.note{font-size:13px;color:var(--sec);margin:0 16px 24px}
-.pick{border:0;background:none;color:var(--blue);font-size:15px;max-width:55%;text-align:right}
+.note{font-size:13px;color:var(--sec);margin:-14px 16px 24px}
 .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--bar);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-top:.5px solid var(--sep);padding-bottom:env(safe-area-inset-bottom)}
-.tabbar-in{max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
-.tab{display:grid;justify-items:center;gap:2px;padding:7px 0 5px;font-size:10px;font-weight:500;color:#999;text-align:center;position:relative}.tab .ic{width:26px;height:26px}.tab.on{color:var(--blue)}
-.dotn{position:absolute;top:3px;left:calc(50% + 8px);background:var(--red);color:#fff;font-size:11px;font-weight:600;border-radius:999px;padding:1px 6px;min-width:18px;text-align:center}
+.tabbar-in{max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
+.tab{display:grid;justify-items:center;gap:2px;padding:7px 0 5px;font-size:10px;font-weight:500;color:#999;text-align:center}.tab .ic{width:26px;height:26px}.tab.on{color:var(--blue)}
 .scrim{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:20;animation:fa .25s}
-.sheet{position:fixed;left:0;right:0;bottom:0;top:calc(env(safe-area-inset-top) + 10px);z-index:21;max-width:680px;margin:0 auto;background:var(--bg);border-radius:14px 14px 0 0;display:flex;flex-direction:column;overflow:hidden;animation:up .38s cubic-bezier(.2,.9,.25,1);will-change:transform}
+.sheet{position:fixed;left:0;right:0;bottom:0;top:calc(env(safe-area-inset-top) + 10px);z-index:21;max-width:680px;margin:0 auto;background:var(--bg);border-radius:14px 14px 0 0;display:flex;flex-direction:column;overflow:hidden;animation:up .36s cubic-bezier(.2,.9,.25,1)}
 @media(min-width:700px){.sheet{top:40px;bottom:40px;border-radius:14px}}
 .shandle{background:var(--bar);border-bottom:.5px solid var(--sep);touch-action:none}
 .grab{width:36px;height:5px;border-radius:3px;background:var(--sec);opacity:.4;margin:6px auto 0}
 .sbar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 10px}
 .sbar strong{font-weight:600}.sbar>:last-child{justify-self:end}
 .sbody{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:16px 16px calc(40px + env(safe-area-inset-bottom))}
-.hero{text-align:center;display:grid;justify-items:center;gap:6px;margin-bottom:18px}
-.hero h2{margin:6px 0 0;font-size:26px;font-weight:700}.hero p{margin:0;color:var(--sec);font-size:15px}.hero .meta{font-size:13px}
-.cbtns{display:flex;justify-content:center;gap:6px;margin-bottom:20px}
-.cb{flex:1;max-width:70px;display:grid;justify-items:center;gap:5px;font-size:11px;color:var(--blue);text-decoration:none;text-align:center}
-.cbi{width:50px;height:50px;border-radius:50%;background:var(--card);display:grid;place-items:center}.cbi .ic{width:22px;height:22px}
-.cb.off,.cb:disabled{opacity:.35;pointer-events:none}
+.acts3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
+.act{display:block;background:var(--card);border-radius:12px;padding:12px 6px;text-align:center;color:var(--blue);font-size:15px;font-weight:500;text-decoration:none}
 .f{display:block;padding:9px 16px;position:relative}
 .f+.f::before{content:'';position:absolute;top:0;left:16px;right:0;height:.5px;background:var(--sep)}
 .f small{display:block;font-size:13px;color:var(--sec);margin-bottom:2px}
-.f input,.f textarea{width:100%;border:0;background:none;outline:none;padding:2px 0;font-size:17px;min-height:26px;-webkit-appearance:none;appearance:none;text-align:left;color:var(--text)}
+.f input,.f textarea,.f select{width:100%;border:0;background:none;outline:none;padding:2px 0;font-size:17px;min-height:26px;-webkit-appearance:none;appearance:none;text-align:left;color:var(--text)}
+.f select{color:var(--blue)}
 .f input::-webkit-date-and-time-value{text-align:left}
-.f textarea{min-height:72px;resize:vertical}
-.f.bold input{font-weight:600}
-.x{color:var(--sec);font-size:26px;padding:4px 6px;line-height:1}
-.toast{position:fixed;bottom:calc(76px + env(safe-area-inset-bottom));left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:40;background:#1c1c1e;color:#fff;padding:12px 16px;border-radius:14px;font-size:15px;font-weight:500;box-shadow:0 8px 30px rgba(0,0,0,.25);transition:.3s;width:max-content;max-width:calc(100vw - 32px);display:flex;align-items:center;gap:14px}
-.toast.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}.toast.bad{background:var(--red)}
-.tbtn{color:#64d2ff;font-weight:600}
+.f textarea{min-height:80px;resize:vertical}
+.f textarea.big{min-height:46vh}
+.f.sw{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px}
+.switch{-webkit-appearance:none;appearance:none;width:51px!important;height:31px;min-height:0!important;border-radius:31px;background:var(--fill)!important;position:relative;flex:none;transition:.2s;cursor:pointer;margin:0;padding:0!important}
+.switch::after{content:'';position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:.2s}
+.switch:checked{background:var(--green)!important}.switch:checked::after{transform:translateX(20px)}
+.task{gap:12px}.tin{flex:1;min-width:0;border:0;background:none;outline:none;font-size:17px;padding:4px 0;color:var(--text)}
+.x{color:var(--sec);font-size:26px;padding:2px 6px;line-height:1}
+.btn{display:block;width:100%;background:var(--card);color:var(--red);border-radius:12px;padding:14px;text-align:center;margin-bottom:10px}
+.toast{position:fixed;bottom:calc(76px + env(safe-area-inset-bottom));left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:40;background:#1c1c1e;color:#fff;padding:12px 16px;border-radius:14px;font-size:15px;font-weight:500;box-shadow:0 8px 30px rgba(0,0,0,.25);transition:.3s;max-width:calc(100vw - 32px);text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}.toast.bad{background:var(--red)}
 @keyframes up{from{transform:translateY(100%)}}@keyframes fa{from{opacity:0}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <div id="app"></div><nav id="tabbar" class="tabbar" aria-label="Main"></nav><div id="sheet"></div><div id="toast" class="toast" role="status" aria-live="polite"></div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-'use strict';
-const SUPABASE_URL='https://zfihwiolrxddfphehngt.supabase.co';
-const SUPABASE_KEY='sb_publishable_U_bLYn66mCOH_liYsGEDFw_bL2WzC6K';
-const GMAIL='gsenterprises.digital@gmail.com';
-const DAILY_GOAL=25;
-const XLSX_URL='https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
-const IST=330*60000,MONS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const STATUS=['Not contacted','Emailed','Follow-up sent','Replied','Interested','Meeting booked','Negotiating','Confirmed','Not interested','Declined','Bounced','Needs review'];
-const WAITING=['Emailed','Follow-up sent'],REPLIED=['Replied','Interested','Meeting booked','Negotiating','Confirmed'];
-const COLOR={'Not contacted':'#007AFF','Emailed':'#8E8E93','Follow-up sent':'#8E8E93','Replied':'#34C759','Interested':'#34C759','Meeting booked':'#5856D6','Negotiating':'#5856D6','Confirmed':'#AF52DE','Not interested':'#8E8E93','Declined':'#FF3B30','Bounced':'#FF3B30','Needs review':'#FF9500','Follow-up due':'#FF9500'};
-const CCOLS=['contact_code','type','name','contact_person','email','phone','website','city','category','platform','handle','followers','source','subject','status','first_sent_at','last_sent_at','emails_sent','next_follow_up','reply_text','rate','notes','gmail_thread','updated_at'];
-const FORM=[['#Contact'],['name','Name','text','words'],['contact_person','Contact person','text','words'],['email','Email','email'],['phone','Phone / WhatsApp','tel'],['website','Website / profile link','url'],['city','City','text','words'],['category','Industry / niche'],['source','Lead source / found on'],
-['#Creator details','Creator'],['platform','Platform'],['handle','Handle'],['followers','Followers'],['rate','Rate card / quoted rate','long'],
-['#Outreach'],['subject','Subject','bold'],['next_follow_up','Next follow-up','date'],['gmail_thread','Gmail thread link','url'],['reply_text','Their reply','long'],['notes','Notes','long']];
-const ROLES=[['skip','Skip'],['business','Businesses'],['creator','Creators'],['outreach','Creator outreach'],['log','Email log']];
+(()=>{'use strict';
+const KEY='gs_master_v1',MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const GROUPS=['Official','Social','Tools','Listings','Forms','Other'];
+const GC={Official:'#007AFF',Social:'#FF2D55',Tools:'#5856D6',Listings:'#FF9500',Forms:'#34C759',Other:'#8E8E93'};
 const I=p=>`<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
-const ICON={plus:I('<path d="M12 5v14M5 12h14"/>'),search:I('<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/>'),
-today:I('<rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4M8.5 14.5l2 2 4.5-4.5"/>'),
-people:I('<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/>'),
-mail:I('<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/>'),
-more:I('<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01" stroke-width="2.8"/>'),
-thread:I('<path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4A8 8 0 1 1 20 11.5z"/>'),
+const ICON={home:I('<path d="M3.5 11 12 4l8.5 7M6 9.5V20h4.5v-5h3v5H18V9.5"/>'),link:I('<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'),
+plan:I('<path d="M9 6h11M9 12h11M9 18h11"/><path d="m3.5 6 1.2 1.2L7 5M3.5 12l1.2 1.2L7 11M3.5 18l1.2 1.2L7 17"/>'),note:I('<path d="M6 3.5h9l4 4V20a.5.5 0 0 1-.5.5h-12A.5.5 0 0 1 6 20z"/><path d="M15 3.5V8h4M9 12h7M9 15.5h7"/>'),
+more:I('<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01" stroke-width="2.8"/>'),plus:I('<path d="M12 5v14M5 12h14"/>'),search:I('<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/>'),
+mail:I('<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/>'),phone:I('<path d="M5.5 4h3l1.8 4.5-2.3 1.4a11 11 0 0 0 5.1 5.1l1.4-2.3L19 14.5v3A2.5 2.5 0 0 1 16.5 20 13.5 13.5 0 0 1 4 7.5 2.5 2.5 0 0 1 5.5 4z"/>'),
 wa:I('<path d="M5 19l1.2-3.6A7.5 7.5 0 1 1 9 18.4z"/><path d="M9.5 9.5c.3 1.8 2.2 3.7 4 4l1-1 1.5.8-.3 1.2c-2.8.4-6.6-3.4-6.2-6.2l1.2-.3.8 1.5z"/>'),
-phone:I('<path d="M5.5 4h3l1.8 4.5-2.3 1.4a11 11 0 0 0 5.1 5.1l1.4-2.3L19 14.5v3A2.5 2.5 0 0 1 16.5 20 13.5 13.5 0 0 1 4 7.5 2.5 2.5 0 0 1 5.5 4z"/>'),
-copy:I('<rect x="8" y="8" width="12" height="12" rx="2.5"/><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8"/>')};
+globe:I('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/>'),check:I('<path d="m5 12.5 4.5 4.5L19 7.5"/>'),dots:I('<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01" stroke-width="2.6"/>')};
 const $=id=>document.getElementById(id),app=$('app'),sh=$('sheet');
-let sb=null,contacts=[],emails=[],view='today',q='',seg='All',flt='All',eflt='All',limit=150,sheet=null,plan=null,busy=false,undoFn=null,drag=null;
-
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const p2=n=>String(n).padStart(2,'0');
-const tms=v=>v?new Date(v).getTime():0;
-function istParts(d){const x=new Date(d.getTime()+IST);return{y:x.getUTCFullYear(),m:x.getUTCMonth(),d:x.getUTCDate(),h:x.getUTCHours(),mi:x.getUTCMinutes()}}
-function ymd(d){const p=istParts(d);return `${p.y}-${p2(p.m+1)}-${p2(p.d)}`}
-function ymdhm(d){const p=istParts(d);return `${ymd(d)}T${p2(p.h)}:${p2(p.mi)}`}
-function today(){return ymd(new Date())}
-function addDays(s,n){const [y,m,d]=s.split('-').map(Number);return new Date(Date.UTC(y,m-1,d+n)).toISOString().slice(0,10)}
-function dayDiff(a,b){return Math.round((Date.parse(a)-Date.parse(b))/864e5)}
-function fromLocal(s){const [d,t='0:0']=s.split('T');const [y,m,dd]=d.split('-').map(Number);const [h,mi]=t.split(':').map(Number);return new Date(Date.UTC(y,m-1,dd,h,mi)-IST).toISOString()}
-function toDate(v){if(v==null||v==='')return null;if(v instanceof Date)return isNaN(v)?null:v;
-if(typeof v==='number'){if(v<20000||v>80000)return null;return new Date(Math.round((v-25569)*864e5)-IST)}
-const s=String(v).trim(),M={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
-let m=s.match(/^(\d{1,2})-([A-Za-z]{3})-(\d{4})(?:\s+(\d{1,2}):(\d{2})\s*([AP]M))?/i);
-if(m){const mo=M[m[2].toLowerCase()];if(mo===undefined)return null;let h=+(m[4]||0);const ap=(m[6]||'').toUpperCase();if(ap==='PM'&&h<12)h+=12;if(ap==='AM'&&h===12)h=0;return new Date(Date.UTC(+m[3],mo,+m[1],h,+(m[5]||0))-IST)}
-m=s.match(/^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2}))?/);if(m&&!/[zZ]|[+-]\d{2}:?\d{2}$/.test(s))return new Date(Date.UTC(+m[1],+m[2]-1,+m[3],+(m[4]||0),+(m[5]||0))-IST);
-const d=new Date(s);return isNaN(d)?null:d}
-const str=v=>{if(v==null)return null;const s=String(v).trim();return s?s:null};
-const bool=v=>{const s=String(v??'').trim().toLowerCase();return /^(yes|y|true|1)$/.test(s)?true:/^(no|n|false|0)$/.test(s)?false:null};
-const tsv=v=>{const d=toDate(v);return d?d.toISOString():null};
-const dv=v=>{const d=toDate(v);return d?ymd(d):null};
-const kts=v=>v?ymdhm(new Date(v)):'';
-function shortDate(v){const p=istParts(new Date(v));return `${p.d} ${MONS[p.m]}`}
-function niceDate(v){if(!v)return '—';if(/^\d{4}-\d{2}-\d{2}$/.test(v)){const [y,m,d]=v.split('-');return `${+d} ${MONS[+m-1]} ${y}`}const p=istParts(new Date(v));return `${p.d} ${MONS[p.m]} ${p.y}`}
-function timeOf(v){const p=istParts(new Date(v)),h=p.h%12||12;return `${h}:${p2(p.mi)} ${p.h<12?'am':'pm'}`}
-function niceTs(v){return v?`${niceDate(v)}, ${timeOf(v)}`:'—'}
-function rel(v){if(!v)return '';const d=ymd(new Date(v)),t=today(),n=dayDiff(t,d);if(n===0)return 'today';if(n===1)return 'yesterday';if(n>1&&n<7)return n+'d ago';return shortDate(v)}
-function relDue(d){const n=dayDiff(today(),d);return n<=0?'today':n===1?'since yesterday':`${n}d overdue`}
-function dayName(d){const t=today();if(d===t)return 'Today';if(d===addDays(t,-1))return 'Yesterday';const [y,m,dd]=d.split('-');return `${+dd} ${MONS[+m-1]}${y!==t.slice(0,4)?' '+y:''}`}
-function xDate(s){const [y,m,d]=s.split('-');return `${d}-${MONS[+m-1]}-${y}`}
-function xTs(v){if(!v)return '';const p=istParts(new Date(v)),h=p.h%12||12;return `${p2(p.d)}-${MONS[p.m]}-${p.y} ${h}:${p2(p.mi)} ${p.h<12?'AM':'PM'} IST`}
-function initials(s){return String(s||'').replace(/[^\p{L}\p{N}\s]/gu,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase()||'#'}
-function firstEmail(r){return String(r.email||'').split(/[;,\s]+/).find(x=>x.includes('@'))||''}
-function digits(p){let d=String(p||'').replace(/\D/g,'');if(d.length===10)d='91'+d;return d.length>=11&&d.length<=13?d:''}
-function gmailCompose(to,su){return `https://mail.google.com/mail/?authuser=${encodeURIComponent(GMAIL)}&view=cm&fs=1&to=${encodeURIComponent(to)}${su?'&su='+encodeURIComponent(su):''}`}
-function badge(l,c){return `<span class="badge" style="--c:${c||COLOR[l]||'#8E8E93'}">${esc(l)}</span>`}
-function haptic(){try{navigator.vibrate&&navigator.vibrate(8)}catch(_){}}
-function toast(m,o){if(o===true)o={bad:true};o=o||{};const t=$('toast');t.innerHTML=`<span>${esc(m)}</span>${o.undo?'<button class="tbtn" data-undo>Undo</button>':''}`;t.className='toast show'+(o.bad?' bad':'');undoFn=o.undo||null;clearTimeout(toast.t);toast.t=setTimeout(()=>{t.className='toast';undoFn=null},o.undo?5000:2600)}
-function loadXLSX(){if(window.XLSX)return Promise.resolve();return new Promise((res,rej)=>{const s=document.createElement('script');s.src=XLSX_URL;s.onload=res;s.onerror=()=>rej(new Error('Could not load the Excel library. Check your connection.'));document.head.appendChild(s)})}
-function newCode(type,used){const pre=type==='Creator'?'CR':'L',pad=type==='Creator'?3:4,re=new RegExp('^'+pre+'(\\d+)$','i');let n=0;used.forEach(c=>{const m=re.exec(c||'');if(m)n=Math.max(n,+m[1])});let code;do{code=pre+String(++n).padStart(pad,'0')}while(used.has(code));used.add(code);return code}
-function due(c){return WAITING.includes(c.status)&&!!c.next_follow_up&&c.next_follow_up<=today()}
-function replaceC(c){const i=contacts.findIndex(x=>x.id===c.id);if(i>=0)contacts[i]=c;else contacts.push(c)}
-const CF=[['All',()=>true],['Not contacted',c=>c.status==='Not contacted'],['Follow-up due',due],['Waiting',c=>WAITING.includes(c.status)&&!due(c)],['Replied',c=>REPLIED.includes(c.status)],['Bounced',c=>c.status==='Bounced'],['Review',c=>c.status==='Needs review']];
-const EF=[['All',()=>true],['Today',e=>ymd(new Date(e.sent_at))===today()],['Last 7 days',e=>ymd(new Date(e.sent_at))>=addDays(today(),-6)],['First emails',e=>!/follow/i.test(e.kind||'')],['Follow-ups',e=>/follow/i.test(e.kind||'')]];
+const uid=()=>Math.random().toString(36).slice(2,9)+Date.now().toString(36).slice(-4);
+const today=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata'}).format(new Date());
+const dayDiff=(a,b)=>Math.round((Date.parse(a)-Date.parse(b))/864e5);
+const niceDate=s=>{if(!s)return '';const [y,m,d]=s.split('-');return `${+d} ${MON[+m-1]} ${y}`};
+const rel=ts=>{const d=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata'}).format(new Date(ts)),n=dayDiff(today(),d);return n===0?'Today':n===1?'Yesterday':niceDate(d)};
+const inr=n=>'₹'+Math.round(n||0).toLocaleString('en-IN');
+const initials=s=>String(s||'').replace(/[^A-Za-z0-9\s]/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase()||'#';
+const digits=p=>{let d=String(p||'').replace(/\D/g,'');if(d.length===10)d='91'+d;return d.length>=11&&d.length<=13?d:''};
+const host=u=>{try{return new URL(u).hostname.replace(/^www\./,'')}catch(_){return u}};
+const badge=(l,c)=>`<span class="badge" style="--c:${c}">${esc(l)}</span>`;
+function toast(m,bad){const t=$('toast');t.textContent=m;t.className='toast show'+(bad?' bad':'');clearTimeout(toast.t);toast.t=setTimeout(()=>t.className='toast',2600)}
 
-const top=(l,c,r)=>`<div class="top"><div class="top-in">${l||'<span></span>'}${c||'<span></span>'}${r||'<span></span>'}</div></div>`;
-const addBtn=`<button class="nb" data-x="new" aria-label="Add contact">${ICON.plus}</button>`;
-function rowSub(c){if(due(c))return `Follow-up due ${relDue(c.next_follow_up)}`;if(c.last_sent_at)return `${firstEmail(c)||'No email'} · sent ${rel(c.last_sent_at)}${c.emails_sent>1?` · ${c.emails_sent} emails`:''}`;return `${firstEmail(c)||'No email'} · not emailed yet`}
-function contactRow(c,o={}){const st=due(c)?'Follow-up due':c.status,pill=o.pill&&firstEmail(c)&&!REPLIED.includes(c.status);
-return `<div class="row" role="button" tabindex="0" data-open="${c.id}"><span class="av ${c.type==='Creator'?'cr':''}">${esc(initials(c.name))}</span><span class="rc"><span class="t">${esc(c.name)}</span>${c.subject?`<span class="subj">${esc(c.subject)}</span>`:''}<span class="s">${esc(rowSub(c))}</span></span>${pill?`<button class="pill" data-qlog="${c.id}" aria-label="Log email sent to ${esc(c.name)}">Sent</button>`:badge(st)}</div>`}
-function section(title,list,goto,pill){if(!list.length)return '';return `<div class="shead"><p class="sec">${title} · ${list.length}</p>${goto&&list.length>8?`<button class="link small" data-goto="${goto}">See all</button>`:''}</div><div class="group">${list.slice(0,8).map(c=>contactRow(c,{pill})).join('')}</div>`}
-function todayView(){const t=today(),n=emails.filter(e=>ymd(new Date(e.sent_at))===t).length,p=Math.min(1,n/DAILY_GOAL),h=istParts(new Date()).h;
-const dueL=contacts.filter(due).sort((a,b)=>(a.next_follow_up||'').localeCompare(b.next_follow_up||''));
-const rep=contacts.filter(c=>['Replied','Interested','Meeting booked','Negotiating'].includes(c.status)).sort((a,b)=>tms(b.updated_at)-tms(a.updated_at));
-const next=contacts.filter(c=>c.status==='Not contacted'&&firstEmail(c)).sort((a,b)=>tms(a.created_at)-tms(b.created_at));
+function defaults(){
+const L=(title,url,group,note='',fav=false)=>({id:uid(),title,url,group,note,fav});
+const P=(title,sub,start,end,tasks,notes='')=>({id:uid(),title,sub,start,end,notes,tasks:tasks.map(t=>Array.isArray(t)?{id:uid(),t:t[0],d:!!t[1]}:{id:uid(),t,d:false})});
+const N=(title,body,pin=false)=>({id:uid(),title,body,pin,ts:Date.now()});
+return {v:1,
+profile:{name:'GS Enterprises Digital',tagline:'Creative thinking. Actual growth.',founder:'Harsh Upadhyay',role:'Founder',email:'gsenterprises.digital@gmail.com',phone:'+91 8291692332',city:'Mumbai, Maharashtra',website:'https://gsenterprisesdigital-sudo.github.io/GS-ENTERPRISES-DIGITAL-WEBSITE/',goal:'Build a trusted, profitable and scalable digital marketing agency with consistent client acquisition, monthly recurring revenue, strong retention and international expansion.'},
+goals:{clients:0,target:10,fee:15000,emailsGoal:25},
+links:[L('Official website','https://gsenterprisesdigital-sudo.github.io/GS-ENTERPRISES-DIGITAL-WEBSITE/','Official','',true),L('Blogger blog','https://gsenterprisesdigital.blogspot.com','Official','',true),L('Portfolio (Google Drive)','','Official','Folder opened by "Explore our portfolio" on the website'),
+L('Instagram','https://www.instagram.com/gsenterprises.digital/','Social','',true),L('Facebook page','https://www.facebook.com/profile.php?id=61596259827445','Social'),L('YouTube','https://www.youtube.com/@GsEnterprisesDigital','Social','',true),L('LinkedIn company page','https://www.linkedin.com/company/gs-enterprises-digital','Social','',true),
+L('Gmail','https://mail.google.com/mail/?authuser=gsenterprises.digital@gmail.com','Tools','',true),L('LinkedIn outreach CRM','https://gsenterprisesdigital-sudo.github.io/linkidein-outreach/','Tools','',true),L('Supabase','https://supabase.com/dashboard/project/zfihwiolrxddfphehngt','Tools'),L('GitHub','https://github.com/gsenterprisesdigital-sudo','Tools'),
+L('Google review link','https://g.page/r/CUNK9zJfS0o3EBI/review','Listings','Share with happy clients'),L('Justdial listing','','Listings'),L('IndiaMART listing','','Listings'),
+L('Tally enquiry form','','Forms','Let\'s Work Together'),L('Intern registration form','','Forms')],
+plans:[P('30-day influencer growth plan','Influencer marketing, website and SEO, client acquisition, automation','2026-11-05','2026-12-04',['Create influencer marketing packages','Build a 100+ influencer database','Prepare the influencer pitch deck','Draft a collaboration agreement template','Set up campaign tracking'],'20 tasks in total. Add the remaining ones here.'),
+P('Daily podcast','181 episodes · AI narrated, faceless, English, about 60 seconds','2026-11-15','2027-05-14',[['Ep 1 · Why good businesses don\'t get leads online',1],['Ep 2 · Three reasons customers can\'t find your business',1],['Ep 3 · What makes a strong digital marketing strategy',1],['Ep 4 · How to identify your ideal customer',1],'Ep 5 · Why likes don\'t always mean sales','Ep 6 · How to create an irresistible offer','Ep 7 · Why your business needs a clear call to action'],'Phase 1: Lead generation foundations. Full tracker is in Google Drive.'),
+P('First 10 paying clients','SMEs in Mumbai, Navi Mumbai, Thane and Pune','','',['Send 25 personalised outreach emails every day','LinkedIn networking every day','Research new prospects every day','Follow up with every lead'],''),
+P('Business listings','Be easy to find online','','',[['Google Business Profile',1],['IndiaMART free listing',1],['Justdial listing',1],'Bing Places listing','Other business directories'],''),
+P('Website and brand','Ongoing work','','',['Work on the new deck','Review and update the main website','Improve the blog theme','Update the professional email signature','Add real client work to the portfolio'],'')],
+notes:[N('Services','Social media marketing\nPerformance marketing (Google Ads, Meta Ads)\nInfluencer marketing\nContent marketing\nSEO and organic growth\nWebsite development\nWebsite optimisation\nBranding\nGraphic design\nLead generation',true),
+N('Brand style','Tagline: Creative thinking. Actual growth.\nColours: Navy #081534 · Blue #0066FF · White #FFFFFF\nAccents: Purple #7356FF · Yellow #FFE66B\nWriting: Indian English, short, confident and friendly\nAlways use the original GS logo\nNever show fake clients, testimonials, awards or numbers',true),
+N('Target market','India first, international later\nSmall and medium businesses\nCities: Mumbai, Navi Mumbai, Thane, Pune, then wider India\nIndustries: D2C brands, cafés and restaurants, clinics, gyms, coaching institutes, fashion brands, real estate, SMEs, finance creators\nPlanning estimate: ₹5,000–30,000 per client per month'),
+N('Outreach style','Short, personalised, simple English\nShare the agency journey and ask for advice\nRespectful: Sir, Ma\'am, ji\nLeads: 25 new a day, publicly listed emails only, no guessed emails, no duplicates, keep the source link'),
+N('LinkedIn daily post','One 1080×1080 image\nCaption 100–150 words, 3–5 hashtags\n80% educational, 20% subtle branding\nHeadline 9 words max, 3–4 useful insights\nReal GS logo, brand colours and email\nReliable, current sources · no repeated topics'),
+N('Blog','Daily around 8 AM IST, Blogger-ready HTML\n70% influencer marketing, 30% other services\nMumbai and India focus, SEO-friendly topics\nRotate: SEO, ads, AI, LinkedIn growth, branding, website optimisation, lead generation, content strategy, trends'),
+N('Podcast','181 daily episodes · 15 Nov 2026 to 14 May 2027\nAI narrated, faceless, English, about 60 seconds\nThumbnail: original GS logo, clean white background, navy and electric blue, studio microphone\nText: episode number and topic only\nYouTube 1280×720 · Reels 9:16 · LinkedIn landscape\nNo waveform, no LinkedIn logo or "LinkedIn Podcast" wording'),
+N('Tally enquiry form','Name: Let\'s Work Together\nHeading: Tell us about your project\nFields: full name, email, phone, service required, project details, budget, timeline\nServices: branding, social media marketing, website development, SEO, graphic design, other\nDesign: white, black, purple and yellow')],
+daily:{tasks:['Publish SEO blog','Instagram post','Facebook post','LinkedIn post','Podcast thumbnail ready','Podcast published on YouTube','LinkedIn networking','Research new prospects','Follow-ups done'].map(t=>({id:uid(),t})),log:{}}}}
+
+let S=null;try{S=JSON.parse(localStorage.getItem(KEY)||'null')}catch(_){S=null}
+if(!S||!S.v||!Array.isArray(S.links))S=defaults();
+let view='home',q='',sheet=null,drag=null,warned=false;
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(_){if(!warned){warned=true;toast('Could not save on this device. Download a backup from More.',true)}}}
+function dayLog(){const t=today();if(!S.daily.log[t]){S.daily.log[t]={done:[],emails:0};const keys=Object.keys(S.daily.log).sort();while(keys.length>60)delete S.daily.log[keys.shift()]}return S.daily.log[t]}
+function planInfo(p){const total=p.tasks.length,done=p.tasks.filter(t=>t.d).length;let day=null,days=null;if(p.start&&p.end){days=dayDiff(p.end,p.start)+1;day=Math.min(days,Math.max(0,dayDiff(today(),p.start)+1))}return {total,done,pct:total?done/total:0,day,days}}
+
+const nav=(l,c,r)=>`<div class="top"><div class="top-in">${l||'<span></span>'}${c||'<span></span>'}${r||'<span></span>'}</div></div>`;
+const addBtn=k=>`<button class="nb" data-new="${k}" aria-label="Add">${ICON.plus}</button>`;
+const searchBox=ph=>`<label class="search">${ICON.search}<input id="q" type="search" placeholder="${ph}" value="${esc(q)}" autocomplete="off" enterkeyhint="search" aria-label="${ph}"></label>`;
+const cb=(href,label,icon)=>href?`<a class="cb" href="${esc(href)}" ${/^https?:/.test(href)?'target="_blank" rel="noopener"':''}><span class="cbi">${icon}</span>${label}</a>`:`<span class="cb off"><span class="cbi">${icon}</span>${label}</span>`;
+function planCard(p){const i=planInfo(p);return `<button class="card plan" data-plan="${p.id}"><div class="ph"><b>${esc(p.title||'Untitled plan')}</b>${i.days?`<span class="when">${i.day?`Day ${i.day} of ${i.days}`:`Starts ${niceDate(p.start)}`}</span>`:''}</div>${p.sub?`<p class="meta">${esc(p.sub)}</p>`:''}${i.total?`<div class="bar"><i style="width:${Math.round(i.pct*100)}%"></i></div><p class="meta">${i.done} of ${i.total} tasks done</p>`:''}</button>`}
+
+function homeView(){const p=S.profile,g=S.goals,lg=S.daily.log[today()]||{done:[],emails:0},tasks=S.daily.tasks,emDone=lg.emails>=g.emailsGoal;
+const doneN=tasks.filter(t=>lg.done.includes(t.id)).length+(emDone?1:0),totalN=tasks.length+1,pct=doneN/totalN,ph=digits(p.phone);
+const dated=S.plans.filter(x=>x.start&&x.end&&planInfo(x).day<planInfo(x).days+1),favs=S.links.filter(l=>l.fav&&l.url),tgt=Math.max(1,g.target);
 const day=new Date().toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',timeZone:'Asia/Kolkata'});
-const body=section('Follow-ups due',dueL,'Follow-up due',true)+section('Replied · reply back',rep.slice(0,5))+section('Email next',next,'Not contacted',true);
-return top('','<span class="tt">Today</span>',addBtn)+`<main class="wrap"><h1>${h<12?'Good morning':h<17?'Good afternoon':'Good evening'}</h1><p class="sub">${esc(day)}</p>
-<div class="goal"><svg class="ring" viewBox="0 0 36 36" aria-hidden="true"><circle class="rt" cx="18" cy="18" r="15.5"/><circle class="rv" cx="18" cy="18" r="15.5" stroke-dasharray="${(p*97.4).toFixed(1)} 97.4"/></svg><div><b>${n} of ${DAILY_GOAL}</b><span>emails sent today${n>=DAILY_GOAL?' · goal done':''}</span></div></div>
-${body||`<div class="empty"><b>You're all caught up</b>No follow-ups due. Add new contacts or import a list from More.</div>`}</main>`}
+return nav('','<span class="tt">Home</span>','')+`<main class="wrap"><h1>${esc(p.name)}</h1><p class="sub">${esc(p.tagline)}</p>
+<div class="card"><div class="who"><span class="av lg">${esc(initials(p.name))}</span><div><b>${esc(p.founder)}</b><span>${esc([p.role,p.city].filter(Boolean).join(' · '))}</span></div></div>
+<div class="cbtns">${cb(p.email&&'mailto:'+p.email,'Email',ICON.mail)}${cb(ph&&'tel:+'+ph,'Call',ICON.phone)}${cb(ph&&'https://wa.me/'+ph,'WhatsApp',ICON.wa)}${cb(p.website,'Website',ICON.globe)}</div></div>
+<div class="shead"><p class="sec">Today · ${esc(day)}</p><button class="link small" data-open="daily">Edit</button></div>
+<div class="card"><div class="th"><svg class="ring" viewBox="0 0 36 36" aria-hidden="true"><circle class="rt" cx="18" cy="18" r="15.5"/><circle class="rv" cx="18" cy="18" r="15.5" stroke-dasharray="${(pct*97.4).toFixed(1)} 97.4"/></svg><div><b>${doneN} of ${totalN}</b><span>${doneN===totalN?'All done for today':'daily tasks done'}</span></div></div></div>
+<div class="group">${tasks.map(t=>{const on=lg.done.includes(t.id);return `<button class="row plain" data-daily="${t.id}"><span class="ck ${on?'on':''}">${ICON.check}</span><span class="t ${on?'struck':''}">${esc(t.t)}</span></button>`}).join('')}
+<div class="row plain"><span class="ck ${emDone?'on':''}">${ICON.check}</span><span class="t ${emDone?'struck':''}" style="flex:1">Outreach emails</span><span class="when">${lg.emails}/${g.emailsGoal}</span><span class="step"><button data-em="-1" aria-label="One less email">−</button><button data-em="1" aria-label="One more email">+</button></span></div></div>
+${dated.length?`<p class="sec">Running plans</p>${dated.map(planCard).join('')}<div style="height:12px"></div>`:''}
+<p class="sec">Goal</p><div class="card"><div class="gl"><div><b>${g.clients} of ${g.target}</b><span>paying clients</span></div><span class="step"><button data-cl="-1" aria-label="One less client">−</button><button data-cl="1" aria-label="One more client">+</button></span></div><div class="bar"><i style="width:${Math.min(100,g.clients/tgt*100)}%"></i></div><p class="meta">Monthly revenue now ${inr(g.clients*g.fee)} · at ${g.target} clients ${inr(g.target*g.fee)}</p></div>
+${favs.length?`<p class="sec">Quick links</p><div class="qlinks">${favs.map(l=>`<a class="ql" href="${esc(l.url)}" target="_blank" rel="noopener"><span class="av sm" style="background:${GC[l.group]||GC.Other}">${esc(initials(l.title))}</span><span>${esc(l.title)}</span></a>`).join('')}</div>`:''}
+${p.goal?`<p class="sec">Long-term goal</p><div class="card"><p class="body">${esc(p.goal)}</p></div>`:''}</main>`}
 
-function segOK(c){return seg==='All'||c.type===(seg==='Businesses'?'Business':'Creator')}
-function contactsFiltered(){const fn=(CF.find(f=>f[0]===flt)||CF[0])[1],s=q.trim().toLowerCase();return contacts.filter(segOK).filter(fn).filter(c=>!s||[c.name,c.email,c.subject,c.contact_person,c.contact_code,c.handle,c.category,c.city].some(v=>String(v||'').toLowerCase().includes(s))).sort((a,b)=>flt==='Follow-up due'?(a.next_follow_up||'').localeCompare(b.next_follow_up||''):tms(b.last_sent_at||b.created_at)-tms(a.last_sent_at||a.created_at))}
-function contactList(){const rows=contactsFiltered();if(!rows.length)return `<div class="empty"><b>${contacts.length?'Nothing here':'No contacts yet'}</b>${contacts.length?'Try another filter or search.':'Tap + to add one, or import your Excel from More.'}</div>`;
-return `<div class="group">${rows.slice(0,limit).map(c=>contactRow(c)).join('')}</div>${rows.length>limit?'<button class="btn g" data-x="more">Show more</button>':''}`}
-function contactsView(){const C=contacts,base=C.filter(segOK);
-return top('','<span class="tt">Contacts</span>',addBtn)+`<main class="wrap"><h1>Contacts</h1><p class="sub">${C.length} contacts · ${C.filter(c=>(c.emails_sent||0)>0).length} emailed</p>
-<div class="seg" role="tablist">${['All','Businesses','Creators'].map(s=>`<button class="${seg===s?'on':''}" data-seg="${s}" role="tab" aria-selected="${seg===s}">${s}</button>`).join('')}</div>
-<label class="search">${ICON.search}<input id="q" type="search" placeholder="Search name, email or subject" value="${esc(q)}" autocomplete="off" enterkeyhint="search" aria-label="Search contacts"></label>
-<div class="chips">${CF.map(([l,fn])=>`<button class="chip ${flt===l?'on':''}" data-flt="${l}">${l}<i>${base.filter(fn).length}</i></button>`).join('')}</div>
-<div id="list">${contactList()}</div></main>`}
-function emailList(){const byId=new Map(contacts.map(c=>[c.id,c])),fn=(EF.find(f=>f[0]===eflt)||EF[0])[1],s=q.trim().toLowerCase();
-const rows=emails.filter(fn).filter(e=>{if(!s)return true;const c=byId.get(e.contact_id);return [e.subject,e.to_email,c?.name].some(v=>String(v||'').toLowerCase().includes(s))}).sort((a,b)=>tms(b.sent_at)-tms(a.sent_at));
-if(!rows.length)return `<div class="empty"><b>No emails here</b>${emails.length?'Try another filter.':'Open a contact and tap "I\'ve sent an email".'}</div>`;
-let html='',day=null;rows.slice(0,limit).forEach(e=>{const d=ymd(new Date(e.sent_at)),c=byId.get(e.contact_id);if(d!==day){if(day)html+='</div>';day=d;html+=`<p class="sec">${dayName(d)}</p><div class="group">`}
-html+=`<div class="row" role="button" tabindex="0" data-open="${e.contact_id}"><span class="av ${c?.type==='Creator'?'cr':''}">${esc(initials(c?.name||e.to_email))}</span><span class="rc"><span class="t">${esc(c?.name||e.to_email||'Unknown')}</span>${e.subject?`<span class="subj">${esc(e.subject)}</span>`:''}<span class="s">${esc([e.kind,e.to_email].filter(Boolean).join(' · '))}</span></span><span class="when">${esc(timeOf(e.sent_at))}</span></div>`});
-return html+'</div>'+(rows.length>limit?'<button class="btn g" data-x="more">Show more</button>':'')}
-function emailsView(){const t=today();
-return top('','<span class="tt">Emails</span>','')+`<main class="wrap"><h1>Emails</h1><p class="sub">Every email you've sent, newest first</p>
-<div class="stats" style="grid-template-columns:repeat(3,minmax(0,1fr))"><div class="stat"><b>${emails.filter(e=>ymd(new Date(e.sent_at))===t).length}</b><span>Today</span></div><div class="stat"><b>${emails.filter(e=>ymd(new Date(e.sent_at))>=addDays(t,-6)).length}</b><span>Last 7 days</span></div><div class="stat"><b>${emails.length}</b><span>Total</span></div></div>
-<label class="search">${ICON.search}<input id="q" type="search" placeholder="Search subject, name or email" value="${esc(q)}" autocomplete="off" enterkeyhint="search" aria-label="Search emails"></label>
-<div class="chips">${EF.map(([l,fn])=>`<button class="chip ${eflt===l?'on':''}" data-eflt="${l}">${l}<i>${emails.filter(fn).length}</i></button>`).join('')}</div>
-<div id="list">${emailList()}</div></main>`}
-function moreView(){return top('','<span class="tt">More</span>','')+`<main class="wrap"><h1>More</h1><p class="sub">${contacts.length} contacts · ${emails.length} emails saved in Supabase</p>
-<p class="sec">Import</p><div class="group"><label class="row plain"><span class="rc"><span class="t link">${plan?'Choose another file':'Import Excel or CSV'}</span><span class="s">${plan?esc(plan.file):'Your GS Tracker file works as it is'}</span></span><input type="file" id="file" accept=".xlsx,.xls,.csv" hidden></label>
-<button class="row plain" data-x="template"><span class="rc"><span class="t link">Download blank CSV template</span><span class="s">Type, Name, Email, Subject, Email sent date…</span></span></button></div>
-${plan?`<p class="sec">Ready to import</p><div class="group">${plan.sheets.map((s,i)=>`<div class="row plain"><span class="rc"><span class="t">${esc(s.name)}</span><span class="s">${s.rows.length} rows</span></span><select class="pick" data-pick="${i}" aria-label="Import ${esc(s.name)} as">${ROLES.map(([v,l])=>`<option value="${v}" ${s.role===v?'selected':''}>${l}</option>`).join('')}</select></div>`).join('')}</div>
-<button class="btn" data-x="doimport" ${busy?'disabled':''}>${busy?'Importing…':'Import now'}</button><button class="btn g" data-x="cancelimport">Cancel</button><p class="note">Contacts with the same ID or email are updated, never duplicated.</p>`:''}
-<p class="sec">Export</p><div class="group"><button class="row plain" data-x="export"><span class="rc"><span class="t link">Download everything (.xlsx)</span><span class="s">Contacts and Emails sheets · keep as backup</span></span></button></div>
-<p class="sec">App</p><div class="group"><button class="row plain" data-x="refresh"><span class="t link">Refresh data</span></button></div>
-<p class="note">Tip: open this page in Safari → Share → Add to Home Screen to use it like an app.</p></main>`}
-function render(){const dueN=contacts.filter(due).length;
-$('tabbar').innerHTML=`<div class="tabbar-in">${[['today','Today',ICON.today],['contacts','Contacts',ICON.people],['emails','Emails',ICON.mail],['more','More',ICON.more]].map(([k,l,i])=>`<button class="tab ${view===k?'on':''}" data-nav="${k}" aria-label="${l}">${i}${k==='today'&&dueN?`<span class="dotn">${dueN}</span>`:''}<span>${l}</span></button>`).join('')}</div>`;
-app.innerHTML=view==='contacts'?contactsView():view==='emails'?emailsView():view==='more'?moreView():todayView();document.body.classList.toggle('scrolled',scrollY>30)}
+function linkRow(l){return `<div class="row"><a class="rowlink" ${l.url?`href="${esc(l.url)}" target="_blank" rel="noopener"`:`data-link="${l.id}" role="button" tabindex="0"`}><span class="av" style="background:${GC[l.group]||GC.Other}">${esc(initials(l.title))}</span><span class="rc"><span class="t">${esc(l.title||'Untitled')}${l.fav?' ★':''}</span><span class="s">${esc(l.url?host(l.url):(l.note||'Tap to add the link'))}</span></span>${l.url?'':badge('Add link','#FF9500')}</a><button class="more" data-link="${l.id}" aria-label="Edit ${esc(l.title)}">${ICON.dots}</button></div>`}
+function linksList(){const s=q.trim().toLowerCase(),list=S.links.filter(l=>!s||[l.title,l.url,l.note,l.group].some(v=>String(v||'').toLowerCase().includes(s)));if(!list.length)return '<div class="empty"><b>No links found</b>Try another word, or tap + to add one.</div>';
+const gs=[...new Set([...GROUPS,...list.map(l=>l.group||'Other')])].filter(g=>list.some(l=>(l.group||'Other')===g));
+return gs.map(g=>`<p class="sec">${esc(g)}</p><div class="group">${list.filter(l=>(l.group||'Other')===g).map(linkRow).join('')}</div>`).join('')}
+function linksView(){return nav('','<span class="tt">Links</span>',addBtn('link'))+`<main class="wrap"><h1>Links</h1><p class="sub">${S.links.filter(l=>l.url).length} saved · ${S.links.filter(l=>!l.url).length} to add</p>${searchBox('Search links')}<div id="list">${linksList()}</div></main>`}
+function plansView(){return nav('','<span class="tt">Plans</span>',addBtn('plan'))+`<main class="wrap"><h1>Plans</h1><p class="sub">${S.plans.length} plans · ${S.plans.reduce((n,p)=>n+p.tasks.filter(t=>!t.d).length,0)} open tasks</p>${S.plans.length?S.plans.map(planCard).join(''):'<div class="empty"><b>No plans yet</b>Tap + to start one.</div>'}</main>`}
+function notesList(){const s=q.trim().toLowerCase(),list=S.notes.filter(n=>!s||[n.title,n.body].some(v=>String(v||'').toLowerCase().includes(s))).sort((a,b)=>(b.pin-a.pin)||(b.ts-a.ts));
+if(!list.length)return `<div class="empty"><b>${s?'No notes found':'No notes yet'}</b>${s?'Try another word.':'Tap + to write one.'}</div>`;
+return `<div class="group">${list.map(n=>`<button class="row plain" data-note="${n.id}" style="padding-left:16px"><span class="rc"><span class="t" style="font-weight:600">${esc(n.title||'Untitled')}</span><span class="s">${esc(rel(n.ts))} · ${esc(String(n.body||'').split('\n')[0]||'No text')}</span></span>${n.pin?badge('Pinned','#FF9500'):''}</button>`).join('')}</div>`}
+function notesView(){return nav('','<span class="tt">Notes</span>',addBtn('note'))+`<main class="wrap"><h1>Notes</h1><p class="sub">${S.notes.length} notes</p>${searchBox('Search notes')}<div id="list">${notesList()}</div></main>`}
+function moreView(){const r=(x,t,s)=>`<button class="row plain" data-${x} style="padding-left:16px"><span class="rc"><span class="t link">${t}</span>${s?`<span class="s">${s}</span>`:''}</span></button>`;
+return nav('','<span class="tt">More</span>','')+`<main class="wrap"><h1>More</h1><p class="sub">Settings and backup</p>
+<p class="sec">Business</p><div class="group">${r('open="profile"','Business profile','Name, tagline, contact, long-term goal')}${r('open="daily"','Daily checklist','Edit your everyday tasks')}${r('open="goals"','Goals','Client target, average fee, daily emails')}</div>
+<p class="sec">Backup</p><div class="group">${r('x="backup"','Download backup','Save everything as a file')}<label class="row plain" style="padding-left:16px;cursor:pointer"><span class="rc"><span class="t link">Restore from backup</span><span class="s">Choose a GS Master backup file</span></span><input type="file" id="restore" accept=".json,application/json" hidden></label></div>
+<div class="group"><button class="row plain" data-x="reset" style="padding-left:16px;justify-content:center"><span class="t danger">Reset to starting data</span></button></div>
+<p class="note" style="margin-top:0">Everything is saved on this device. Download a backup now and then, and restore it on another phone or laptop.</p></main>`}
+function render(){$('tabbar').innerHTML=`<div class="tabbar-in">${[['home','Home',ICON.home],['links','Links',ICON.link],['plans','Plans',ICON.plan],['notes','Notes',ICON.note],['more','More',ICON.more]].map(([k,l,i])=>`<button class="tab ${view===k?'on':''}" data-nav="${k}" aria-label="${l}">${i}<span>${l}</span></button>`).join('')}</div>`;
+app.innerHTML=({home:homeView,links:linksView,plans:plansView,notes:notesView,more:moreView}[view]||homeView)();document.body.classList.toggle('scrolled',scrollY>30)}
 
-function fieldHtml([k,label,type,hint],r){const v=r[k];
-if(type==='long')return `<label class="f"><small>${label}</small><textarea data-k="${k}" rows="3">${esc(v||'')}</textarea></label>`;
-if(type==='date')return `<label class="f"><small>${label}</small><input type="date" data-k="${k}" value="${esc(v||'')}"></label>`;
-const a=type==='email'?'type="text" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false"':type==='tel'?'type="tel" inputmode="tel"':type==='url'?'type="url" inputmode="url" autocapitalize="off" autocorrect="off"':`type="text" autocapitalize="${hint==='words'?'words':'sentences'}"`;
-return `<label class="f ${type==='bold'?'bold':''}"><small>${label}</small><input ${a} data-k="${k}" value="${esc(v||'')}" autocomplete="off" enterkeyhint="next"></label>`}
-function logPanel(){const L=sheet.log,now=Date.now(),isNow=Math.abs(tms(L.at)-now)<6e4*5,isY=!isNow&&ymd(new Date(L.at))===addDays(today(),-1);
-return `<p class="sec">Log an email</p><div class="seg">${[['now','Now',isNow],['yday','Yesterday',isY],['pick','Pick date',!isNow&&!isY]].map(([k,l,on])=>`<button class="${on?'on':''}" data-when="${k}">${l}</button>`).join('')}</div>
-<div class="group">${!isNow&&!isY||L.pick?`<label class="f"><small>Sent on</small><input type="datetime-local" data-l="at" value="${esc(ymdhm(new Date(L.at)))}"></label>`:''}<div class="f"><small>Type</small><div class="seg" style="margin:4px 0 2px">${['First email','Follow-up'].map(k=>`<button class="${L.kind===k?'on':''}" data-kind="${k}">${k}</button>`).join('')}</div></div><label class="f bold"><small>Subject</small><input type="text" data-l="subject" value="${esc(L.subject||'')}" autocomplete="off"></label></div>
-<div class="two"><button class="btn" data-x="logsave" ${busy?'disabled':''}>Save email</button><button class="btn g" data-x="logcancel">Cancel</button></div>`}
-function renderSheet(){if(!sheet){sh.innerHTML='';document.body.classList.remove('lock');return}document.body.classList.add('lock');
-const r=sheet.draft,isNew=!r.id,em=firstEmail(r),ph=digits(r.phone),thr=/^https?:/i.test(r.gmail_thread||'')?r.gmail_thread:'';
-const mine=isNew?[]:emails.filter(e=>e.contact_id===r.id).sort((a,b)=>tms(b.sent_at)-tms(a.sent_at));
-let form='',show=true,open=false;for(const f of FORM){if(f[0][0]==='#'){if(open)form+='</div>';show=!f[1]||r.type===f[1];open=show;if(show)form+=`<p class="sec">${esc(f[0].slice(1))}</p><div class="group">`;continue}if(show)form+=fieldHtml(f,r)}if(open)form+='</div>';
-const cb=(href,label,icon,act)=>act?`<button class="cb" data-x="${act}" ${href?'':'disabled'}><span class="cbi">${icon}</span>${label}</button>`:href?`<a class="cb" href="${esc(href)}" ${/^https?:/.test(href)?'target="_blank" rel="noopener"':''}><span class="cbi">${icon}</span>${label}</a>`:`<span class="cb off"><span class="cbi">${icon}</span>${label}</span>`;
-const meta=r.emails_sent?`${r.emails_sent} email${r.emails_sent>1?'s':''} sent · first ${niceDate(r.first_sent_at)} · last ${niceDate(r.last_sent_at)}`:'No emails sent yet';
-const typeSeg=`<div class="seg">${['Business','Creator'].map(t=>`<button class="${(r.type||'Business')===t?'on':''}" data-type="${t}">${t}</button>`).join('')}</div>`;
-sh.innerHTML=`<div class="scrim" data-x="close"></div><section class="sheet" role="dialog" aria-modal="true" aria-label="${esc(r.name||'New contact')}"><div class="shandle"><div class="grab"></div><header class="sbar"><button class="nb" data-x="close">${isNew?'Cancel':'Close'}</button><strong>${isNew?'New contact':''}</strong><button class="nb b" data-x="save">${isNew?'Add':'Save'}</button></header></div><div class="sbody">
-${isNew?'':`<div class="hero"><span class="av big ${r.type==='Creator'?'cr':''}">${esc(initials(r.name))}</span><h2>${esc(r.name)}</h2><p>${esc(r.type)} · ${esc(r.contact_code)}</p>${badge(due(r)?'Follow-up due':r.status)}<p class="meta">${esc(meta)}</p></div>
-<div class="cbtns">${cb(em&&gmailCompose(em,r.emails_sent&&r.subject?'Re: '+r.subject:(r.subject||'')),'Email',ICON.mail)}${cb(thr,'Thread',ICON.thread)}${cb(ph&&'https://wa.me/'+ph,'WhatsApp',ICON.wa)}${cb(ph&&'tel:+'+ph,'Call',ICON.phone)}${cb(em,'Copy',ICON.copy,'copy')}</div>
-${sheet.log?logPanel():`<div class="two"><button class="btn" data-x="qlog" ${busy?'disabled':''}>I've sent an email</button><button class="btn g" data-x="logopen">Other date</button></div>`}
-<p class="sec">Status</p><div class="chips">${STATUS.map(s=>`<button class="chip ${r.status===s?'on':''}" data-st="${s}">${s}</button>`).join('')}</div>`}
-${typeSeg}${form}
-${isNew?'':`<p class="sec">Email history · ${mine.length}</p><div class="group">${mine.length?mine.map(e=>`<div class="row plain"><span class="rc"><span class="subj">${esc(e.subject||'(no subject)')}</span><span class="s">${esc(e.kind)} · ${esc(niceTs(e.sent_at))}</span></span><button class="x" data-delmail="${e.id}" aria-label="Remove this email">×</button></div>`).join(''):'<div class="row plain"><span class="s" style="white-space:normal">No emails logged yet.</span></div>'}</div>
-<div class="group"><button class="row plain center danger" data-x="delete">Delete contact</button></div>`}</div></section>`}
-function openSheet(draft){sheet={draft};renderSheet();history.pushState({gsSheet:1},'')}
-function dismiss(){sheet=null;renderSheet();if(history.state&&history.state.gsSheet)history.back()}
-function closeSheet(){if(sheet?.dirty&&!confirm('Discard your changes?'))return false;dismiss();return true}
-function onDraft(e){const el=e.target;if(!sheet)return;
-if(el.dataset.l){sheet.log[el.dataset.l]=el.dataset.l==='at'?(el.value?fromLocal(el.value):new Date().toISOString()):el.value;return}
-const k=el.dataset.k;if(!k)return;sheet.draft[k]=el.value;sheet.dirty=true}
+function fld(o,k,label,type='text',extra=''){return `<label class="f"><small>${label}</small><input type="${type}" data-f="${k}" value="${esc(o[k]??'')}" autocomplete="off" ${extra}></label>`}
+function ta(o,k,label,cls=''){return `<label class="f"><small>${label}</small><textarea class="${cls}" data-f="${k}">${esc(o[k]??'')}</textarea></label>`}
+function tog(o,k,label){return `<label class="f sw"><span>${label}</span><input type="checkbox" class="switch" data-f="${k}" ${o[k]?'checked':''}></label>`}
+function taskRows(list,kind){return list.map(t=>`<div class="row plain task">${kind==='plan'?`<button class="ck ${t.d?'on':''}" data-tc="${t.id}" aria-label="Mark done">${ICON.check}</button>`:`<span class="ck">${ICON.check}</span>`}<input class="tin ${t.d?'struck':''}" data-tt="${t.id}" value="${esc(t.t)}" aria-label="Task"><button class="x" data-tdel="${t.id}" aria-label="Delete task">×</button></div>`).join('')+`<div class="row plain task"><span class="ck add">${ICON.plus}</span><input class="tin" id="newtask" placeholder="Add a task" enterkeyhint="done" autocomplete="off"><button class="link" data-x="addtask">Add</button></div>`}
+function renderSheet(keep){if(!sheet){sh.innerHTML='';document.body.classList.remove('lock');return}document.body.classList.add('lock');
+const sc=keep?sh.querySelector('.sbody')?.scrollTop||0:0,{kind,obj}=sheet;let title='',body='';
+if(kind==='link'){title=sheet.isNew?'New link':'Link';body=`${obj.url?`<div class="acts3"><a class="act" href="${esc(obj.url)}" target="_blank" rel="noopener">Open</a><button class="act" data-x="copy">Copy</button><button class="act" data-x="share">Share</button></div>`:''}
+<div class="group">${fld(obj,'title','Name','text','autocapitalize="words"')}${fld(obj,'url','Link','url','inputmode="url" autocapitalize="off" autocorrect="off" placeholder="https://"')}<label class="f"><small>Group</small><select data-f="group">${GROUPS.map(g=>`<option ${g===(obj.group||'Other')?'selected':''}>${g}</option>`).join('')}</select></label>${fld(obj,'note','Note')}</div>
+<div class="group">${tog(obj,'fav','Show on Home')}</div><button class="btn" data-x="delete">Delete link</button>`}
+else if(kind==='plan'){const i=planInfo(obj);title=sheet.isNew?'New plan':'Plan';body=`<div class="group">${fld(obj,'title','Plan name','text','autocapitalize="sentences"')}${fld(obj,'sub','Short description')}${fld(obj,'start','Start date','date')}${fld(obj,'end','End date','date')}</div>
+<p class="sec">Tasks · ${i.done} of ${i.total} done</p><div class="group">${taskRows(obj.tasks,'plan')}</div><div class="group">${ta(obj,'notes','Notes')}</div><button class="btn" data-x="delete">Delete plan</button>`}
+else if(kind==='note'){title=sheet.isNew?'New note':'Note';body=`<div class="group">${fld(obj,'title','Title','text','autocapitalize="sentences"')}</div><div class="group">${ta(obj,'body','Note','big')}</div><div class="group">${tog(obj,'pin','Pin to top')}</div><p class="meta" style="margin:-14px 16px 18px">Edited ${esc(rel(obj.ts))}</p><button class="btn" data-x="delete">Delete note</button>`}
+else if(kind==='profile'){title='Business profile';body=`<div class="group">${fld(obj,'name','Business name')}${fld(obj,'tagline','Tagline')}${fld(obj,'founder','Founder')}${fld(obj,'role','Role')}${fld(obj,'city','City')}</div><div class="group">${fld(obj,'email','Email','email','autocapitalize="off"')}${fld(obj,'phone','Phone / WhatsApp','tel')}${fld(obj,'website','Website','url','autocapitalize="off"')}</div><div class="group">${ta(obj,'goal','Long-term goal')}</div>`}
+else if(kind==='daily'){title='Daily checklist';body=`<p class="sec">Everyday tasks</p><div class="group">${taskRows(S.daily.tasks,'daily')}</div><div class="group">${fld(S.goals,'emailsGoal','Outreach emails per day','number','inputmode="numeric"')}</div><p class="note" style="margin-top:-14px">Ticks reset every morning. Changes here apply from today.</p>`}
+else if(kind==='goals'){title='Goals';body=`<div class="group">${fld(obj,'clients','Paying clients now','number','inputmode="numeric"')}${fld(obj,'target','Client target','number','inputmode="numeric"')}${fld(obj,'fee','Average monthly fee (₹)','number','inputmode="numeric"')}${fld(obj,'emailsGoal','Outreach emails per day','number','inputmode="numeric"')}</div>`}
+sh.innerHTML=`<div class="scrim" data-x="close"></div><section class="sheet" role="dialog" aria-modal="true" aria-label="${esc(title)}"><div class="shandle"><div class="grab"></div><header class="sbar"><span></span><strong>${esc(title)}</strong><button class="nb b" data-x="close">Done</button></header></div><div class="sbody">${body}</div></section>`;
+if(keep){const b=sh.querySelector('.sbody');if(b)b.scrollTop=sc}}
+function openSheet(kind,obj,isNew){sheet={kind,obj,isNew:!!isNew};renderSheet();history.pushState({gsm:1},'')}
+function finishSheet(){if(!sheet)return;const {kind,obj,isNew}=sheet;
+if(isNew){const empty=kind==='link'?!obj.title&&!obj.url:kind==='note'?!obj.title&&!obj.body:kind==='plan'?!obj.title&&!obj.tasks.length:false;if(empty){const arr=kind==='link'?S.links:kind==='note'?S.notes:S.plans;const i=arr.indexOf(obj);if(i>=0)arr.splice(i,1)}}
+if(kind==='link'&&obj.url&&!/^[a-z]+:/i.test(obj.url))obj.url='https://'+obj.url.trim();
+save();sheet=null;renderSheet();render()}
+function closeSheet(){finishSheet();if(history.state&&history.state.gsm)history.back()}
+function taskList(){return sheet.kind==='daily'?S.daily.tasks:sheet.obj.tasks}
 
-async function saveContact(keep){if(!sheet||busy)return;const d=sheet.draft,isNew=!d.id,name=String(d.name||'').trim();if(!name)return toast('Add a name first',true);
-const row={};CCOLS.forEach(k=>{if(['contact_code','first_sent_at','last_sent_at','emails_sent'].includes(k))return;let v=d[k];if(typeof v==='string'){v=v.trim();if(!v)v=null}row[k]=v??null});
-row.name=name;row.type=row.type||'Business';row.status=row.status||'Not contacted';row.updated_at=new Date().toISOString();
-const em=firstEmail(row).toLowerCase(),dup=em&&contacts.find(c=>c.id!==d.id&&firstEmail(c).toLowerCase()===em);if(dup)return toast(`Already saved as ${dup.name} (${dup.contact_code})`,true);
-if(isNew)row.contact_code=newCode(row.type,new Set(contacts.map(c=>c.contact_code)));
-busy=true;const b=sh.querySelector('[data-x="save"]');if(b)b.disabled=true;
-const {data:res,error}=await (isNew?sb.from('gs_contacts').insert(row):sb.from('gs_contacts').update(row).eq('id',d.id)).select().single();busy=false;
-if(error){if(b)b.disabled=false;return toast(error.message,true)}
-replaceC(res);haptic();if(keep){sheet.draft={...res};sheet.dirty=false;renderSheet()}else dismiss();render();toast(isNew?'Contact added':'Saved')}
-async function setStatus(s){if(!sheet)return;sheet.draft.status=s;await saveContact(true)}
-async function logEmailFor(r,L,withUndo){if(busy||!r?.id)return;busy=true;const sent=L.at||new Date().toISOString(),subject=String(L.subject||'').trim()||null,to=firstEmail(r)||null;
-const {data:e,error}=await sb.from('gs_emails').insert({contact_id:r.id,sent_at:sent,kind:L.kind,to_email:to,subject,gmail_thread:r.gmail_thread||null,import_key:'log:'+[(to||'').toLowerCase(),subject||'',kts(sent)].join('|')}).select().single();
-if(error){busy=false;return toast(error.code==='23505'?'This email is already logged':error.message,true)}emails.push(e);
-const cur=contacts.find(c=>c.id===r.id)||r;
-const st=['Not contacted','Emailed','Follow-up sent','Needs review'].includes(cur.status)?(L.kind==='Follow-up'?'Follow-up sent':'Emailed'):cur.status;
-const patch={emails_sent:(cur.emails_sent||0)+1,first_sent_at:cur.first_sent_at&&tms(cur.first_sent_at)<=tms(sent)?cur.first_sent_at:sent,last_sent_at:cur.last_sent_at&&tms(cur.last_sent_at)>=tms(sent)?cur.last_sent_at:sent,status:st,next_follow_up:addDays(ymd(new Date(sent)),L.kind==='Follow-up'?4:3),updated_at:new Date().toISOString()};
-if(subject&&(!cur.subject||L.kind==='First email'))patch.subject=subject;
-const prev={};Object.keys(patch).forEach(k=>prev[k]=cur[k]??null);
-const {data:c,error:e2}=await sb.from('gs_contacts').update(patch).eq('id',r.id).select().single();busy=false;if(e2)return toast(e2.message,true);
-replaceC(c);if(sheet&&sheet.draft.id===c.id){sheet.draft={...sheet.draft,...patch};sheet.log=null;renderSheet()}render();haptic();
-toast(`Logged · ${c.name}`,{undo:withUndo?async()=>{await sb.from('gs_emails').delete().eq('id',e.id);emails=emails.filter(x=>x.id!==e.id);const {data:c2}=await sb.from('gs_contacts').update(prev).eq('id',c.id).select().single();if(c2){replaceC(c2);if(sheet&&sheet.draft.id===c2.id){sheet.draft={...sheet.draft,...prev};renderSheet()}}render();toast('Undone')}:null})}
-function defaultLog(c){return {at:new Date().toISOString(),kind:c.emails_sent?'Follow-up':'First email',subject:c.emails_sent&&c.subject?'Re: '+c.subject:(c.subject||'')}}
-async function delMail(id){if(!confirm('Remove this email from the history?'))return;const r=sheet.draft;const {error}=await sb.from('gs_emails').delete().eq('id',id);if(error)return toast(error.message,true);
-emails=emails.filter(e=>e.id!==id);const t=emails.filter(e=>e.contact_id===r.id).map(e=>tms(e.sent_at)).sort((a,b)=>a-b);
-const patch={emails_sent:Math.max(0,(r.emails_sent||0)-1),updated_at:new Date().toISOString()};if(t.length){patch.first_sent_at=new Date(t[0]).toISOString();patch.last_sent_at=new Date(t[t.length-1]).toISOString()}else if(!patch.emails_sent){patch.first_sent_at=null;patch.last_sent_at=null}
-const {data:c,error:e2}=await sb.from('gs_contacts').update(patch).eq('id',r.id).select().single();if(e2)return toast(e2.message,true);replaceC(c);sheet.draft={...sheet.draft,...patch};renderSheet();render();toast('Removed')}
-async function delContact(){const r=sheet.draft;if(!confirm(`Delete ${r.name}? Their email history will be deleted too.`))return;const {error}=await sb.from('gs_contacts').delete().eq('id',r.id);if(error)return toast(error.message,true);contacts=contacts.filter(c=>c.id!==r.id);emails=emails.filter(e=>e.contact_id!==r.id);dismiss();render();toast('Deleted')}
-
-function norm(raw){const o={};for(const [k,v] of Object.entries(raw))o[String(k).trim().toLowerCase()]=v;return o}
-function mapStatus(s){if(!s)return null;const t=s.trim().toLowerCase();if(['no reply','waiting for reply','no response','sent','emailed'].includes(t))return 'Emailed';return STATUS.find(x=>x.toLowerCase()===t)||s.trim()}
-function parseContact(o,type){const g=(...ks)=>{for(const k of ks){const v=o[k];if(v!=null&&String(v).trim()!=='')return v}return null},S=(...ks)=>str(g(...ks));
-const sentFlag=bool(g('cold email sent?','email sent?','emailed')),first=tsv(g('email sent date','date sent','first email sent','sent date','sent on')),last=tsv(g('last email sent date','last email sent','last sent'))||first;
-const rep=bool(g('reply received?')),emailed=sentFlag===true||(!!first&&sentFlag!==false);let status=mapStatus(S('outcome','status'));
-if(rep&&(!status||status==='Emailed'))status='Replied';if(!status&&emailed)status='Emailed';if(!status&&sentFlag===false)status='Not contacted';
-const n=Number(g('emails sent')),name=type==='Creator'?(S('creator name','name','handle')||S('email')||S('creator id','id')):S('business name','name','company','company name','brand','business');
-return {type,contact_code:S('lead id','creator id','id','contact id'),name,contact_person:S('contact person','manager / agency','contact','contact name','owner'),email:S('email','e-mail','email address','email id'),phone:S('phone','phone / whatsapp','whatsapp','mobile','phone number'),website:S('website','website / profile link','profile link','url','site'),city:S('city','location'),category:S('industry','industry / niche','niche','category'),platform:S('platform'),handle:S('handle'),followers:S('followers'),source:S('lead source','lead source / found on','where we found them','source'),subject:S('subject'),status,first_sent_at:first,last_sent_at:last,emails_sent:Number.isFinite(n)&&n>0?n:(emailed?1:null),next_follow_up:dv(g('follow-up 1 date','next follow-up date','next follow-up','follow-up date')),reply_text:S('reply text','their reply','reply'),rate:S('standard rate card','final agreed rate','rate quoted','rate'),notes:S('notes','note'),gmail_thread:S('gmail thread link','thread','gmail link')}}
-function parseLog(o){const to=str(o['to (email address)']??o['to']??o['email']),subject=str(o['subject']),sent=tsv(o['email sent date and time']??o['sent on']??o['sent at']??o['date']);
-return {code:str(o['lead id'])||str(o['creator id'])||str(o['id']),to,subject,sent_at:sent,kind:str(o['type']??o['email type'])||'Email',gmail_thread:str(o['gmail thread link']),import_key:'log:'+[(to||'').toLowerCase(),subject||'',kts(sent)].join('|')}}
-async function onFile(file){try{await loadXLSX();const wb=XLSX.read(await file.arrayBuffer(),{type:'array'});
-const role=n=>{const t=n.trim().toLowerCase();return t==='leads'?'business':t==='creators'?'creator':t==='creator outreach'?'outreach':(t==='email log'||t==='emails')?'log':['summary','clients','activity log'].includes(t)?'skip':'business'};
-plan={file:file.name,sheets:wb.SheetNames.map(n=>({name:n,rows:XLSX.utils.sheet_to_json(wb.Sheets[n],{defval:null,raw:true}),role:role(n)})).filter(s=>s.rows.length)};
-if(!plan.sheets.length){plan=null;return toast('No rows found in that file',true)}render()}catch(e){toast('Could not read file: '+e.message,true)}}
-async function doImport(){if(!plan||busy)return;busy=true;render();
-try{const strip=c=>{const r={...c};delete r.id;delete r.created_at;return r};
-const byCode=new Map(contacts.map(c=>[c.contact_code,c])),byEm=new Map();contacts.forEach(c=>{const e=firstEmail(c).toLowerCase();if(e)byEm.set(e,c)});
-const out=new Map(),outEm=new Map(),used=new Set(contacts.map(c=>c.contact_code)),logs=[];
-const put=row=>{const em=firstEmail(row).toLowerCase();let code=row.contact_code&&(out.has(row.contact_code)||byCode.has(row.contact_code))?row.contact_code:null;
-if(!code&&em)code=outEm.get(em)||byEm.get(em)?.contact_code||null;if(!code){code=row.contact_code&&!used.has(row.contact_code)?row.contact_code:newCode(row.type,used);used.add(code)}
-const base=out.get(code)||(byCode.has(code)?strip(byCode.get(code)):{}),m={...base};
-for(const [k,v] of Object.entries(row)){if(v==null||v==='')continue;if(k==='emails_sent')m[k]=Math.max(m[k]||0,v);else if(k==='first_sent_at')m[k]=m[k]&&tms(m[k])<tms(v)?m[k]:v;else if(k==='last_sent_at')m[k]=m[k]&&tms(m[k])>tms(v)?m[k]:v;else if(k==='type'&&base.type)continue;else m[k]=v}
-m.contact_code=code;out.set(code,m);if(em)outEm.set(em,code)};
-const order={business:1,creator:1,outreach:2,log:3};
-for(const s of plan.sheets.filter(s=>s.role!=='skip').sort((a,b)=>order[a.role]-order[b.role])){for(const raw of s.rows){const o=norm(raw);
-if(s.role==='log'){const l=parseLog(o);if(l.to||l.code)logs.push(l);continue}
-if(s.role==='outreach'){const r=parseContact(o,'Creator');r.name=str(o['creator name']);r.contact_person=null;if(r.contact_code)put(r);continue}
-let type=s.role==='creator'?'Creator':'Business';if(o.type&&/creator/i.test(o.type))type='Creator';else if(o.type&&/business|lead/i.test(o.type))type='Business';
-const r=parseContact(o,type);if(!r.name&&!r.email&&!r.contact_code)continue;put(r)}}
-const cnt={};for(const l of logs){let code=l.code&&(out.has(l.code)||byCode.has(l.code))?l.code:null;const em=String(l.to||'').split(/[;,\s]+/).find(x=>x.includes('@'))?.toLowerCase();if(!code&&em)code=outEm.get(em)||byEm.get(em)?.contact_code||null;l.code=code;
-if(code){put({contact_code:code,first_sent_at:l.sent_at,last_sent_at:l.sent_at});cnt[code]=(cnt[code]||0)+1}}
-for(const [code,n] of Object.entries(cnt)){const m=out.get(code);if(!m)continue;m.emails_sent=Math.max(m.emails_sent||0,n);if(!m.status||m.status==='Not contacted')m.status='Emailed';if(m.status==='Emailed'&&n>1)m.status='Follow-up sent'}
-const now=new Date().toISOString(),rows=[...out.values()].map(m=>{const r={};CCOLS.forEach(k=>{if(m[k]!==undefined)r[k]=m[k]});if(!r.name)r.name=firstEmail(m)||m.contact_code;if(!r.type)r.type='Business';if(WAITING.includes(r.status)&&!r.next_follow_up&&r.last_sent_at)r.next_follow_up=addDays(ymd(new Date(r.last_sent_at)),3);r.updated_at=now;return r});
-for(let i=0;i<rows.length;i+=500){const {error}=await sb.from('gs_contacts').upsert(rows.slice(i,i+500),{onConflict:'contact_code',defaultToNull:false});if(error)throw error}
-contacts=await fetchAll('gs_contacts');const idBy=new Map(contacts.map(c=>[c.contact_code,c])),seen=new Set(),erows=[];
-for(const l of logs){const c=l.code&&idBy.get(l.code);if(!c||seen.has(l.import_key))continue;seen.add(l.import_key);erows.push({contact_id:c.id,sent_at:l.sent_at||c.last_sent_at||now,kind:l.kind,to_email:l.to,subject:l.subject,gmail_thread:l.gmail_thread,import_key:l.import_key})}
-for(let i=0;i<erows.length;i+=500){const {error}=await sb.from('gs_emails').upsert(erows.slice(i,i+500),{onConflict:'import_key',ignoreDuplicates:true});if(error)throw error}
-emails=await fetchAll('gs_emails');plan=null;haptic();toast(`Imported ${rows.length} contacts and ${erows.length} emails`)}catch(e){toast('Import failed: '+e.message,true)}finally{busy=false;render()}}
-function downloadTemplate(){const blob=new Blob(['\ufeffType,Name,Contact person,Email,Phone,Website,City,Category,Subject,Email sent date,Status,Notes\r\n'],{type:'text/csv;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='GS contacts template.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1500)}
-async function exportXlsx(){try{await loadXLSX()}catch(e){return toast(e.message,true)}
-const LBL={contact_code:'ID',type:'Type',name:'Name',contact_person:'Contact person',email:'Email',phone:'Phone / WhatsApp',website:'Website / profile link',city:'City',category:'Industry / niche',platform:'Platform',handle:'Handle',followers:'Followers',source:'Lead source / found on',subject:'Subject',status:'Status',first_sent_at:'First email sent',last_sent_at:'Last email sent',emails_sent:'Emails sent',next_follow_up:'Next follow-up',reply_text:'Their reply',rate:'Rate',notes:'Notes',gmail_thread:'Gmail thread link',updated_at:'Last updated'};
-const xv=(k,v)=>v==null||v===''?'':['first_sent_at','last_sent_at','updated_at'].includes(k)?xTs(v):k==='next_follow_up'?xDate(v):v;
-const cr=[...contacts].sort((a,b)=>a.id-b.id).map(c=>Object.fromEntries(Object.keys(LBL).map(k=>[LBL[k],xv(k,c[k])])));
-const byId=new Map(contacts.map(c=>[c.id,c])),EH=['ID','Name','Type','Sent on','Email type','To','Subject','Gmail thread link'];
-const er=[...emails].sort((a,b)=>tms(a.sent_at)-tms(b.sent_at)).map(e=>{const c=byId.get(e.contact_id)||{};return {'ID':c.contact_code||'','Name':c.name||'','Type':c.type||'','Sent on':xTs(e.sent_at),'Email type':e.kind||'','To':e.to_email||'','Subject':e.subject||'','Gmail thread link':e.gmail_thread||''}});
-const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(cr,{header:Object.values(LBL)}),'Contacts');XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(er,{header:EH}),'Emails');XLSX.writeFile(wb,`GS Contacts ${today()}.xlsx`);toast('Excel downloaded')}
-
-async function fetchAll(t){let all=[];for(let s=0;;s+=1000){const {data:d,error}=await sb.from(t).select('*').order('id').range(s,s+999);if(error)throw error;all.push(...d);if(d.length<1000)return all}}
-async function load(){[contacts,emails]=await Promise.all([fetchAll('gs_contacts'),fetchAll('gs_emails')])}
-async function boot(){if(!window.supabase?.createClient){app.innerHTML='<div class="empty"><b>No connection</b>Connect to the internet and refresh.</div>';return}
-sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:false,autoRefreshToken:false}});app.innerHTML='<div class="empty">Loading…</div>';
-try{await load();render()}catch(e){app.innerHTML=`<div class="empty"><b>Couldn't load your database</b>${esc(/does not exist|schema cache/i.test(e.message)?'Run the SQL setup in Supabase first.':e.message)}<br><br><button class="btn" data-x="retry">Try again</button></div>`}}
-
-document.addEventListener('click',e=>{const el=e.target.closest('[data-undo],[data-qlog],[data-nav],[data-goto],[data-x],[data-open],[data-seg],[data-flt],[data-eflt],[data-st],[data-type],[data-kind],[data-when],[data-delmail]');if(!el||el.disabled)return;const d=el.dataset;
-if(d.undo!==undefined){const f=undoFn;undoFn=null;$('toast').className='toast';if(f)f();return}
-if(d.qlog){const c=contacts.find(x=>String(x.id)===d.qlog);if(c)logEmailFor(c,defaultLog(c),true);return}
-if(d.nav){view=d.nav;q='';limit=150;render();window.scrollTo(0,0);return}
-if(d.goto){view='contacts';seg='All';flt=d.goto;q='';render();window.scrollTo(0,0);return}
-if(d.open){const c=contacts.find(x=>String(x.id)===d.open);if(c)openSheet({...c});return}
-if(d.seg){seg=d.seg;limit=150;render();return}
-if(d.flt){flt=d.flt;limit=150;render();return}
-if(d.eflt){eflt=d.eflt;limit=150;render();return}
-if(d.st){setStatus(d.st);return}
-if(d.type&&sheet){sheet.draft.type=d.type;sheet.dirty=true;renderSheet();return}
-if(d.kind&&sheet?.log){const r=sheet.draft;sheet.log.kind=d.kind;sheet.log.subject=d.kind==='Follow-up'&&r.subject?'Re: '+r.subject:(r.subject||'');renderSheet();return}
-if(d.when&&sheet?.log){const L=sheet.log;if(d.when==='now')L.at=new Date().toISOString();else if(d.when==='yday')L.at=new Date(Date.now()-864e5).toISOString();else{L.pick=true;if(Math.abs(tms(L.at)-Date.now())<6e4*5)L.at=new Date(Date.now()-2*864e5).toISOString()}renderSheet();return}
-if(d.delmail){delMail(Number(d.delmail));return}
-({new:()=>openSheet({type:seg==='Creators'?'Creator':'Business',status:'Not contacted'}),close:closeSheet,save:()=>saveContact(false),delete:delContact,
-qlog:()=>logEmailFor(sheet.draft,defaultLog(sheet.draft),true),logopen:()=>{sheet.log=defaultLog(sheet.draft);renderSheet()},logcancel:()=>{sheet.log=null;renderSheet()},logsave:()=>logEmailFor(sheet.draft,sheet.log,true),
-copy:async()=>{try{await navigator.clipboard.writeText(firstEmail(sheet.draft));toast('Email copied')}catch(_){toast('Could not copy',true)}},
-template:downloadTemplate,export:exportXlsx,doimport:doImport,cancelimport:()=>{plan=null;render()},refresh:async()=>{try{await load();render();toast('Up to date')}catch(e){toast(e.message,true)}},
-more:()=>{limit+=150;$('list').innerHTML=view==='emails'?emailList():contactList()},retry:boot}[d.x]||(()=>{}))()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&sheet){closeSheet();return}if((e.key==='Enter'||e.key===' ')&&e.target.matches('[role="button"]')){e.preventDefault();e.target.click()}});
-document.addEventListener('input',e=>{if(e.target.id!=='q')return;q=e.target.value;limit=150;const l=$('list');if(l)l.innerHTML=view==='emails'?emailList():contactList()});
-document.addEventListener('change',e=>{const el=e.target;if(el.id==='file'&&el.files[0]){onFile(el.files[0]);el.value=''}else if(el.dataset.pick!==undefined&&plan)plan.sheets[+el.dataset.pick].role=el.value});
-sh.addEventListener('input',onDraft);sh.addEventListener('change',onDraft);
-sh.addEventListener('touchstart',e=>{const s=e.target.closest('.sheet');if(!s)return;const onHandle=!!e.target.closest('.shandle'),body=s.querySelector('.sbody');if(!onHandle&&(body.scrollTop>0||e.target.closest('input,textarea,select,.chips')))return;drag={y:e.touches[0].clientY,s,dy:0}},{passive:true});
+document.addEventListener('click',async e=>{const el=e.target.closest('[data-nav],[data-new],[data-open],[data-plan],[data-note],[data-link],[data-daily],[data-em],[data-cl],[data-tc],[data-tdel],[data-x]');if(!el)return;const d=el.dataset;
+if(d.nav){view=d.nav;q='';render();window.scrollTo(0,0);return}
+if(d.new){let o;if(d.new==='link'){o={id:uid(),title:'',url:'',group:'Other',note:'',fav:false};S.links.push(o)}else if(d.new==='note'){o={id:uid(),title:'',body:'',pin:false,ts:Date.now()};S.notes.unshift(o)}else{o={id:uid(),title:'',sub:'',start:'',end:'',notes:'',tasks:[]};S.plans.push(o)}openSheet(d.new,o,true);return}
+if(d.open){openSheet(d.open,d.open==='profile'?S.profile:S.goals);return}
+if(d.plan){const o=S.plans.find(x=>x.id===d.plan);if(o)openSheet('plan',o);return}
+if(d.note){const o=S.notes.find(x=>x.id===d.note);if(o)openSheet('note',o);return}
+if(d.link){e.preventDefault();const o=S.links.find(x=>x.id===d.link);if(o)openSheet('link',o);return}
+if(d.daily){const lg=dayLog(),i=lg.done.indexOf(d.daily);if(i>=0)lg.done.splice(i,1);else lg.done.push(d.daily);save();render();return}
+if(d.em){const lg=dayLog();lg.emails=Math.max(0,lg.emails+Number(d.em));save();render();return}
+if(d.cl){S.goals.clients=Math.max(0,(Number(S.goals.clients)||0)+Number(d.cl));save();render();return}
+if(d.tc&&sheet){const t=taskList().find(x=>x.id===d.tc);if(t){t.d=!t.d;save();renderSheet(true)}return}
+if(d.tdel&&sheet){const arr=taskList(),i=arr.findIndex(x=>x.id===d.tdel);if(i>=0){arr.splice(i,1);save();renderSheet(true)}return}
+const x=d.x;
+if(x==='close'){closeSheet();return}
+if(x==='addtask'){addTask();return}
+if(x==='copy'){try{await navigator.clipboard.writeText(sheet.obj.url);toast('Link copied')}catch(_){toast('Could not copy',true)}return}
+if(x==='share'){const o=sheet.obj;if(navigator.share){try{await navigator.share({title:o.title,url:o.url})}catch(_){}}else{try{await navigator.clipboard.writeText(o.url);toast('Link copied')}catch(_){}}return}
+if(x==='delete'&&sheet){const {kind,obj}=sheet,arr=kind==='link'?S.links:kind==='note'?S.notes:S.plans;if(!confirm(`Delete this ${kind}?`))return;const i=arr.indexOf(obj);if(i>=0)arr.splice(i,1);sheet.isNew=false;save();sheet=null;renderSheet();render();if(history.state&&history.state.gsm)history.back();toast('Deleted');return}
+if(x==='backup'){const blob=new Blob([JSON.stringify(S,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`GS Master backup ${today()}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1500);toast('Backup downloaded');return}
+if(x==='reset'){if(!confirm('Reset everything to the starting data? Your own notes and changes will be lost.'))return;S=defaults();save();render();toast('Reset done');return}});
+function addTask(){const inp=$('newtask');if(!inp||!sheet)return;const v=inp.value.trim();if(!v){inp.focus();return}const t={id:uid(),t:v};if(sheet.kind==='plan')t.d=false;taskList().push(t);save();renderSheet(true);const n=$('newtask');if(n)n.focus()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&sheet){closeSheet();return}if(e.key==='Enter'&&e.target.id==='newtask'){e.preventDefault();addTask();return}if((e.key==='Enter'||e.key===' ')&&e.target.matches('[role="button"]')){e.preventDefault();e.target.click()}});
+document.addEventListener('input',e=>{const el=e.target;if(el.id==='q'){q=el.value;const l=$('list');if(l)l.innerHTML=view==='links'?linksList():notesList();return}
+if(!sheet)return;
+if(el.dataset.tt){const t=taskList().find(x=>x.id===el.dataset.tt);if(t){t.t=el.value;save()}return}
+const k=el.dataset.f;if(!k)return;const o=sheet.kind==='daily'?S.goals:sheet.obj;
+o[k]=el.type==='checkbox'?el.checked:el.type==='number'?(el.value===''?0:Number(el.value)):el.value;if(sheet.kind==='note')o.ts=Date.now();save()});
+document.addEventListener('change',async e=>{const el=e.target;if(el.id==='restore'&&el.files[0]){try{const d=JSON.parse(await el.files[0].text());if(!d||!d.v||!Array.isArray(d.links)||!Array.isArray(d.notes))throw new Error('This is not a GS Master backup');if(confirm('Replace everything on this device with this backup?')){S=d;save();render();toast('Backup restored')}}catch(err){toast(err.message,true)}el.value='';return}
+if(sheet&&el.dataset.f&&el.type==='checkbox'){const o=sheet.kind==='daily'?S.goals:sheet.obj;o[el.dataset.f]=el.checked;save()}});
+sh.addEventListener('touchstart',e=>{const s=e.target.closest('.sheet');if(!s)return;const onHandle=!!e.target.closest('.shandle'),b=s.querySelector('.sbody');if(!onHandle&&(b.scrollTop>0||e.target.closest('input,textarea,select')))return;drag={y:e.touches[0].clientY,s,dy:0}},{passive:true});
 sh.addEventListener('touchmove',e=>{if(!drag)return;drag.dy=Math.max(0,e.touches[0].clientY-drag.y);drag.s.style.transition='none';drag.s.style.transform=drag.dy?`translateY(${drag.dy}px)`:''},{passive:true});
-sh.addEventListener('touchend',()=>{if(!drag)return;const {s,dy}=drag;drag=null;s.style.transition='transform .22s ease';if(dy>120){s.style.transform='translateY(100%)';setTimeout(()=>{if(!closeSheet()){s.style.transform=''}},200)}else s.style.transform=''});
-addEventListener('popstate',()=>{if(!sheet)return;if(sheet.dirty&&!confirm('Discard your changes?')){history.pushState({gsSheet:1},'');return}sheet=null;renderSheet()});
+sh.addEventListener('touchend',()=>{if(!drag)return;const {s,dy}=drag;drag=null;s.style.transition='transform .22s ease';if(dy>120){s.style.transform='translateY(100%)';setTimeout(closeSheet,200)}else s.style.transform=''});
+addEventListener('popstate',()=>{if(sheet)finishSheet()});
 addEventListener('scroll',()=>document.body.classList.toggle('scrolled',scrollY>30),{passive:true});
-boot();
+save();render();
+})();
 </script>
 </body>
 </html>
