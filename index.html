@@ -7,305 +7,216 @@
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="GS Master">
 <title>GS Master</title>
 <style>
-:root{color-scheme:light;--bg:#fff;--card:#f5f5f7;--text:#1d1d1f;--sec:#6e6e73;--sep:#e3e3e8;--fill:#e8e8ed;--blue:#0071e3;--red:#ff3b30;--green:#34c759;--bar:rgba(255,255,255,.86)}
+:root{color-scheme:light;--t:#1d1d1f;--s:#86868b;--l:#e8e8ed;--sp:#efeff2;--f:#f2f2f7;--b:#0071e3;--r:#ff3b30;--g:#34c759;--sh:0 1px 2px rgba(0,0,0,.04),0 6px 20px rgba(0,0,0,.05)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html{-webkit-text-size-adjust:100%;background:#fff}
-body{margin:0;background:var(--bg);color:var(--text);font:17px/1.35 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overscroll-behavior-y:none}
+html,body{background:#fff}
+body{margin:0;color:var(--t);font:17px/1.4 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;letter-spacing:-.2px}
 body.lock{overflow:hidden}
 button,input,select,textarea{font:inherit;color:inherit}
 button{background:none;border:0;padding:0;cursor:pointer;text-align:left}
-svg.ic{width:22px;height:22px;flex:none}
-.top{position:sticky;top:0;z-index:5;padding-top:env(safe-area-inset-top);background:#fff;border-bottom:.5px solid transparent;transition:background .2s,border-color .2s}
-.scrolled .top{background:var(--bar);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-color:var(--sep)}
-.top-in{max-width:760px;margin:0 auto;height:44px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 10px}
-.top-in>:last-child{justify-self:end}
-.tt{font-size:17px;font-weight:600;opacity:0;transition:opacity .2s}.scrolled .tt{opacity:1}
-.nb{color:var(--blue);font-size:17px;padding:8px 6px;display:inline-flex;align-items:center;min-height:44px}.nb.b{font-weight:600}.nb .ic{width:28px;height:28px}
-.wrap{max-width:760px;margin:0 auto;padding:0 16px calc(110px + env(safe-area-inset-bottom))}
-h1{font-size:34px;font-weight:700;margin:0 0 2px;letter-spacing:-.4px;line-height:1.15}
-.sub{color:var(--sec);font-size:15px;margin:0 0 20px}
-.sec{font-size:13px;color:var(--sec);text-transform:uppercase;letter-spacing:.2px;margin:0 16px 7px}
-.shead{display:flex;align-items:baseline;justify-content:space-between}
-.small{font-size:15px;padding:4px 16px 7px}
-.link{color:var(--blue)}.danger{color:var(--red)}
-.card{display:block;width:100%;background:var(--card);border-radius:18px;padding:16px;margin-bottom:22px;text-align:left;color:var(--text)}
-.card.plan{margin-bottom:12px}
-.meta{font-size:13px;color:var(--sec);margin:8px 0 0}
-.body{margin:0;font-size:16px;white-space:pre-wrap}
-.who{display:flex;align-items:center;gap:12px;margin-bottom:16px}.who b{display:block;font-size:18px}.who span{font-size:14px;color:var(--sec)}
-.av{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-size:14px;font-weight:600;background:linear-gradient(#5aa2ff,#0071e3)}
-.av.lg{width:56px;height:56px;font-size:20px;background:linear-gradient(#0066ff,#081534)}
-.av.sm{width:34px;height:34px;font-size:12px}
-.cbtns{display:flex;justify-content:space-around;gap:6px}
-.cb{flex:1;max-width:76px;display:grid;justify-items:center;gap:5px;font-size:11px;color:var(--blue);text-decoration:none;text-align:center}
-.cbi{width:48px;height:48px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08);display:grid;place-items:center}.cbi .ic{width:22px;height:22px}
-.cb.off{opacity:.35;pointer-events:none}
-.ring{width:56px;height:56px;transform:rotate(-90deg);flex:none}.ring circle{fill:none;stroke-width:4;stroke-linecap:round}.rt{stroke:var(--fill)}.rv{stroke:var(--green);transition:stroke-dasharray .4s}
-.th{display:flex;align-items:center;gap:14px}.th b{display:block;font-size:22px}.th span{font-size:14px;color:var(--sec)}
-.group{background:var(--card);border-radius:14px;overflow:hidden;margin-bottom:24px}
-.row{display:flex;gap:12px;align-items:center;width:100%;min-height:50px;padding:9px 16px;position:relative;color:var(--text);text-decoration:none}
-.row+.row::before{content:'';position:absolute;top:0;left:68px;right:0;height:.5px;background:var(--sep)}
-.row.plain+.row.plain::before{left:52px}
-.row.np+.row.np::before{left:16px}
-button.row:active,.rowlink:active{opacity:.55}
-.rowlink{display:flex;gap:12px;align-items:center;flex:1;min-width:0;color:inherit;text-decoration:none;cursor:pointer}
+svg{width:22px;height:22px;flex:none}
+.top{position:sticky;top:0;z-index:5;padding-top:env(safe-area-inset-top);background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid var(--sp)}
+.top-in{max-width:720px;margin:0 auto;height:50px;display:flex;align-items:center;justify-content:space-between;padding:0 14px 0 20px}
+.add{width:34px;height:34px;border-radius:50%;background:var(--f);color:var(--b);display:grid;place-items:center}.add svg{width:20px;height:20px}
+.wrap{max-width:720px;margin:0 auto;padding:18px 20px calc(110px + env(safe-area-inset-bottom))}
+h1{font-size:32px;font-weight:700;margin:0 0 4px;letter-spacing:-.8px}
+.sub{color:var(--s);font-size:15px;margin:0 0 24px}
+.sec{font-size:13px;font-weight:600;color:var(--s);text-transform:uppercase;letter-spacing:.5px;margin:0 4px 10px;display:flex;justify-content:space-between}
+.sec button{color:var(--b);text-transform:none;letter-spacing:0;font-size:15px;font-weight:500}
+.card,.group{background:#fff;border:1px solid var(--l);border-radius:18px;box-shadow:var(--sh);margin-bottom:24px}
+.card{display:block;width:100%;padding:18px;text-align:left;color:var(--t);transition:transform .15s}
+button.card:active,.ql:active,.cb:active{transform:scale(.97)}
+.group{overflow:hidden}
+.row{display:flex;gap:12px;align-items:center;width:100%;min-height:54px;padding:10px 16px;position:relative;color:var(--t);text-decoration:none}
+.row+.row::before{content:'';position:absolute;top:0;left:16px;right:0;height:1px;background:var(--sp)}
+button.row:active{background:#f5f5f7}
 .rc{flex:1;min-width:0;display:grid;gap:2px}
-.t{font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.s{font-size:14px;color:var(--sec);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.when{color:var(--sec);font-size:14px;white-space:nowrap}
-.struck{text-decoration:line-through;color:var(--sec)}
-.ck{width:24px;height:24px;border-radius:50%;border:2px solid #c7c7cc;flex:none;display:grid;place-items:center;color:transparent}
-.ck .ic{width:15px;height:15px}.ck.on{background:var(--blue);border-color:var(--blue);color:#fff}.ck.add{border-style:dashed;border-color:var(--blue);color:var(--blue)}
-.step{display:inline-flex;background:var(--fill);border-radius:9px;flex:none}
-.step button{width:42px;height:34px;font-size:22px;line-height:1;text-align:center;color:var(--blue)}
-.step button+button{border-left:.5px solid #d1d1d6}
-.gl{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}.gl b{display:block;font-size:22px}.gl span{font-size:14px;color:var(--sec)}
-.bar{height:6px;background:var(--fill);border-radius:3px;overflow:hidden;margin-top:10px}.bar i{display:block;height:100%;background:var(--blue);border-radius:3px;transition:width .4s}
-.ph{display:flex;justify-content:space-between;gap:10px;align-items:baseline}.ph b{font-size:17px}
-.qlinks{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:24px}
-.ql{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:14px;padding:10px;color:var(--text);text-decoration:none;font-size:15px;min-width:0}
-.ql span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.badge{flex:none;font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;color:var(--c);background:color-mix(in srgb,var(--c) 14%,transparent);white-space:nowrap}
-.more{color:var(--sec);padding:8px;flex:none}.more .ic{width:22px;height:22px}
-.search{display:flex;align-items:center;gap:6px;background:var(--card);border-radius:10px;height:38px;padding:0 10px;margin-bottom:18px;color:var(--sec)}
-.search .ic{width:17px;height:17px}
-.search input{flex:1;border:0;background:none;outline:none;font-size:17px;min-width:0;color:var(--text)}
-.empty{text-align:center;color:var(--sec);padding:40px 16px;font-size:15px}.empty b{display:block;color:var(--text);font-size:20px;margin-bottom:6px}
-.note{font-size:13px;color:var(--sec);margin:-14px 16px 24px}
-.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--bar);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-top:.5px solid var(--sep);padding-bottom:env(safe-area-inset-bottom)}
-.tabbar-in{max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
-.tab{display:grid;justify-items:center;gap:2px;padding:7px 0 5px;font-size:10px;font-weight:500;color:#8e8e93;text-align:center}.tab .ic{width:26px;height:26px}.tab.on{color:var(--blue)}
-.scrim{position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:20;animation:fa .25s}
-.sheet{position:fixed;left:0;right:0;bottom:0;top:calc(env(safe-area-inset-top) + 10px);z-index:21;max-width:680px;margin:0 auto;background:#fff;border-radius:14px 14px 0 0;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 -4px 30px rgba(0,0,0,.08);animation:up .36s cubic-bezier(.2,.9,.25,1)}
-@media(min-width:700px){.sheet{top:40px;bottom:40px;border-radius:16px}}
-.shandle{background:var(--bar);border-bottom:.5px solid var(--sep);touch-action:none}
-.grab{width:36px;height:5px;border-radius:3px;background:#c7c7cc;margin:6px auto 0}
-.sbar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 10px}
-.sbar strong{font-weight:600}.sbar>:last-child{justify-self:end}
-.sbody{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:16px 16px calc(40px + env(safe-area-inset-bottom))}
-.acts3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
-.act{display:block;background:var(--card);border-radius:12px;padding:12px 6px;text-align:center;color:var(--blue);font-size:15px;font-weight:500;text-decoration:none}
-.f{display:block;padding:9px 16px;position:relative}
-.f+.f::before{content:'';position:absolute;top:0;left:16px;right:0;height:.5px;background:var(--sep)}
-.f small{display:block;font-size:13px;color:var(--sec);margin-bottom:2px}
-.f input,.f textarea,.f select{width:100%;border:0;background:none;outline:none;padding:2px 0;font-size:17px;min-height:26px;-webkit-appearance:none;appearance:none;text-align:left;color:var(--text)}
-.f select{color:var(--blue)}
-.f input::-webkit-date-and-time-value{text-align:left}
-.f textarea{min-height:80px;resize:vertical}
-.f textarea.big{min-height:46vh}
-.f.sw{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px}
-.f input.switch{-webkit-appearance:none;appearance:none;width:51px;height:31px;min-height:0;border-radius:31px;background:#e9e9ea;position:relative;flex:none;transition:.2s;cursor:pointer;margin:0;padding:0}
-.switch::after{content:'';position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.18);transition:.2s}
-.f input.switch:checked{background:var(--green)}.switch:checked::after{transform:translateX(20px)}
-.task{gap:12px}.tin{flex:1;min-width:0;border:0;background:none;outline:none;font-size:17px;padding:4px 0;color:var(--text)}
-.x{color:#aeaeb2;font-size:26px;padding:2px 6px;line-height:1}
-.btn{display:block;width:100%;background:var(--card);color:var(--red);border-radius:12px;padding:14px;text-align:center;margin-bottom:10px}
-.btn.pri{background:var(--blue);color:#fff;font-weight:600}
-.sync{position:fixed;top:calc(env(safe-area-inset-top) + 52px);left:50%;transform:translateX(-50%);z-index:30;font-size:12px;color:var(--sec);background:#fff;border:.5px solid var(--sep);border-radius:999px;padding:4px 10px;opacity:0;pointer-events:none;transition:opacity .2s}.sync.on{opacity:1}
-.toast{position:fixed;bottom:calc(76px + env(safe-area-inset-bottom));left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:40;background:#1d1d1f;color:#fff;padding:12px 16px;border-radius:14px;font-size:15px;font-weight:500;box-shadow:0 8px 30px rgba(0,0,0,.2);transition:.3s;max-width:calc(100vw - 32px);text-align:center}
-.toast.show{opacity:1;transform:translate(-50%,0)}.toast.bad{background:var(--red)}
-@keyframes up{from{transform:translateY(100%)}}@keyframes fa{from{opacity:0}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.lk{flex:1;min-width:0;display:flex;gap:12px;align-items:center;color:inherit;text-decoration:none;cursor:pointer}
+.t{font-size:16px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s{font-size:13px;color:var(--s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m{font-size:13px;color:var(--s);margin:8px 0 0}
+.done{text-decoration:line-through;color:#aeaeb2}
+.av{width:40px;height:40px;border-radius:12px;flex:none;display:grid;place-items:center;color:#fff;font-size:14px;font-weight:600;background:#0071e3}
+.av.lg{width:58px;height:58px;border-radius:50%;font-size:20px;background:linear-gradient(135deg,#0066ff,#081534)}
+.av.sm{width:30px;height:30px;border-radius:9px;font-size:11px}
+.who{display:flex;align-items:center;gap:14px;margin-bottom:16px}.who b{display:block;font-size:19px}
+.cbs{display:flex;gap:8px}
+.cb{flex:1;display:grid;justify-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--b);text-decoration:none;padding:11px 0;border-radius:14px;background:#f5f5f7}
+.cb.off{opacity:.35;pointer-events:none}
+.ck{width:24px;height:24px;border-radius:50%;border:2px solid #d2d2d7;flex:none;display:grid;place-items:center;color:transparent}
+.ck svg{width:14px;height:14px}.ck.on{background:var(--b);border-color:var(--b);color:#fff}
+.big{display:flex;align-items:center;gap:16px}.big b{display:block;font-size:24px;font-weight:700}
+svg.ring{width:56px;height:56px;transform:rotate(-90deg)}.ring circle{fill:none;stroke-width:4;stroke-linecap:round}
+.step{display:inline-flex;background:#f5f5f7;border:1px solid var(--l);border-radius:10px;overflow:hidden;flex:none}
+.step button{width:42px;height:34px;font-size:20px;text-align:center;color:var(--b)}.step button+button{border-left:1px solid var(--l)}
+.bar{height:6px;background:var(--f);border-radius:3px;overflow:hidden;margin-top:12px}.bar i{display:block;height:100%;background:linear-gradient(90deg,#0071e3,#2997ff)}
+.ph{display:flex;justify-content:space-between;gap:10px;align-items:center}.ph b{font-size:17px}
+.qls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:24px}
+.ql{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--l);border-radius:16px;padding:10px 12px;color:var(--t);text-decoration:none;box-shadow:var(--sh);min-width:0}
+.badge{font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;color:#c25e00;background:#fff3e0;flex:none}
+.ed{color:#aeaeb2;padding:8px;flex:none}
+.search{display:flex;align-items:center;gap:8px;background:var(--f);border-radius:12px;height:40px;padding:0 12px;margin-bottom:22px;color:var(--s)}
+.search svg{width:17px}.search input{flex:1;border:0;background:none;outline:none;font-size:17px;min-width:0}
+.empty{text-align:center;color:var(--s);padding:48px 16px}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:10;background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-top:1px solid var(--sp);padding-bottom:env(safe-area-inset-bottom)}
+.tabs div{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);padding:6px 8px 4px}
+.tab{display:grid;justify-items:center;gap:3px;padding:6px 0;font-size:10.5px;font-weight:500;color:#8e8e93}.tab.on{color:var(--b);font-weight:600}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.22);z-index:20}
+.sheet{position:fixed;left:0;right:0;bottom:0;top:calc(env(safe-area-inset-top) + 12px);z-index:21;max-width:680px;margin:0 auto;background:#f7f7f9;border-radius:16px 16px 0 0;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 -8px 40px rgba(0,0,0,.12);animation:up .35s cubic-bezier(.2,.9,.25,1)}
+@keyframes up{from{transform:translateY(100%)}}
+.sbar{display:flex;align-items:center;justify-content:space-between;min-height:52px;padding:0 16px;background:#fff;border-bottom:1px solid var(--sp)}
+.sbar button{color:var(--b);font-weight:600;font-size:17px}
+.sbody{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:20px 16px calc(40px + env(safe-area-inset-bottom))}
+.sbody .group{box-shadow:none}
+.f{display:block;padding:10px 16px;position:relative}
+.f+.f::before{content:'';position:absolute;top:0;left:16px;right:0;height:1px;background:var(--sp)}
+.f small{display:block;font-size:12px;font-weight:600;color:var(--s);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
+.f input,.f textarea,.f select,.tin{width:100%;border:0;background:none;outline:none;padding:2px 0;font-size:17px;min-height:26px;-webkit-appearance:none;appearance:none;color:var(--t)}
+.f select{color:var(--b)}
+.f textarea{min-height:84px;resize:vertical}.f textarea.tall{min-height:45vh}
+.sw{display:flex;align-items:center;justify-content:space-between}
+.f input.tg{width:51px;height:31px;min-height:0;border-radius:31px;background:#e9e9eb;position:relative;flex:none;transition:.2s;padding:0}
+.tg::after{content:'';position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.18);transition:.2s}
+.f input.tg:checked{background:var(--g)}.tg:checked::after{transform:translateX(20px)}
+.tin{flex:1;min-width:0;font-size:16px}
+.x{color:#c7c7cc;font-size:24px;padding:0 6px}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.act{background:#fff;border:1px solid var(--l);border-radius:14px;padding:12px;text-align:center;color:var(--b);font-weight:600;text-decoration:none}
+.del{display:block;width:100%;background:#fff;border:1px solid var(--l);color:var(--r);border-radius:14px;padding:14px;text-align:center}
+.toast{position:fixed;bottom:calc(84px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);opacity:0;pointer-events:none;z-index:40;background:#1d1d1f;color:#fff;padding:12px 18px;border-radius:14px;font-size:15px;transition:.3s;max-width:calc(100vw - 32px)}
+.toast.show{opacity:1}.toast.bad{background:var(--r)}
 </style>
 </head>
 <body>
-<div id="app"></div><nav id="tabbar" class="tabbar" aria-label="Main"></nav><div id="sheet"></div><div id="sync" class="sync" aria-hidden="true">Saving…</div><div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="app"></div><nav id="tabs" class="tabs"></nav><div id="sheet"></div><div id="toast" class="toast"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (()=>{'use strict';
-const SUPABASE_URL='https://zfihwiolrxddfphehngt.supabase.co';
-const SUPABASE_KEY='sb_publishable_U_bLYn66mCOH_liYsGEDFw_bL2WzC6K';
-const TB={settings:'gsm_settings',links:'gsm_links',plans:'gsm_plans',tasks:'gsm_tasks',notes:'gsm_notes',daily:'gsm_daily_tasks',log:'gsm_daily_log'};
-const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const GROUPS=['Official','Social','Tools','Listings','Forms','Other'];
-const GC={Official:'#0071e3',Social:'#ff2d55',Tools:'#5856d6',Listings:'#ff9500',Forms:'#34c759',Other:'#8e8e93'};
-const I=p=>`<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
-const ICON={home:I('<path d="M3.5 11 12 4l8.5 7M6 9.5V20h4.5v-5h3v5H18V9.5"/>'),link:I('<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'),
-plan:I('<path d="M9 6h11M9 12h11M9 18h11"/><path d="m3.5 6 1.2 1.2L7 5M3.5 12l1.2 1.2L7 11M3.5 18l1.2 1.2L7 17"/>'),note:I('<path d="M6 3.5h9l4 4V20a.5.5 0 0 1-.5.5h-12A.5.5 0 0 1 6 20z"/><path d="M15 3.5V8h4M9 12h7M9 15.5h7"/>'),
-more:I('<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01" stroke-width="2.8"/>'),plus:I('<path d="M12 5v14M5 12h14"/>'),search:I('<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/>'),
-mail:I('<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/>'),phone:I('<path d="M5.5 4h3l1.8 4.5-2.3 1.4a11 11 0 0 0 5.1 5.1l1.4-2.3L19 14.5v3A2.5 2.5 0 0 1 16.5 20 13.5 13.5 0 0 1 4 7.5 2.5 2.5 0 0 1 5.5 4z"/>'),
-wa:I('<path d="M5 19l1.2-3.6A7.5 7.5 0 1 1 9 18.4z"/><path d="M9.5 9.5c.3 1.8 2.2 3.7 4 4l1-1 1.5.8-.3 1.2c-2.8.4-6.6-3.4-6.2-6.2l1.2-.3.8 1.5z"/>'),
-globe:I('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/>'),check:I('<path d="m5 12.5 4.5 4.5L19 7.5"/>'),dots:I('<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01" stroke-width="2.6"/>')};
-const $=id=>document.getElementById(id),app=$('app'),sh=$('sheet');
-const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const fmtDay=d=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata'}).format(d);
-const today=()=>fmtDay(new Date());
-const addDays=(s,n)=>{const [y,m,d]=s.split('-').map(Number);return new Date(Date.UTC(y,m-1,d+n)).toISOString().slice(0,10)};
-const dayDiff=(a,b)=>Math.round((Date.parse(a)-Date.parse(b))/864e5);
-const niceDate=s=>{if(!s)return '';const [y,m,d]=String(s).slice(0,10).split('-');return `${+d} ${MON[+m-1]} ${y}`};
-const rel=iso=>{if(!iso)return '';const d=fmtDay(new Date(iso)),n=dayDiff(today(),d);return n===0?'Today':n===1?'Yesterday':niceDate(d)};
-const tms=v=>v?new Date(v).getTime():0;
-const inr=n=>'₹'+Math.round(n||0).toLocaleString('en-IN');
-const initials=s=>String(s||'').replace(/[^A-Za-z0-9\s]/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase()||'#';
-const digits=p=>{let d=String(p||'').replace(/\D/g,'');if(d.length===10)d='91'+d;return d.length>=11&&d.length<=13?d:''};
-const host=u=>{try{return new URL(u).hostname.replace(/^www\./,'')}catch(_){return u}};
-const badge=(l,c)=>`<span class="badge" style="--c:${c}">${esc(l)}</span>`;
-const bySort=(a,b)=>(a.sort||0)-(b.sort||0);
-const uuid=()=>{if(window.crypto&&crypto.randomUUID)return crypto.randomUUID();const b=crypto.getRandomValues(new Uint8Array(16));b[6]=b[6]&15|64;b[8]=b[8]&63|128;const h=[...b].map(x=>x.toString(16).padStart(2,'0')).join('');return `${h.slice(0,8)}-${h.slice(8,12)}-${h.slice(12,16)}-${h.slice(16,20)}-${h.slice(20)}`};
-function toast(m,bad){const t=$('toast');t.textContent=m;t.className='toast show'+(bad?' bad':'');clearTimeout(toast.t);toast.t=setTimeout(()=>t.className='toast',2800)}
+const $=i=>document.getElementById(i),app=$('app'),sh=$('sheet');
+if(!window.supabase){app.innerHTML='<p class="empty">No internet. Please refresh.</p>';return}
+const sb=supabase.createClient('https://zfihwiolrxddfphehngt.supabase.co','sb_publishable_U_bLYn66mCOH_liYsGEDFw_bL2WzC6K',{auth:{persistSession:false}});
+const T={st:'gsm_settings',li:'gsm_links',pl:'gsm_plans',ta:'gsm_tasks',no:'gsm_notes',da:'gsm_daily_tasks',lg:'gsm_daily_log'};
+const I=p=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
+const IC={home:I('<path d="M4 11 12 4l8 7M6 10v10h12V10"/>'),link:I('<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'),plan:I('<path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/>'),note:I('<path d="M6 3h9l4 4v14H6zM9 12h7M9 16h7"/>'),more:I('<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01"/>'),plus:I('<path d="M12 5v14M5 12h14"/>'),search:I('<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/>'),mail:I('<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/>'),phone:I('<path d="M5.5 4h3l2 4.5-2.5 1.5a11 11 0 0 0 5 5l1.5-2.5 4.5 2v3a2.5 2.5 0 0 1-2.5 2.5A14 14 0 0 1 3 6.5 2.5 2.5 0 0 1 5.5 4z"/>'),chat:I('<path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4A8 8 0 1 1 20 11.5z"/>'),globe:I('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>'),check:I('<path d="m5 12.5 4.5 4.5L19 7.5"/>'),dots:I('<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01"/>')};
+const E=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const day=d=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata'}).format(d||new Date());
+const diff=(a,b)=>Math.round((Date.parse(a)-Date.parse(b))/864e5);
+const MO='Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ');
+const nd=s=>{if(!s)return '';const [y,m,d]=String(s).slice(0,10).split('-');return `${+d} ${MO[m-1]} ${y}`};
+const ini=s=>String(s||'').replace(/[^A-Za-z0-9 ]/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase()||'#';
+const host=u=>{try{return new URL(u).hostname.replace(/^www\./,'')}catch(e){return u}};
+const so=(a,b)=>(a.sort||0)-(b.sort||0);
+const uid=()=>crypto.randomUUID?crypto.randomUUID():'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.random()*16|0;return (c==='x'?r:(r&3|8)).toString(16)});
+const GR=['Official','Social','Tools','Listings','Forms','Other'],GC={Official:'#0071e3',Social:'#ff2d55',Tools:'#5856d6',Listings:'#ff9500',Forms:'#34c759',Other:'#8e8e93'};
+function toast(m,bad){const t=$('toast');t.textContent=m;t.className='toast show'+(bad?' bad':'');clearTimeout(toast.x);toast.x=setTimeout(()=>t.className='toast',2600)}
 
-function defaults(){let n=0;const L=(title,url,grp,note='',fav=false)=>({id:uuid(),title,url,grp,note,fav,sort:++n});
-const plans=[],tasks=[],notes=[];
-const P=(title,sub,s,e,list,pnotes='')=>{const id=uuid();plans.push({id,title,sub,start_date:s||null,end_date:e||null,notes:pnotes,sort:plans.length+1});list.forEach((t,i)=>tasks.push({id:uuid(),plan_id:id,title:Array.isArray(t)?t[0]:t,done:Array.isArray(t)&&!!t[1],sort:i+1}))};
-const N=(title,body,pinned=false)=>notes.push({id:uuid(),title,body,pinned});
-P('30-day influencer growth plan','Influencer marketing, website and SEO, client acquisition, automation','2026-11-05','2026-12-04',['Create influencer marketing packages','Build a 100+ influencer database','Prepare the influencer pitch deck','Draft a collaboration agreement template','Set up campaign tracking'],'20 tasks in total. Add the remaining ones here.');
-P('Daily podcast','181 episodes · AI narrated, faceless, English, about 60 seconds','2026-11-15','2027-05-14',[['Ep 1 · Why good businesses don\'t get leads online',1],['Ep 2 · Three reasons customers can\'t find your business',1],['Ep 3 · What makes a strong digital marketing strategy',1],['Ep 4 · How to identify your ideal customer',1],'Ep 5 · Why likes don\'t always mean sales','Ep 6 · How to create an irresistible offer','Ep 7 · Why your business needs a clear call to action'],'Phase 1: Lead generation foundations. Full tracker is in Google Drive.');
-P('First 10 paying clients','SMEs in Mumbai, Navi Mumbai, Thane and Pune','','',['Send 25 personalised outreach emails every day','LinkedIn networking every day','Research new prospects every day','Follow up with every lead']);
-P('Business listings','Be easy to find online','','',[['Google Business Profile',1],['IndiaMART free listing',1],['Justdial listing',1],'Bing Places listing','Other business directories']);
-P('Website and brand','Ongoing work','','',['Work on the new deck','Review and update the main website','Improve the blog theme','Update the professional email signature','Add real client work to the portfolio']);
-N('Services','Social media marketing\nPerformance marketing (Google Ads, Meta Ads)\nInfluencer marketing\nContent marketing\nSEO and organic growth\nWebsite development\nWebsite optimisation\nBranding\nGraphic design\nLead generation',true);
-N('Brand style','Tagline: Creative thinking. Actual growth.\nColours: Navy #081534 · Blue #0066FF · White #FFFFFF\nAccents: Purple #7356FF · Yellow #FFE66B\nWriting: Indian English, short, confident and friendly\nAlways use the original GS logo\nNever show fake clients, testimonials, awards or numbers',true);
-N('Target market','India first, international later\nSmall and medium businesses\nCities: Mumbai, Navi Mumbai, Thane, Pune, then wider India\nIndustries: D2C brands, cafés and restaurants, clinics, gyms, coaching institutes, fashion brands, real estate, SMEs, finance creators\nPlanning estimate: ₹5,000–30,000 per client per month');
-N('Outreach style','Short, personalised, simple English\nShare the agency journey and ask for advice\nRespectful: Sir, Ma\'am, ji\nLeads: 25 new a day, publicly listed emails only, no guessed emails, no duplicates, keep the source link');
-N('LinkedIn daily post','One 1080×1080 image\nCaption 100–150 words, 3–5 hashtags\n80% educational, 20% subtle branding\nHeadline 9 words max, 3–4 useful insights\nReal GS logo, brand colours and email\nReliable, current sources · no repeated topics');
-N('Blog','Daily around 8 AM IST, Blogger-ready HTML\n70% influencer marketing, 30% other services\nMumbai and India focus, SEO-friendly topics\nRotate: SEO, ads, AI, LinkedIn growth, branding, website optimisation, lead generation, content strategy, trends');
-N('Podcast','181 daily episodes · 15 Nov 2026 to 14 May 2027\nAI narrated, faceless, English, about 60 seconds\nThumbnail: original GS logo, clean white background, navy and electric blue, studio microphone\nText: episode number and topic only\nYouTube 1280×720 · Reels 9:16 · LinkedIn landscape\nNo waveform, no LinkedIn logo or "LinkedIn Podcast" wording');
-N('Tally enquiry form','Name: Let\'s Work Together\nHeading: Tell us about your project\nFields: full name, email, phone, service required, project details, budget, timeline\nServices: branding, social media marketing, website development, SEO, graphic design, other\nDesign: white, black, purple and yellow');
-return {profile:{name:'GS Enterprises Digital',tagline:'Creative thinking. Actual growth.',founder:'Harsh Upadhyay',role:'Founder',email:'gsenterprises.digital@gmail.com',phone:'+91 8291692332',city:'Mumbai, Maharashtra',website:'https://gsenterprisesdigital-sudo.github.io/GS-ENTERPRISES-DIGITAL-WEBSITE/',goal:'Build a trusted, profitable and scalable digital marketing agency with consistent client acquisition, monthly recurring revenue, strong retention and international expansion.'},
-goals:{clients:0,target:10,fee:15000,emailsGoal:25},
-links:[L('Official website','https://gsenterprisesdigital-sudo.github.io/GS-ENTERPRISES-DIGITAL-WEBSITE/','Official','',true),L('Blogger blog','https://gsenterprisesdigital.blogspot.com','Official','',true),L('Portfolio (Google Drive)','','Official','Folder opened by "Explore our portfolio"'),
-L('Instagram','https://www.instagram.com/gsenterprises.digital/','Social','',true),L('Facebook page','https://www.facebook.com/profile.php?id=61596259827445','Social'),L('YouTube','https://www.youtube.com/@GsEnterprisesDigital','Social','',true),L('LinkedIn company page','https://www.linkedin.com/company/gs-enterprises-digital','Social','',true),
-L('Gmail','https://mail.google.com/mail/?authuser=gsenterprises.digital@gmail.com','Tools','',true),L('LinkedIn outreach CRM','https://gsenterprisesdigital-sudo.github.io/linkidein-outreach/','Tools','',true),L('Supabase','https://supabase.com/dashboard/project/zfihwiolrxddfphehngt','Tools'),L('GitHub','https://github.com/gsenterprisesdigital-sudo','Tools'),
-L('Google review link','https://g.page/r/CUNK9zJfS0o3EBI/review','Listings','Share with happy clients'),L('Justdial listing','','Listings'),L('IndiaMART listing','','Listings'),L('Tally enquiry form','','Forms','Let\'s Work Together'),L('Intern registration form','','Forms')],
-plans,tasks,notes,daily:['Publish SEO blog','Instagram post','Facebook post','LinkedIn post','Podcast thumbnail ready','Podcast published on YouTube','LinkedIn networking','Research new prospects','Follow-ups done'].map((t,i)=>({id:uuid(),title:t,sort:i+1}))}}
+function seedData(){let n=0;const L=(title,url,grp,fav)=>({id:uid(),title,url,grp,note:'',fav:!!fav,sort:++n}),plans=[],tasks=[];
+const P=(title,sub,s,e,list)=>{const id=uid();plans.push({id,title,sub,start_date:s,end_date:e,notes:'',sort:plans.length+1});list.forEach((t,i)=>tasks.push({id:uid(),plan_id:id,title:t.replace(/^\+/,''),done:t[0]==='+',sort:i+1}))};
+P('30-day influencer growth plan','Influencer marketing, SEO, client acquisition, automation','2026-11-05','2026-12-04',['Create influencer marketing packages','Build a 100+ influencer database','Prepare the influencer pitch deck','Draft a collaboration agreement template','Set up campaign tracking']);
+P('Daily podcast','181 episodes · AI narrated, faceless, about 60 seconds','2026-11-15','2027-05-14',["+Ep 1 · Why good businesses don't get leads online","+Ep 2 · Three reasons customers can't find your business",'+Ep 3 · What makes a strong digital marketing strategy','+Ep 4 · How to identify your ideal customer',"Ep 5 · Why likes don't always mean sales",'Ep 6 · How to create an irresistible offer','Ep 7 · Why your business needs a clear call to action']);
+P('First 10 paying clients','SMEs in Mumbai, Navi Mumbai, Thane and Pune',null,null,['Send 25 personalised outreach emails daily','LinkedIn networking daily','Research new prospects daily','Follow up with every lead']);
+P('Business listings','Be easy to find online',null,null,['+Google Business Profile','+IndiaMART free listing','+Justdial listing','Bing Places listing','Other business directories']);
+P('Website and brand','Ongoing work',null,null,['Work on the new deck','Review and update the main website','Improve the blog theme','Update the email signature','Add real client work to the portfolio']);
+const N=(title,body,pinned)=>({id:uid(),title,body,pinned:!!pinned});
+return {profile:{name:'GS Enterprises Digital',tagline:'Creative thinking. Actual growth.',founder:'Harsh Upadhyay',role:'Founder',city:'Mumbai',email:'gsenterprises.digital@gmail.com',phone:'+91 8291692332',website:'https://gsenterprisesdigital-sudo.github.io/GS-ENTERPRISES-DIGITAL-WEBSITE/',goal:'Build a trusted, profitable and scalable digital marketing agency with consistent clients, monthly recurring revenue, strong retention and international expansion.'},
+goals:{clients:0,target:10,fee:15000,emails:25},
+links:[L('Official website','https://gsenterprisesdigital-sudo.github.io/GS-ENTERPRISES-DIGITAL-WEBSITE/','Official',1),L('Blogger blog','https://gsenterprisesdigital.blogspot.com','Official',1),L('Portfolio (Google Drive)','','Official'),L('Instagram','https://www.instagram.com/gsenterprises.digital/','Social',1),L('Facebook page','https://www.facebook.com/profile.php?id=61596259827445','Social'),L('YouTube','https://www.youtube.com/@GsEnterprisesDigital','Social',1),L('LinkedIn company page','https://www.linkedin.com/company/gs-enterprises-digital','Social',1),L('Gmail','https://mail.google.com/mail/?authuser=gsenterprises.digital@gmail.com','Tools',1),L('LinkedIn outreach CRM','https://gsenterprisesdigital-sudo.github.io/linkidein-outreach/','Tools',1),L('Supabase','https://supabase.com/dashboard/project/zfihwiolrxddfphehngt','Tools'),L('GitHub','https://github.com/gsenterprisesdigital-sudo','Tools'),L('Google review link','https://g.page/r/CUNK9zJfS0o3EBI/review','Listings'),L('Justdial listing','','Listings'),L('IndiaMART listing','','Listings'),L('Tally enquiry form','','Forms'),L('Intern registration form','','Forms')],
+plans,tasks,
+notes:[N('Services','Social media marketing\nPerformance marketing (Google Ads, Meta Ads)\nInfluencer marketing\nContent marketing\nSEO\nWebsite development and optimisation\nBranding and graphic design\nLead generation',1),N('Brand style','Navy #081534 · Blue #0066FF · White\nIndian English, short, confident, friendly\nAlways use the original GS logo\nNo fake clients, testimonials or numbers',1),N('Target market','SMEs in Mumbai, Navi Mumbai, Thane, Pune\nD2C, cafés, clinics, gyms, coaching, fashion, real estate, finance creators\n₹5,000–30,000 per client per month (estimate)'),N('Outreach style','Short, personalised, simple English\nAsk for advice, share the journey\nSir, Ma\'am, ji\n25 new leads a day, public emails only, no duplicates'),N('Content rules','LinkedIn: 1080×1080 image, 100–150 words, 3–5 hashtags, 80% educational\nBlog: daily 8 AM, 70% influencer marketing\nPodcast: 60 sec, white thumbnail, episode number and topic only')],
+daily:['Publish SEO blog','Instagram post','Facebook post','LinkedIn post','Podcast thumbnail ready','Podcast published on YouTube','LinkedIn networking','Research new prospects','Follow-ups done'].map((t,i)=>({id:uid(),title:t,sort:i+1}))}}
 
-let sb=null,S={profile:{},goals:{},links:[],plans:[],tasks:[],notes:[],daily:[],log:{}},view='home',q='',sheet=null,drag=null,saving=0;
-const pend=new Map();
-function setSync(){$('sync').className='sync'+((saving+pend.size)?' on':'')}
-function queue(t,r,delay=600){const k=t+':'+(r.id||r.key||r.day),p=pend.get(k);if(p)clearTimeout(p.timer);const timer=setTimeout(()=>{pend.delete(k);push(t,r)},delay);pend.set(k,{timer,t,r});setSync()}
-async function push(t,r){saving++;setSync();const row={...r,updated_at:new Date().toISOString()};delete row.created_at;const {error}=await sb.from(t).upsert(row);saving--;setSync();if(error)toast("Couldn't save: "+error.message,true)}
-function flush(){for(const [k,p] of pend){clearTimeout(p.timer);pend.delete(k);push(p.t,p.r)}}
-async function remove(t,id){const k=t+':'+id,p=pend.get(k);if(p){clearTimeout(p.timer);pend.delete(k)}saving++;setSync();const {error}=await sb.from(t).delete().eq('id',id);saving--;setSync();if(error)toast("Couldn't delete: "+error.message,true)}
-async function fetchT(t,order){const {data,error}=await sb.from(t).select('*').order(order,{ascending:true}).limit(5000);if(error)throw error;return data}
-async function seed(){const D=defaults();for(const [t,rows] of [[TB.settings,[{key:'profile',value:D.profile},{key:'goals',value:D.goals}]],[TB.links,D.links],[TB.plans,D.plans],[TB.tasks,D.tasks],[TB.notes,D.notes],[TB.daily,D.daily]]){const {error}=await sb.from(t).upsert(rows);if(error)throw error}}
-async function load(again){const [st,li,pl,ta,no,da]=await Promise.all([fetchT(TB.settings,'key'),fetchT(TB.links,'sort'),fetchT(TB.plans,'sort'),fetchT(TB.tasks,'sort'),fetchT(TB.notes,'updated_at'),fetchT(TB.daily,'sort')]);
-const lr=await sb.from(TB.log).select('*').gte('day',addDays(today(),-60));if(lr.error)throw lr.error;
-const prof=st.find(r=>r.key==='profile');if(!again&&!prof&&!li.length&&!pl.length&&!no.length&&!da.length){await seed();return load(true)}
-S.profile=prof?prof.value:{};S.goals={clients:0,target:10,fee:15000,emailsGoal:25,...((st.find(r=>r.key==='goals')||{}).value||{})};
-S.links=li;S.plans=pl;S.tasks=ta;S.notes=no;S.daily=da;S.log={};lr.data.forEach(r=>{S.log[r.day]={day:r.day,done:Array.isArray(r.done)?r.done:[],emails:r.emails||0}})}
+let S,view='home',q='',sheet=null;const pend=new Map();
+function put(t,r,ms=500){const k=t+(r.id||r.key||r.day),p=pend.get(k);if(p)clearTimeout(p.h);pend.set(k,{t,r,h:setTimeout(()=>{pend.delete(k);send(t,r)},ms)})}
+async function send(t,r){const o={...r,updated_at:new Date().toISOString()};delete o.created_at;const {error}=await sb.from(t).upsert(o);if(error)toast('Not saved: '+error.message,true)}
+async function drop(t,id){const k=t+id,p=pend.get(k);if(p){clearTimeout(p.h);pend.delete(k)}const {error}=await sb.from(t).delete().eq('id',id);if(error)toast('Not deleted: '+error.message,true)}
+function flush(){pend.forEach((p,k)=>{clearTimeout(p.h);pend.delete(k);send(p.t,p.r)})}
+async function get(t,o){const {data,error}=await sb.from(t).select('*').order(o).limit(5000);if(error)throw error;return data}
+async function seed(){const D=seedData();for(const [t,rows] of [[T.st,[{key:'profile',value:D.profile},{key:'goals',value:D.goals}]],[T.li,D.links],[T.pl,D.plans],[T.ta,D.tasks],[T.no,D.notes],[T.da,D.daily]]){const {error}=await sb.from(t).upsert(rows);if(error)throw error}}
+async function load(seeded){const [st,li,pl,ta,no,da,lg]=await Promise.all([get(T.st,'key'),get(T.li,'sort'),get(T.pl,'sort'),get(T.ta,'sort'),get(T.no,'updated_at'),get(T.da,'sort'),get(T.lg,'day')]);
+if(!seeded&&!st.length&&!li.length&&!pl.length){await seed();return load(1)}
+const v=k=>(st.find(r=>r.key===k)||{}).value||{};
+S={profile:v('profile'),goals:{clients:0,target:10,fee:15000,emails:25,...v('goals')},links:li,plans:pl,tasks:ta,notes:no,daily:da,log:{}};lg.forEach(r=>{S.log[r.day]={day:r.day,done:r.done||[],emails:r.emails||0}})}
+const tk=id=>S.tasks.filter(t=>t.plan_id===id).sort(so);
+const lgT=()=>{const d=day();return S.log[d]||(S.log[d]={day:d,done:[],emails:0})};
+function info(p){const ts=tk(p.id),done=ts.filter(t=>t.done).length;let d=null,n=null;if(p.start_date&&p.end_date){n=diff(p.end_date,p.start_date)+1;d=Math.min(n,diff(day(),p.start_date)+1)}return {total:ts.length,done,d,n}}
 
-const tasksOf=id=>S.tasks.filter(t=>t.plan_id===id).sort(bySort);
-function planInfo(p){const ts=tasksOf(p.id),total=ts.length,done=ts.filter(t=>t.done).length;let day=null,days=null;if(p.start_date&&p.end_date){days=dayDiff(p.end_date,p.start_date)+1;day=Math.min(days,Math.max(0,dayDiff(today(),p.start_date)+1))}return {total,done,pct:total?done/total:0,day,days}}
-function dayLog(){const t=today();return S.log[t]||(S.log[t]={day:t,done:[],emails:0})}
-const nav=(l,c,r)=>`<div class="top"><div class="top-in">${l||'<span></span>'}${c||'<span></span>'}${r||'<span></span>'}</div></div>`;
-const addBtn=k=>`<button class="nb" data-new="${k}" aria-label="Add">${ICON.plus}</button>`;
-const searchBox=ph=>`<label class="search">${ICON.search}<input id="q" type="search" placeholder="${ph}" value="${esc(q)}" autocomplete="off" enterkeyhint="search" aria-label="${ph}"></label>`;
-const cb=(href,label,icon)=>href?`<a class="cb" href="${esc(href)}" ${/^https?:/.test(href)?'target="_blank" rel="noopener"':''}><span class="cbi">${icon}</span>${label}</a>`:`<span class="cb off"><span class="cbi">${icon}</span>${label}</span>`;
-function planCard(p){const i=planInfo(p),started=p.start_date&&today()>=p.start_date;return `<button class="card plan" data-plan="${p.id}"><div class="ph"><b>${esc(p.title||'Untitled plan')}</b>${i.days?`<span class="when">${started?`Day ${i.day} of ${i.days}`:`Starts ${niceDate(p.start_date)}`}</span>`:''}</div>${p.sub?`<p class="meta">${esc(p.sub)}</p>`:''}${i.total?`<div class="bar"><i style="width:${Math.round(i.pct*100)}%"></i></div><p class="meta">${i.done} of ${i.total} tasks done</p>`:''}</button>`}
+const hdr=add=>`<div class="top"><div class="top-in"><b>GS Master</b>${add?`<button class="add" data-new="${add}" aria-label="Add">${IC.plus}</button>`:''}</div></div>`;
+const srch=ph=>`<label class="search">${IC.search}<input id="q" type="search" placeholder="${ph}" value="${E(q)}" autocomplete="off"></label>`;
+function pc(p){const i=info(p);return `<button class="card" data-plan="${p.id}" style="margin-bottom:12px"><div class="ph"><b>${E(p.title||'Untitled plan')}</b>${i.n?`<span class="s">${i.d>0?`Day ${i.d} of ${i.n}`:'Starts '+nd(p.start_date)}</span>`:''}</div>${p.sub?`<p class="m">${E(p.sub)}</p>`:''}${i.total?`<div class="bar"><i style="width:${Math.round(i.done/i.total*100)}%"></i></div><p class="m">${i.done} of ${i.total} tasks done</p>`:''}</button>`}
+function home(){const p=S.profile,g=S.goals,l=S.log[day()]||{done:[],emails:0},dl=S.daily.slice().sort(so),em=l.emails>=g.emails,dn=dl.filter(t=>l.done.includes(t.id)).length+(em?1:0),tot=dl.length+1,ph=String(p.phone||'').replace(/\D/g,''),run=S.plans.filter(x=>x.end_date&&day()<=x.end_date).sort(so),fav=S.links.filter(x=>x.fav&&x.url).sort(so);
+const cb=(h,t,i)=>`<a class="cb ${h?'':'off'}" ${h?`href="${E(h)}" target="_blank" rel="noopener"`:''}>${i}${t}</a>`,rs=n=>'₹'+(n||0).toLocaleString('en-IN');
+return hdr()+`<main class="wrap"><h1>${E(p.name)}</h1><p class="sub">${E(p.tagline)}</p>
+<div class="card"><div class="who"><span class="av lg">${E(ini(p.name))}</span><div><b>${E(p.founder)}</b><span class="s">${E(p.role)} · ${E(p.city)}</span></div></div><div class="cbs">${cb(p.email&&'mailto:'+p.email,'Email',IC.mail)}${cb(ph&&'tel:+'+ph,'Call',IC.phone)}${cb(ph&&'https://wa.me/'+ph,'WhatsApp',IC.chat)}${cb(p.website,'Website',IC.globe)}</div></div>
+<p class="sec">Today<button data-open="daily">Edit</button></p>
+<div class="card"><div class="big"><svg class="ring" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5" stroke="#f2f2f7"/><circle cx="18" cy="18" r="15.5" stroke="#34c759" stroke-dasharray="${(dn/tot*97.4).toFixed(1)} 97.4"/></svg><div><b>${dn} of ${tot}</b><span class="s">${dn===tot?'All done today':'daily tasks done'}</span></div></div></div>
+<div class="group">${dl.map(t=>{const on=l.done.includes(t.id);return `<button class="row" data-day="${t.id}"><span class="ck ${on?'on':''}">${IC.check}</span><span class="t ${on?'done':''}">${E(t.title)}</span></button>`}).join('')}<div class="row"><span class="ck ${em?'on':''}">${IC.check}</span><span class="t ${em?'done':''}" style="flex:1">Outreach emails · ${l.emails}/${g.emails}</span><span class="step"><button data-em="-1">−</button><button data-em="1">+</button></span></div></div>
+${run.length?'<p class="sec">Running plans</p>'+run.map(pc).join('')+'<div style="height:12px"></div>':''}
+<p class="sec">Goal</p><div class="card"><div class="ph"><div><b style="font-size:24px">${g.clients} of ${g.target}</b><div class="s">paying clients</div></div><span class="step"><button data-cl="-1">−</button><button data-cl="1">+</button></span></div><div class="bar"><i style="width:${Math.min(100,g.clients/Math.max(1,g.target)*100)}%"></i></div><p class="m">Monthly revenue ${rs(g.clients*g.fee)} · at ${g.target} clients ${rs(g.target*g.fee)}</p></div>
+${fav.length?'<p class="sec">Quick links</p><div class="qls">'+fav.map(x=>`<a class="ql" href="${E(x.url)}" target="_blank" rel="noopener"><span class="av sm" style="background:${GC[x.grp]||GC.Other}">${E(ini(x.title))}</span><span class="t">${E(x.title)}</span></a>`).join('')+'</div>':''}
+${p.goal?`<p class="sec">Long-term goal</p><div class="card"><p style="margin:0;color:#424245">${E(p.goal)}</p></div>`:''}</main>`}
+function lrow(x){return `<div class="row"><a class="lk" ${x.url?`href="${E(x.url)}" target="_blank" rel="noopener"`:`data-link="${x.id}"`}><span class="av" style="background:${GC[x.grp]||GC.Other}">${E(ini(x.title))}</span><span class="rc"><span class="t">${E(x.title||'Untitled')}${x.fav?' ★':''}</span><span class="s">${E(x.url?host(x.url):'Tap to add the link')}</span></span>${x.url?'':'<span class="badge">Add link</span>'}</a><button class="ed" data-link="${x.id}" aria-label="Edit">${IC.dots}</button></div>`}
+function links(){const s=q.toLowerCase(),L=S.links.filter(x=>!s||[x.title,x.url,x.grp].join(' ').toLowerCase().includes(s)).sort(so);return GR.filter(g=>L.some(x=>(x.grp||'Other')===g)).map(g=>`<p class="sec">${g}</p><div class="group">${L.filter(x=>(x.grp||'Other')===g).map(lrow).join('')}</div>`).join('')||'<p class="empty">No links found</p>'}
+function notes(){const s=q.toLowerCase(),L=S.notes.filter(n=>!s||[n.title,n.body].join(' ').toLowerCase().includes(s)).sort((a,b)=>(b.pinned-a.pinned)||(new Date(b.updated_at||0)-new Date(a.updated_at||0)));return L.length?`<div class="group">${L.map(n=>`<button class="row" data-note="${n.id}"><span class="rc"><span class="t" style="font-weight:600">${E(n.title||'Untitled')}</span><span class="s">${E((n.body||'').split('\n')[0]||'No text')}</span></span>${n.pinned?'<span class="badge">Pinned</span>':''}</button>`).join('')}</div>`:'<p class="empty">No notes</p>'}
+const blue=t=>`<span class="t" style="color:#0071e3">${t}</span>`;
+const pages={home,
+links:()=>hdr('link')+`<main class="wrap"><h1>Links</h1><p class="sub">${S.links.filter(x=>x.url).length} saved · ${S.links.filter(x=>!x.url).length} to add</p>${srch('Search links')}<div id="list">${links()}</div></main>`,
+plans:()=>hdr('plan')+`<main class="wrap"><h1>Plans</h1><p class="sub">${S.plans.length} plans · ${S.tasks.filter(t=>!t.done).length} open tasks</p>${S.plans.slice().sort(so).map(pc).join('')||'<p class="empty">No plans yet. Tap +</p>'}</main>`,
+notes:()=>hdr('note')+`<main class="wrap"><h1>Notes</h1><p class="sub">${S.notes.length} notes</p>${srch('Search notes')}<div id="list">${notes()}</div></main>`,
+more:()=>hdr()+`<main class="wrap"><h1>More</h1><p class="sub">Settings and data</p><div class="group"><button class="row" data-open="profile">${blue('Business profile')}</button><button class="row" data-open="daily">${blue('Daily checklist')}</button><button class="row" data-open="goals">${blue('Goals')}</button></div><div class="group"><button class="row" data-x="refresh">${blue('Refresh from cloud')}</button><button class="row" data-x="backup">${blue('Download backup')}</button></div><p class="m" style="margin:-10px 4px">Saved in Supabase · same on phone and laptop · v4</p></main>`};
+function render(){$('tabs').innerHTML='<div>'+[['home','Home',IC.home],['links','Links',IC.link],['plans','Plans',IC.plan],['notes','Notes',IC.note],['more','More',IC.more]].map(([k,l,i])=>`<button class="tab ${view===k?'on':''}" data-nav="${k}">${i}${l}</button>`).join('')+'</div>';app.innerHTML=pages[view]()}
 
-function homeView(){const p=S.profile,g=S.goals,lg=S.log[today()]||{done:[],emails:0},daily=S.daily.slice().sort(bySort),emDone=lg.emails>=g.emailsGoal;
-const doneN=daily.filter(t=>lg.done.includes(t.id)).length+(emDone?1:0),totalN=daily.length+1,pct=doneN/totalN,ph=digits(p.phone),tgt=Math.max(1,Number(g.target)||1);
-const running=S.plans.filter(x=>x.start_date&&x.end_date&&today()<=x.end_date).sort(bySort),favs=S.links.filter(l=>l.fav&&l.url).sort(bySort);
-const day=new Date().toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',timeZone:'Asia/Kolkata'});
-return nav('','<span class="tt">Home</span>','')+`<main class="wrap"><h1>${esc(p.name||'GS Master')}</h1><p class="sub">${esc(p.tagline||'')}</p>
-<div class="card"><div class="who"><span class="av lg">${esc(initials(p.name))}</span><div><b>${esc(p.founder||'')}</b><span>${esc([p.role,p.city].filter(Boolean).join(' · '))}</span></div></div>
-<div class="cbtns">${cb(p.email&&'mailto:'+p.email,'Email',ICON.mail)}${cb(ph&&'tel:+'+ph,'Call',ICON.phone)}${cb(ph&&'https://wa.me/'+ph,'WhatsApp',ICON.wa)}${cb(p.website,'Website',ICON.globe)}</div></div>
-<div class="shead"><p class="sec">Today · ${esc(day)}</p><button class="link small" data-open="daily">Edit</button></div>
-<div class="card"><div class="th"><svg class="ring" viewBox="0 0 36 36" aria-hidden="true"><circle class="rt" cx="18" cy="18" r="15.5"/><circle class="rv" cx="18" cy="18" r="15.5" stroke-dasharray="${(pct*97.4).toFixed(1)} 97.4"/></svg><div><b>${doneN} of ${totalN}</b><span>${doneN===totalN?'All done for today':'daily tasks done'}</span></div></div></div>
-<div class="group">${daily.map(t=>{const on=lg.done.includes(t.id);return `<button class="row plain" data-daily="${t.id}"><span class="ck ${on?'on':''}">${ICON.check}</span><span class="t ${on?'struck':''}">${esc(t.title)}</span></button>`}).join('')}
-<div class="row plain"><span class="ck ${emDone?'on':''}">${ICON.check}</span><span class="t ${emDone?'struck':''}" style="flex:1">Outreach emails</span><span class="when">${lg.emails}/${g.emailsGoal}</span><span class="step"><button data-em="-1" aria-label="One less email">−</button><button data-em="1" aria-label="One more email">+</button></span></div></div>
-${running.length?`<p class="sec">Running plans</p>${running.map(planCard).join('')}<div style="height:12px"></div>`:''}
-<p class="sec">Goal</p><div class="card"><div class="gl"><div><b>${g.clients} of ${g.target}</b><span>paying clients</span></div><span class="step"><button data-cl="-1" aria-label="One less client">−</button><button data-cl="1" aria-label="One more client">+</button></span></div><div class="bar"><i style="width:${Math.min(100,g.clients/tgt*100)}%"></i></div><p class="meta">Monthly revenue now ${inr(g.clients*g.fee)} · at ${g.target} clients ${inr(g.target*g.fee)}</p></div>
-${favs.length?`<p class="sec">Quick links</p><div class="qlinks">${favs.map(l=>`<a class="ql" href="${esc(l.url)}" target="_blank" rel="noopener"><span class="av sm" style="background:${GC[l.grp]||GC.Other}">${esc(initials(l.title))}</span><span>${esc(l.title)}</span></a>`).join('')}</div>`:''}
-${p.goal?`<p class="sec">Long-term goal</p><div class="card"><p class="body">${esc(p.goal)}</p></div>`:''}</main>`}
-function linkRow(l){return `<div class="row"><a class="rowlink" ${l.url?`href="${esc(l.url)}" target="_blank" rel="noopener"`:`data-link="${l.id}" role="button" tabindex="0"`}><span class="av" style="background:${GC[l.grp]||GC.Other}">${esc(initials(l.title))}</span><span class="rc"><span class="t">${esc(l.title||'Untitled')}${l.fav?' ★':''}</span><span class="s">${esc(l.url?host(l.url):(l.note||'Tap to add the link'))}</span></span>${l.url?'':badge('Add link','#ff9500')}</a><button class="more" data-link="${l.id}" aria-label="Edit ${esc(l.title)}">${ICON.dots}</button></div>`}
-function linksList(){const s=q.trim().toLowerCase(),list=S.links.filter(l=>!s||[l.title,l.url,l.note,l.grp].some(v=>String(v||'').toLowerCase().includes(s))).sort(bySort);if(!list.length)return '<div class="empty"><b>No links found</b>Try another word, or tap + to add one.</div>';
-const gs=[...new Set([...GROUPS,...list.map(l=>l.grp||'Other')])].filter(g=>list.some(l=>(l.grp||'Other')===g));
-return gs.map(g=>`<p class="sec">${esc(g)}</p><div class="group">${list.filter(l=>(l.grp||'Other')===g).map(linkRow).join('')}</div>`).join('')}
-function linksView(){return nav('','<span class="tt">Links</span>',addBtn('link'))+`<main class="wrap"><h1>Links</h1><p class="sub">${S.links.filter(l=>l.url).length} saved · ${S.links.filter(l=>!l.url).length} to add</p>${searchBox('Search links')}<div id="list">${linksList()}</div></main>`}
-function plansView(){const ps=S.plans.slice().sort(bySort);return nav('','<span class="tt">Plans</span>',addBtn('plan'))+`<main class="wrap"><h1>Plans</h1><p class="sub">${ps.length} plans · ${S.tasks.filter(t=>!t.done).length} open tasks</p>${ps.length?ps.map(planCard).join(''):'<div class="empty"><b>No plans yet</b>Tap + to start one.</div>'}</main>`}
-function notesList(){const s=q.trim().toLowerCase(),list=S.notes.filter(n=>!s||[n.title,n.body].some(v=>String(v||'').toLowerCase().includes(s))).sort((a,b)=>(b.pinned-a.pinned)||(tms(b.updated_at)-tms(a.updated_at)));
-if(!list.length)return `<div class="empty"><b>${s?'No notes found':'No notes yet'}</b>${s?'Try another word.':'Tap + to write one.'}</div>`;
-return `<div class="group">${list.map(n=>`<button class="row np" data-note="${n.id}"><span class="rc"><span class="t" style="font-weight:600">${esc(n.title||'Untitled')}</span><span class="s">${esc(rel(n.updated_at))} · ${esc(String(n.body||'').split('\n')[0]||'No text')}</span></span>${n.pinned?badge('Pinned','#ff9500'):''}</button>`).join('')}</div>`}
-function notesView(){return nav('','<span class="tt">Notes</span>',addBtn('note'))+`<main class="wrap"><h1>Notes</h1><p class="sub">${S.notes.length} notes</p>${searchBox('Search notes')}<div id="list">${notesList()}</div></main>`}
-function moreView(){const r=(attr,t,s)=>`<button class="row np" ${attr}><span class="rc"><span class="t link">${t}</span>${s?`<span class="s">${s}</span>`:''}</span></button>`;
-return nav('','<span class="tt">More</span>','')+`<main class="wrap"><h1>More</h1><p class="sub">Settings and data</p>
-<p class="sec">Business</p><div class="group">${r('data-open="profile"','Business profile','Name, tagline, contact, long-term goal')}${r('data-open="daily"','Daily checklist','Add, change or remove everyday tasks')}${r('data-open="goals"','Goals','Client target, average fee, daily emails')}</div>
-<p class="sec">Data</p><div class="group">${r('data-x="refresh"','Refresh from cloud','Get the latest from your other devices')}${r('data-x="backup"','Download backup','Save a copy of everything as a file')}</div>
-<p class="note" style="margin-top:0">Everything is saved in your Supabase database, so it stays the same on your phone and laptop.</p></main>`}
-function render(){$('tabbar').innerHTML=`<div class="tabbar-in">${[['home','Home',ICON.home],['links','Links',ICON.link],['plans','Plans',ICON.plan],['notes','Notes',ICON.note],['more','More',ICON.more]].map(([k,l,i])=>`<button class="tab ${view===k?'on':''}" data-nav="${k}" aria-label="${l}">${i}<span>${l}</span></button>`).join('')}</div>`;
-app.innerHTML=({home:homeView,links:linksView,plans:plansView,notes:notesView,more:moreView}[view]||homeView)();document.body.classList.toggle('scrolled',scrollY>30)}
+const F=(o,k,l,t='text')=>`<label class="f"><small>${l}</small><input type="${t}" data-f="${k}" value="${E(o[k])}" autocomplete="off"></label>`;
+const A=(o,k,l,c='')=>`<label class="f"><small>${l}</small><textarea class="${c}" data-f="${k}">${E(o[k])}</textarea></label>`;
+const G=(o,k,l)=>`<label class="f sw"><span>${l}</span><input type="checkbox" class="tg" data-f="${k}" ${o[k]?'checked':''}></label>`;
+const trows=(list,ck)=>list.map(t=>`<div class="row">${ck?`<button class="ck ${t.done?'on':''}" data-tc="${t.id}">${IC.check}</button>`:''}<input class="tin ${t.done?'done':''}" data-tt="${t.id}" value="${E(t.title)}"><button class="x" data-td="${t.id}">×</button></div>`).join('')+`<div class="row"><input class="tin" id="nt" placeholder="+ Add a task" enterkeyhint="done"><button style="color:#0071e3;font-weight:600" data-x="addt">Add</button></div>`;
+function rs(keep){if(!sheet){sh.innerHTML='';document.body.classList.remove('lock');return}document.body.classList.add('lock');const b0=sh.querySelector('.sbody'),y=keep&&b0?b0.scrollTop:0,{k,o}=sheet;let t,b;
+if(k==='link'){t='Link';b=`${o.url?`<div class="acts"><a class="act" href="${E(o.url)}" target="_blank" rel="noopener">Open</a><button class="act" data-x="copy">Copy</button></div>`:''}<div class="group">${F(o,'title','Name')}${F(o,'url','Link','url')}<label class="f"><small>Group</small><select data-f="grp">${GR.map(g=>`<option ${g===(o.grp||'Other')?'selected':''}>${g}</option>`).join('')}</select></label>${F(o,'note','Note')}</div><div class="group">${G(o,'fav','Show on Home')}</div><button class="del" data-x="del">Delete link</button>`}
+else if(k==='plan'){const i=info(o);t='Plan';b=`<div class="group">${F(o,'title','Plan name')}${F(o,'sub','Short description')}${F(o,'start_date','Start date','date')}${F(o,'end_date','End date','date')}</div><p class="sec">Tasks · ${i.done} of ${i.total} done</p><div class="group">${trows(tk(o.id),1)}</div><div class="group">${A(o,'notes','Notes')}</div><button class="del" data-x="del">Delete plan</button>`}
+else if(k==='note'){t='Note';b=`<div class="group">${F(o,'title','Title')}</div><div class="group">${A(o,'body','Note','tall')}</div><div class="group">${G(o,'pinned','Pin to top')}</div><button class="del" data-x="del">Delete note</button>`}
+else if(k==='profile'){t='Business profile';b=`<div class="group">${[['name','Business name'],['tagline','Tagline'],['founder','Founder'],['role','Role'],['city','City'],['email','Email'],['phone','Phone / WhatsApp'],['website','Website']].map(([a,c])=>F(o,a,c)).join('')}</div><div class="group">${A(o,'goal','Long-term goal')}</div>`}
+else if(k==='daily'){t='Daily checklist';b=`<div class="group">${trows(S.daily.slice().sort(so),0)}</div><div class="group">${F(S.goals,'emails','Outreach emails per day','number')}</div>`}
+else{t='Goals';b=`<div class="group">${F(o,'clients','Paying clients now','number')}${F(o,'target','Client target','number')}${F(o,'fee','Average monthly fee (₹)','number')}${F(o,'emails','Outreach emails per day','number')}</div>`}
+sh.innerHTML=`<div class="scrim" data-x="close"></div><section class="sheet"><div class="sbar"><b>${t}</b><button data-x="close">Done</button></div><div class="sbody">${b}</div></section>`;if(keep)sh.querySelector('.sbody').scrollTop=y}
+function openS(k,o,isNew){if(!o)return;sheet={k,o,isNew};rs();history.pushState({s:1},'')}
+function fin(){if(!sheet)return;const {k,o,isNew}=sheet;if(k==='link'&&o.url&&!/^[a-z]+:/i.test(o.url)){o.url='https://'+o.url.trim();put(T.li,o,0)}
+if(isNew&&(k==='link'?!o.title&&!o.url:k==='note'?!o.title&&!o.body:k==='plan'?!o.title&&!tk(o.id).length:false)){const a=k==='link'?S.links:k==='note'?S.notes:S.plans;a.splice(a.indexOf(o),1);drop(k==='link'?T.li:k==='note'?T.no:T.pl,o.id)}
+sheet=null;rs();render()}
+function closeS(){fin();if(history.state&&history.state.s)history.back()}
+function sv(){const {k,o}=sheet;if(k==='link')put(T.li,o);else if(k==='plan')put(T.pl,o);else if(k==='note'){o.updated_at=new Date().toISOString();put(T.no,o)}else if(k==='profile')put(T.st,{key:'profile',value:S.profile});else put(T.st,{key:'goals',value:S.goals})}
+async function addT(){const i=$('nt'),v=i&&i.value.trim();if(!v)return;let t;if(sheet.k==='plan'){if(sheet.ready)await sheet.ready;t={id:uid(),plan_id:sheet.o.id,title:v,done:false,sort:Date.now()};S.tasks.push(t);put(T.ta,t,0)}else{t={id:uid(),title:v,sort:Date.now()};S.daily.push(t);put(T.da,t,0)}rs(1);$('nt').focus()}
 
-function fld(o,k,label,type='text',extra=''){return `<label class="f"><small>${label}</small><input type="${type}" data-f="${k}" value="${esc(o[k]??'')}" autocomplete="off" ${extra}></label>`}
-function ta(o,k,label,cls=''){return `<label class="f"><small>${label}</small><textarea class="${cls}" data-f="${k}">${esc(o[k]??'')}</textarea></label>`}
-function tog(o,k,label){return `<label class="f sw"><span>${label}</span><input type="checkbox" class="switch" data-f="${k}" ${o[k]?'checked':''}></label>`}
-function tList(){return sheet.kind==='daily'?S.daily.slice().sort(bySort):tasksOf(sheet.obj.id)}
-function tArr(){return sheet.kind==='daily'?S.daily:S.tasks}
-function tTable(){return sheet.kind==='daily'?TB.daily:TB.tasks}
-function taskRows(){const plan=sheet.kind==='plan';return tList().map(t=>`<div class="row plain task">${plan?`<button class="ck ${t.done?'on':''}" data-tc="${t.id}" aria-label="Mark done">${ICON.check}</button>`:`<span class="ck"></span>`}<input class="tin ${t.done?'struck':''}" data-tt="${t.id}" value="${esc(t.title)}" aria-label="Task"><button class="x" data-tdel="${t.id}" aria-label="Delete task">×</button></div>`).join('')+`<div class="row plain task"><span class="ck add">${ICON.plus}</span><input class="tin" id="newtask" placeholder="Add a task" enterkeyhint="done" autocomplete="off"><button class="link" data-x="addtask">Add</button></div>`}
-function renderSheet(keep){if(!sheet){sh.innerHTML='';document.body.classList.remove('lock');return}document.body.classList.add('lock');
-const sc=keep&&sh.querySelector('.sbody')?sh.querySelector('.sbody').scrollTop:0,{kind,obj}=sheet;let title='',body='';
-if(kind==='link'){title=sheet.isNew?'New link':'Link';body=`${obj.url?`<div class="acts3"><a class="act" href="${esc(obj.url)}" target="_blank" rel="noopener">Open</a><button class="act" data-x="copy">Copy</button><button class="act" data-x="share">Share</button></div>`:''}
-<div class="group">${fld(obj,'title','Name','text','autocapitalize="words"')}${fld(obj,'url','Link','url','inputmode="url" autocapitalize="off" autocorrect="off" placeholder="https://"')}<label class="f"><small>Group</small><select data-f="grp">${GROUPS.map(g=>`<option ${g===(obj.grp||'Other')?'selected':''}>${g}</option>`).join('')}</select></label>${fld(obj,'note','Note')}</div>
-<div class="group">${tog(obj,'fav','Show on Home')}</div><button class="btn" data-x="delete">Delete link</button>`}
-else if(kind==='plan'){const i=planInfo(obj);title=sheet.isNew?'New plan':'Plan';body=`<div class="group">${fld(obj,'title','Plan name')}${fld(obj,'sub','Short description')}${fld(obj,'start_date','Start date','date')}${fld(obj,'end_date','End date','date')}</div>
-<p class="sec">Tasks · ${i.done} of ${i.total} done</p><div class="group">${taskRows()}</div><div class="group">${ta(obj,'notes','Notes')}</div><button class="btn" data-x="delete">Delete plan</button>`}
-else if(kind==='note'){title=sheet.isNew?'New note':'Note';body=`<div class="group">${fld(obj,'title','Title')}</div><div class="group">${ta(obj,'body','Note','big')}</div><div class="group">${tog(obj,'pinned','Pin to top')}</div>${obj.updated_at?`<p class="meta" style="margin:-14px 16px 18px">Edited ${esc(rel(obj.updated_at))}</p>`:''}<button class="btn" data-x="delete">Delete note</button>`}
-else if(kind==='profile'){title='Business profile';body=`<div class="group">${fld(obj,'name','Business name')}${fld(obj,'tagline','Tagline')}${fld(obj,'founder','Founder','text','autocapitalize="words"')}${fld(obj,'role','Role')}${fld(obj,'city','City')}</div><div class="group">${fld(obj,'email','Email','email','autocapitalize="off"')}${fld(obj,'phone','Phone / WhatsApp','tel')}${fld(obj,'website','Website','url','autocapitalize="off"')}</div><div class="group">${ta(obj,'goal','Long-term goal')}</div>`}
-else if(kind==='daily'){title='Daily checklist';body=`<p class="sec">Everyday tasks</p><div class="group">${taskRows()}</div><div class="group">${fld(S.goals,'emailsGoal','Outreach emails per day','number','inputmode="numeric"')}</div><p class="note" style="margin-top:-14px">Ticks reset every morning.</p>`}
-else if(kind==='goals'){title='Goals';body=`<div class="group">${fld(obj,'clients','Paying clients now','number','inputmode="numeric"')}${fld(obj,'target','Client target','number','inputmode="numeric"')}${fld(obj,'fee','Average monthly fee (₹)','number','inputmode="numeric"')}${fld(obj,'emailsGoal','Outreach emails per day','number','inputmode="numeric"')}</div>`}
-sh.innerHTML=`<div class="scrim" data-x="close"></div><section class="sheet" role="dialog" aria-modal="true" aria-label="${esc(title)}"><div class="shandle"><div class="grab"></div><header class="sbar"><span></span><strong>${esc(title)}</strong><button class="nb b" data-x="close">Done</button></header></div><div class="sbody">${body}</div></section>`;
-if(keep){const b=sh.querySelector('.sbody');if(b)b.scrollTop=sc}}
-function openSheet(kind,obj,isNew){sheet={kind,obj,isNew:!!isNew};renderSheet();history.pushState({gsm:1},'')}
-function persist(){const k=sheet.kind;if(k==='link')queue(TB.links,sheet.obj);else if(k==='plan')queue(TB.plans,sheet.obj);else if(k==='note'){sheet.obj.updated_at=new Date().toISOString();queue(TB.notes,sheet.obj)}else if(k==='profile')queue(TB.settings,{key:'profile',value:S.profile});else queue(TB.settings,{key:'goals',value:S.goals})}
-function finishSheet(){if(!sheet)return;const {kind,obj,isNew}=sheet;
-if(kind==='link'&&obj.url&&!/^[a-z]+:/i.test(obj.url.trim())){obj.url='https://'+obj.url.trim();queue(TB.links,obj,0)}
-if(isNew){const empty=kind==='link'?!obj.title&&!obj.url:kind==='note'?!obj.title&&!obj.body:kind==='plan'?!obj.title&&!tasksOf(obj.id).length:false;
-if(empty){const arr=kind==='link'?S.links:kind==='note'?S.notes:S.plans,i=arr.indexOf(obj);if(i>=0)arr.splice(i,1);remove(kind==='link'?TB.links:kind==='note'?TB.notes:TB.plans,obj.id)}}
-sheet=null;renderSheet();render()}
-function closeSheet(){finishSheet();if(history.state&&history.state.gsm)history.back()}
-async function addTask(){const inp=$('newtask');if(!inp||!sheet)return;const v=inp.value.trim();if(!v){inp.focus();return}
-if(sheet.kind==='plan'){if(sheet.ready)await sheet.ready;const t={id:uuid(),plan_id:sheet.obj.id,title:v,done:false,sort:Date.now()};S.tasks.push(t);queue(TB.tasks,t,0)}
-else{const t={id:uuid(),title:v,sort:Date.now()};S.daily.push(t);queue(TB.daily,t,0)}
-renderSheet(true);const n=$('newtask');if(n)n.focus()}
-
-document.addEventListener('click',async e=>{const el=e.target.closest('[data-nav],[data-new],[data-open],[data-plan],[data-note],[data-link],[data-daily],[data-em],[data-cl],[data-tc],[data-tdel],[data-x]');if(!el)return;const d=el.dataset;
-if(d.nav){view=d.nav;q='';render();window.scrollTo(0,0);return}
-if(d.new){let o;if(d.new==='link'){o={id:uuid(),title:'',url:'',grp:'Other',note:'',fav:false,sort:Date.now()};S.links.push(o);openSheet('link',o,true)}
-else if(d.new==='note'){o={id:uuid(),title:'',body:'',pinned:false,updated_at:new Date().toISOString()};S.notes.push(o);openSheet('note',o,true)}
-else{o={id:uuid(),title:'',sub:'',start_date:null,end_date:null,notes:'',sort:Date.now()};S.plans.push(o);openSheet('plan',o,true);sheet.ready=push(TB.plans,o)}return}
-if(d.open){openSheet(d.open,d.open==='profile'?S.profile:S.goals);return}
-if(d.plan){const o=S.plans.find(x=>x.id===d.plan);if(o)openSheet('plan',o);return}
-if(d.note){const o=S.notes.find(x=>x.id===d.note);if(o)openSheet('note',o);return}
-if(d.link){e.preventDefault();const o=S.links.find(x=>x.id===d.link);if(o)openSheet('link',o);return}
-if(d.daily){const lg=dayLog(),i=lg.done.indexOf(d.daily);if(i>=0)lg.done.splice(i,1);else lg.done.push(d.daily);queue(TB.log,lg,300);render();return}
-if(d.em){const lg=dayLog();lg.emails=Math.max(0,lg.emails+Number(d.em));queue(TB.log,lg,400);render();return}
-if(d.cl){S.goals.clients=Math.max(0,(Number(S.goals.clients)||0)+Number(d.cl));queue(TB.settings,{key:'goals',value:S.goals},400);render();return}
-if(d.tc&&sheet){const t=S.tasks.find(x=>x.id===d.tc);if(t){t.done=!t.done;queue(TB.tasks,t,0);renderSheet(true)}return}
-if(d.tdel&&sheet){const arr=tArr(),i=arr.findIndex(x=>x.id===d.tdel);if(i>=0){arr.splice(i,1);remove(tTable(),d.tdel);renderSheet(true)}return}
-const x=d.x;
-if(x==='close'){closeSheet();return}
-if(x==='addtask'){addTask();return}
-if(x==='copy'){try{await navigator.clipboard.writeText(sheet.obj.url);toast('Link copied')}catch(_){toast('Could not copy',true)}return}
-if(x==='share'){const o=sheet.obj;if(navigator.share){try{await navigator.share({title:o.title,url:o.url})}catch(_){}}else{try{await navigator.clipboard.writeText(o.url);toast('Link copied')}catch(_){}}return}
-if(x==='delete'&&sheet){const {kind,obj}=sheet;if(!confirm(`Delete this ${kind}?`))return;const arr=kind==='link'?S.links:kind==='note'?S.notes:S.plans,i=arr.indexOf(obj);if(i>=0)arr.splice(i,1);
-if(kind==='plan')S.tasks=S.tasks.filter(t=>t.plan_id!==obj.id);remove(kind==='link'?TB.links:kind==='note'?TB.notes:TB.plans,obj.id);sheet=null;renderSheet();render();if(history.state&&history.state.gsm)history.back();toast('Deleted');return}
-if(x==='refresh'){flush();try{await load(true);render();toast('Up to date')}catch(err){toast(err.message,true)}return}
-if(x==='backup'){const blob=new Blob([JSON.stringify(S,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`GS Master backup ${today()}.json`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1500);toast('Backup downloaded');return}
-if(x==='retry'){boot();return}});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&sheet){closeSheet();return}if(e.key==='Enter'&&e.target.id==='newtask'){e.preventDefault();addTask();return}if((e.key==='Enter'||e.key===' ')&&e.target.matches('[role="button"]')){e.preventDefault();e.target.click()}});
-document.addEventListener('input',e=>{const el=e.target;if(el.id==='q'){q=el.value;const l=$('list');if(l)l.innerHTML=view==='links'?linksList():notesList();return}
-if(!sheet||el.type==='checkbox')return;
-if(el.dataset.tt){const t=tArr().find(x=>x.id===el.dataset.tt);if(t){t.title=el.value;queue(tTable(),t)}return}
-const k=el.dataset.f;if(!k)return;const o=(sheet.kind==='daily'||sheet.kind==='goals')?S.goals:sheet.kind==='profile'?S.profile:sheet.obj;
-let v=el.type==='number'?(el.value===''?0:Number(el.value)):el.value;if(el.type==='date'&&!v)v=null;o[k]=v;persist()});
-document.addEventListener('change',e=>{const el=e.target;if(!sheet||!el.dataset.f)return;if(el.type==='checkbox'){sheet.obj[el.dataset.f]=el.checked;persist()}else if(el.tagName==='SELECT'){sheet.obj[el.dataset.f]=el.value;persist()}});
-sh.addEventListener('touchstart',e=>{const s=e.target.closest('.sheet');if(!s)return;const onHandle=!!e.target.closest('.shandle'),b=s.querySelector('.sbody');if(!onHandle&&(b.scrollTop>0||e.target.closest('input,textarea,select')))return;drag={y:e.touches[0].clientY,s,dy:0}},{passive:true});
-sh.addEventListener('touchmove',e=>{if(!drag)return;drag.dy=Math.max(0,e.touches[0].clientY-drag.y);drag.s.style.transition='none';drag.s.style.transform=drag.dy?`translateY(${drag.dy}px)`:''},{passive:true});
-sh.addEventListener('touchend',()=>{if(!drag)return;const {s,dy}=drag;drag=null;s.style.transition='transform .22s ease';if(dy>120){s.style.transform='translateY(100%)';setTimeout(closeSheet,200)}else s.style.transform=''});
-addEventListener('popstate',()=>{if(sheet)finishSheet()});
-addEventListener('scroll',()=>document.body.classList.toggle('scrolled',scrollY>30),{passive:true});
+document.addEventListener('click',async e=>{const el=e.target.closest('[data-nav],[data-new],[data-open],[data-plan],[data-note],[data-link],[data-day],[data-em],[data-cl],[data-tc],[data-td],[data-x]');if(!el)return;const d=el.dataset;
+if(d.nav){view=d.nav;q='';render();scrollTo(0,0)}
+else if(d.new){const o=d.new==='link'?{id:uid(),title:'',url:'',grp:'Other',note:'',fav:false,sort:Date.now()}:d.new==='note'?{id:uid(),title:'',body:'',pinned:false,updated_at:new Date().toISOString()}:{id:uid(),title:'',sub:'',start_date:null,end_date:null,notes:'',sort:Date.now()};(d.new==='link'?S.links:d.new==='note'?S.notes:S.plans).push(o);openS(d.new,o,1);if(d.new==='plan')sheet.ready=send(T.pl,o)}
+else if(d.open)openS(d.open,d.open==='profile'?S.profile:S.goals);
+else if(d.plan)openS('plan',S.plans.find(x=>x.id===d.plan));
+else if(d.note)openS('note',S.notes.find(x=>x.id===d.note));
+else if(d.link){e.preventDefault();openS('link',S.links.find(x=>x.id===d.link))}
+else if(d.day){const l=lgT(),i=l.done.indexOf(d.day);if(i<0)l.done.push(d.day);else l.done.splice(i,1);put(T.lg,l,300);render()}
+else if(d.em){const l=lgT();l.emails=Math.max(0,l.emails+Number(d.em));put(T.lg,l,400);render()}
+else if(d.cl){S.goals.clients=Math.max(0,(Number(S.goals.clients)||0)+Number(d.cl));put(T.st,{key:'goals',value:S.goals},400);render()}
+else if(d.tc){const t=S.tasks.find(x=>x.id===d.tc);if(t){t.done=!t.done;put(T.ta,t,0);rs(1)}}
+else if(d.td){const a=sheet.k==='daily'?S.daily:S.tasks,i=a.findIndex(x=>x.id===d.td);if(i>=0){a.splice(i,1);drop(sheet.k==='daily'?T.da:T.ta,d.td);rs(1)}}
+else{const x=d.x;
+if(x==='close')closeS();
+else if(x==='addt')addT();
+else if(x==='copy'){try{await navigator.clipboard.writeText(sheet.o.url);toast('Link copied')}catch(_){toast('Could not copy',true)}}
+else if(x==='del'){const {k,o}=sheet;if(!confirm('Delete this '+k+'?'))return;const a=k==='link'?S.links:k==='note'?S.notes:S.plans;a.splice(a.indexOf(o),1);if(k==='plan')S.tasks=S.tasks.filter(t=>t.plan_id!==o.id);drop(k==='link'?T.li:k==='note'?T.no:T.pl,o.id);sheet=null;rs();render();if(history.state&&history.state.s)history.back();toast('Deleted')}
+else if(x==='refresh'){flush();try{await load(1);render();toast('Up to date')}catch(err){toast(err.message,true)}}
+else if(x==='backup'){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(S,null,2)],{type:'application/json'}));a.download='GS Master backup '+day()+'.json';document.body.appendChild(a);a.click();a.remove()}
+else if(x==='retry')boot()}});
+document.addEventListener('input',e=>{const el=e.target;if(el.id==='q'){q=el.value;const l=$('list');if(l)l.innerHTML=view==='links'?links():notes();return}
+if(!sheet||el.type==='checkbox'||el.tagName==='SELECT')return;
+if(el.dataset.tt){const t=(sheet.k==='daily'?S.daily:S.tasks).find(x=>x.id===el.dataset.tt);if(t){t.title=el.value;put(sheet.k==='daily'?T.da:T.ta,t)}return}
+const k=el.dataset.f;if(!k)return;const o=sheet.k==='daily'?S.goals:sheet.o;o[k]=el.type==='number'?(Number(el.value)||0):el.type==='date'?(el.value||null):el.value;sv()});
+document.addEventListener('change',e=>{const el=e.target;if(!sheet||!el.dataset.f)return;if(el.type==='checkbox'){sheet.o[el.dataset.f]=el.checked;sv()}else if(el.tagName==='SELECT'){sheet.o[el.dataset.f]=el.value;sv()}});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id==='nt'){e.preventDefault();addT()}if(e.key==='Escape'&&sheet)closeS()});
+addEventListener('popstate',()=>{if(sheet)fin()});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)flush()});
-addEventListener('pagehide',flush);
-
-async function boot(){if(!window.supabase||!window.supabase.createClient){app.innerHTML='<div class="empty"><b>No connection</b>Connect to the internet and refresh.</div>';return}
-sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:false,autoRefreshToken:false}});app.innerHTML='<div class="empty">Loading your business hub…</div>';
-try{await load();render()}catch(err){app.innerHTML=`<div class="empty"><b>Couldn't load</b>${esc(/does not exist|schema cache|Could not find/i.test(err.message)?'Run the SQL setup in Supabase first.':err.message)}<br><br><button class="btn pri" data-x="retry">Try again</button></div>`}}
+async function boot(){app.innerHTML='<p class="empty">Loading…</p>';try{await load();render()}catch(err){app.innerHTML=`<div class="empty"><b>Couldn't load</b><p>${E(/schema cache|does not exist|Could not find/i.test(err.message)?'Run the gsm_ SQL setup in Supabase first.':err.message)}</p><button class="act" data-x="retry">Try again</button></div>`}}
 boot();
 })();
 </script>
