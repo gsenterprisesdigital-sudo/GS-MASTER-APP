@@ -1,305 +1,506 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f8fafc"><meta name="robots" content="noindex,nofollow">
-<title>Gmail Outreach · GS Enterprises Digital</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="GS Tracker">
+<title>GS Tracker</title>
 <style>
-:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#182338;background:#f5f7fb;--ink:#172239;--muted:#718098;--line:#e5eaf1;--purple:#6b45e9;--deep:#5032ca;--pale:#f2efff;--radius:16px}
-*{box-sizing:border-box}body{margin:0;font-size:14px;line-height:1.55}button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:inherit}button:disabled{opacity:.5;cursor:not-allowed}
-button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #c6b4ff;outline-offset:2px}
-.sidebar{position:fixed;inset:0 auto 0 0;width:250px;background:#fff;border-right:1px solid var(--line);padding:26px 16px;z-index:20;display:flex;flex-direction:column;gap:20px}
-.logo{display:flex;gap:12px;align-items:center;padding:0 9px}.logo-icon{width:40px;height:40px;border-radius:13px;background:#6140e9;color:#fff;font-weight:900;display:grid;place-items:center}
-.logo strong{font-size:14px;line-height:1.25;display:block}.logo small{font-size:10px;letter-spacing:1.4px;color:var(--muted);font-weight:800;display:block;margin-top:3px}
-.nav-links{display:grid;gap:6px}.nav-button{width:100%;display:flex;align-items:center;gap:13px;border:0;background:transparent;color:#6d788d;padding:12px 14px;border-radius:11px;text-align:left;font-size:13px;font-weight:700;text-decoration:none}
-.nav-button:hover,.nav-button.active{background:var(--pale);color:var(--purple)}.nav-icon{width:20px;text-align:center;font-size:17px}
-.side-bottom{margin-top:auto;background:#f6f4ff;padding:15px;border-radius:13px;font-size:12px;color:#5e547d}.side-bottom strong{display:block;color:#3b2d71;margin-bottom:6px}
-.app-main{margin-left:250px;min-height:100vh;padding:25px 28px 80px;max-width:1900px}
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:23px}
-.eyebrow{font-size:10px;font-weight:900;letter-spacing:1.8px;color:var(--purple);text-transform:uppercase}
-.heading{font-size:clamp(25px,2.35vw,32px);line-height:1.15;margin:3px 0 6px;letter-spacing:-1.2px}.subheading{color:var(--muted);font-size:12px;margin:0}
-.top-actions{display:flex;gap:8px;align-items:center}.pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 11px;color:#617087;font-size:11px;font-weight:750}.pill.green{background:#e7f7f1;color:#11765b;border-color:#cceddf}
-.button{border:1px solid #dadfec;border-radius:11px;background:#fff;padding:10px 14px;font-weight:800;color:#25324a;font-size:12px;display:inline-flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;min-height:41px;white-space:nowrap}
-.button:hover{border-color:#b6a7f4;background:#faf9ff}.button.primary{background:var(--purple);border-color:var(--purple);color:#fff}.button.primary:hover{background:var(--deep)}
-.button.green{background:#0b8b69;border-color:#0b8b69;color:#fff}.button.red{background:#fff3f4;border-color:#ffcad0;color:#c63548}.button.ghost{border-color:transparent;background:transparent;color:var(--purple)}.button.small{padding:7px 10px;min-height:33px;font-size:11px}
-.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 5px 24px rgba(34,52,81,.025)}.card-pad{padding:20px}
-.metric-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:18px}.metric{padding:18px;display:flex;align-items:center;gap:13px}
-.metric-icon{width:45px;height:45px;flex:none;background:#f1edff;color:var(--purple);border-radius:13px;display:grid;place-items:center;font-size:20px}
-.metric b{display:block;font-size:25px;letter-spacing:-1px;line-height:1.1}.metric small{color:var(--muted);font-size:11px}
-.section-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:16px}.section-heading h2{font-size:18px;margin:0}.section-heading p{color:var(--muted);font-size:12px;margin:3px 0 0}
-.progress{height:9px;background:#ebe9fa;border-radius:20px;overflow:hidden}.progress span{display:block;height:100%;background:var(--purple);border-radius:20px}
-.two-grid{display:grid;grid-template-columns:1.24fr .76fr;gap:16px}.stat-row{display:flex;gap:8px;align-items:center;justify-content:space-between;font-size:12px;margin:11px 0}.stat-row span{color:var(--muted)}
-.mini-queue{display:grid;gap:9px}.lead-item{background:#fff;border:1px solid var(--line);border-radius:12px;display:flex;gap:10px;align-items:center;text-align:left;padding:11px 12px;width:100%;min-width:0;color:var(--ink)}
-.lead-item:hover,.lead-item.active{background:#faf8ff;border-color:#d2c5fb}
-.avatar{width:39px;height:39px;background:#eae5ff;color:var(--purple);font-weight:800;border-radius:12px;display:grid;place-items:center;flex:none;font-size:12px}
-.lead-core{flex:1;min-width:0}.lead-title{display:block;font-size:13px;font-weight:850;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.lead-meta{display:block;font-size:10.5px;color:var(--muted);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.tag{display:inline-flex;align-items:center;border-radius:7px;background:#eef0f6;padding:3px 7px;color:#627084;font-size:10px;font-weight:800;white-space:nowrap}.tag.sent{background:#e7f7ef;color:#0b7f58}.tag.role{background:#eeebff;color:#6345d1}.tag.due{background:#fff0ec;color:#ba5839}.tag.red{background:#fff0f0;color:#b13343}
-.horizontal{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:15px}
-.field{border:1px solid #dde3ed;border-radius:10px;background:#fff;padding:10px 12px;color:var(--ink);font-size:12px;min-height:41px;max-width:100%;outline:0}.field:focus{border-color:#a58bea;box-shadow:0 0 0 3px #815dec14}
-.field.search{min-width:210px;flex:1}.field.wide{width:100%}textarea.field{min-height:98px;resize:vertical;line-height:1.55}
-.small-label{display:block;font-size:11px;font-weight:850;color:#54627a;margin-bottom:6px}
-.panel-layout{display:grid;grid-template-columns:minmax(245px,.75fr) minmax(420px,1.25fr);align-items:start;gap:15px}.panel-list{padding:17px}
-.result-list{display:grid;gap:8px;max-height:min(66vh,740px);overflow:auto;padding-right:3px}
-.lead-panel{padding:21px}.lead-intro{display:flex;align-items:center;gap:13px;margin-bottom:13px}.lead-intro .avatar{height:53px;width:53px;font-size:17px}
-.lead-intro h2{font-size:21px;line-height:1.2;margin:0;overflow-wrap:anywhere}.lead-intro p{margin:4px 0 0;color:var(--muted);font-size:12px;overflow-wrap:anywhere}
-.panel-divider{height:1px;background:var(--line);margin:17px 0}.pane-heading{font-size:14px;font-weight:900;margin:0 0 8px}
-.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.form-cell{min-width:0}.form-cell.full{grid-column:1/-1}
-.composer{border:1px solid #e0d9fb;background:linear-gradient(135deg,#f9f7ff,#fff);border-radius:14px;padding:16px;margin-top:15px}
-.composer-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:13px}.composer-top h3{margin:0;font-size:16px}
-.message-editor{width:100%;min-height:240px;line-height:1.65;background:#fff;padding:14px;border:1px solid #ddd8f4;border-radius:11px;resize:vertical;outline:none;color:#253048;font-size:13px}
-.action-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}.composer-hint{color:#827a9d;font-size:10.5px;margin-top:9px}
-.alert{background:#fff7e9;border:1px solid #f3dfb7;color:#95652b;padding:11px 13px;border-radius:11px;font-size:12px;margin:0 0 15px}
-.error{background:#fff0f0;border:1px solid #ffcaca;color:#b13343;padding:11px 13px;border-radius:11px;font-size:12px}.form-err{color:#b13343;font-size:12px;min-height:16px;margin:8px 0}
-.muted{color:var(--muted)}.empty{padding:34px 20px;text-align:center;color:var(--muted);font-size:13px}.empty h3{color:var(--ink);margin:0 0 5px}
-.timeline{border-left:2px solid #e4ddff;padding-left:14px;margin:9px 0 0 7px;display:grid;gap:14px}.activity{position:relative;font-size:12px}
-.activity:before{content:'';height:9px;width:9px;position:absolute;left:-19px;top:5px;background:#7956ed;border:2px solid #fff;border-radius:50%}
-.activity strong{display:block}.activity small{color:var(--muted);font-size:10px}.activity p{margin:4px 0 0;white-space:pre-wrap;color:#516078}
-.template-layout{display:grid;grid-template-columns:minmax(225px,.7fr) minmax(400px,1.3fr);gap:16px;align-items:start}
-.template-list{display:grid;gap:7px;max-height:70vh;overflow:auto}.template-list button{border:1px solid var(--line);border-radius:11px;background:#fff;text-align:left;padding:12px;color:var(--ink)}
-.template-list button.active{background:var(--pale);border-color:#c3b4f7}.template-list strong{display:block;font-size:12px}.template-list small{color:var(--muted);font-size:10px}
-.template-preview{background:#f6f4fb;border-radius:12px;padding:15px;color:#4c5270;white-space:pre-wrap;font-size:12px;margin-top:8px}
-.report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
-.center-card{max-width:430px;margin:8vh auto;padding:28px}.center-card h1{font-size:24px;margin:12px 0 8px}.center-card p{color:var(--muted);font-size:13px}.center-card form{display:grid;gap:12px;margin-top:20px}
-.main-error{max-width:700px;margin:8vh auto}.notice{background:#f5f4ff;color:#6b5ba4;font-size:11px;padding:10px 12px;border-radius:10px}
-.toast{position:fixed;bottom:25px;right:28px;border-radius:12px;background:#182339;color:#fff;padding:12px 17px;font-size:12px;max-width:min(400px,90vw);z-index:100}.toast.fail{background:#a72c46}
-.queue-status-tabs{display:flex;gap:8px;overflow-x:auto;margin:0 0 12px;padding:2px 0}
-.queue-status-tab{flex:none;display:flex;align-items:center;gap:8px;border-radius:11px;border:1px solid #dce1eb;background:#fff;color:#5a667c;font-weight:850;padding:11px 14px;font-size:12px;white-space:nowrap}
-.queue-status-tab.active{background:#eee9ff;color:#5b39ca;border-color:#baa9f7}.queue-status-tab b{background:#f0f2f6;border-radius:7px;padding:2px 7px;font-size:10px}.queue-status-tab.active b{background:#ded4ff}
-.mobile-nav{display:none}.footnote{font-size:10px;color:var(--muted);margin-top:25px}
-@media(max-width:1180px){.sidebar{width:216px}.app-main{margin-left:216px;padding:22px 20px 90px}.metric-grid{grid-template-columns:repeat(2,1fr)}.panel-layout{grid-template-columns:minmax(220px,.8fr) minmax(330px,1.2fr)}}
-@media(max-width:800px){.sidebar{display:none}.app-main{margin-left:0;padding:19px 14px 98px}
-.mobile-nav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;bottom:0;left:0;right:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:6px 6px max(7px,env(safe-area-inset-bottom))}
-.mobile-nav button{background:none;border:0;color:#8791a6;font-size:10px;font-weight:850;display:grid;gap:3px;justify-items:center;padding:5px 0}.mobile-nav button.active{color:var(--purple)}
-.top-actions{display:none}.panel-layout,.template-layout,.two-grid,.report-grid{grid-template-columns:1fr}.outreach-layout>.lead-panel{order:0}.outreach-layout>.panel-list{order:1}.result-list{max-height:390px}}
-@media(max-width:520px){.metric-grid{gap:8px}.metric{padding:13px;gap:9px}.metric b{font-size:21px}.metric-icon{width:37px;height:37px}.card-pad,.lead-panel{padding:15px}.form-grid{grid-template-columns:1fr}.form-cell.full{grid-column:auto}.action-grid{grid-template-columns:1fr 1fr}.action-grid .button:last-child{grid-column:1/-1;min-height:47px}}
+:root{--bg:#f2f2f7;--card:#fff;--text:#000;--sec:rgba(60,60,67,.6);--sep:rgba(60,60,67,.29);--fill:rgba(118,118,128,.12);--blue:#007aff;--red:#ff3b30;--green:#34c759;--bar:rgba(249,249,249,.86);--chev:#c4c4c6}
+@media(prefers-color-scheme:dark){:root{--bg:#000;--card:#1c1c1e;--text:#fff;--sec:rgba(235,235,245,.6);--sep:rgba(84,84,88,.65);--fill:rgba(118,118,128,.24);--blue:#0a84ff;--red:#ff453a;--green:#30d158;--bar:rgba(22,22,24,.86);--chev:#5a5a5e}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:17px/1.3 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;letter-spacing:-.2px}
+body.lock{overflow:hidden}
+button,input,select,textarea{font:inherit;color:inherit;letter-spacing:inherit}
+button{background:none;border:0;padding:0;cursor:pointer;text-align:left}
+button:disabled{opacity:.4;cursor:default}
+svg.ic{width:22px;height:22px;flex:none}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bar);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);padding-top:env(safe-area-inset-top)}
+.topbar-in{max-width:760px;margin:0 auto;height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 12px}
+.nav-btn{color:var(--blue);font-size:17px;padding:8px 4px;display:inline-flex;align-items:center;gap:2px}
+.nav-btn.bold{font-weight:600}.nav-btn .ic{width:26px;height:26px}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px calc(100px + env(safe-area-inset-bottom))}
+.lt{font-size:34px;font-weight:700;letter-spacing:.3px;margin:2px 0;line-height:1.15}
+.ls{color:var(--sec);font-size:15px;margin:0 0 14px}
+.search{display:flex;align-items:center;gap:6px;background:var(--fill);border-radius:10px;padding:0 10px;height:36px;margin-bottom:12px;color:var(--sec)}
+.search .ic{width:17px;height:17px}
+.search input{flex:1;border:0;background:none;outline:none;font-size:17px;color:var(--text);min-width:0}
+.chips{display:flex;gap:8px;overflow-x:auto;margin:0 -16px 14px;padding:0 16px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;padding:7px 14px;border-radius:999px;background:var(--card);font-size:15px;font-weight:500}
+.chip span{color:var(--sec);font-weight:400;margin-left:6px}
+.chip.on{background:var(--blue);color:#fff}.chip.on span{color:rgba(255,255,255,.8)}
+.sec{font-size:13px;color:var(--sec);text-transform:uppercase;margin:0 16px 7px}
+.foot{font-size:13px;color:var(--sec);margin:-18px 16px 26px}
+.group{background:var(--card);border-radius:12px;overflow:hidden;margin-bottom:26px}
+.row{display:flex;align-items:center;gap:12px;width:100%;min-height:44px;padding:10px 16px;position:relative;color:var(--text);text-decoration:none}
+.row+.row::before{content:'';position:absolute;top:0;right:0;left:68px;height:.5px;background:var(--sep)}
+.row.plain+.row.plain::before{left:16px}
+.row:active{background:var(--fill)}
+.rc{flex:1;min-width:0;display:grid;gap:2px}
+.t{font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s{font-size:14px;color:var(--sec);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chev{color:var(--chev);font-size:24px;line-height:1}
+.when,.cnt2{color:var(--sec);font-size:15px;white-space:nowrap}
+.av{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-size:15px;font-weight:600;background:linear-gradient(180deg,#a5abb7,#848a96)}
+.av.big{width:76px;height:76px;font-size:28px}
+.sq{width:30px;height:30px;border-radius:7px;display:grid;place-items:center;color:#fff;flex:none}.sq .ic{width:18px;height:18px}
+.badge{flex:none;font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;color:var(--c);background:color-mix(in srgb,var(--c) 15%,transparent);white-space:nowrap}
+.link{color:var(--blue)}.danger{color:var(--red)}.center{justify-content:center}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:28px}
+@media(min-width:620px){.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.tile{background:var(--card);border-radius:16px;padding:14px 14px 12px}
+.tile b{display:block;font-size:28px;font-weight:700;letter-spacing:-.4px;margin-top:10px}
+.tile>span:last-child{font-size:13px;color:var(--sec)}
+.dot{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff}.dot .ic{width:17px;height:17px}
+.btn{display:block;width:100%;background:var(--blue);color:#fff;border-radius:12px;padding:14px;font-weight:600;text-align:center;margin-bottom:10px}
+.btn.ghost{background:var(--card);color:var(--blue)}
+.empty{text-align:center;color:var(--sec);padding:40px 20px;font-size:15px}
+.empty b{display:block;color:var(--text);font-size:20px;margin-bottom:4px}
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--bar);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-top:.5px solid var(--sep);padding-bottom:env(safe-area-inset-bottom)}
+.tabbar-in{max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
+.tab{display:grid;justify-items:center;gap:1px;padding:7px 0 5px;font-size:10px;font-weight:500;color:#999;text-align:center}
+.tab .ic{width:26px;height:26px}.tab.on{color:var(--blue)}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:30;animation:fade .25s ease}
+.sheet{position:fixed;left:0;right:0;bottom:0;top:calc(env(safe-area-inset-top) + 12px);z-index:31;max-width:680px;margin:0 auto;background:var(--bg);border-radius:12px 12px 0 0;display:flex;flex-direction:column;animation:up .35s cubic-bezier(.2,.9,.25,1);overflow:hidden}
+@media(min-width:700px){.sheet{top:40px;bottom:40px;border-radius:14px}}
+.sheet-bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:6px 12px;background:var(--bar);border-bottom:.5px solid var(--sep)}
+.sheet-bar strong{font-size:17px;font-weight:600}.sheet-bar .nav-btn:last-child{justify-self:end}
+.sheet-body{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:18px 16px calc(40px + env(safe-area-inset-bottom))}
+.hero{text-align:center;margin-bottom:16px;display:grid;justify-items:center;gap:6px}
+.hero h2{margin:6px 0 0;font-size:24px;font-weight:600}.hero p{margin:0;color:var(--sec);font-size:15px}
+.qa{display:flex;gap:8px;justify-content:center;margin:0 0 26px}
+.qa a{flex:1;max-width:86px;background:var(--card);border-radius:12px;padding:9px 2px 7px;display:grid;justify-items:center;gap:3px;font-size:12px;color:var(--blue);text-decoration:none}
+.qa a.off{opacity:.35;pointer-events:none}
+.f{display:block;padding:9px 16px;position:relative}
+.f+.f::before{content:'';position:absolute;top:0;right:0;left:16px;height:.5px;background:var(--sep)}
+.f small{display:block;font-size:13px;color:var(--sec);margin-bottom:2px}
+.f input,.f select,.f textarea,.ro{width:100%;border:0;background:none;outline:none;padding:2px 0;font-size:17px;color:var(--text);min-height:24px;-webkit-appearance:none;appearance:none;text-align:left}
+.f input::-webkit-date-and-time-value{text-align:left}
+.f textarea{resize:vertical;min-height:68px;line-height:1.35}
+.f select{color:var(--blue)}.ro{color:var(--sec)}
+.f.sw{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px}
+.f input.switch{width:51px;height:31px;min-height:0;padding:0;border-radius:31px;background:var(--fill);position:relative;transition:background .2s;flex:none;cursor:pointer}
+.switch::after{content:'';position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,.15),0 1px 1px rgba(0,0,0,.16);transition:transform .2s}
+.f input.switch:checked{background:var(--green)}.switch:checked::after{transform:translateX(20px)}
+.pick{border:0;background:none;color:var(--blue);font-size:15px;max-width:45%}
+.toast{position:fixed;top:calc(env(safe-area-inset-top) + 10px);left:50%;transform:translate(-50%,-20px);opacity:0;pointer-events:none;z-index:60;background:var(--card);color:var(--text);padding:11px 18px;border-radius:999px;font-size:15px;font-weight:500;box-shadow:0 8px 30px rgba(0,0,0,.18);transition:.3s;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}.toast.bad{color:var(--red)}
+.lockv{min-height:100vh;display:grid;place-items:center;padding:24px}
+.lockc{width:100%;max-width:340px;text-align:center}
+.lock-icon{width:72px;height:72px;border-radius:18px;margin:0 auto 18px;display:grid;place-items:center;background:linear-gradient(180deg,#0a84ff,#0060df);color:#fff}.lock-icon .ic{width:36px;height:36px}
+.lockc h1{font-size:28px;margin:0 0 6px}.lockc p{color:var(--sec);font-size:15px;margin:0 0 22px}
+.lockc input{width:100%;height:50px;border:0;border-radius:12px;background:var(--card);color:var(--text);padding:0 16px;font-size:17px;margin-bottom:12px;text-align:center;outline:none}
+.err{color:var(--red);font-size:14px;min-height:18px}
+@keyframes up{from{transform:translateY(100%)}}@keyframes fade{from{opacity:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
-<body><div id="app"><div class="center-card card">Loading Gmail outreach…</div></div><div id="toast" class="toast" hidden></div>
+<body>
+<div id="app"></div>
+<nav id="tabbar" class="tabbar" hidden></nav>
+<div id="sheet"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 'use strict';
-const PROJECT_URL='https://zfihwiolrxddfphehngt.supabase.co';
-// Public browser key ONLY. Never use Supabase secret/service_role here.
-const PUBLISHABLE_KEY='sb_publishable_U_bLYn66mCOH_liYsGEDFw_bL2WzC6K';
-const BRAND='GS Enterprises Digital';
-const GMAIL_ACCOUNT='gsenterprises.digital@gmail.com';
-const WEBSITE='https://gsenterprisesdigital-sudo.github.io/GS-ENTERPRISES-DIGITAL-WEBSITE/';
-const LINKEDIN_CRM='https://gsenterprisesdigital-sudo.github.io/linkidein-outreach/';
-const DAILY_TARGET=25;
-const statuses=['Not sent','Sent','Follow-up 1 sent','Follow-up 2 sent','Replied','Interested','Not interested','Bounced','Unsubscribed'];
-const STOP=['Not interested','Bounced','Unsubscribed'];
-const stages=[['first','First email'],['follow_up_1','Follow-up 1'],['follow_up_2','Follow-up 2']];
-const NEXT={first:'Sent',follow_up_1:'Follow-up 1 sent',follow_up_2:'Follow-up 2 sent'};
-const EV={sent_first:'First email sent',sent_follow_up_1:'Follow-up 1 sent',sent_follow_up_2:'Follow-up 2 sent',status_change:'Status changed'};
-const SAMPLE={business_name:'Sunrise Café',contact_name:'Priya Mehta',city:'Mumbai',industry:'Café',pitch_angle:'your Instagram has great photos but no booking link'};
-const DEFAULTS=[
-{name:'First email · Quick idea',stage:'first',subject:'Quick idea for {business}',body:`Hi {first_name},
+const SUPABASE_URL='https://zfihwiolrxddfphehngt.supabase.co';
+const SUPABASE_KEY='sb_publishable_U_bLYn66mCOH_liYsGEDFw_bL2WzC6K'; // public key, safe to publish
+const GMAIL='gsenterprises.digital@gmail.com';
+const KEY_STORE='gs_tracker_passcode';
+const XLSX_URL='https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';
+const IST=330*60000,MONS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const C={red:'#FF3B30',green:'#34C759',blue:'#007AFF',orange:'#FF9500',gray:'#8E8E93',purple:'#AF52DE',teal:'#30B0C7',indigo:'#5856D6'};
+const I=p=>`<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+const ICON={
+chart:I('<path d="M4 20V11M10 20V5M16 20v-6M21 20H3"/>'),
+mail:I('<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/>'),
+case:I('<rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 12.5h18"/>'),
+star:I('<path d="m12 3.5 2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/>'),
+more:I('<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01" stroke-width="2.8"/>'),
+plus:I('<path d="M12 5v14M5 12h14"/>'),
+search:I('<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/>'),
+reply:I('<path d="M9 8 4 12l5 4M4 12h10a6 6 0 0 1 6 6"/>'),
+phone:I('<path d="M5.5 4h3l1.8 4.5-2.3 1.4a11 11 0 0 0 5.1 5.1l1.4-2.3L19 14.5v3A2.5 2.5 0 0 1 16.5 20 13.5 13.5 0 0 1 4 7.5 2.5 2.5 0 0 1 5.5 4z"/>'),
+msg:I('<path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4A8 8 0 1 1 20 11.5z"/>'),
+globe:I('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3z"/>'),
+clock:I('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'),
+check:I('<path d="m5 12.5 4.5 4.5L19 7.5"/>'),
+x:I('<path d="M6 6l12 12M18 6 6 18"/>'),
+cal:I('<rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/>'),
+arrows:I('<path d="M7 4v16M3 8l4-4 4 4M17 20V4M13 16l4 4 4-4"/>'),
+lock:I('<rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>')};
 
-I'm Harsh from GS Enterprises Digital, a digital marketing agency in Mumbai.
+function cols(src){let g='';return src.trim().split('\n').map(l=>l.trim()).filter(Boolean).flatMap(l=>{if(l[0]==='#'){g=l.slice(1);return[]}const [k,label,type='text',opts='']=l.split('|');return [{k,label,type,g,opts:opts?opts.split(','):[]}]})}
+const OUT={'No reply':'gray','Replied':'green','Interested':'green','Meeting booked':'indigo','Not interested':'gray','Bounced':'red','Needs review':'orange','Converted':'purple'};
+const STAGE={Onboarding:'blue',Active:'green',Paused:'orange',Completed:'gray',Lost:'red'};
+const OST={'Waiting for reply':'gray','Interested':'green','Negotiating':'blue','Confirmed':'purple','Declined':'red','No response':'gray','Needs review':'orange'};
 
-I came across {business} and noticed {pitch}. I have 2–3 simple ideas that could help you get more enquiries online.
+const T={
+leads:{t:'gs_leads',sheet:'Leads',name:'Leads',one:'lead',id:'lead_id',pre:'L',pad:4,st:'outcome',sortBy:'lead_id',req:['business_name'],
+cols:cols(`
+#Lead
+lead_id|Lead ID|id
+business_name|Business name
+industry|Industry
+contact_person|Contact person
+email|Email|email
+phone|Phone|tel
+website|Website|url
+city|City
+lead_source|Lead source|select|Cold email,LinkedIn,Instagram,Referral,Website,Justdial,IndiaMART,Needs review
+#Cold email
+cold_email_sent|Cold email sent?|bool
+date_sent|Date sent|ts
+subject|Subject
+#Follow-ups
+follow_up_1|Follow-up 1 date|date
+follow_up_2|Follow-up 2 date|date
+follow_up_3|Follow-up 3 date|date
+#Reply and outcome
+reply_received|Reply received?|bool
+reply_date|Reply date|ts
+reply_text|Reply text|long
+outcome|Outcome|select|No reply,Replied,Interested,Meeting booked,Not interested,Bounced,Needs review,Converted
+converted|Converted to client?|bool
+client_id|Client ID
+#Tracking
+gmail_thread|Gmail thread link|url
+last_updated|Last updated|auto
+email_sent_at|Email sent date|ts
+last_email_sent_at|Last email sent date|ts`),
+title:r=>r.business_name||r.lead_id||'Untitled',sub:r=>[r.contact_person,firstEmail(r)].filter(Boolean).join(' · ')||r.industry||'',
+badge:r=>leadDue(r)?['Follow-up due','orange']:r.outcome?[r.outcome,OUT[r.outcome]||'gray']:null,
+key:r=>r.lead_id||'',def:()=>({lead_source:'Cold email',outcome:'No reply',cold_email_sent:false}),
+filters:[['All',()=>true],['Due',leadDue],['No reply',r=>r.outcome==='No reply'],['Replied',r=>!!r.reply_received||['Replied','Interested','Meeting booked'].includes(r.outcome)],['Bounced',r=>r.outcome==='Bounced'],['Review',r=>r.outcome==='Needs review'||r.lead_source==='Needs review']]},
 
-Would you be open to a short 15-minute call this week?
+clients:{t:'gs_clients',sheet:'Clients',name:'Clients',one:'client',id:'client_id',pre:'C',pad:3,st:'stage',sortBy:'client_id',req:['business_name'],
+cols:cols(`
+#Client
+client_id|Client ID|id
+lead_id|Lead ID
+business_name|Business name
+industry|Industry
+lead_source|Lead source
+#Contact
+contact_person|Contact person
+phone|Phone|tel
+whatsapp|WhatsApp|tel
+email|Email|email
+website|Website|url
+#Work
+service|Service we provide
+campaign_goal|Campaign goal|long
+client_budget|Client budget
+our_fee|Our fee
+date_signed|Date signed|date
+stage|Stage|select|Onboarding,Active,Paused,Completed,Lost
+next_action|Next action
+next_follow_up|Next follow-up date|date
+payment_status|Payment status|select|Pending,Partially paid,Paid,Overdue
+notes|Notes|long
+last_updated|Last updated|auto`),
+title:r=>r.business_name||r.client_id||'Untitled',sub:r=>[r.service,r.contact_person].filter(Boolean).join(' · ')||r.industry||'',
+badge:r=>clientDue(r)?['Follow-up due','orange']:r.stage?[r.stage,STAGE[r.stage]||'gray']:null,
+key:r=>r.client_id||'',def:()=>({stage:'Onboarding',payment_status:'Pending',date_signed:today()}),
+filters:[['All',()=>true],['Due',clientDue],['Active',r=>['Active','Onboarding'].includes(r.stage)],['Payment due',r=>['Pending','Partially paid','Overdue'].includes(r.payment_status)]]},
 
-Website: {website}
+creators:{t:'gs_creators',sheet:'Creators',name:'Creators',one:'creator',id:'creator_id',pre:'CR',pad:3,sortBy:'creator_id',req:['creator_name','handle','email'],
+cols:cols(`
+#Creator
+creator_id|Creator ID|id
+creator_name|Creator name
+platform|Platform
+handle|Handle
+profile_link|Profile link|url
+niche|Niche
+followers|Followers
+#Contact
+email|Email|email
+phone|Phone / WhatsApp|tel
+manager|Manager / agency
+#Notes
+found_where|Where we found them
+rate_card|Standard rate card|long
+notes|Notes|long
+last_updated|Last updated|auto`),
+title:r=>r.creator_name||r.handle||firstEmail(r)||r.creator_id||'Creator',sub:r=>[r.niche,r.followers,r.platform].filter(Boolean).join(' · ')||firstEmail(r)||'',
+badge:r=>/needs review/i.test(r.notes||'')?['Review','orange']:null,key:r=>r.creator_id||'',def:()=>({}),
+filters:[['All',()=>true],['Named',r=>!!r.creator_name],['Review',r=>/needs review/i.test(r.notes||'')]]},
 
-Thanks,
-Harsh Upadhyay
-GS Enterprises Digital
-+91 8291692332
+outreach:{t:'gs_creator_outreach',sheet:'Creator Outreach',name:'Creator outreach',one:'outreach',st:'status',sortBy:'date_sent',req:['creator_id','creator_name'],
+cols:cols(`
+#Campaign
+business_name|Business name
+client_id|Client ID
+creator_id|Creator ID
+creator_name|Creator name
+#Email
+email_sent|Email sent?|bool
+date_sent|Date sent|ts
+reply_received|Reply received?|bool
+reply_date|Reply date|ts
+reply_text|Reply text|long
+#Deal
+rate_quoted|Rate quoted
+deliverables|Deliverables|long
+payment_terms|Payment terms
+final_rate|Final agreed rate
+status|Status|select|Waiting for reply,Interested,Negotiating,Confirmed,Declined,No response,Needs review
+decline_reason|Decline reason
+#Tracking
+gmail_thread|Gmail thread link|url
+next_follow_up|Next follow-up date|date
+last_updated|Last updated|auto
+email_sent_at|Email sent date|ts
+last_email_sent_at|Last email sent date|ts`),
+title:r=>r.creator_name||creatorName(r.creator_id)||r.creator_id||'Creator',sub:r=>[r.creator_id,r.business_name,r.date_sent&&shortDate(r.date_sent)].filter(Boolean).join(' · '),
+badge:r=>outDue(r)?['Follow-up due','orange']:r.status?[r.status,OST[r.status]||'gray']:null,
+key:r=>[r.creator_id,r.gmail_thread,r.business_name].map(x=>x||'').join('|'),def:()=>({status:'Waiting for reply',email_sent:true,date_sent:new Date().toISOString()}),
+filters:[['All',()=>true],['Due',outDue],['Waiting',r=>!r.status||r.status==='Waiting for reply'],['Interested',r=>['Interested','Negotiating'].includes(r.status)],['Confirmed',r=>r.status==='Confirmed'],['Review',r=>r.status==='Needs review']]},
 
-If you'd prefer not to receive emails from me, just reply "no" and I won't write again.`},
-{name:'Follow-up 1 · Gentle nudge',stage:'follow_up_1',subject:'Re: Quick idea for {business}',body:`Hi {first_name},
+activity:{t:'gs_activity',sheet:'Activity Log',name:'Activity log',one:'activity',sortBy:'occurred_at',req:['event'],
+cols:cols(`
+#Activity
+occurred_at|Date and time|ts
+ref_id|Lead/Client ID
+creator_id|Creator ID
+event|Event|select|Email sent,Reply received,Status changed,Follow-ups planned,Converted to client,Note
+details|Details|long
+gmail_thread|Gmail thread link|url`),
+title:r=>r.event||'Activity',sub:r=>[r.ref_id||r.creator_id,r.details].filter(Boolean).join(' · '),when:r=>r.occurred_at&&shortDate(r.occurred_at),
+key:r=>[kts(r.occurred_at),r.ref_id,r.creator_id,r.event,r.details].map(x=>x||'').join('|'),def:()=>({occurred_at:new Date().toISOString(),event:'Note'}),
+filters:[['All',()=>true],['Emails',r=>r.event==='Email sent'],['Replies',r=>r.event==='Reply received'],['Status',r=>r.event==='Status changed']]},
 
-Just following up on my last email. I'd be happy to share a few quick ideas for {business}, with no obligation.
+emails:{t:'gs_email_log',sheet:'Email Log',name:'Email log',one:'email',id:'email_log_id',pre:'E',pad:4,sortBy:'sent_at',req:['to_email','name'],
+cols:cols(`
+#Email
+email_log_id|Email Log ID|id
+sent_at|Email sent date and time|ts
+type|Type|select|Cold email,Follow-up,Creator email,Client email,Needs review
+lead_id|Lead ID
+client_id|Client ID
+creator_id|Creator ID
+name|Business or creator name
+to_email|To (email address)|email
+subject|Subject
+reply_received|Reply received?|bool
+reply_at|Reply date and time|ts
+gmail_thread|Gmail thread link|url`),
+title:r=>r.name||r.to_email||'Email',sub:r=>r.subject||r.to_email||'',when:r=>r.sent_at&&shortDate(r.sent_at),
+key:r=>[r.email_log_id,(r.to_email||'').toLowerCase(),r.subject].map(x=>x||'').join('|'),def:()=>({sent_at:new Date().toISOString(),type:'Cold email'}),
+filters:[['All',()=>true],['Cold',r=>r.type==='Cold email'],['Follow-ups',r=>r.type==='Follow-up'],['Creators',r=>r.type==='Creator email'],['Replied',r=>!!r.reply_received]]}
+};
 
-Would a short call this week or next work for you?
-
-Thanks,
-Harsh Upadhyay
-GS Enterprises Digital`},
-{name:'Follow-up 2 · Last note',stage:'follow_up_2',subject:'Re: Quick idea for {business}',body:`Hi {first_name},
-
-I don't want to fill your inbox, so this is my last note.
-
-If growing {business} online becomes a priority later, just reply anytime. I'd be glad to help.
-
-Best wishes,
-Harsh Upadhyay
-GS Enterprises Digital
-{website}`}];
-const EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,URL_RE=/^https?:\/\/\S+$/i;
-const app=document.getElementById('app');
-let sb=null,user=null,prospects=[],templates=[],todayLog=[],activities=[],activitiesFor=null,settings={default_followup_days:4};
-let view='home',selectedId=null,filter={q:'',status:'To send'},templateEditId=null,keep={},subj={},body={},chosen={},loading=false;
-
-const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const $=id=>document.getElementById(id);
-const val=id=>($(id)?.value??'').trim();
-const kv=(k,d)=>keep[k]!==undefined?keep[k]:d;
-function toast(m,bad=false){const t=$('toast');t.textContent=m;t.className='toast'+(bad?' fail':'');t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,4200)}
-function dateLocal(d=new Date()){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
-function dateAdd(n){const d=new Date();d.setDate(d.getDate()+Number(n||4));return dateLocal(d)}
-const firstName=p=>(p.contact_name||'').trim().split(/\s+/)[0]||'';
-function formatMessage(s,p){const f=firstName(p);const v={first_name:f?f+' ji':"Sir/Ma'am",business:p.business_name||'your business',city:p.city||'your city',industry:p.industry||'your industry',pitch:p.pitch_angle||'your business online',brand:BRAND,website:WEBSITE};
-return String(s||'').replace(/\{first_name\}\s+ji\b/gi,'{first_name}').replace(/\{(first_name|business|city|industry|pitch|brand|website)\}/gi,(_m,k)=>v[k.toLowerCase()])}
-const stageFor=p=>({'Not sent':'first','Sent':'follow_up_1','Follow-up 1 sent':'follow_up_2'})[p.status]||null;
-const isDue=p=>!!p.next_followup&&p.next_followup<=dateLocal()&&['Sent','Follow-up 1 sent'].includes(p.status);
-const TABS={'To send':p=>p.status==='Not sent','Due':isDue,'In sequence':p=>['Sent','Follow-up 1 sent','Follow-up 2 sent'].includes(p.status)&&!isDue(p),'Replied':p=>['Replied','Interested'].includes(p.status),'All':()=>true};
-function filtered(){const s=filter.q.toLowerCase().trim();return prospects.filter(TABS[filter.status]).filter(p=>!s||[p.business_name,p.contact_name,p.email,p.city,p.industry].some(x=>String(x||'').toLowerCase().includes(s)))}
-const selected=()=>prospects.find(p=>p.id===selectedId)||null;
-function replaceP(r){const i=prospects.findIndex(x=>x.id===r.id);if(i>=0)prospects[i]=r}
-const stageName=s=>stages.find(x=>x[0]===s)?.[1]||s;
-const sortedT=()=>[...templates].sort((a,b)=>stages.findIndex(s=>s[0]===a.stage)-stages.findIndex(s=>s[0]===b.stage)||a.name.localeCompare(b.name));
-function ensureDraft(p){if(subj[p.id]!==undefined)return;const st=stageFor(p)||'first';const t=templates.find(x=>x.id===chosen[p.id])||sortedT().find(x=>x.stage===st)||sortedT()[0];chosen[p.id]=t?.id||'';subj[p.id]=t?formatMessage(t.subject,p):'';body[p.id]=t?formatMessage(t.body,p):''}
-const gmailBase='https://mail.google.com/mail/?authuser='+encodeURIComponent(GMAIL_ACCOUNT);
-const gmailUrl=(to,s,b)=>`${gmailBase}&view=cm&fs=1&to=${encodeURIComponent(to)}&su=${encodeURIComponent(s)}&body=${encodeURIComponent(b)}`;
-function validRow(r){if(!r.business_name)return 'Business name is required.';if(!EMAIL_RE.test(r.email))return 'Enter a valid email address.';if(!URL_RE.test(r.source_url))return 'Source URL must start with https://';return ''}
-function parseCSV(t){const rows=[];let row=[],cell='',q=false;for(let i=0;i<t.length;i++){const c=t[i];if(q){if(c==='"'){if(t[i+1]==='"'){cell+='"';i++}else q=false}else cell+=c}else if(c==='"')q=true;else if(c===','){row.push(cell);cell=''}else if(c==='\n'||c==='\r'){if(c==='\r'&&t[i+1]==='\n')i++;row.push(cell);rows.push(row);row=[];cell=''}else cell+=c}if(cell||row.length){row.push(cell);rows.push(row)}return rows.filter(r=>r.some(x=>x.trim()))}
-const initials=p=>(p.business_name||'?').split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase();
-const statusTag=p=>isDue(p)?'<span class="tag due">Follow-up due</span>':`<span class="tag ${['Replied','Interested'].includes(p.status)?'sent':STOP.includes(p.status)?'red':''}">${esc(p.status)}</span>`;
-const leadItem=p=>`<button type="button" class="lead-item ${p.id===selectedId?'active':''}" data-sel="${esc(p.id)}"><span class="avatar">${esc(initials(p))}</span><span class="lead-core"><span class="lead-title">${esc(p.business_name)}</span><span class="lead-meta">${esc(p.contact_name||'Name not listed')} · ${esc(p.email)}</span></span>${statusTag(p)}</button>`;
+const app=$('app'),sh=$('sheet');
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+const p2=n=>String(n).padStart(2,'0');
+const uid=()=>window.crypto?.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2);
+const emptyData=()=>Object.fromEntries(Object.keys(T).map(k=>[k,[]]));
+const SUB={outreach:'more',activity:'more',emails:'more',io:'more'};
+const TABS=[['summary','Summary',ICON.chart],['leads','Leads',ICON.mail],['clients','Clients',ICON.case],['creators','Creators',ICON.star],['more','More',ICON.more]];
+let sb=null,data=emptyData(),view='summary',q='',flt={},limit=150,sheet=null,plan=null,busy=false;
 
-function shell(content,title,desc){const nav=[['home','⌂','Home'],['outreach','✉','Outreach'],['add','＋','Add leads'],['templates','▤','Templates'],['reports','▥','Reports']];
-return `<div class="app-shell"><aside class="sidebar"><div class="logo"><span class="logo-icon">GS</span><span><strong>GS Enterprises<br>Digital</strong><small>GMAIL OUTREACH</small></span></div><nav class="nav-links">${nav.map(([k,i,l])=>`<button type="button" class="nav-button ${view===k?'active':''}" data-view="${k}"><span class="nav-icon">${i}</span>${l}</button>`).join('')}<a class="nav-button" href="${LINKEDIN_CRM}"><span class="nav-icon">in</span>LinkedIn CRM ↗</a></nav><div class="side-bottom"><strong>Manual · Relationship first</strong>Open in Gmail is separate from Mark sent. Nothing is sent automatically.</div></aside><main class="app-main"><header class="topbar"><div><span class="eyebrow">GS Enterprises Digital</span><h1 class="heading">${esc(title)}</h1><p class="subheading">${esc(desc)}</p></div><div class="top-actions"><span class="pill green">● Connected</span><button class="button small" data-act="refresh">↻ Refresh</button></div></header>${content}<p class="footnote">Private single-user workspace · Data stored in Supabase · Emails sent manually from Gmail</p></main><nav class="mobile-nav">${nav.map(([k,i,l])=>`<button type="button" data-view="${k}" class="${view===k?'active':''}"><span class="nav-icon">${i}</span>${l}</button>`).join('')}</nav></div>`}
+function istParts(d){const x=new Date(d.getTime()+IST);return{y:x.getUTCFullYear(),m:x.getUTCMonth(),d:x.getUTCDate(),h:x.getUTCHours(),mi:x.getUTCMinutes()}}
+function ymd(d){const p=istParts(d);return `${p.y}-${p2(p.m+1)}-${p2(p.d)}`}
+function ymdhm(d){const p=istParts(d);return `${ymd(d)}T${p2(p.h)}:${p2(p.mi)}`}
+function today(){return ymd(new Date())}
+function addDaysStr(s,n){const [y,m,d]=s.split('-').map(Number);return new Date(Date.UTC(y,m-1,d+n)).toISOString().slice(0,10)}
+function kts(v){return v?ymdhm(new Date(v)):''}
+function fromLocal(s){const [d,t='0:0']=s.split('T');const [y,m,dd]=d.split('-').map(Number);const [h,mi]=t.split(':').map(Number);return new Date(Date.UTC(y,m-1,dd,h,mi)-IST).toISOString()}
+function toDate(v){if(v==null||v==='')return null;if(v instanceof Date)return isNaN(v)?null:v;
+if(typeof v==='number'){if(v<20000||v>80000)return null;return new Date(Math.round((v-25569)*864e5)-IST)}
+const s=String(v).trim(),M={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+let m=s.match(/^(\d{1,2})-([A-Za-z]{3})-(\d{4})(?:\s+(\d{1,2}):(\d{2})\s*([AP]M))?/i);
+if(m){const mo=M[m[2].toLowerCase()];if(mo===undefined)return null;let h=+(m[4]||0);const ap=(m[6]||'').toUpperCase();if(ap==='PM'&&h<12)h+=12;if(ap==='AM'&&h===12)h=0;return new Date(Date.UTC(+m[3],mo,+m[1],h,+(m[5]||0))-IST)}
+m=s.match(/^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2}))?/);if(m&&!/[zZ]|[+-]\d{2}:?\d{2}$/.test(s))return new Date(Date.UTC(+m[1],+m[2]-1,+m[3],+(m[4]||0),+(m[5]||0))-IST);
+const d=new Date(s);return isNaN(d)?null:d}
+function shortDate(iso){const p=istParts(new Date(iso));return `${p.d} ${MONS[p.m]}`}
+function niceDate(s){const [y,m,d]=s.split('-');return `${+d} ${MONS[+m-1]} ${y}`}
+function niceTs(iso){const p=istParts(new Date(iso)),h=p.h%12||12;return `${p.d} ${MONS[p.m]} ${p.y}, ${h}:${p2(p.mi)} ${p.h<12?'am':'pm'}`}
+function nice(col,v){if(v==null||v==='')return '';if(col.type==='bool')return v?'Yes':'No';if(col.type==='date')return niceDate(v);if(col.type==='ts'||col.type==='auto')return niceTs(v);return String(v)}
+function xDate(s){const [y,m,d]=s.split('-');return `${d}-${MONS[+m-1]}-${y}`}
+function xTs(iso){const p=istParts(new Date(iso)),h=p.h%12||12;return `${p2(p.d)}-${MONS[p.m]}-${p.y} ${h}:${p2(p.mi)} ${p.h<12?'AM':'PM'} IST`}
+function xval(col,v){if(v==null||v==='')return '';if(col.type==='bool')return v?'Yes':'No';if(col.type==='date')return xDate(v);if(col.type==='ts'||col.type==='auto')return xTs(v);return v}
+function initials(s){return String(s||'').replace(/[^\p{L}\p{N}\s]/gu,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase()||'#'}
+function badge(l,c){return `<span class="badge" style="--c:${C[c]||C.gray}">${esc(l)}</span>`}
+function firstEmail(r){return String(r.email||r.to_email||'').split(/[;,\s]+/).find(x=>x.includes('@'))||''}
+function creatorName(id){if(!id)return '';const c=data.creators.find(x=>x.creator_id===id);return c?(c.creator_name||c.handle||''):''}
+function digits(p){let d=String(p||'').replace(/\D/g,'');if(d.length===10)d='91'+d;return d.length>=11&&d.length<=13?d:''}
+function gmailCompose(to,su){return `https://mail.google.com/mail/?authuser=${encodeURIComponent(GMAIL)}&view=cm&fs=1&to=${encodeURIComponent(to)}${su?'&su='+encodeURIComponent(su):''}`}
+function toast(m,bad){const t=$('toast');t.textContent=m;t.className='toast show'+(bad?' bad':'');clearTimeout(toast.t);toast.t=setTimeout(()=>t.className='toast',2800)}
 
-function homePage(){const n=todayLog.filter(e=>e.event_type==='sent_first').length,f=todayLog.length-n,due=prospects.filter(isDue).length,rep=prospects.filter(TABS.Replied).length,next=prospects.filter(TABS['To send']).slice(0,7);
-return `<section class="metric-grid"><div class="card metric"><span class="metric-icon">✉</span><div style="flex:1"><b>${n}/${DAILY_TARGET}</b><small>New emails today</small><div class="progress" style="height:6px;margin-top:6px"><span style="width:${Math.min(100,n/DAILY_TARGET*100)}%"></span></div></div></div><div class="card metric"><span class="metric-icon">↻</span><div><b>${f}</b><small>Follow-ups sent today</small></div></div><div class="card metric"><span class="metric-icon">◷</span><div><b>${due}</b><small>Follow-ups due</small></div></div><div class="card metric"><span class="metric-icon">★</span><div><b>${rep}</b><small>Replied / interested</small></div></div></section>
-<div class="two-grid"><section class="card card-pad"><div class="section-heading"><div><h2>Next to email</h2><p>Newest prospects first</p></div><button class="button small" data-go="To send">Start outreach →</button></div><div class="mini-queue">${next.length?next.map(leadItem).join(''):'<div class="empty"><h3>No prospects waiting</h3><button class="button small" data-view="add">Add leads</button></div>'}</div></section>
-<section class="card card-pad"><h2 style="font-size:16px;margin:0 0 13px">Outreach overview</h2>${statuses.map(s=>`<div class="stat-row"><span>${s}</span><strong>${prospects.filter(p=>p.status===s).length}</strong></div>`).join('')}<div class="horizontal" style="margin-top:17px"><button class="button small" data-go="Due">View due follow-ups</button><button class="button small" data-view="add">Add leads</button></div></section></div>`}
+const CLOSED=['Bounced','Not interested','Converted','Replied','Interested','Meeting booked'];
+function leadDue(r){if(r.reply_received||CLOSED.includes(r.outcome))return false;const t=today(),last=r.last_email_sent_at?ymd(new Date(r.last_email_sent_at)):'';return [r.follow_up_1,r.follow_up_2,r.follow_up_3].some(f=>f&&f<=t&&(!last||last<f))}
+function clientDue(r){return !!r.next_follow_up&&r.next_follow_up<=today()&&!['Completed','Lost'].includes(r.stage)}
+function outDue(r){return !!r.next_follow_up&&r.next_follow_up<=today()&&!r.reply_received&&!['Confirmed','Declined'].includes(r.status)}
+function needsPlan(r){return !!r.cold_email_sent&&!r.follow_up_1&&!r.reply_received&&!['Bounced','Not interested','Converted'].includes(r.outcome)}
+function dueItems(){return [...data.leads.filter(leadDue).map(r=>['leads',r]),...data.outreach.filter(outDue).map(r=>['outreach',r]),...data.clients.filter(clientDue).map(r=>['clients',r])]}
+function stats(){const L=data.leads,O=data.outreach,sent=L.filter(r=>r.cold_email_sent).length,replies=L.filter(r=>r.reply_received).length;
+return{sent,replies,rate:sent?Math.round(replies/sent*1000)/10:0,interested:L.filter(r=>r.outcome==='Interested').length,meetings:L.filter(r=>r.outcome==='Meeting booked').length,bounced:L.filter(r=>r.outcome==='Bounced').length,notint:L.filter(r=>r.outcome==='Not interested').length,clients:data.clients.length,cSent:O.filter(r=>r.email_sent).length,cReplies:O.filter(r=>r.reply_received).length,confirmed:O.filter(r=>r.status==='Confirmed').length,declined:O.filter(r=>r.status==='Declined').length,overdue:dueItems().length}}
+function sorted(kind){const k=T[kind].sortBy;return [...data[kind]].sort((a,b)=>String(b[k]||'').localeCompare(String(a[k]||''))||b.id-a.id)}
+function filtered(kind){const c=T[kind],f=(c.filters.find(x=>x[0]===(flt[kind]||'All'))||c.filters[0])[1],s=q.trim().toLowerCase();return sorted(kind).filter(f).filter(r=>!s||Object.values(r).some(v=>typeof v==='string'&&v.toLowerCase().includes(s)))}
+function rowKey(kind,r){const k=T[kind].key(r);return k.replace(/\|/g,'').trim()?k:'app:'+uid()}
+function nextId(kind){const c=T[kind],re=new RegExp('^'+c.pre+'(\\d+)$','i');let max=0;for(const r of data[kind]){const m=String(r[c.id]||'').match(re);if(m)max=Math.max(max,+m[1])}return c.pre+String(max+1).padStart(c.pad,'0')}
+function replaceRow(kind,r){const i=data[kind].findIndex(x=>x.id===r.id);if(i>=0)data[kind][i]=r;else data[kind].push(r)}
 
-function outreachPage(){const list=filtered();return `<div class="queue-status-tabs">${Object.keys(TABS).map(k=>`<button type="button" class="queue-status-tab ${filter.status===k?'active':''}" data-tab="${k}">${k==='Due'?'Follow-ups due':k} <b>${prospects.filter(TABS[k]).length}</b></button>`).join('')}</div><div class="filters"><input id="q" class="field search" placeholder="Search business, name, email or city…" value="${esc(filter.q)}" aria-label="Search prospects"></div><div class="panel-layout outreach-layout"><div class="card panel-list"><div class="section-heading"><div><h2>${esc(filter.status==='Due'?'Follow-ups due':filter.status)}</h2><p>${list.length} prospects</p></div></div><div class="result-list">${list.length?list.map(leadItem).join(''):'<div class="empty">No prospects in this view.</div>'}</div></div>${detailPane()}</div>`}
+const topbar=(l,r)=>`<div class="topbar"><div class="topbar-in">${l||'<span></span>'}${r||'<span></span>'}</div></div>`;
+function rowHtml(kind,r){const c=T[kind],title=c.title(r),b=c.badge&&c.badge(r),w=c.when&&c.when(r);
+return `<button class="row" data-open="${kind}:${r.id}"><span class="av">${esc(initials(title))}</span><span class="rc"><span class="t">${esc(title)}</span><span class="s">${esc(c.sub(r)||' ')}</span></span>${b?badge(b[0],b[1]):w?`<span class="when">${esc(w)}</span>`:''}<span class="chev">›</span></button>`}
+function cntText(kind){return `${filtered(kind).length} of ${data[kind].length}`}
+function listBody(kind){const rows=filtered(kind),c=T[kind];
+if(!rows.length)return `<div class="empty"><b>${q?'No results':'Nothing here yet'}</b>${q?'Try a different search.':`Tap + to add a ${c.one}, or import your Excel file.`}</div>`;
+return `<div class="group">${rows.slice(0,limit).map(r=>rowHtml(kind,r)).join('')}</div>${rows.length>limit?`<button class="btn ghost" data-more>Show ${Math.min(150,rows.length-limit)} more</button>`:''}`}
+function listView(kind){const c=T[kind],f=flt[kind]||'All';
+return topbar(SUB[kind]?'<button class="nav-btn" data-nav="more">‹ More</button>':'',`<button class="nav-btn" data-new="${kind}" aria-label="Add ${c.one}">${ICON.plus}</button>`)+
+`<main class="wrap"><h1 class="lt">${c.name}</h1><p class="ls" id="cnt">${cntText(kind)}</p>
+<label class="search">${ICON.search}<input id="q" type="search" placeholder="Search" value="${esc(q)}" autocomplete="off" enterkeyhint="search" aria-label="Search ${esc(c.name)}"></label>
+${c.filters.length>1?`<div class="chips">${c.filters.map(([l,fn])=>`<button class="chip ${f===l?'on':''}" data-flt="${esc(l)}">${esc(l)}<span>${data[kind].filter(fn).length}</span></button>`).join('')}</div>`:''}
+<div id="list">${listBody(kind)}</div></main>`}
 
-function histHtml(){if(activitiesFor!==selectedId)return '<p class="muted" style="font-size:12px">Loading activity…</p>';if(!activities.length)return '<p class="muted" style="font-size:12px">No emails logged yet.</p>';
-return `<div class="timeline">${activities.map(a=>`<div class="activity"><strong>${esc(EV[a.event_type]||a.event_type)}</strong><small>${esc(new Date(a.occurred_at).toLocaleString('en-IN'))}</small>${a.event_type==='status_change'?`<p>${esc(a.body)}</p>`:`${a.subject?`<p>Subject: ${esc(a.subject)}</p>`:''}${a.body?`<details style="margin-top:6px"><summary class="muted">View sent email</summary><p>${esc(a.body)}</p></details>`:''}`}</div>`).join('')}</div>`}
+function summaryView(){const s=stats(),h=istParts(new Date()).h,greet=h<12?'Good morning':h<17?'Good afternoon':'Good evening';
+const tiles=[['Cold emails sent',s.sent,'blue',ICON.mail],['Real replies',s.replies,'green',ICON.reply],['Reply rate',s.rate+'%','teal',ICON.chart],['Interested',s.interested,'green',ICON.star],['Meetings booked',s.meetings,'indigo',ICON.cal],['Bounced',s.bounced,'red',ICON.x],['Not interested',s.notint,'gray',ICON.x],['Clients',s.clients,'purple',ICON.case],['Creator emails sent',s.cSent,'blue',ICON.mail],['Creator replies',s.cReplies,'green',ICON.reply],['Confirmed creators',s.confirmed,'purple',ICON.check],['Declined',s.declined,'red',ICON.x],['Overdue follow-ups',s.overdue,'orange',ICON.clock]];
+const due=dueItems().slice(0,8),recent=sorted('activity').slice(0,5),day=new Date().toLocaleDateString('en-IN',{weekday:'long',day:'numeric',month:'long',timeZone:'Asia/Kolkata'});
+return topbar('','<button class="nav-btn" data-nav="io">Import</button>')+`<main class="wrap"><h1 class="lt">${greet}, Harsh</h1><p class="ls">${esc(day)}</p>
+<div class="tiles">${tiles.map(([l,v,c,i])=>`<div class="tile"><span class="dot" style="background:${C[c]}">${i}</span><b>${v}</b><span>${l}</span></div>`).join('')}</div>
+<p class="sec">Follow-ups due</p><div class="group">${due.length?due.map(([k,r])=>rowHtml(k,r)).join(''):'<div class="row plain"><span class="rc"><span class="t">You\'re all caught up</span><span class="s">No follow-ups due today.</span></span></div>'}</div>
+<p class="sec">Recent activity</p><div class="group">${recent.length?recent.map(r=>rowHtml('activity',r)).join(''):'<div class="row plain"><span class="rc"><span class="t">No activity yet</span></span></div>'}</div></main>`}
 
-function detailPane(){const p=selected();if(!p)return '<div class="card card-pad empty"><h3>Select a prospect</h3>Choose a prospect to write a personalised email.</div>';
-ensureDraft(p);const st=stageFor(p),stop=STOP.includes(p.status),fu=settings.default_followup_days||4;
-return `<article class="card lead-panel" id="detail"><div class="lead-intro"><span class="avatar">${esc(initials(p))}</span><div style="flex:1;min-width:0"><h2>${esc(p.business_name)}</h2><p>${esc(p.contact_name||'Contact name not listed')} · ${esc(p.email)}</p></div>${statusTag(p)}</div>
-<div class="horizontal">${p.industry?`<span class="tag role">${esc(p.industry)}</span>`:''}${p.city?`<span class="tag">${esc(p.city)}</span>`:''}<button class="button ghost small" data-act="source">Source page ↗</button></div>
-${p.pitch_angle?`<p class="notice" style="margin-top:12px"><b>Pitch angle:</b> ${esc(p.pitch_angle)}</p>`:''}
-<section class="composer"><div class="composer-top"><div><span class="eyebrow">01 · Email first</span><h3>${st?esc(stageName(st)):'Sequence complete'}</h3></div><span class="tag">${st?'Ready':'Done'}</span></div>
-${!st?`<p class="alert">${stop?'Do not email this prospect again.':'Two follow-ups are done or they have replied. Reply from Gmail directly if needed.'}</p>`:''}
-<label class="small-label" for="m-tpl">Choose saved template</label><select class="field wide" id="m-tpl">${sortedT().map(t=>`<option value="${esc(t.id)}" ${chosen[p.id]===t.id?'selected':''}>${esc(t.name)} · ${esc(stageName(t.stage))}</option>`).join('')}</select>
-<label class="small-label" for="m-subj" style="margin-top:10px">Subject</label><input class="field wide" id="m-subj" value="${esc(subj[p.id])}">
-<label class="small-label" for="m-body" style="margin-top:10px">Message</label><textarea class="message-editor" id="m-body" spellcheck="true">${esc(body[p.id])}</textarea>
-<div class="action-grid"><button class="button primary" data-act="gmail" ${stop?'disabled':''}>✉ Open in Gmail</button><button class="button" data-act="copy">▣ Copy message</button><button class="button green" data-act="sent" ${!st||stop?'disabled':''}>✓ Mark sent</button></div>
-<p class="composer-hint">Open in Gmail never marks an email as sent. Send it in Gmail, then tap Mark sent. The next follow-up date is set ${fu} days later. For follow-ups, open the earlier email, tap Reply and paste the copied message.</p>
-<div class="horizontal">${st&&st!=='first'?'<button class="button ghost small" data-act="thread">Find earlier email in Gmail ↗</button>':''}<button class="button ghost small" data-act="next">Next prospect →</button></div></section>
-<div class="panel-divider"></div><section><span class="eyebrow">02 · CRM tracking</span><h3 class="pane-heading" style="margin-top:5px">Status, follow-up and notes</h3><div class="form-grid">
-<div class="form-cell"><label class="small-label" for="c-status">Status</label><select class="field wide" id="c-status" data-keep="c-status:${esc(p.id)}">${statuses.map(s=>`<option ${kv('c-status:'+p.id,p.status)===s?'selected':''}>${s}</option>`).join('')}</select></div>
-<div class="form-cell"><label class="small-label" for="c-next">Next follow-up</label><input class="field wide" type="date" id="c-next" data-keep="c-next:${esc(p.id)}" value="${esc(kv('c-next:'+p.id,p.next_followup||''))}"></div>
-<div class="form-cell full"><label class="small-label" for="c-notes">Private notes</label><textarea class="field wide" id="c-notes" data-keep="c-notes:${esc(p.id)}" placeholder="What they said, call details, ideas…">${esc(kv('c-notes:'+p.id,p.notes||''))}</textarea></div></div>
-<div class="horizontal" style="margin-top:13px"><button class="button primary" data-act="save">Save CRM details</button></div></section>
-<div class="panel-divider"></div><section><span class="eyebrow">03 · History</span><h3 class="pane-heading" style="margin-top:5px">Email timeline</h3><div id="hist">${histHtml()}</div></section>
-<div class="panel-divider"></div><section><span class="eyebrow">04 · Profile</span><div class="stat-row"><span>Email</span><strong>${esc(p.email)}</strong></div><div class="stat-row"><span>Added</span><strong>${esc(new Date(p.created_at).toLocaleDateString('en-IN'))}</strong></div><div class="stat-row"><span>Last touch</span><strong>${esc(p.last_touch||'—')}</strong></div><div class="stat-row"><span>Lead source</span><strong>Gmail outreach</strong></div></section></article>`}
+function moreView(){const item=(nav,label,cnt,color,icon)=>`<button class="row plain" data-nav="${nav}"><span class="sq" style="background:${C[color]}">${icon}</span><span class="rc"><span class="t">${label}</span></span><span class="cnt2">${cnt??''}</span><span class="chev">›</span></button>`;
+return topbar()+`<main class="wrap"><h1 class="lt">More</h1><p class="ls">GS Enterprises Digital tracker</p>
+<div class="group">${item('outreach','Creator outreach',data.outreach.length,'purple',ICON.star)}${item('emails','Email log',data.emails.length,'blue',ICON.mail)}${item('activity','Activity log',data.activity.length,'orange',ICON.clock)}</div>
+<div class="group">${item('io','Import and export',null,'green',ICON.arrows)}</div>
+<div class="group"><button class="row plain center" data-x="lock"><span class="t danger">Lock this device</span></button></div>
+<p class="foot">Data is stored in your Supabase project. Only devices with your passcode can open it.</p></main>`}
 
-function addPage(){const f=k=>esc(kv(k,''));const inp=(id,label,ph,type='text')=>`<div class="form-cell"><label class="small-label" for="${id}">${label}</label><input class="field wide" type="${type}" id="${id}" data-keep="${id}" value="${f(id)}" placeholder="${ph}"></div>`;
-return `<div class="two-grid"><section class="card card-pad"><div class="section-heading"><div><h2>Add one prospect</h2><p>Only publicly listed emails, with the page where you found them.</p></div></div><div class="form-grid">
-${inp('f-business','Business name *','Sunrise Café')}${inp('f-contact','Contact name','Priya Mehta')}${inp('f-email','Email *','sunrisecafe@gmail.com','email')}${inp('f-url','Source URL *','https://www.instagram.com/…')}${inp('f-industry','Industry','Café')}${inp('f-city','City','Mumbai')}
-<div class="form-cell full"><label class="small-label" for="f-pitch">Pitch angle</label><input class="field wide" id="f-pitch" data-keep="f-pitch" value="${f('f-pitch')}" placeholder="your Instagram has great photos but no booking link"></div></div>
-<p id="f-err" class="form-err"></p><button class="button primary" data-act="add">Save prospect</button></section>
-<section class="card card-pad"><div class="section-heading"><div><h2>Import many (CSV)</h2><p>One per line: business, contact, email, source_url, industry, city, pitch. Header row optional.</p></div></div>
-<textarea class="field wide" id="i-text" data-keep="i-text" style="min-height:220px" placeholder="Sunrise Café,Priya Mehta,sunrisecafe@gmail.com,https://www.instagram.com/sunrisecafe,Café,Mumbai,no online booking link">${f('i-text')}</textarea>
-<p id="i-err" class="form-err"></p><button class="button primary" data-act="import">Import prospects</button><p class="notice" style="margin-top:12px">Duplicates and rows without a valid email or source URL are skipped automatically.</p></section></div>`}
+function ioView(){const n=data.leads.filter(needsPlan).length;
+return topbar('<button class="nav-btn" data-nav="more">‹ More</button>')+`<main class="wrap"><h1 class="lt">Import and export</h1><p class="ls">Works with your GS Tracker Excel file.</p>
+<p class="sec">Export</p><div class="group"><button class="row plain" data-x="export"><span class="rc"><span class="t link">Download Excel (.xlsx)</span><span class="s">All 7 sheets, same columns as your tracker</span></span></button></div>
+<p class="sec">Import</p><div class="group"><label class="row plain"><span class="rc"><span class="t link">Choose Excel or CSV file</span><span class="s">Matching IDs are updated, new rows are added</span></span><input type="file" id="file" accept=".xlsx,.xls,.csv" hidden></label></div>
+${plan?`<p class="sec">Ready to import · ${esc(plan.file)}</p><div class="group">${plan.sheets.map((s,i)=>`<div class="row plain"><span class="rc"><span class="t">${esc(s.name)}</span><span class="s">${s.rows.length} rows</span></span><select class="pick" data-pick="${i}" aria-label="Import ${esc(s.name)} as"><option value="">Skip</option>${Object.entries(T).map(([k,c])=>`<option value="${k}" ${s.target===k?'selected':''}>${c.name}</option>`).join('')}</select></div>`).join('')}</div>
+<button class="btn" data-x="doimport" ${busy?'disabled':''}>${busy?'Importing…':'Import now'}</button><button class="btn ghost" data-x="cancelimport">Cancel</button><p class="foot" style="margin-top:4px">Values in the file replace the matching rows in the app.</p>`:''}
+<p class="sec">Tools</p><div class="group"><button class="row plain" data-x="planall" ${n?'':'disabled'}><span class="rc"><span class="t link">Plan follow-ups for ${n} leads</span><span class="s">Adds dates 3, 7 and 14 days after the cold email</span></span></button></div></main>`}
 
-function templatePage(){const t=templateEditId?templates.find(x=>x.id===templateEditId):null,k=t?t.id:'new',g=(f,d)=>kv(`t-${f}:${k}`,d),sample=selected()||SAMPLE;
-return `<div class="template-layout"><div class="card card-pad"><div class="section-heading"><div><h2>Saved templates</h2><p>${templates.length} templates in Supabase</p></div><button class="button primary small" data-act="tnew">+ New</button></div><div class="template-list">${sortedT().map(x=>`<button class="${x.id===templateEditId?'active':''}" data-tpl="${esc(x.id)}"><strong>${esc(x.name)}</strong><small>${esc(stageName(x.stage))}</small></button>`).join('')}</div></div>
-<div class="card card-pad"><div class="section-heading"><div><span class="eyebrow">Supabase template manager</span><h2>${t?'Edit template':'Create template'}</h2></div></div><div class="form-grid">
-<div class="form-cell full"><label class="small-label" for="t-name">Template name</label><input class="field wide" id="t-name" data-keep="t-name:${k}" value="${esc(g('name',t?.name||''))}" placeholder="First email · Café owners"></div>
-<div class="form-cell full"><label class="small-label" for="t-stage">Stage</label><select class="field wide" id="t-stage" data-keep="t-stage:${k}">${stages.map(([v,l])=>`<option value="${v}" ${g('stage',t?.stage||'first')===v?'selected':''}>${l}</option>`).join('')}</select></div>
-<div class="form-cell full"><label class="small-label" for="t-subject">Subject</label><input class="field wide" id="t-subject" data-keep="t-subject:${k}" value="${esc(g('subject',t?.subject||''))}"></div>
-<div class="form-cell full"><label class="small-label" for="t-body">Message</label><textarea class="field wide" style="min-height:250px" id="t-body" data-keep="t-body:${k}">${esc(g('body',t?.body||''))}</textarea><span class="muted" style="font-size:10px">Fields: {first_name}, {business}, {city}, {industry}, {pitch}, {brand}, {website}. "ji" is added after the first name automatically.</span></div></div>
-<p id="t-err" class="form-err"></p><div class="horizontal"><button class="button primary" data-act="tsave">Save template to Supabase</button>${t?'<button class="button red" data-act="tdel">Delete</button>':''}</div>
-<div class="panel-divider"></div><label class="small-label">Preview</label><div class="template-preview" id="t-preview"><b>${esc(formatMessage(g('subject',t?.subject||''),sample))}</b>\n\n${esc(formatMessage(g('body',t?.body||''),sample))}</div></div></div>`}
-function updatePreview(){const el=$('t-preview');if(!el)return;const s=selected()||SAMPLE;el.innerHTML=`<b>${esc(formatMessage($('t-subject').value,s))}</b>\n\n${esc(formatMessage($('t-body').value,s))}`}
+function render(){const tb=$('tabbar'),active=SUB[view]||view;tb.hidden=false;
+tb.innerHTML=`<div class="tabbar-in">${TABS.map(([k,l,i])=>`<button class="tab ${active===k?'on':''}" data-nav="${k}">${i}<span>${l}</span></button>`).join('')}</div>`;
+app.innerHTML=({summary:summaryView,more:moreView,io:ioView}[view]||(()=>listView(view)))()}
 
-function reportsPage(){const total=prospects.length;return `<div class="report-grid"><div class="card card-pad"><div class="section-heading"><div><h2>Email pipeline</h2><p>${total} prospects</p></div></div>${statuses.map(s=>{const n=prospects.filter(p=>p.status===s).length;return `<div class="stat-row"><span>${s}</span><b>${n}</b></div><div class="progress" style="height:6px"><span style="width:${total?n/total*100:0}%"></span></div>`}).join('')}</div>
-<div style="display:grid;gap:14px;align-content:start"><div class="card card-pad"><h2 style="font-size:17px;margin:0 0 10px">Settings</h2><label class="small-label" for="s-days">Default follow-up after (days)</label><input class="field wide" type="number" id="s-days" min="1" max="60" value="${settings.default_followup_days||4}"><p class="muted" style="font-size:11px">Shared with your LinkedIn CRM.</p><button class="button primary" data-act="ssave">Save settings</button></div>
-<div class="card card-pad"><h2 style="font-size:17px;margin:0 0 8px">Data</h2><div class="stat-row"><span>Total prospects</span><b>${total}</b></div><div class="stat-row"><span>Unsubscribed or bounced</span><b>${prospects.filter(p=>['Unsubscribed','Bounced'].includes(p.status)).length}</b></div><button class="button" data-act="export">Export CSV</button></div>
-<div class="card card-pad"><h2 style="font-size:17px;margin:0 0 8px">Security</h2><p class="muted">Signing out here also signs you out of the LinkedIn CRM on this browser.</p><button class="button red" data-act="logout">Sign out</button></div></div></div>`}
+function fieldHtml(col,v,isNew){const lab=`<small>${esc(col.label)}</small>`;
+switch(col.type){
+case 'bool':return `<label class="f sw"><span>${esc(col.label)}</span><input type="checkbox" class="switch" data-f="${col.k}" ${v?'checked':''}></label>`;
+case 'long':return `<label class="f">${lab}<textarea data-f="${col.k}" rows="3">${esc(v??'')}</textarea></label>`;
+case 'select':{const o=[...col.opts];if(v&&!o.includes(v))o.unshift(v);return `<label class="f">${lab}<select data-f="${col.k}"><option value="">None</option>${o.map(x=>`<option ${x===v?'selected':''}>${esc(x)}</option>`).join('')}</select></label>`}
+case 'date':return `<label class="f">${lab}<input type="date" data-f="${col.k}" value="${esc(v||'')}"></label>`;
+case 'ts':return `<label class="f">${lab}<input type="datetime-local" data-f="${col.k}" value="${v?ymdhm(new Date(v)):''}"></label>`;
+case 'id':case 'auto':return `<div class="f">${lab}<div class="ro">${esc(nice(col,v)||(isNew?'Added automatically':'—'))}</div></div>`;
+default:{const t=col.type==='tel'?'tel':col.type==='url'?'url':'text';return `<label class="f">${lab}<input type="${t}" ${col.type==='email'?'inputmode="email" autocapitalize="off"':''} data-f="${col.k}" value="${esc(v??'')}" autocomplete="off"></label>`}}}
+function quickActions(r){const email=firstEmail(r),phone=digits(r.whatsapp||r.phone),web=r.website||r.profile_link,thread=r.gmail_thread;
+const a=(href,label,icon)=>href?`<a href="${esc(href)}" ${/^https?:/.test(href)?'target="_blank" rel="noopener"':''}>${icon}<span>${label}</span></a>`:`<a class="off" aria-disabled="true">${icon}<span>${label}</span></a>`;
+return `<div class="qa">${a(email&&gmailCompose(email,r.subject?'Re: '+r.subject:''),'Email',ICON.mail)}${a(thread&&/^https?:/i.test(thread)?thread:'','Thread',ICON.reply)}${a(phone&&'tel:+'+phone,'Call',ICON.phone)}${a(phone&&'https://wa.me/'+phone,'WhatsApp',ICON.msg)}${a(web?(/^https?:/i.test(web)?web:'https://'+web):'','Website',ICON.globe)}</div>`}
+function leadActions(r){const acts=[];
+if(!r.cold_email_sent)acts.push(['sent','Mark cold email sent','Also plans follow-ups for 3, 7 and 14 days']);else acts.push(['fu','Follow-up sent','Adds it to the email log']);
+if(!r.reply_received)acts.push(['reply','Mark replied','']);
+if(r.cold_email_sent&&!r.follow_up_1)acts.push(['plan','Plan follow-ups','3, 7 and 14 days after the email']);
+if(!r.converted)acts.push(['convert','Convert to client','Creates a client with these details']);
+return `<p class="sec">Quick actions</p><div class="group">${acts.map(([k,l,s])=>`<button class="row plain" data-act="${k}"><span class="rc"><span class="t link">${l}</span>${s?`<span class="s">${s}</span>`:''}</span></button>`).join('')}</div>`}
+function renderSheet(){if(!sheet){sh.innerHTML='';document.body.classList.remove('lock');return}document.body.classList.add('lock');
+const {kind,draft:r,isNew}=sheet,c=T[kind],title=isNew?'New '+c.one:c.title(r),b=!isNew&&c.badge&&c.badge(r);
+let groups='',g=null;for(const col of c.cols){if(col.g!==g){if(g!==null)groups+='</div>';g=col.g;groups+=`<p class="sec">${esc(g)}</p><div class="group">`}groups+=fieldHtml(col,r[col.k],isNew)}groups+='</div>';
+sh.innerHTML=`<div class="scrim" data-x="close"></div><section class="sheet" role="dialog" aria-modal="true" aria-label="${esc(title)}"><header class="sheet-bar"><button class="nav-btn" data-x="close">Cancel</button><strong>${esc(isNew?'New '+c.one:cap(c.one))}</strong><button class="nav-btn bold" data-x="save">${isNew?'Add':'Save'}</button></header><div class="sheet-body">
+<div class="hero"><span class="av big">${esc(initials(title))}</span><h2>${esc(title)}</h2>${isNew?'':`<p>${esc(c.sub(r))}</p>`}${b?badge(b[0],b[1]):''}</div>
+${quickActions(r)}${!isNew&&kind==='leads'?leadActions(r):''}${groups}
+${isNew?'':`<div class="group"><button class="row plain center" data-x="delete"><span class="t danger">Delete ${esc(c.one)}</span></button></div>`}</div></section>`}
+function onDraft(e){const el=e.target,k=el.dataset.f;if(!k||!sheet)return;const col=T[sheet.kind].cols.find(x=>x.k===k);let v=el.type==='checkbox'?el.checked:el.value;if(col.type==='ts')v=v?fromLocal(v):null;sheet.draft[k]=v===''?null:v;sheet.dirty=true}
+function closeSheet(){if(sheet?.dirty&&!confirm('Discard your changes?'))return;sheet=null;renderSheet()}
 
-function render(){if(!user)return renderLogin();
-if(view==='outreach'){const list=filtered();if(!list.some(p=>p.id===selectedId)){selectedId=list[0]?.id||null;activities=[];activitiesFor=null;if(selectedId){const id=selectedId;setTimeout(()=>loadActivities(id),0)}}}
-const pages={home:['Your email workspace','Find, email and follow up, one prospect at a time.',homePage],outreach:['Email outreach','Write here, send from Gmail, then mark sent.',outreachPage],add:['Add leads','Add one prospect or paste a CSV list.',addPage],templates:['Email templates','Edit once, reuse anywhere. Everything saves to Supabase.',templatePage],reports:['Reports and settings','See your pipeline and manage settings.',reportsPage]};
-const [t,d,fn]=pages[view];app.innerHTML=shell(fn(),t,d)}
+async function save(opts={}){if(!sheet||busy)return;const {kind,isNew}=sheet,c=T[kind],before=isNew?null:data[kind].find(x=>x.id===sheet.draft.id);
+const row={};for(const col of c.cols){if(col.type==='auto')continue;const v=sheet.draft[col.k];row[col.k]=v===''||v===undefined?null:v}
+if(c.cols.some(x=>x.k==='last_updated'))row.last_updated=new Date().toISOString();
+if(!c.req.some(k=>row[k]))return toast(`Add ${c.cols.find(x=>x.k===c.req[0]).label.toLowerCase()} first`,true);
+if(isNew&&c.id&&!row[c.id])row[c.id]=nextId(kind);
+const k=c.key(row);row.row_key=k.replace(/\|/g,'').trim()?k:(before?.row_key||'app:'+uid());
+busy=true;const btn=sh.querySelector('[data-x="save"]');if(btn)btn.disabled=true;
+const {data:d,error}=await (isNew?sb.from(c.t).insert(row):sb.from(c.t).update(row).eq('id',before.id)).select().single();busy=false;
+if(error){if(btn)btn.disabled=false;return toast(error.code==='23505'?'A matching row already exists':error.message,true)}
+replaceRow(kind,d);const ref=d.lead_id||d.client_id||null;
+if(opts.event)await logActivity({ref_id:ref,creator_id:d.creator_id||null,event:opts.event,details:opts.details||null,gmail_thread:d.gmail_thread||null});
+else if(c.st&&before&&before[c.st]!==d[c.st])await logActivity({ref_id:ref,creator_id:d.creator_id||null,event:'Status changed',details:`${before[c.st]||'None'} → ${d[c.st]||'None'}`,gmail_thread:d.gmail_thread||null});
+if(opts.email&&firstEmail(d))await logEmail({type:opts.email.type,lead_id:d.lead_id||null,client_id:d.client_id||null,creator_id:d.creator_id||null,name:d.business_name||d.creator_name||null,to_email:firstEmail(d),subject:opts.email.subject||null,reply_received:false,gmail_thread:d.gmail_thread||null});
+sheet=opts.keep?{kind,draft:{...d},isNew:false}:null;renderSheet();render();toast(isNew?'Added':opts.event||'Saved')}
+async function logActivity(a){const row={occurred_at:new Date().toISOString(),...a};row.row_key=rowKey('activity',row);const {data:d,error}=await sb.from('gs_activity').upsert(row,{onConflict:'row_key'}).select().single();if(!error)replaceRow('activity',d)}
+async function logEmail(e){const row={email_log_id:nextId('emails'),sent_at:new Date().toISOString(),...e};row.row_key=rowKey('emails',row);const {data:d,error}=await sb.from('gs_email_log').upsert(row,{onConflict:'row_key'}).select().single();if(!error)replaceRow('emails',d)}
+async function del(){const {kind,draft}=sheet,c=T[kind];if(!confirm(`Delete this ${c.one}? This can't be undone.`))return;const {error}=await sb.from(c.t).delete().eq('id',draft.id);if(error)return toast(error.message,true);data[kind]=data[kind].filter(x=>x.id!==draft.id);sheet=null;renderSheet();render();toast('Deleted')}
 
-function selectP(id){selectedId=id;activities=[];activitiesFor=null;view='outreach';const p=selected();if(p&&!TABS[filter.status](p))filter.status='All';render();loadActivities(id);if(innerWidth<800)$('detail')?.scrollIntoView({behavior:'smooth'})}
-async function loadActivities(id){const {data,error}=await sb.from('email_activities').select('event_type,subject,body,occurred_at').eq('prospect_id',id).order('occurred_at',{ascending:false}).limit(30);if(selectedId!==id)return;activities=error?[]:(data||[]);activitiesFor=id;const h=$('hist');if(h)h.innerHTML=histHtml();if(error)toast('History unavailable: '+error.message,true)}
-async function copyText(s){if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(s);const el=document.createElement('textarea');el.value=s;el.style.cssText='position:fixed;left:-10000px';document.body.appendChild(el);el.select();const ok=document.execCommand('copy');el.remove();if(!ok)throw new Error('Copy is unavailable in this browser')}
-function openGmail(){const p=selected();if(!p)return;if(!subj[p.id]?.trim()||!body[p.id]?.trim())return toast('Write a subject and message first.',true);window.open(gmailUrl(p.email,subj[p.id],body[p.id]),'_blank','noopener');toast('Send it in Gmail, then tap Mark sent.')}
-function openThread(){const p=selected();if(p)window.open(`${gmailBase}#search/${encodeURIComponent('to:'+p.email)}`,'_blank','noopener')}
-async function copyEmail(){const p=selected();if(!p)return;try{await copyText(body[p.id]||'');toast('Message copied')}catch(e){toast('Could not copy: '+e.message,true)}}
-function openSource(){const u=selected()?.source_url||'';if(!URL_RE.test(u))return toast('Source URL looks invalid.',true);window.open(u,'_blank','noopener')}
-function nextProspect(){const list=filtered(),i=list.findIndex(x=>x.id===selectedId),n=list[i+1]||list.find(x=>x.id!==selectedId);if(!n)return toast('No other prospect in this view.');selectP(n.id)}
+async function leadAct(k){if(!sheet||busy)return;const r=sheet.draft,now=new Date().toISOString();
+if(k==='sent'){const base=today();Object.assign(r,{cold_email_sent:true,date_sent:r.date_sent||now,email_sent_at:r.email_sent_at||now,last_email_sent_at:now,outcome:r.outcome||'No reply',follow_up_1:addDaysStr(base,3),follow_up_2:addDaysStr(base,7),follow_up_3:addDaysStr(base,14)});await save({keep:true,event:'Email sent',details:'Cold email sent',email:{type:'Cold email',subject:r.subject}})}
+else if(k==='fu'){r.last_email_sent_at=now;await save({keep:true,event:'Email sent',details:'Follow-up sent',email:{type:'Follow-up',subject:r.subject?'Re: '+r.subject:''}})}
+else if(k==='reply'){Object.assign(r,{reply_received:true,reply_date:r.reply_date||now,outcome:['Interested','Meeting booked'].includes(r.outcome)?r.outcome:'Replied'});await save({keep:true,event:'Reply received',details:'Marked as replied'})}
+else if(k==='plan'){const base=ymd(new Date(r.email_sent_at||r.date_sent||r.last_email_sent_at||now));Object.assign(r,{follow_up_1:addDaysStr(base,3),follow_up_2:addDaysStr(base,7),follow_up_3:addDaysStr(base,14)});await save({keep:true,event:'Follow-ups planned',details:`${r.follow_up_1}, ${r.follow_up_2}, ${r.follow_up_3}`})}
+else if(k==='convert'){if(!confirm(`Create a client for ${r.business_name||'this lead'}?`))return;const cid=nextId('clients');
+const cl={client_id:cid,lead_id:r.lead_id,business_name:r.business_name,industry:r.industry,lead_source:r.lead_source,contact_person:r.contact_person,phone:r.phone,email:r.email,website:r.website,stage:'Onboarding',payment_status:'Pending',date_signed:today(),last_updated:now};cl.row_key=rowKey('clients',cl);
+const {data:d,error}=await sb.from('gs_clients').insert(cl).select().single();if(error)return toast(error.message,true);replaceRow('clients',d);
+Object.assign(r,{converted:true,client_id:cid,outcome:'Converted'});await save({keep:true,event:'Converted to client',details:`Client ${cid} created`})}}
 
-async function markSent(){const p=selected();if(!p)return;const st=stageFor(p);if(!st||STOP.includes(p.status))return;const b=document.querySelector('[data-act="sent"]');if(b)b.disabled=true;
-const patch={status:NEXT[st],last_touch:dateLocal(),next_followup:st==='follow_up_2'?null:dateAdd(settings.default_followup_days||4)};
-try{const {data,error}=await sb.from('email_prospects').update(patch).eq('id',p.id).eq('user_id',user.id).select().single();if(error)throw error;
-const log=await sb.from('email_activities').insert({user_id:user.id,prospect_id:p.id,event_type:'sent_'+st,subject:subj[p.id]||null,body:body[p.id]||null});
-todayLog.push({event_type:'sent_'+st});delete subj[p.id];delete body[p.id];delete chosen[p.id];
-const idx=filtered().findIndex(x=>x.id===p.id);replaceP(data);const after=filtered();
-if(!after.some(x=>x.id===p.id))selectedId=after[Math.min(Math.max(idx,0),after.length-1)]?.id||null;
-activities=[];activitiesFor=null;render();if(selectedId)loadActivities(selectedId);
-if(log.error)toast('Marked sent, but history failed: '+log.error.message,true);else toast(`${NEXT[st]} ✓${patch.next_followup?' · follow-up on '+patch.next_followup:''}`)}
-catch(e){toast('Could not mark sent: '+e.message,true);if(b)b.disabled=false}}
+function loadXLSX(){if(window.XLSX)return Promise.resolve();return new Promise((res,rej)=>{const s=document.createElement('script');s.src=XLSX_URL;s.onload=res;s.onerror=()=>rej(new Error('Could not load the Excel library. Check your connection.'));document.head.appendChild(s)})}
+function conv(col,v){if(v==null)return null;if(typeof v==='string'){v=v.trim();if(!v)return null}
+if(col.type==='bool'){const s=String(v).toLowerCase();return /^(yes|y|true|1)$/.test(s)?true:/^(no|n|false|0)$/.test(s)?false:null}
+if(col.type==='date'){const d=toDate(v);return d?ymd(d):null}
+if(col.type==='ts'||col.type==='auto'){const d=toDate(v);return d?d.toISOString():null}
+return String(v)}
+async function onFile(file){try{await loadXLSX();const wb=XLSX.read(await file.arrayBuffer(),{type:'array'});
+plan={file:file.name,sheets:wb.SheetNames.map(n=>({name:n,rows:XLSX.utils.sheet_to_json(wb.Sheets[n],{defval:null,raw:true}),target:Object.keys(T).find(k=>T[k].sheet.toLowerCase()===n.trim().toLowerCase())||''})).filter(s=>s.rows.length)};
+if(!plan.sheets.length){plan=null;return toast('No rows found in that file',true)}render()}catch(e){toast('Could not read file: '+e.message,true)}}
+async function doImport(){if(!plan||busy)return;busy=true;render();let total=0;
+try{for(const s of plan.sheets){if(!s.target)continue;const c=T[s.target],map={};c.cols.forEach(col=>map[col.label.toLowerCase()]=col);const out=new Map();
+for(const raw of s.rows){const row={};let any=false;for(const [h,v] of Object.entries(raw)){const col=map[String(h).trim().toLowerCase()];if(!col)continue;const val=conv(col,v);row[col.k]=val;if(val!==null)any=true}
+if(!any)continue;row.row_key=rowKey(s.target,row);out.set(row.row_key,row)}
+const rows=[...out.values()];for(let i=0;i<rows.length;i+=500){const {error}=await sb.from(c.t).upsert(rows.slice(i,i+500),{onConflict:'row_key'});if(error)throw new Error(`${s.name}: ${error.message}`)}total+=rows.length}
+plan=null;await loadAll();toast(`Imported ${total} rows`)}catch(e){toast(e.message,true)}finally{busy=false;render()}}
+async function exportXlsx(){try{await loadXLSX()}catch(e){return toast(e.message,true)}const wb=XLSX.utils.book_new();
+const add=k=>{const c=T[k],labels=c.cols.map(x=>x.label),rows=[...data[k]].sort((a,b)=>a.id-b.id).map(r=>Object.fromEntries(c.cols.map(col=>[col.label,xval(col,r[col.k])])));const ws=XLSX.utils.json_to_sheet(rows,{header:labels});ws['!cols']=labels.map(l=>({wch:Math.min(42,Math.max(12,l.length+4))}));XLSX.utils.book_append_sheet(wb,ws,c.sheet)};
+['leads','clients','creators','outreach','activity'].forEach(add);const s=stats();
+XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet([{'Cold emails sent':s.sent,'Real replies':s.replies,'Reply rate %':s.rate,'Interested':s.interested,'Meetings booked':s.meetings,'Bounced':s.bounced,'Not interested':s.notint,'Clients':s.clients,'Creator emails sent':s.cSent,'Creator replies':s.cReplies,'Confirmed creators':s.confirmed,'Declined':s.declined,'Overdue follow-ups':s.overdue}]),'Summary');
+add('emails');XLSX.writeFile(wb,`GS Tracker ${today()}.xlsx`);toast('Excel downloaded')}
+async function planAll(){const rows=data.leads.filter(needsPlan);if(!rows.length||busy)return;if(!confirm(`Add follow-up dates to ${rows.length} leads?`))return;busy=true;
+const up=rows.map(r=>{const base=ymd(new Date(r.email_sent_at||r.date_sent||r.last_email_sent_at||r.last_updated||Date.now()));return{row_key:r.row_key,follow_up_1:addDaysStr(base,3),follow_up_2:addDaysStr(base,7),follow_up_3:addDaysStr(base,14)}});
+try{for(let i=0;i<up.length;i+=500){const {error}=await sb.from('gs_leads').upsert(up.slice(i,i+500),{onConflict:'row_key'});if(error)throw error}await loadAll();toast(`Follow-ups planned for ${rows.length} leads`)}catch(e){toast(e.message,true)}finally{busy=false;render()}}
 
-async function saveCRM(){const p=selected();if(!p)return;const patch={status:val('c-status'),next_followup:val('c-next')||null,notes:$('c-notes').value};
-try{const {data,error}=await sb.from('email_prospects').update(patch).eq('id',p.id).eq('user_id',user.id).select().single();if(error)throw error;
-if(p.status!==data.status){const r=await sb.from('email_activities').insert({user_id:user.id,prospect_id:p.id,event_type:'status_change',body:`Status: ${p.status} → ${data.status}`});if(r.error)toast('Saved, but history failed: '+r.error.message,true);delete subj[p.id];delete body[p.id];delete chosen[p.id]}
-replaceP(data);['c-status','c-next','c-notes'].forEach(k=>delete keep[k+':'+p.id]);activities=[];activitiesFor=null;render();loadActivities(p.id);toast('Saved to Supabase ✓')}
-catch(e){toast('Save failed: '+e.message,true)}}
+async function fetchAll(t){let all=[];for(let s=0;;s+=1000){const {data:d,error}=await sb.from(t).select('*').order('id').range(s,s+999);if(error)throw error;all.push(...d);if(d.length<1000)return all}}
+async function loadAll(){const ks=Object.keys(T),res=await Promise.all(ks.map(k=>fetchAll(T[k].t)));ks.forEach((k,i)=>data[k]=res[i])}
+function lockScreen(msg=''){sb=null;$('tabbar').hidden=true;app.innerHTML=`<div class="lockv"><div class="lockc"><div class="lock-icon">${ICON.lock}</div><h1>GS Tracker</h1><p>Enter your passcode to open the tracker on this device. You'll only need to do this once.</p><form id="unlock"><input id="pass" type="password" placeholder="Passcode" autocomplete="current-password" enterkeyhint="go" required aria-label="Passcode"><button class="btn" type="submit">Unlock</button></form><p class="err" id="lerr">${esc(msg)}</p></div></div>`}
+async function unlock(key){if(!key)return 'Enter your passcode.';
+const client=supabase.createClient(SUPABASE_URL,SUPABASE_KEY,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false},global:{headers:{'x-gs-key':key}}});
+const {data:ok,error}=await client.rpc('gs_check_key');if(error)return /gs_check_key|function/i.test(error.message)?'Run the setup SQL in Supabase first.':error.message;if(!ok)return "That passcode isn't right.";
+sb=client;try{localStorage.setItem(KEY_STORE,key)}catch(_){}app.innerHTML='<div class="lockv"><p class="ls">Loading your tracker…</p></div>';
+try{await loadAll()}catch(e){lockScreen('Could not load data: '+e.message);return null}render();return null}
+function lock(){try{localStorage.removeItem(KEY_STORE)}catch(_){}data=emptyData();sheet=null;renderSheet();lockScreen()}
+async function boot(){if(!window.supabase?.createClient){app.innerHTML='<div class="lockv"><div class="lockc"><h1>No connection</h1><p>Connect to the internet and refresh.</p></div></div>';return}
+let key='';try{key=localStorage.getItem(KEY_STORE)||''}catch(_){}if(!key)return lockScreen();const msg=await unlock(key);
+if(msg){if(/isn't right/.test(msg)){try{localStorage.removeItem(KEY_STORE)}catch(_){}}lockScreen(msg)}}
 
-async function addProspect(){const r={user_id:user.id,business_name:val('f-business'),contact_name:val('f-contact')||null,email:val('f-email').toLowerCase(),source_url:val('f-url'),industry:val('f-industry')||null,city:val('f-city')||null,pitch_angle:val('f-pitch')||null};
-const er=$('f-err'),bad=validRow(r);if(bad){er.textContent=bad;return}if(prospects.some(p=>p.email===r.email)){er.textContent='This email is already in your list.';return}
-const b=document.querySelector('[data-act="add"]');b.disabled=true;const {data,error}=await sb.from('email_prospects').insert(r).select().single();
-if(error){b.disabled=false;er.textContent=error.code==='23505'?'This email is already in your list.':error.message;return}
-prospects.unshift(data);Object.keys(keep).filter(k=>k.startsWith('f-')).forEach(k=>delete keep[k]);render();$('f-business')?.focus();toast(`Added ${data.business_name} ✓ · ${prospects.filter(TABS['To send']).length} waiting to email`)}
-
-async function importCSV(){const er=$('i-err'),rows=parseCSV($('i-text').value);if(!rows.length){er.textContent='Paste at least one line.';return}if(/business/i.test(rows[0][0]||''))rows.shift();
-const seen=new Set(prospects.map(p=>p.email)),good=[];let bad=0,dup=0;
-for(const c of rows){const g=i=>(c[i]||'').trim();const r={user_id:user.id,business_name:g(0),contact_name:g(1)||null,email:g(2).toLowerCase(),source_url:g(3),industry:g(4)||null,city:g(5)||null,pitch_angle:g(6)||null};if(validRow(r)){bad++;continue}if(seen.has(r.email)){dup++;continue}seen.add(r.email);good.push(r)}
-if(!good.length){er.textContent=`Nothing new to import · ${dup} duplicates · ${bad} invalid rows.`;return}
-const b=document.querySelector('[data-act="import"]');b.disabled=true;
-const {data,error}=await sb.from('email_prospects').upsert(good,{onConflict:'user_id,email',ignoreDuplicates:true}).select();
-if(error){b.disabled=false;er.textContent=error.message;return}
-const added=data||[];prospects=[...added,...prospects];delete keep['i-text'];render();toast(`${added.length} imported · ${dup+good.length-added.length} duplicates · ${bad} invalid skipped`)}
-
-async function saveTemplate(){const k=templateEditId||'new',er=$('t-err');const row={name:val('t-name'),stage:val('t-stage'),subject:val('t-subject'),body:$('t-body').value.trim()};
-if(!row.name||!row.subject||!row.body){er.textContent='Name, subject and message are required.';return}
-try{const res=templateEditId?await sb.from('email_templates').update(row).eq('id',templateEditId).eq('user_id',user.id).select().single():await sb.from('email_templates').insert({...row,user_id:user.id}).select().single();if(res.error)throw res.error;
-templates=templateEditId?templates.map(t=>t.id===res.data.id?res.data:t):[...templates,res.data];Object.keys(keep).filter(x=>x.startsWith('t-')&&x.endsWith(':'+k)).forEach(x=>delete keep[x]);
-templateEditId=res.data.id;subj={};body={};chosen={};render();toast('Template saved to Supabase ✓')}catch(e){er.textContent=e.message}}
-async function deleteTemplate(){if(!templateEditId||!confirm('Delete this template? Sent email history stays intact.'))return;const {error}=await sb.from('email_templates').delete().eq('id',templateEditId).eq('user_id',user.id);if(error)return toast(error.message,true);templates=templates.filter(t=>t.id!==templateEditId);templateEditId=null;subj={};body={};chosen={};render();toast('Template deleted')}
-async function saveSettings(){const d=Number(val('s-days'));if(!Number.isInteger(d)||d<1||d>60)return toast('Follow-up days must be between 1 and 60',true);const {data,error}=await sb.from('crm_settings').upsert({user_id:user.id,default_followup_days:d},{onConflict:'user_id'}).select().single();if(error)return toast(error.message,true);settings={...settings,...data};render();toast('Settings saved ✓')}
-function exportCsv(){const fields=['business_name','contact_name','email','source_url','industry','city','pitch_angle','status','last_touch','next_followup','notes'];const csv='\ufeff'+fields.join(',')+'\r\n'+prospects.map(r=>fields.map(k=>'"'+String(r[k]??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='GS_Gmail_Prospects_'+dateLocal()+'.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1500);toast('CSV export downloaded')}
-async function logout(){const {error}=await sb.auth.signOut();if(error)return toast(error.message,true);user=null;renderLogin()}
-
-async function fetchProspects(){let all=[];for(let s=0;s<20000;s+=1000){const {data,error}=await sb.from('email_prospects').select('*').eq('user_id',user.id).order('created_at',{ascending:false}).range(s,s+999);if(error)throw error;all.push(...(data||[]));if((data||[]).length<1000)break}return all}
-async function loadData(force=false){if(loading)return;loading=true;try{const start=new Date();start.setHours(0,0,0,0);
-const [ps,tm,lg,st]=await Promise.all([fetchProspects(),sb.from('email_templates').select('*').eq('user_id',user.id),sb.from('email_activities').select('event_type').eq('user_id',user.id).like('event_type','sent_%').gte('occurred_at',start.toISOString()),sb.from('crm_settings').select('*').eq('user_id',user.id).maybeSingle()]);
-if(tm.error)throw new Error('Templates table not ready: '+tm.error.message);if(lg.error)throw new Error('Activities table not ready: '+lg.error.message);
-prospects=ps;templates=tm.data||[];todayLog=lg.data||[];if(!st.error&&st.data)settings={...settings,...st.data};
-if(!templates.length){const {data,error}=await sb.from('email_templates').insert(DEFAULTS.map(t=>({...t,user_id:user.id}))).select();if(error)throw error;templates=data||[]}
-if(force){subj={};body={};chosen={};toast('Data refreshed from Supabase')}render();if(selectedId&&view==='outreach')loadActivities(selectedId)}
-catch(e){app.innerHTML=`<div class="card card-pad main-error"><h2>Could not load Gmail outreach</h2><p class="error">${esc(e.message)}</p><p>Run the Gmail outreach SQL in Supabase first, then retry. Your LinkedIn contacts are not affected.</p><button class="button primary" data-act="refresh">Retry</button> <button class="button" data-act="logout">Sign out</button></div>`}finally{loading=false}}
-
-function renderLogin(){app.innerHTML=`<div class="card center-card"><div class="logo" style="padding:0"><span class="logo-icon">GS</span><span><strong>GS Enterprises Digital</strong><small>PRIVATE GMAIL OUTREACH</small></span></div><h1>Unlock Gmail outreach</h1><p>Use the same Supabase account as your LinkedIn CRM. If you're already signed in there on this browser, you won't see this screen.</p><form id="login-form"><div><label class="small-label" for="email">Your Supabase Auth email</label><input class="field wide" type="email" autocomplete="username" id="email" required></div><div><label class="small-label" for="password">Password</label><input class="field wide" type="password" autocomplete="current-password" id="password" required></div><button class="button primary" type="submit" id="login-btn">Sign in securely</button></form><p class="notice" style="margin-top:16px">Do not paste a secret or service_role key into this website.</p></div>`}
-
-const ACT={refresh:()=>loadData(true),gmail:openGmail,copy:copyEmail,thread:openThread,sent:markSent,save:saveCRM,source:openSource,next:nextProspect,add:addProspect,import:importCSV,tnew:()=>{templateEditId=null;render()},tsave:saveTemplate,tdel:deleteTemplate,ssave:saveSettings,export:exportCsv,logout:logout};
-app.addEventListener('click',e=>{const el=e.target.closest('[data-view],[data-sel],[data-tab],[data-go],[data-tpl],[data-act]');if(!el||el.disabled)return;const d=el.dataset;
-if(d.view){view=d.view;render();window.scrollTo(0,0)}else if(d.sel)selectP(d.sel);else if(d.tab){filter.status=d.tab;render()}else if(d.go){filter.status=d.go;view='outreach';render()}else if(d.tpl){templateEditId=d.tpl;render()}else if(ACT[d.act])ACT[d.act]()});
-function onField(e){const el=e.target;
-if(el.id==='q'){if(e.type!=='input')return;filter.q=el.value;const pos=el.selectionStart;render();const n=$('q');n?.focus();n?.setSelectionRange(pos,pos);return}
-if(el.dataset.keep)keep[el.dataset.keep]=el.value;if(el.id==='t-subject'||el.id==='t-body')updatePreview();
-const p=selected();if(!p)return;
-if(el.id==='m-subj')subj[p.id]=el.value;else if(el.id==='m-body')body[p.id]=el.value;
-else if(el.id==='m-tpl'&&e.type==='change'){chosen[p.id]=el.value;const t=templates.find(x=>x.id===el.value);if(t){subj[p.id]=formatMessage(t.subject,p);body[p.id]=formatMessage(t.body,p)}render()}}
-app.addEventListener('input',onField);app.addEventListener('change',onField);
-app.addEventListener('submit',async e=>{if(e.target.id!=='login-form')return;e.preventDefault();const b=$('login-btn');b.disabled=true;b.textContent='Signing in…';const {data,error}=await sb.auth.signInWithPassword({email:val('email'),password:$('password').value});if(error){toast(error.message,true);b.disabled=false;b.textContent='Sign in securely';return}user=data.user;await loadData()});
-
-async function boot(){if(!window.supabase?.createClient){app.innerHTML='<div class="card card-pad main-error"><h2>Internet connection required</h2><p>Supabase library could not load. Check your connection and refresh.</p></div>';return}
-sb=window.supabase.createClient(PROJECT_URL,PUBLISHABLE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
-const {data,error}=await sb.auth.getUser();if(error||!data?.user){renderLogin();return}user=data.user;await loadData()}
+document.addEventListener('click',e=>{const el=e.target.closest('[data-nav],[data-new],[data-open],[data-flt],[data-more],[data-x],[data-act]');if(!el||el.disabled)return;const d=el.dataset;
+if(d.nav){view=d.nav;q='';limit=150;render();window.scrollTo(0,0)}
+else if(d.new){sheet={kind:d.new,draft:T[d.new].def(),isNew:true};renderSheet()}
+else if(d.open){const [k,id]=d.open.split(':'),r=data[k].find(x=>String(x.id)===id);if(r){sheet={kind:k,draft:{...r},isNew:false};renderSheet()}}
+else if(d.flt){flt[view]=d.flt;limit=150;render()}
+else if(d.more!==undefined){limit+=150;$('list').innerHTML=listBody(view)}
+else if(d.act)leadAct(d.act);
+else ({close:closeSheet,save:()=>save(),delete:del,export:exportXlsx,planall:planAll,doimport:doImport,cancelimport:()=>{plan=null;render()},lock}[d.x]||(()=>{}))()});
+document.addEventListener('input',e=>{if(e.target.id!=='q')return;q=e.target.value;limit=150;const l=$('list'),c=$('cnt');if(l)l.innerHTML=listBody(view);if(c)c.textContent=cntText(view)});
+document.addEventListener('change',e=>{const el=e.target;if(el.id==='file'&&el.files[0]){onFile(el.files[0]);el.value=''}else if(el.dataset.pick!==undefined&&plan)plan.sheets[+el.dataset.pick].target=el.value});
+sh.addEventListener('input',onDraft);sh.addEventListener('change',onDraft);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&sheet)closeSheet()});
+document.addEventListener('submit',async e=>{if(e.target.id!=='unlock')return;e.preventDefault();const b=e.target.querySelector('button');b.disabled=true;b.textContent='Checking…';const msg=await unlock($('pass').value.trim());const le=$('lerr');if(msg&&le){le.textContent=msg;b.disabled=false;b.textContent='Unlock'}});
 boot();
-</script></body></html>
+</script>
+</body>
+</html>
