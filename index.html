@@ -23,11 +23,11 @@ svg{width:22px;height:22px;flex:none}
 .add{width:34px;height:34px;border-radius:50%;background:var(--f);color:var(--b);display:grid;place-items:center}.add svg{width:20px;height:20px}
 .wrap{max-width:720px;margin:0 auto;padding:18px 20px calc(110px + env(safe-area-inset-bottom))}
 h1{font-size:32px;font-weight:700;margin:0 0 4px;letter-spacing:-.8px}
-.sub{color:var(--s);font-size:15px;margin:0 0 24px}
-.sec{font-size:13px;font-weight:600;color:var(--s);text-transform:uppercase;letter-spacing:.5px;margin:0 4px 10px;display:flex;justify-content:space-between}
+.sub{color:var(--s);font-size:15px;margin:0 0 22px}
+.sec{font-size:13px;font-weight:600;color:var(--s);text-transform:uppercase;letter-spacing:.5px;margin:0 4px 10px;display:flex;justify-content:space-between;gap:10px}
 .sec button{color:var(--b);text-transform:none;letter-spacing:0;font-size:15px;font-weight:500}
 .card,.group{background:#fff;border:1px solid var(--l);border-radius:18px;box-shadow:var(--sh);margin-bottom:24px}
-.card{display:block;width:100%;padding:18px;text-align:left;color:var(--t);transition:transform .15s}
+.card{display:block;width:100%;padding:18px;text-align:left;color:var(--t)}
 button.card:active,.ql:active,.cb:active{transform:scale(.97)}
 .group{overflow:hidden}
 .row{display:flex;gap:12px;align-items:center;width:100%;min-height:54px;padding:10px 16px;position:relative;color:var(--t);text-decoration:none}
@@ -38,7 +38,7 @@ button.row:active{background:#f5f5f7}
 .t{font-size:16px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .s{font-size:13px;color:var(--s);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .m{font-size:13px;color:var(--s);margin:8px 0 0}
-.done{text-decoration:line-through;color:#aeaeb2}
+.done{text-decoration:line-through;color:#aeaeb2}.red{color:var(--r)}
 .av{width:40px;height:40px;border-radius:12px;flex:none;display:grid;place-items:center;color:#fff;font-size:14px;font-weight:600;background:#0071e3}
 .av.lg{width:58px;height:58px;border-radius:50%;font-size:20px;background:linear-gradient(135deg,#0066ff,#081534)}
 .av.sm{width:30px;height:30px;border-radius:9px;font-size:11px}
@@ -57,11 +57,18 @@ svg.ring{width:56px;height:56px;transform:rotate(-90deg)}.ring circle{fill:none;
 .qls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:24px}
 .ql{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--l);border-radius:16px;padding:10px 12px;color:var(--t);text-decoration:none;box-shadow:var(--sh);min-width:0}
 .badge{font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;color:#c25e00;background:#fff3e0;flex:none}
-.badge.bl{color:#0071e3;background:#e8f1fd}
+.badge.bl{color:#0071e3;background:#e8f1fd}.badge.gr{color:#1e7e34;background:#e7f6ea}.badge.r{color:#d70015;background:#ffecec}
 .ed{color:#aeaeb2;padding:8px;flex:none}
-.search{display:flex;align-items:center;gap:8px;background:var(--f);border-radius:12px;height:40px;padding:0 12px;margin-bottom:22px;color:var(--s)}
+.search{display:flex;align-items:center;gap:8px;background:var(--f);border-radius:12px;height:40px;padding:0 12px;margin-bottom:20px;color:var(--s)}
 .search svg{width:17px}.search input{flex:1;border:0;background:none;outline:none;font-size:17px;min-width:0}
-.empty{text-align:center;color:var(--s);padding:48px 16px}
+.empty{text-align:center;color:var(--s);padding:40px 16px}
+.segs{display:flex;gap:8px;overflow-x:auto;margin:0 -20px 18px;padding:0 20px;scrollbar-width:none}.segs::-webkit-scrollbar{display:none}
+.seg{flex:none;padding:8px 14px;border-radius:999px;background:var(--f);font-size:15px;font-weight:500}.seg.on{background:var(--t);color:#fff}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+.st{background:#fff;border:1px solid var(--l);border-radius:16px;padding:14px;box-shadow:var(--sh)}.st b{display:block;font-size:21px;font-weight:700}.st span{font-size:13px;color:var(--s)}
+.wk{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;align-items:end;margin-top:14px}.wk div{display:grid;justify-items:center;gap:4px}.wk i{display:block;width:100%;max-width:26px;border-radius:6px;background:linear-gradient(#2997ff,#0071e3)}.wk span{font-size:11px;color:var(--s)}
+.due{flex:none;width:118px;border:0;background:none;font-size:13px;color:var(--s);-webkit-appearance:none;appearance:none}.due.late{color:var(--r)}
+.qa{display:flex;gap:8px}.qa input{flex:1;min-width:0;border:1px solid var(--l);border-radius:12px;padding:10px 12px;font-size:16px;outline:none}.qa button{background:var(--b);color:#fff;border-radius:12px;padding:0 16px;font-weight:600}
 .tabs{position:fixed;left:0;right:0;bottom:0;z-index:10;background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-top:1px solid var(--sp);padding-bottom:env(safe-area-inset-bottom)}
 .tabs div{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);padding:6px 8px 4px}
 .tab{display:grid;justify-items:center;gap:3px;padding:6px 0;font-size:10.5px;font-weight:500;color:#8e8e93}.tab.on{color:var(--b);font-weight:600}
@@ -77,7 +84,7 @@ svg.ring{width:56px;height:56px;transform:rotate(-90deg)}.ring circle{fill:none;
 .f small{display:block;font-size:12px;font-weight:600;color:var(--s);text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
 .f input,.f textarea,.f select,.tin{width:100%;border:0;background:none;outline:none;padding:2px 0;font-size:17px;min-height:26px;-webkit-appearance:none;appearance:none;color:var(--t)}
 .f select{color:var(--b)}
-.f textarea{min-height:84px;resize:vertical}.f textarea.tall{min-height:45vh}
+.f textarea{min-height:84px;resize:vertical}.f textarea.tall{min-height:40vh}
 .sw{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .f input.tg{width:51px;height:31px;min-height:0;border-radius:31px;background:#e9e9eb;position:relative;flex:none;transition:.2s;padding:0}
 .tg::after{content:'';position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.18);transition:.2s}
@@ -99,20 +106,30 @@ svg.ring{width:56px;height:56px;transform:rotate(-90deg)}.ring circle{fill:none;
 const $=i=>document.getElementById(i),app=$('app'),sh=$('sheet');
 if(!window.supabase){app.innerHTML='<p class="empty">No internet. Please refresh.</p>';return}
 const sb=supabase.createClient('https://zfihwiolrxddfphehngt.supabase.co','sb_publishable_U_bLYn66mCOH_liYsGEDFw_bL2WzC6K',{auth:{persistSession:false}});
-const T={st:'gsm_settings',li:'gsm_links',pl:'gsm_plans',ta:'gsm_tasks',no:'gsm_notes',da:'gsm_daily_tasks',lg:'gsm_daily_log'};
+const T={st:'gsm_settings',li:'gsm_links',pl:'gsm_plans',ta:'gsm_tasks',no:'gsm_notes',da:'gsm_daily_tasks',lg:'gsm_daily_log',it:'gsm_items'};
 const I=p=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
-const IC={home:I('<path d="M4 11 12 4l8 7M6 10v10h12V10"/>'),link:I('<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'),plan:I('<path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/>'),note:I('<path d="M6 3h9l4 4v14H6zM9 12h7M9 16h7"/>'),more:I('<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01"/>'),plus:I('<path d="M12 5v14M5 12h14"/>'),search:I('<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/>'),mail:I('<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/>'),phone:I('<path d="M5.5 4h3l2 4.5-2.5 1.5a11 11 0 0 0 5 5l1.5-2.5 4.5 2v3a2.5 2.5 0 0 1-2.5 2.5A14 14 0 0 1 3 6.5 2.5 2.5 0 0 1 5.5 4z"/>'),chat:I('<path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4A8 8 0 1 1 20 11.5z"/>'),globe:I('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>'),check:I('<path d="m5 12.5 4.5 4.5L19 7.5"/>'),dots:I('<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01"/>')};
+const IC={home:I('<path d="M4 11 12 4l8 7M6 10v10h12V10"/>'),plan:I('<path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/>'),cl:I('<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/>'),lib:I('<path d="M4 5h5v15H4zM10 5h5v15h-5zM16 6l4 1-3 13-4-1z"/>'),more:I('<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01"/>'),plus:I('<path d="M12 5v14M5 12h14"/>'),search:I('<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4-4"/>'),mail:I('<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/>'),phone:I('<path d="M5.5 4h3l2 4.5-2.5 1.5a11 11 0 0 0 5 5l1.5-2.5 4.5 2v3a2.5 2.5 0 0 1-2.5 2.5A14 14 0 0 1 3 6.5 2.5 2.5 0 0 1 5.5 4z"/>'),chat:I('<path d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4A8 8 0 1 1 20 11.5z"/>'),globe:I('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>'),check:I('<path d="m5 12.5 4.5 4.5L19 7.5"/>'),dots:I('<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01"/>')};
 const E=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const day=d=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata'}).format(d||new Date());
 const diff=(a,b)=>Math.round((Date.parse(a)-Date.parse(b))/864e5);
+const addD=(s,n)=>{const [y,m,d]=s.split('-').map(Number);return new Date(Date.UTC(y,m-1,d+n)).toISOString().slice(0,10)};
 const MO='Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ');
 const nd=s=>{if(!s)return '';const [y,m,d]=String(s).slice(0,10).split('-');return `${+d} ${MO[m-1]} ${y}`};
 const ini=s=>String(s||'').replace(/[^A-Za-z0-9 ]/g,'').split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase()||'#';
 const host=u=>{try{return new URL(u).hostname.replace(/^www\./,'')}catch(e){return u}};
+const inr=n=>'₹'+Math.round(+n||0).toLocaleString('en-IN');
 const so=(a,b)=>(a.sort||0)-(b.sort||0);
 const uid=()=>crypto.randomUUID?crypto.randomUUID():'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.random()*16|0;return (c==='x'?r:(r&3|8)).toString(16)});
 const GR=['Official','Social','Tools','Listings','Forms','Other'],GC={Official:'#0071e3',Social:'#ff2d55',Tools:'#5856d6',Listings:'#ff9500',Forms:'#34c759',Other:'#8e8e93'};
 function toast(m,bad){const t=$('toast');t.textContent=m;t.className='toast show'+(bad?' bad':'');clearTimeout(toast.x);toast.x=setTimeout(()=>t.className='toast',2600)}
+
+const K={
+client:{n:'Clients',one:'client',def:()=>({status:'Active'}),f:[['name','Name'],['service','Service'],['fee','Monthly fee (₹)','number'],['status','Status','sel','Active,Paused,Ended'],['start','Start date','date'],['next','Next follow-up','date'],['phone','Phone','tel'],['email','Email','email'],['notes','Notes','area']],t:d=>d.name,s:d=>[d.service,d.fee?inr(d.fee)+'/mo':''].filter(Boolean).join(' · '),b:d=>d.next&&d.next<=day()&&d.status!=='Ended'?['Follow up','']:d.status!=='Active'?[d.status||'Active','bl']:null},
+payment:{n:'Payments',one:'payment',def:()=>({date:day(),status:'Paid'}),f:[['client','Client','client'],['amount','Amount (₹)','number'],['date','Date','date'],['status','Status','sel','Paid,Pending'],['note','Note']],t:d=>d.client||'Payment',s:d=>[inr(d.amount),nd(d.date)].join(' · '),b:d=>d.status==='Pending'?['Pending','']:['Paid','gr'],sort:(a,b)=>String(b.data.date||'').localeCompare(String(a.data.date||''))},
+expense:{n:'Expenses',one:'expense',def:()=>({cycle:'Monthly'}),f:[['name','Name'],['amount','Amount (₹)','number'],['cycle','Billing','sel','Monthly,Yearly,One-time'],['renews','Renews on','date'],['note','Note']],t:d=>d.name,s:d=>[inr(d.amount),d.cycle].join(' · '),b:d=>d.renews&&diff(d.renews,day())>=0&&diff(d.renews,day())<=7?['Renews soon','']:null},
+template:{n:'Templates',one:'template',def:()=>({type:'Email'}),f:[['title','Title'],['type','Type','sel','Email,LinkedIn,WhatsApp,Caption,Other'],['subject','Subject'],['body','Message','area']],t:d=>d.title,s:d=>d.type},
+content:{n:'Content',one:'content',def:()=>({date:day(),channel:'LinkedIn'}),f:[['topic','Topic'],['channel','Channel','sel','LinkedIn,Instagram,Facebook,Blog,YouTube,Podcast'],['date','Date','date'],['done','Posted','bool'],['link','Link','url']],t:d=>d.topic,s:d=>[d.channel,nd(d.date)].join(' · '),b:d=>d.done?['Posted','gr']:d.date&&d.date<day()?['Late','r']:null,sort:(a,b)=>String(a.data.date||'').localeCompare(String(b.data.date||''))},
+idea:{n:'Ideas',one:'idea',def:()=>({}),f:[['text','Idea','area']],t:d=>d.text,s:(d,x)=>nd(day(new Date(x.created_at||Date.now())))}};
 
 function seedData(){let n=0;const L=(title,url,grp,fav)=>({id:uid(),title,url,grp,note:'',fav:!!fav,sort:++n}),plans=[],tasks=[];
 const P=(title,sub,s,e,list)=>{const id=uid();plans.push({id,title,sub,start_date:s,end_date:e,notes:'',sort:plans.length+1});list.forEach((t,i)=>tasks.push({id:uid(),plan_id:id,title:t.replace(/^\+/,''),done:t[0]==='+',sort:i+1}))};
@@ -123,111 +140,153 @@ P('Business listings','Be easy to find online',null,null,['+Google Business Prof
 P('Website and brand','Ongoing work',null,null,['Work on the new deck','Review and update the main website','Improve the blog theme','Update the email signature','Add real client work to the portfolio']);
 const N=(title,body,pinned)=>({id:uid(),title,body,pinned:!!pinned});
 return {profile:{name:'GS Enterprises Digital',tagline:'Creative thinking. Actual growth.',founder:'Harsh Upadhyay',role:'Founder',city:'Mumbai',email:'gsenterprises.digital@gmail.com',phone:'+91 8291692332',website:'https://gsenterprisesdigital-sudo.github.io/GS-ENTERPRISES-DIGITAL-WEBSITE/',goal:'Build a trusted, profitable and scalable digital marketing agency with consistent clients, monthly recurring revenue, strong retention and international expansion.'},
-goals:{clients:0,target:10,fee:15000,emails:25},
+goals:{target:10,emails:25},
 links:[L('Official website','https://gsenterprisesdigital-sudo.github.io/GS-ENTERPRISES-DIGITAL-WEBSITE/','Official',1),L('Blogger blog','https://gsenterprisesdigital.blogspot.com','Official',1),L('Portfolio (Google Drive)','','Official'),L('Instagram','https://www.instagram.com/gsenterprises.digital/','Social',1),L('Facebook page','https://www.facebook.com/profile.php?id=61596259827445','Social'),L('YouTube','https://www.youtube.com/@GsEnterprisesDigital','Social',1),L('LinkedIn company page','https://www.linkedin.com/company/gs-enterprises-digital','Social',1),L('Gmail','https://mail.google.com/mail/?authuser=gsenterprises.digital@gmail.com','Tools',1),L('LinkedIn outreach CRM','https://gsenterprisesdigital-sudo.github.io/linkidein-outreach/','Tools',1),L('Supabase','https://supabase.com/dashboard/project/zfihwiolrxddfphehngt','Tools'),L('GitHub','https://github.com/gsenterprisesdigital-sudo','Tools'),L('Google review link','https://g.page/r/CUNK9zJfS0o3EBI/review','Listings'),L('Justdial listing','','Listings'),L('IndiaMART listing','','Listings'),L('Tally enquiry form','','Forms'),L('Intern registration form','','Forms')],
 plans,tasks,
-notes:[N('Services','Social media marketing\nPerformance marketing (Google Ads, Meta Ads)\nInfluencer marketing\nContent marketing\nSEO\nWebsite development and optimisation\nBranding and graphic design\nLead generation',1),N('Brand style','Navy #081534 · Blue #0066FF · White\nIndian English, short, confident, friendly\nAlways use the original GS logo\nNo fake clients, testimonials or numbers',1),N('Target market','SMEs in Mumbai, Navi Mumbai, Thane, Pune\nD2C, cafés, clinics, gyms, coaching, fashion, real estate, finance creators\n₹5,000–30,000 per client per month (estimate)'),N('Outreach style','Short, personalised, simple English\nAsk for advice, share the journey\nSir, Ma\'am, ji\n25 new leads a day, public emails only, no duplicates'),N('Content rules','LinkedIn: 1080×1080 image, 100–150 words, 3–5 hashtags, 80% educational\nBlog: daily 8 AM, 70% influencer marketing\nPodcast: 60 sec, white thumbnail, episode number and topic only')],
+notes:[N('Services','Social media marketing\nPerformance marketing (Google Ads, Meta Ads)\nInfluencer marketing\nContent marketing\nSEO\nWebsite development and optimisation\nBranding and graphic design\nLead generation',1),N('Brand style','Navy #081534 · Blue #0066FF · White\nIndian English, short, confident, friendly\nAlways use the original GS logo\nNo fake clients, testimonials or numbers',1),N('Target market','SMEs in Mumbai, Navi Mumbai, Thane, Pune\nD2C, cafés, clinics, gyms, coaching, fashion, real estate, finance creators\n₹5,000–30,000 per client per month (estimate)'),N('Outreach style','Short, personalised, simple English\nAsk for advice, share the journey\nSir, Ma\'am, ji\n25 new leads a day, public emails only, no duplicates')],
 daily:['Publish SEO blog','Instagram post','Facebook post','LinkedIn post','Podcast thumbnail ready','Podcast published on YouTube','LinkedIn networking','Research new prospects','Follow-ups done'].map((t,i)=>({id:uid(),title:t,sort:i+1}))}}
+const TPL=()=>[{title:'First outreach email',type:'Email',subject:'A quick idea for {business}',body:'Hi {name} ji,\n\nI\'m Harsh from GS Enterprises Digital, a digital marketing agency in Mumbai.\n\nI came across {business} and had 2–3 simple ideas to help you get more enquiries online.\n\nWould you be open to a short 15-minute call this week?\n\nThanks,\nHarsh Upadhyay\nGS Enterprises Digital\n+91 8291692332'},{title:'Follow-up email',type:'Email',subject:'Re: A quick idea for {business}',body:'Hi {name} ji,\n\nJust following up on my last email. Happy to share a few quick ideas for {business}, with no obligation.\n\nWould a short call this week work?\n\nThanks,\nHarsh'},{title:'LinkedIn connection message',type:'LinkedIn',subject:'',body:'Hi {name} ji, I recently started GS Enterprises Digital and I\'m learning how to grow it. I\'d really value your advice — what\'s one thing you would focus on in the first year?'}].map((d,i)=>({id:uid(),kind:'template',data:d,sort:i+1}));
 
-let S,view='home',q='',sheet=null;const pend=new Map();
+let S,view='home',q='',sheet=null,lib='links',mon='client';const pend=new Map();
 function put(t,r,ms=500){const k=t+(r.id||r.key||r.day),p=pend.get(k);if(p)clearTimeout(p.h);pend.set(k,{t,r,h:setTimeout(()=>{pend.delete(k);send(t,r)},ms)})}
 async function send(t,r){const o={...r,updated_at:new Date().toISOString()};delete o.created_at;const {error}=await sb.from(t).upsert(o);if(error)toast('Not saved: '+error.message,true)}
 async function drop(t,id){const k=t+id,p=pend.get(k);if(p){clearTimeout(p.h);pend.delete(k)}const {error}=await sb.from(t).delete().eq('id',id);if(error)toast('Not deleted: '+error.message,true)}
 function flush(){pend.forEach((p,k)=>{clearTimeout(p.h);pend.delete(k);send(p.t,p.r)})}
 async function get(t,o){const {data,error}=await sb.from(t).select('*').order(o).limit(5000);if(error)throw error;return data}
-async function seed(){const D=seedData();for(const [t,rows] of [[T.st,[{key:'profile',value:D.profile},{key:'goals',value:D.goals}]],[T.li,D.links],[T.pl,D.plans],[T.ta,D.tasks],[T.no,D.notes],[T.da,D.daily]]){const {error}=await sb.from(t).upsert(rows);if(error)throw error}}
-async function load(seeded){const [st,li,pl,ta,no,da,lg]=await Promise.all([get(T.st,'key'),get(T.li,'sort'),get(T.pl,'sort'),get(T.ta,'sort'),get(T.no,'updated_at'),get(T.da,'sort'),get(T.lg,'day')]);
+async function up(t,rows){const {error}=await sb.from(t).upsert(rows);if(error)throw error}
+async function seed(){const D=seedData();await up(T.st,[{key:'profile',value:D.profile},{key:'goals',value:D.goals}]);for(const [t,r] of [[T.li,D.links],[T.pl,D.plans],[T.ta,D.tasks],[T.no,D.notes],[T.da,D.daily]])await up(t,r)}
+async function load(seeded){const [st,li,pl,ta,no,da,lg,it]=await Promise.all([get(T.st,'key'),get(T.li,'sort'),get(T.pl,'sort'),get(T.ta,'sort'),get(T.no,'updated_at'),get(T.da,'sort'),get(T.lg,'day'),get(T.it,'sort')]);
 if(!seeded&&!st.length&&!li.length&&!pl.length){await seed();return load(1)}
 const v=k=>(st.find(r=>r.key===k)||{}).value||{};
-S={profile:v('profile'),goals:{clients:0,target:10,fee:15000,emails:25,...v('goals')},links:li,plans:pl,tasks:ta,notes:no,daily:da,log:{}};lg.forEach(r=>{S.log[r.day]={day:r.day,done:r.done||[],emails:r.emails||0}});
+if(!v('v6').done){const tp=TPL();await up(T.it,tp);it.push(...tp);await up(T.st,[{key:'v6',value:{done:true}}])}
+S={profile:v('profile'),goals:{target:10,emails:25,...v('goals')},links:li,plans:pl,tasks:ta,notes:no,daily:da,items:it,log:{},hide:v('home').hide||[]};lg.forEach(r=>{S.log[r.day]={day:r.day,done:r.done||[],emails:r.emails||0}});
 S.rep=Array.isArray(v('repeat').ids)?v('repeat').ids:pl.filter(p=>/first 10 paying/i.test(p.title||'')).map(p=>p.id)}
 const tk=id=>S.tasks.filter(t=>t.plan_id===id).sort(so);
 const lgT=()=>{const d=day();return S.log[d]||(S.log[d]={day:d,done:[],emails:0})};
 const isRep=p=>!!p&&S.rep.includes(p.id);
-const tDone=t=>isRep(S.plans.find(x=>x.id===t.plan_id))?(S.log[day()]||{done:[]}).done.includes(t.id):!!t.done;
+const pOf=t=>S.plans.find(x=>x.id===t.plan_id);
+const tDone=t=>isRep(pOf(t))?(S.log[day()]||{done:[]}).done.includes(t.id):!!t.done;
+const items=k=>S.items.filter(x=>x.kind===k);
 function info(p){const ts=tk(p.id),done=ts.filter(tDone).length;let d=null,n=null;if(p.start_date&&p.end_date){n=diff(p.end_date,p.start_date)+1;d=Math.min(n,diff(day(),p.start_date)+1)}return {total:ts.length,done,d,n}}
+function money(){const act=items('client').filter(x=>(x.data.status||'Active')==='Active'),m=day().slice(0,7),pays=items('payment'),sum=a=>a.reduce((s,x)=>s+(+x.data.amount||0),0);
+const exp=items('expense').reduce((s,x)=>s+(x.data.cycle==='Yearly'?(+x.data.amount||0)/12:x.data.cycle==='One-time'?0:(+x.data.amount||0)),0),got=sum(pays.filter(x=>x.data.status!=='Pending'&&String(x.data.date||'').startsWith(m)));
+return {act:act.length,mrr:act.reduce((s,x)=>s+(+x.data.fee||0),0),got,pend:sum(pays.filter(x=>x.data.status==='Pending')),exp,profit:got-exp}}
+function todayAll(){const reps=S.plans.filter(isRep).sort(so).map(x=>({p:x,ts:tk(x.id)})).filter(x=>x.ts.length);return {reps,list:[...S.daily.slice().sort(so),...reps.flatMap(x=>x.ts)]}}
+const score=d=>{const l=S.log[d];return l?l.done.length+(l.emails>=S.goals.emails?1:0):0};
 
 const hdr=add=>`<div class="top"><div class="top-in"><b>GS Master</b>${add?`<button class="add" data-new="${add}" aria-label="Add">${IC.plus}</button>`:''}</div></div>`;
 const srch=ph=>`<label class="search">${IC.search}<input id="q" type="search" placeholder="${ph}" value="${E(q)}" autocomplete="off"></label>`;
+const shown=k=>!S.hide.includes(k);
 function pc(p){const i=info(p),r=isRep(p);return `<button class="card" data-plan="${p.id}" style="margin-bottom:12px"><div class="ph"><b>${E(p.title||'Untitled plan')}</b>${r?'<span class="badge bl">Daily</span>':i.n?`<span class="s">${i.d>0?`Day ${i.d} of ${i.n}`:'Starts '+nd(p.start_date)}</span>`:''}</div>${p.sub?`<p class="m">${E(p.sub)}</p>`:''}${i.total?`<div class="bar"><i style="width:${Math.round(i.done/i.total*100)}%"></i></div><p class="m">${i.done} of ${i.total} tasks done${r?' today':''}</p>`:''}</button>`}
-function home(){const p=S.profile,g=S.goals,l=S.log[day()]||{done:[],emails:0},dl=S.daily.slice().sort(so),em=l.emails>=g.emails,ph=String(p.phone||'').replace(/\D/g,''),run=S.plans.filter(x=>x.end_date&&day()<=x.end_date&&!isRep(x)).sort(so),fav=S.links.filter(x=>x.fav&&x.url).sort(so);
-const reps=S.plans.filter(isRep).sort(so).map(x=>({p:x,ts:tk(x.id)})).filter(x=>x.ts.length),all=[...dl,...reps.flatMap(x=>x.ts)];
-const dn=all.filter(t=>l.done.includes(t.id)).length+(em?1:0),tot=all.length+1;
-const cb=(h,t,i)=>`<a class="cb ${h?'':'off'}" ${h?`href="${E(h)}" target="_blank" rel="noopener"`:''}>${i}${t}</a>`,rs=n=>'₹'+(n||0).toLocaleString('en-IN');
+const trow=t=>{const on=tDone(t),late=t.due&&t.due<day()&&!on;return `<button class="row" data-tc="${t.id}"><span class="ck ${on?'on':''}">${IC.check}</span><span class="rc"><span class="t ${on?'done':''}">${E(t.title)}</span><span class="s ${late?'red':''}">${E((pOf(t)||{}).title||'')}${t.due?' · due '+nd(t.due):''}</span></span></button>`};
+function home(){const p=S.profile,g=S.goals,l=S.log[day()]||{done:[],emails:0},em=l.emails>=g.emails,ph=String(p.phone||'').replace(/\D/g,''),{reps,list}=todayAll(),tot=list.length+1,dn=list.filter(t=>l.done.includes(t.id)).length+(em?1:0),mo=money();
+const cb=(h,t,i)=>`<a class="cb ${h?'':'off'}" ${h?`href="${E(h)}" target="_blank" rel="noopener"`:''}>${i}${t}</a>`;
 const dr=t=>{const on=l.done.includes(t.id);return `<button class="row" data-day="${t.id}"><span class="ck ${on?'on':''}">${IC.check}</span><span class="t ${on?'done':''}">${E(t.title)}</span></button>`};
+const ct=items('content').filter(x=>x.data.date===day()),dueT=S.tasks.filter(t=>t.due&&t.due<=day()&&!tDone(t)&&!isRep(pOf(t))).sort((a,b)=>a.due.localeCompare(b.due));
+let st=0,d=day();if(score(d)<tot)d=addD(d,-1);while(st<999&&score(d)>=tot){st++;d=addD(d,-1)}
+const wk=[...Array(7)].map((_,i)=>addD(day(),i-6)),wem=wk.reduce((s,x)=>s+((S.log[x]||{}).emails||0),0);
+const pod=S.plans.find(x=>/podcast/i.test(x.title||'')&&x.start_date&&x.end_date);let podH='';if(pod){const n=diff(day(),pod.start_date)+1,N=diff(pod.end_date,pod.start_date)+1;if(n>=1&&n<=N){const ep=tk(pod.id)[n-1];podH=`<p class="sec">Today's podcast</p><div class="group">${ep?trow(ep):`<button class="row" data-plan="${pod.id}"><span class="rc"><span class="t">Episode ${n} of ${N}</span><span class="s">Tap to add this episode's title</span></span></button>`}</div>`}}
+const run=S.plans.filter(x=>x.end_date&&day()<=x.end_date&&!isRep(x)).sort(so),fav=S.links.filter(x=>x.fav&&x.url).sort(so),ideas=items('idea').slice().sort((a,b)=>(b.sort||0)-(a.sort||0)).slice(0,3);
 return hdr()+`<main class="wrap"><h1>${E(p.name)}</h1><p class="sub">${E(p.tagline)}</p>
-<div class="card"><div class="who"><span class="av lg">${E(ini(p.name))}</span><div><b>${E(p.founder)}</b><span class="s">${E(p.role)} · ${E(p.city)}</span></div></div><div class="cbs">${cb(p.email&&'mailto:'+p.email,'Email',IC.mail)}${cb(ph&&'tel:+'+ph,'Call',IC.phone)}${cb(ph&&'https://wa.me/'+ph,'WhatsApp',IC.chat)}${cb(p.website,'Website',IC.globe)}</div></div>
-<p class="sec">Today<button data-open="daily">Edit</button></p>
-<div class="card"><div class="big"><svg class="ring" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5" stroke="#f2f2f7"/><circle cx="18" cy="18" r="15.5" stroke="#34c759" stroke-dasharray="${(dn/tot*97.4).toFixed(1)} 97.4"/></svg><div><b>${dn} of ${tot}</b><span class="s">${dn===tot?'All done today':'tasks done today'}</span></div></div></div>
-<div class="group">${dl.map(dr).join('')}<div class="row"><span class="ck ${em?'on':''}">${IC.check}</span><span class="t ${em?'done':''}" style="flex:1">Outreach emails · ${l.emails}/${g.emails}</span><span class="step"><button data-em="-1">−</button><button data-em="1">+</button></span></div></div>
+${shown('card')?`<div class="card"><div class="who"><span class="av lg">${E(ini(p.name))}</span><div><b>${E(p.founder)}</b><span class="s">${E(p.role)} · ${E(p.city)}</span></div></div><div class="cbs">${cb(p.email&&'mailto:'+p.email,'Email',IC.mail)}${cb(ph&&'tel:+'+ph,'Call',IC.phone)}${cb(ph&&'https://wa.me/'+ph,'WhatsApp',IC.chat)}${cb(p.website,'Website',IC.globe)}</div></div>`:''}
+${shown('today')?`<p class="sec">Today<button data-open="daily">Edit</button></p>
+<div class="card"><div class="big"><svg class="ring" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5" stroke="#f2f2f7"/><circle cx="18" cy="18" r="15.5" stroke="#34c759" stroke-dasharray="${(Math.min(1,dn/tot)*97.4).toFixed(1)} 97.4"/></svg><div><b>${dn} of ${tot}</b><span class="s">${dn>=tot?'All done today':'tasks done today'}</span></div></div></div>
+<div class="group">${S.daily.slice().sort(so).map(dr).join('')}<div class="row"><span class="ck ${em?'on':''}">${IC.check}</span><span class="t ${em?'done':''}" style="flex:1">Outreach emails · ${l.emails}/${g.emails}</span><span class="step"><button data-em="-1">−</button><button data-em="1">+</button></span></div></div>
 ${reps.map(x=>`<p class="sec">${E(x.p.title)}<button data-plan="${x.p.id}">Edit</button></p><div class="group">${x.ts.map(dr).join('')}</div>`).join('')}
-${run.length?'<p class="sec">Running plans</p>'+run.map(pc).join('')+'<div style="height:12px"></div>':''}
-<p class="sec">Goal</p><div class="card"><div class="ph"><div><b style="font-size:24px">${g.clients} of ${g.target}</b><div class="s">paying clients</div></div><span class="step"><button data-cl="-1">−</button><button data-cl="1">+</button></span></div><div class="bar"><i style="width:${Math.min(100,g.clients/Math.max(1,g.target)*100)}%"></i></div><p class="m">Monthly revenue ${rs(g.clients*g.fee)} · at ${g.target} clients ${rs(g.target*g.fee)}</p></div>
-${fav.length?'<p class="sec">Quick links</p><div class="qls">'+fav.map(x=>`<a class="ql" href="${E(x.url)}" target="_blank" rel="noopener"><span class="av sm" style="background:${GC[x.grp]||GC.Other}">${E(ini(x.title))}</span><span class="t">${E(x.title)}</span></a>`).join('')+'</div>':''}
-${p.goal?`<p class="sec">Long-term goal</p><div class="card"><p style="margin:0;color:#424245">${E(p.goal)}</p></div>`:''}</main>`}
+${ct.length?`<p class="sec">Content today</p><div class="group">${ct.map(x=>`<button class="row" data-ctog="${x.id}"><span class="ck ${x.data.done?'on':''}">${IC.check}</span><span class="rc"><span class="t ${x.data.done?'done':''}">${E(x.data.topic||'Untitled')}</span><span class="s">${E(x.data.channel||'')}</span></span></button>`).join('')}</div>`:''}`:''}
+${shown('podcast')?podH:''}
+${shown('due')&&dueT.length?`<p class="sec">Due tasks</p><div class="group">${dueT.map(trow).join('')}</div>`:''}
+${shown('week')?`<p class="sec">Streak and week</p><div class="card"><div class="ph"><div><b style="font-size:24px">🔥 ${st} day${st===1?'':'s'}</b><div class="s">all tasks done in a row</div></div><div class="s">${wem} emails this week</div></div><div class="wk">${wk.map(x=>`<div><i style="height:${Math.max(4,Math.round(Math.min(1,score(x)/tot)*70))}px;${x===day()?'':'opacity:.55'}"></i><span>${'SMTWTFS'[new Date(x+'T12:00:00').getDay()]}</span></div>`).join('')}</div></div>`:''}
+${shown('ideas')?`<p class="sec">Ideas<button data-lib="idea">See all</button></p><div class="card"><div class="qa"><input id="idea" placeholder="Write an idea…" enterkeyhint="done"><button data-x="addidea">Add</button></div>${ideas.map(x=>`<button class="row" style="padding:10px 0" data-item="${x.id}"><span class="t">💡 ${E(x.data.text)}</span></button>`).join('')}</div>`:''}
+${shown('plans')&&run.length?'<p class="sec">Running plans</p>'+run.map(pc).join('')+'<div style="height:12px"></div>':''}
+${shown('goal')?`<p class="sec">Goal</p><div class="card"><div class="ph"><div><b style="font-size:24px">${mo.act} of ${g.target}</b><div class="s">active paying clients</div></div><button class="s" style="color:#0071e3" data-nav="clients">Clients ›</button></div><div class="bar"><i style="width:${Math.min(100,mo.act/Math.max(1,g.target)*100)}%"></i></div><p class="m">Monthly recurring ${inr(mo.mrr)} · received this month ${inr(mo.got)}</p></div>`:''}
+${shown('links')&&fav.length?'<p class="sec">Quick links</p><div class="qls">'+fav.map(x=>`<a class="ql" href="${E(x.url)}" target="_blank" rel="noopener"><span class="av sm" style="background:${GC[x.grp]||GC.Other}">${E(ini(x.title))}</span><span class="t">${E(x.title)}</span></a>`).join('')+'</div>':''}
+${shown('vision')&&p.goal?`<p class="sec">Long-term goal</p><div class="card"><p style="margin:0;color:#424245">${E(p.goal)}</p></div>`:''}</main>`}
 function lrow(x){return `<div class="row"><a class="lk" ${x.url?`href="${E(x.url)}" target="_blank" rel="noopener"`:`data-link="${x.id}"`}><span class="av" style="background:${GC[x.grp]||GC.Other}">${E(ini(x.title))}</span><span class="rc"><span class="t">${E(x.title||'Untitled')}${x.fav?' ★':''}</span><span class="s">${E(x.url?host(x.url):'Tap to add the link')}</span></span>${x.url?'':'<span class="badge">Add link</span>'}</a><button class="ed" data-link="${x.id}" aria-label="Edit">${IC.dots}</button></div>`}
 function links(){const s=q.toLowerCase(),L=S.links.filter(x=>!s||[x.title,x.url,x.grp].join(' ').toLowerCase().includes(s)).sort(so);return GR.filter(g=>L.some(x=>(x.grp||'Other')===g)).map(g=>`<p class="sec">${g}</p><div class="group">${L.filter(x=>(x.grp||'Other')===g).map(lrow).join('')}</div>`).join('')||'<p class="empty">No links found</p>'}
 function notes(){const s=q.toLowerCase(),L=S.notes.filter(n=>!s||[n.title,n.body].join(' ').toLowerCase().includes(s)).sort((a,b)=>(b.pinned-a.pinned)||(new Date(b.updated_at||0)-new Date(a.updated_at||0)));return L.length?`<div class="group">${L.map(n=>`<button class="row" data-note="${n.id}"><span class="rc"><span class="t" style="font-weight:600">${E(n.title||'Untitled')}</span><span class="s">${E((n.body||'').split('\n')[0]||'No text')}</span></span>${n.pinned?'<span class="badge">Pinned</span>':''}</button>`).join('')}</div>`:'<p class="empty">No notes</p>'}
+function ilist(k){const c=K[k],s=q.toLowerCase(),L=items(k).filter(x=>!s||JSON.stringify(x.data).toLowerCase().includes(s)).sort(c.sort||((a,b)=>(b.sort||0)-(a.sort||0)));return L.length?`<div class="group">${L.map(x=>{const b=c.b&&c.b(x.data);return `<button class="row" data-item="${x.id}"><span class="rc"><span class="t">${E(c.t(x.data)||'Untitled')}</span><span class="s">${E(c.s?c.s(x.data,x):'')}</span></span>${b?`<span class="badge ${b[1]}">${E(b[0])}</span>`:''}</button>`}).join('')}</div>`:`<p class="empty">No ${c.n.toLowerCase()} yet. Tap +</p>`}
+const libList=()=>lib==='links'?links():lib==='notes'?notes():ilist(lib);
+const segs=(arr,cur,attr)=>`<div class="segs">${arr.map(([k,l])=>`<button class="seg ${cur===k?'on':''}" data-${attr}="${k}">${l}</button>`).join('')}</div>`;
 const blue=t=>`<span class="t" style="color:#0071e3">${t}</span>`;
 const pages={home,
-links:()=>hdr('link')+`<main class="wrap"><h1>Links</h1><p class="sub">${S.links.filter(x=>x.url).length} saved · ${S.links.filter(x=>!x.url).length} to add</p>${srch('Search links')}<div id="list">${links()}</div></main>`,
 plans:()=>hdr('plan')+`<main class="wrap"><h1>Plans</h1><p class="sub">${S.plans.length} plans · ${S.plans.filter(isRep).length} repeat daily</p>${S.plans.slice().sort(so).map(pc).join('')||'<p class="empty">No plans yet. Tap +</p>'}</main>`,
-notes:()=>hdr('note')+`<main class="wrap"><h1>Notes</h1><p class="sub">${S.notes.length} notes</p>${srch('Search notes')}<div id="list">${notes()}</div></main>`,
-more:()=>hdr()+`<main class="wrap"><h1>More</h1><p class="sub">Settings and data</p><div class="group"><button class="row" data-open="profile">${blue('Business profile')}</button><button class="row" data-open="daily">${blue('Daily checklist')}</button><button class="row" data-open="goals">${blue('Goals')}</button></div><div class="group"><button class="row" data-x="refresh">${blue('Refresh from cloud')}</button><button class="row" data-x="backup">${blue('Download backup')}</button></div><p class="m" style="margin:-10px 4px">Saved in Supabase · same on phone and laptop · v5</p></main>`};
-function render(){$('tabs').innerHTML='<div>'+[['home','Home',IC.home],['links','Links',IC.link],['plans','Plans',IC.plan],['notes','Notes',IC.note],['more','More',IC.more]].map(([k,l,i])=>`<button class="tab ${view===k?'on':''}" data-nav="${k}">${i}${l}</button>`).join('')+'</div>';app.innerHTML=pages[view]()}
+clients:()=>{const m=money();return hdr(mon)+`<main class="wrap"><h1>Clients</h1><p class="sub">Clients, payments and expenses</p><div class="stats"><div class="st"><b>${m.act}</b><span>Active clients</span></div><div class="st"><b>${inr(m.mrr)}</b><span>Monthly recurring</span></div><div class="st"><b>${inr(m.got)}</b><span>Received this month</span></div><div class="st"><b class="${m.pend?'red':''}">${inr(m.pend)}</b><span>Pending payments</span></div><div class="st"><b>${inr(m.exp)}</b><span>Expenses per month</span></div><div class="st"><b class="${m.profit<0?'red':''}">${inr(m.profit)}</b><span>Profit this month</span></div></div>${segs([['client','Clients'],['payment','Payments'],['expense','Expenses']],mon,'mon')}${srch('Search')}<div id="list">${ilist(mon)}</div></main>`},
+library:()=>hdr(lib==='links'?'link':lib==='notes'?'note':lib)+`<main class="wrap"><h1>Library</h1><p class="sub">Links, notes, templates, content and ideas</p>${segs([['links','Links'],['notes','Notes'],['template','Templates'],['content','Content'],['idea','Ideas']],lib,'lib')}${srch('Search')}<div id="list">${libList()}</div></main>`,
+more:()=>hdr()+`<main class="wrap"><h1>More</h1><p class="sub">Search, settings and data</p><label class="search">${IC.search}<input id="gq" type="search" placeholder="Search everything" autocomplete="off"></label><div id="gres"></div><div class="group"><button class="row" data-open="profile">${blue('Business profile')}</button><button class="row" data-open="daily">${blue('Daily checklist')}</button><button class="row" data-open="goals">${blue('Goals')}</button><button class="row" data-open="home">${blue('Home sections')}</button></div><div class="group"><button class="row" data-x="refresh">${blue('Refresh from cloud')}</button><button class="row" data-x="backup">${blue('Download backup')}</button></div><p class="m" style="margin:-10px 4px">Saved in Supabase · same on phone and laptop · v6</p></main>`};
+function gsearch(s){s=s.toLowerCase().trim();if(!s)return '';const r=[];const add=(attr,id,t,sub)=>r.push(`<button class="row" data-${attr}="${id}"><span class="rc"><span class="t">${E(t)}</span><span class="s">${E(sub)}</span></span></button>`);const has=(...v)=>v.join(' ').toLowerCase().includes(s);
+S.plans.forEach(p=>has(p.title,p.sub,p.notes)&&add('plan',p.id,p.title,'Plan'));S.tasks.forEach(t=>has(t.title)&&add('plan',t.plan_id,t.title,'Task · '+((pOf(t)||{}).title||'')));S.links.forEach(x=>has(x.title,x.url)&&add('link',x.id,x.title,'Link'));S.notes.forEach(n=>has(n.title,n.body)&&add('note',n.id,n.title||'Untitled','Note'));S.items.forEach(x=>has(JSON.stringify(x.data))&&K[x.kind]&&add('item',x.id,K[x.kind].t(x.data)||'Untitled',K[x.kind].one));
+return r.length?`<div class="group">${r.slice(0,40).join('')}</div>`:'<p class="empty">Nothing found</p>'}
+function render(){$('tabs').innerHTML='<div>'+[['home','Home',IC.home],['plans','Plans',IC.plan],['clients','Clients',IC.cl],['library','Library',IC.lib],['more','More',IC.more]].map(([k,l,i])=>`<button class="tab ${view===k?'on':''}" data-nav="${k}">${i}${l}</button>`).join('')+'</div>';app.innerHTML=pages[view]()}
 
 const F=(o,k,l,t='text')=>`<label class="f"><small>${l}</small><input type="${t}" data-f="${k}" value="${E(o[k])}" autocomplete="off"></label>`;
 const A=(o,k,l,c='')=>`<label class="f"><small>${l}</small><textarea class="${c}" data-f="${k}">${E(o[k])}</textarea></label>`;
 const G=(o,k,l)=>`<label class="f sw"><span>${l}</span><input type="checkbox" class="tg" data-f="${k}" ${o[k]?'checked':''}></label>`;
-const trows=(list,ck)=>list.map(t=>{const dn=ck&&tDone(t);return `<div class="row">${ck?`<button class="ck ${dn?'on':''}" data-tc="${t.id}">${IC.check}</button>`:''}<input class="tin ${dn?'done':''}" data-tt="${t.id}" value="${E(t.title)}"><button class="x" data-td="${t.id}">×</button></div>`}).join('')+`<div class="row"><input class="tin" id="nt" placeholder="+ Add a task" enterkeyhint="done"><button style="color:#0071e3;font-weight:600" data-x="addt">Add</button></div>`;
+const SEL=(o,k,l,opts)=>`<label class="f"><small>${l}</small><select data-f="${k}">${opts.map(v=>`<option ${v===(o[k]??opts[0])?'selected':''}>${E(v)}</option>`).join('')}</select></label>`;
+const trows=(list,ck)=>list.map(t=>{const dn=ck&&tDone(t),late=ck&&t.due&&t.due<day()&&!dn;return `<div class="row">${ck?`<button class="ck ${dn?'on':''}" data-tc="${t.id}">${IC.check}</button>`:''}<input class="tin ${dn?'done':''}" data-tt="${t.id}" value="${E(t.title)}">${ck?`<input type="date" class="due ${late?'late':''}" data-due="${t.id}" value="${E(t.due)}" aria-label="Due date">`:''}<button class="x" data-td="${t.id}">×</button></div>`}).join('')+`<div class="row"><input class="tin" id="nt" placeholder="+ Add a task" enterkeyhint="done"><button style="color:#0071e3;font-weight:600" data-x="addt">Add</button></div>`;
+const HS=[['card','Business card'],['today','Today'],['podcast',"Today's podcast"],['due','Due tasks'],['week','Streak and week'],['ideas','Ideas'],['plans','Running plans'],['goal','Goal'],['links','Quick links'],['vision','Long-term goal']];
 function rs(keep){if(!sheet){sh.innerHTML='';document.body.classList.remove('lock');return}document.body.classList.add('lock');const b0=sh.querySelector('.sbody'),y=keep&&b0?b0.scrollTop:0,{k,o}=sheet;let t,b;
-if(k==='link'){t='Link';b=`${o.url?`<div class="acts"><a class="act" href="${E(o.url)}" target="_blank" rel="noopener">Open</a><button class="act" data-x="copy">Copy</button></div>`:''}<div class="group">${F(o,'title','Name')}${F(o,'url','Link','url')}<label class="f"><small>Group</small><select data-f="grp">${GR.map(g=>`<option ${g===(o.grp||'Other')?'selected':''}>${g}</option>`).join('')}</select></label>${F(o,'note','Note')}</div><div class="group">${G(o,'fav','Show on Home')}</div><button class="del" data-x="del">Delete link</button>`}
+if(k==='link'){t='Link';b=`${o.url?`<div class="acts"><a class="act" href="${E(o.url)}" target="_blank" rel="noopener">Open</a><button class="act" data-x="copy">Copy</button></div>`:''}<div class="group">${F(o,'title','Name')}${F(o,'url','Link','url')}${SEL(o,'grp','Group',GR)}${F(o,'note','Note')}</div><div class="group">${G(o,'fav','Show on Home')}</div><button class="del" data-x="del">Delete link</button>`}
 else if(k==='plan'){const i=info(o),r=isRep(o);t='Plan';b=`<div class="group"><label class="f sw"><span>Repeat every day<span class="s" style="display:block;white-space:normal">Tasks show on Home and reset every morning</span></span><input type="checkbox" class="tg" data-rep="1" ${r?'checked':''}></label></div><div class="group">${F(o,'title','Plan name')}${F(o,'sub','Short description')}${F(o,'start_date','Start date','date')}${F(o,'end_date','End date','date')}</div><p class="sec">Tasks · ${i.done} of ${i.total} done${r?' today':''}</p><div class="group">${trows(tk(o.id),1)}</div><div class="group">${A(o,'notes','Notes')}</div><button class="del" data-x="del">Delete plan</button>`}
 else if(k==='note'){t='Note';b=`<div class="group">${F(o,'title','Title')}</div><div class="group">${A(o,'body','Note','tall')}</div><div class="group">${G(o,'pinned','Pin to top')}</div><button class="del" data-x="del">Delete note</button>`}
+else if(k==='item'){const c=K[o.kind],d=o.data;t=c.one[0].toUpperCase()+c.one.slice(1);b=`${o.kind==='template'?'<div class="acts"><button class="act" data-x="copyt">Copy message</button><span></span></div>':''}<div class="group">${c.f.map(([fk,l,ty,op])=>ty==='area'?A(d,fk,l,c.f.length<3||fk==='body'?'tall':''):ty==='bool'?G(d,fk,l):ty==='sel'?SEL(d,fk,l,op.split(',')):ty==='client'?SEL(d,fk,l,['',...items('client').map(x=>x.data.name).filter(Boolean)]):F(d,fk,l,ty||'text')).join('')}</div><button class="del" data-x="del">Delete ${c.one}</button>`}
 else if(k==='profile'){t='Business profile';b=`<div class="group">${[['name','Business name'],['tagline','Tagline'],['founder','Founder'],['role','Role'],['city','City'],['email','Email'],['phone','Phone / WhatsApp'],['website','Website']].map(([a,c])=>F(o,a,c)).join('')}</div><div class="group">${A(o,'goal','Long-term goal')}</div>`}
-else if(k==='daily'){t='Daily checklist';b=`<div class="group">${trows(S.daily.slice().sort(so),0)}</div><div class="group">${F(S.goals,'emails','Outreach emails per day','number')}</div><p class="m" style="margin:-12px 4px 0">Ticks reset every morning. To add a whole plan to your day, open it in Plans and switch on "Repeat every day".</p>`}
-else{t='Goals';b=`<div class="group">${F(o,'clients','Paying clients now','number')}${F(o,'target','Client target','number')}${F(o,'fee','Average monthly fee (₹)','number')}${F(o,'emails','Outreach emails per day','number')}</div>`}
+else if(k==='daily'){t='Daily checklist';b=`<div class="group">${trows(S.daily.slice().sort(so),0)}</div><div class="group">${F(S.goals,'emails','Outreach emails per day','number')}</div><p class="m" style="margin:-12px 4px 0">Ticks reset every morning. To add a whole plan to your day, open it and switch on "Repeat every day".</p>`}
+else if(k==='home'){t='Home sections';b=`<div class="group">${HS.map(([h,l])=>`<label class="f sw"><span>${l}</span><input type="checkbox" class="tg" data-hide="${h}" ${S.hide.includes(h)?'':'checked'}></label>`).join('')}</div>`}
+else{t='Goals';b=`<div class="group">${F(o,'target','Client target','number')}${F(o,'emails','Outreach emails per day','number')}</div><p class="m" style="margin:-12px 4px 0">Active clients and revenue come from the Clients tab.</p>`}
 sh.innerHTML=`<div class="scrim" data-x="close"></div><section class="sheet"><div class="sbar"><b>${t}</b><button data-x="close">Done</button></div><div class="sbody">${b}</div></section>`;if(keep)sh.querySelector('.sbody').scrollTop=y}
 function openS(k,o,isNew){if(!o)return;sheet={k,o,isNew};rs();history.pushState({s:1},'')}
+const arrOf=k=>k==='link'?S.links:k==='note'?S.notes:k==='plan'?S.plans:S.items;
+const tabOf=k=>k==='link'?T.li:k==='note'?T.no:k==='plan'?T.pl:T.it;
 function fin(){if(!sheet)return;const {k,o,isNew}=sheet;if(k==='link'&&o.url&&!/^[a-z]+:/i.test(o.url)){o.url='https://'+o.url.trim();put(T.li,o,0)}
-if(isNew&&(k==='link'?!o.title&&!o.url:k==='note'?!o.title&&!o.body:k==='plan'?!o.title&&!tk(o.id).length:false)){const a=k==='link'?S.links:k==='note'?S.notes:S.plans;a.splice(a.indexOf(o),1);drop(k==='link'?T.li:k==='note'?T.no:T.pl,o.id)}
-sheet=null;rs();render()}
+const empty=k==='link'?!o.title&&!o.url:k==='note'?!o.title&&!o.body:k==='plan'?!o.title&&!tk(o.id).length:k==='item'?!Object.entries(o.data).some(([a,v])=>v&&v!==K[o.kind].def()[a]):false;
+if(isNew&&empty){const a=arrOf(k);a.splice(a.indexOf(o),1);drop(tabOf(k),o.id)}sheet=null;rs();render()}
 function closeS(){fin();if(history.state&&history.state.s)history.back()}
-function sv(){const {k,o}=sheet;if(k==='link')put(T.li,o);else if(k==='plan')put(T.pl,o);else if(k==='note'){o.updated_at=new Date().toISOString();put(T.no,o)}else if(k==='profile')put(T.st,{key:'profile',value:S.profile});else put(T.st,{key:'goals',value:S.goals})}
+function tgt(){return sheet.k==='daily'||sheet.k==='goals'?S.goals:sheet.k==='item'?sheet.o.data:sheet.o}
+function sv(){const {k,o}=sheet;if(k==='link')put(T.li,o);else if(k==='plan')put(T.pl,o);else if(k==='item')put(T.it,o);else if(k==='note'){o.updated_at=new Date().toISOString();put(T.no,o)}else if(k==='profile')put(T.st,{key:'profile',value:S.profile});else put(T.st,{key:'goals',value:S.goals})}
 function togLog(id){const l=lgT(),i=l.done.indexOf(id);if(i<0)l.done.push(id);else l.done.splice(i,1);put(T.lg,l,300)}
 async function addT(){const i=$('nt'),v=i&&i.value.trim();if(!v)return;let t;if(sheet.k==='plan'){if(sheet.ready)await sheet.ready;t={id:uid(),plan_id:sheet.o.id,title:v,done:false,sort:Date.now()};S.tasks.push(t);put(T.ta,t,0)}else{t={id:uid(),title:v,sort:Date.now()};S.daily.push(t);put(T.da,t,0)}rs(1);$('nt').focus()}
+function addIdea(){const i=$('idea'),v=i&&i.value.trim();if(!v)return;const o={id:uid(),kind:'idea',data:{text:v},sort:Date.now(),created_at:new Date().toISOString()};S.items.push(o);put(T.it,o,0);render();toast('Idea saved')}
+function newObj(k){if(k==='link')return {id:uid(),title:'',url:'',grp:'Other',note:'',fav:false,sort:Date.now()};if(k==='note')return {id:uid(),title:'',body:'',pinned:false,updated_at:new Date().toISOString()};if(k==='plan')return {id:uid(),title:'',sub:'',start_date:null,end_date:null,notes:'',sort:Date.now()};return {id:uid(),kind:k,data:K[k].def(),sort:Date.now(),created_at:new Date().toISOString()}}
 
-document.addEventListener('click',async e=>{const el=e.target.closest('[data-nav],[data-new],[data-open],[data-plan],[data-note],[data-link],[data-day],[data-em],[data-cl],[data-tc],[data-td],[data-x]');if(!el)return;const d=el.dataset;
+document.addEventListener('click',async e=>{const el=e.target.closest('[data-nav],[data-new],[data-open],[data-plan],[data-note],[data-link],[data-item],[data-day],[data-em],[data-tc],[data-td],[data-ctog],[data-lib],[data-mon],[data-x]');if(!el)return;const d=el.dataset;
 if(d.nav){view=d.nav;q='';render();scrollTo(0,0)}
-else if(d.new){const o=d.new==='link'?{id:uid(),title:'',url:'',grp:'Other',note:'',fav:false,sort:Date.now()}:d.new==='note'?{id:uid(),title:'',body:'',pinned:false,updated_at:new Date().toISOString()}:{id:uid(),title:'',sub:'',start_date:null,end_date:null,notes:'',sort:Date.now()};(d.new==='link'?S.links:d.new==='note'?S.notes:S.plans).push(o);openS(d.new,o,1);if(d.new==='plan')sheet.ready=send(T.pl,o)}
+else if(d.lib){lib=d.lib;view='library';q='';render()}
+else if(d.mon){mon=d.mon;q='';render()}
+else if(d.new){const o=newObj(d.new);arrOf(K[d.new]?'item':d.new).push(o);openS(K[d.new]?'item':d.new,o,1);if(d.new==='plan')sheet.ready=send(T.pl,o)}
 else if(d.open)openS(d.open,d.open==='profile'?S.profile:S.goals);
 else if(d.plan)openS('plan',S.plans.find(x=>x.id===d.plan));
 else if(d.note)openS('note',S.notes.find(x=>x.id===d.note));
+else if(d.item)openS('item',S.items.find(x=>x.id===d.item));
 else if(d.link){e.preventDefault();openS('link',S.links.find(x=>x.id===d.link))}
 else if(d.day){togLog(d.day);render()}
 else if(d.em){const l=lgT();l.emails=Math.max(0,l.emails+Number(d.em));put(T.lg,l,400);render()}
-else if(d.cl){S.goals.clients=Math.max(0,(Number(S.goals.clients)||0)+Number(d.cl));put(T.st,{key:'goals',value:S.goals},400);render()}
-else if(d.tc){const t=S.tasks.find(x=>x.id===d.tc);if(t){if(isRep(S.plans.find(x=>x.id===t.plan_id)))togLog(t.id);else{t.done=!t.done;put(T.ta,t,0)}rs(1)}}
+else if(d.ctog){const x=S.items.find(i=>i.id===d.ctog);if(x){x.data.done=!x.data.done;put(T.it,x,0);render()}}
+else if(d.tc){const t=S.tasks.find(x=>x.id===d.tc);if(t){if(isRep(pOf(t)))togLog(t.id);else{t.done=!t.done;put(T.ta,t,0)}if(sheet)rs(1);else render()}}
 else if(d.td){const a=sheet.k==='daily'?S.daily:S.tasks,i=a.findIndex(x=>x.id===d.td);if(i>=0){a.splice(i,1);drop(sheet.k==='daily'?T.da:T.ta,d.td);rs(1)}}
 else{const x=d.x;
 if(x==='close')closeS();
 else if(x==='addt')addT();
-else if(x==='copy'){try{await navigator.clipboard.writeText(sheet.o.url);toast('Link copied')}catch(_){toast('Could not copy',true)}}
-else if(x==='del'){const {k,o}=sheet;if(!confirm('Delete this '+k+'?'))return;const a=k==='link'?S.links:k==='note'?S.notes:S.plans;a.splice(a.indexOf(o),1);if(k==='plan'){S.tasks=S.tasks.filter(t=>t.plan_id!==o.id);if(isRep(o)){S.rep=S.rep.filter(id=>id!==o.id);put(T.st,{key:'repeat',value:{ids:S.rep}},0)}}drop(k==='link'?T.li:k==='note'?T.no:T.pl,o.id);sheet=null;rs();render();if(history.state&&history.state.s)history.back();toast('Deleted')}
+else if(x==='addidea')addIdea();
+else if(x==='copy'||x==='copyt'){const o=sheet.o,txt=x==='copy'?o.url:[o.data.subject?'Subject: '+o.data.subject:'',o.data.body||''].filter(Boolean).join('\n\n');try{await navigator.clipboard.writeText(txt);toast('Copied')}catch(_){toast('Could not copy',true)}}
+else if(x==='del'){const {k,o}=sheet;if(!confirm('Delete this?'))return;const a=arrOf(k);a.splice(a.indexOf(o),1);if(k==='plan'){S.tasks=S.tasks.filter(t=>t.plan_id!==o.id);if(isRep(o)){S.rep=S.rep.filter(id=>id!==o.id);put(T.st,{key:'repeat',value:{ids:S.rep}},0)}}drop(tabOf(k),o.id);sheet=null;rs();render();if(history.state&&history.state.s)history.back();toast('Deleted')}
 else if(x==='refresh'){flush();try{await load(1);render();toast('Up to date')}catch(err){toast(err.message,true)}}
 else if(x==='backup'){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(S,null,2)],{type:'application/json'}));a.download='GS Master backup '+day()+'.json';document.body.appendChild(a);a.click();a.remove()}
 else if(x==='retry')boot()}});
-document.addEventListener('input',e=>{const el=e.target;if(el.id==='q'){q=el.value;const l=$('list');if(l)l.innerHTML=view==='links'?links():notes();return}
-if(!sheet||el.type==='checkbox'||el.tagName==='SELECT')return;
+document.addEventListener('input',e=>{const el=e.target;if(el.id==='q'){q=el.value;const l=$('list');if(l)l.innerHTML=view==='clients'?ilist(mon):libList();return}
+if(el.id==='gq'){$('gres').innerHTML=gsearch(el.value);return}
+if(!sheet||el.type==='checkbox'||el.tagName==='SELECT'||el.dataset.due)return;
 if(el.dataset.tt){const t=(sheet.k==='daily'?S.daily:S.tasks).find(x=>x.id===el.dataset.tt);if(t){t.title=el.value;put(sheet.k==='daily'?T.da:T.ta,t)}return}
-const k=el.dataset.f;if(!k)return;const o=sheet.k==='daily'?S.goals:sheet.o;o[k]=el.type==='number'?(Number(el.value)||0):el.type==='date'?(el.value||null):el.value;sv()});
+const k=el.dataset.f;if(!k)return;tgt()[k]=el.type==='number'?(Number(el.value)||0):el.type==='date'?(el.value||null):el.value;sv()});
 document.addEventListener('change',e=>{const el=e.target;if(!sheet)return;
+if(el.dataset.due){const t=S.tasks.find(x=>x.id===el.dataset.due);if(t){t.due=el.value||null;put(T.ta,t,0);rs(1)}return}
+if(el.dataset.hide){const h=el.dataset.hide;S.hide=el.checked?S.hide.filter(x=>x!==h):[...S.hide,h];put(T.st,{key:'home',value:{hide:S.hide}},0);return}
 if(el.dataset.rep){const id=sheet.o.id;S.rep=el.checked?[...new Set([...S.rep,id])]:S.rep.filter(x=>x!==id);put(T.st,{key:'repeat',value:{ids:S.rep}},0);rs(1);toast(el.checked?'Tasks will show every day':'Repeat turned off');return}
-if(!el.dataset.f)return;if(el.type==='checkbox'){sheet.o[el.dataset.f]=el.checked;sv()}else if(el.tagName==='SELECT'){sheet.o[el.dataset.f]=el.value;sv()}});
-document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id==='nt'){e.preventDefault();addT()}if(e.key==='Escape'&&sheet)closeS()});
+if(!el.dataset.f)return;tgt()[el.dataset.f]=el.type==='checkbox'?el.checked:el.value;sv()});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id==='nt'){e.preventDefault();addT()}if(e.key==='Enter'&&e.target.id==='idea'){e.preventDefault();addIdea()}if(e.key==='Escape'&&sheet)closeS()});
 addEventListener('popstate',()=>{if(sheet)fin()});
 document.addEventListener('visibilitychange',()=>{if(document.hidden)flush();else if(S&&!sheet)render()});
-async function boot(){app.innerHTML='<p class="empty">Loading…</p>';try{await load();render()}catch(err){app.innerHTML=`<div class="empty"><b>Couldn't load</b><p>${E(/schema cache|does not exist|Could not find/i.test(err.message)?'Run the gsm_ SQL setup in Supabase first.':err.message)}</p><button class="act" data-x="retry">Try again</button></div>`}}
+async function boot(){app.innerHTML='<p class="empty">Loading…</p>';try{await load();render()}catch(err){app.innerHTML=`<div class="empty"><b>Couldn't load</b><p>${E(/schema cache|does not exist|Could not find/i.test(err.message)?'Run the SQL setup in Supabase first (gsm_items and the due column).':err.message)}</p><button class="act" data-x="retry">Try again</button></div>`}}
 boot();
 })();
 </script>
