@@ -57,6 +57,7 @@ svg.ring{width:56px;height:56px;transform:rotate(-90deg)}.ring circle{fill:none;
 .qls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:24px}
 .ql{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--l);border-radius:16px;padding:10px 12px;color:var(--t);text-decoration:none;box-shadow:var(--sh);min-width:0}
 .badge{font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;color:#c25e00;background:#fff3e0;flex:none}
+.badge.bl{color:#0071e3;background:#e8f1fd}
 .ed{color:#aeaeb2;padding:8px;flex:none}
 .search{display:flex;align-items:center;gap:8px;background:var(--f);border-radius:12px;height:40px;padding:0 12px;margin-bottom:22px;color:var(--s)}
 .search svg{width:17px}.search input{flex:1;border:0;background:none;outline:none;font-size:17px;min-width:0}
@@ -77,7 +78,7 @@ svg.ring{width:56px;height:56px;transform:rotate(-90deg)}.ring circle{fill:none;
 .f input,.f textarea,.f select,.tin{width:100%;border:0;background:none;outline:none;padding:2px 0;font-size:17px;min-height:26px;-webkit-appearance:none;appearance:none;color:var(--t)}
 .f select{color:var(--b)}
 .f textarea{min-height:84px;resize:vertical}.f textarea.tall{min-height:45vh}
-.sw{display:flex;align-items:center;justify-content:space-between}
+.sw{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .f input.tg{width:51px;height:31px;min-height:0;border-radius:31px;background:#e9e9eb;position:relative;flex:none;transition:.2s;padding:0}
 .tg::after{content:'';position:absolute;top:2px;left:2px;width:27px;height:27px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.18);transition:.2s}
 .f input.tg:checked{background:var(--g)}.tg:checked::after{transform:translateX(20px)}
@@ -138,21 +139,28 @@ async function seed(){const D=seedData();for(const [t,rows] of [[T.st,[{key:'pro
 async function load(seeded){const [st,li,pl,ta,no,da,lg]=await Promise.all([get(T.st,'key'),get(T.li,'sort'),get(T.pl,'sort'),get(T.ta,'sort'),get(T.no,'updated_at'),get(T.da,'sort'),get(T.lg,'day')]);
 if(!seeded&&!st.length&&!li.length&&!pl.length){await seed();return load(1)}
 const v=k=>(st.find(r=>r.key===k)||{}).value||{};
-S={profile:v('profile'),goals:{clients:0,target:10,fee:15000,emails:25,...v('goals')},links:li,plans:pl,tasks:ta,notes:no,daily:da,log:{}};lg.forEach(r=>{S.log[r.day]={day:r.day,done:r.done||[],emails:r.emails||0}})}
+S={profile:v('profile'),goals:{clients:0,target:10,fee:15000,emails:25,...v('goals')},links:li,plans:pl,tasks:ta,notes:no,daily:da,log:{}};lg.forEach(r=>{S.log[r.day]={day:r.day,done:r.done||[],emails:r.emails||0}});
+S.rep=Array.isArray(v('repeat').ids)?v('repeat').ids:pl.filter(p=>/first 10 paying/i.test(p.title||'')).map(p=>p.id)}
 const tk=id=>S.tasks.filter(t=>t.plan_id===id).sort(so);
 const lgT=()=>{const d=day();return S.log[d]||(S.log[d]={day:d,done:[],emails:0})};
-function info(p){const ts=tk(p.id),done=ts.filter(t=>t.done).length;let d=null,n=null;if(p.start_date&&p.end_date){n=diff(p.end_date,p.start_date)+1;d=Math.min(n,diff(day(),p.start_date)+1)}return {total:ts.length,done,d,n}}
+const isRep=p=>!!p&&S.rep.includes(p.id);
+const tDone=t=>isRep(S.plans.find(x=>x.id===t.plan_id))?(S.log[day()]||{done:[]}).done.includes(t.id):!!t.done;
+function info(p){const ts=tk(p.id),done=ts.filter(tDone).length;let d=null,n=null;if(p.start_date&&p.end_date){n=diff(p.end_date,p.start_date)+1;d=Math.min(n,diff(day(),p.start_date)+1)}return {total:ts.length,done,d,n}}
 
 const hdr=add=>`<div class="top"><div class="top-in"><b>GS Master</b>${add?`<button class="add" data-new="${add}" aria-label="Add">${IC.plus}</button>`:''}</div></div>`;
 const srch=ph=>`<label class="search">${IC.search}<input id="q" type="search" placeholder="${ph}" value="${E(q)}" autocomplete="off"></label>`;
-function pc(p){const i=info(p);return `<button class="card" data-plan="${p.id}" style="margin-bottom:12px"><div class="ph"><b>${E(p.title||'Untitled plan')}</b>${i.n?`<span class="s">${i.d>0?`Day ${i.d} of ${i.n}`:'Starts '+nd(p.start_date)}</span>`:''}</div>${p.sub?`<p class="m">${E(p.sub)}</p>`:''}${i.total?`<div class="bar"><i style="width:${Math.round(i.done/i.total*100)}%"></i></div><p class="m">${i.done} of ${i.total} tasks done</p>`:''}</button>`}
-function home(){const p=S.profile,g=S.goals,l=S.log[day()]||{done:[],emails:0},dl=S.daily.slice().sort(so),em=l.emails>=g.emails,dn=dl.filter(t=>l.done.includes(t.id)).length+(em?1:0),tot=dl.length+1,ph=String(p.phone||'').replace(/\D/g,''),run=S.plans.filter(x=>x.end_date&&day()<=x.end_date).sort(so),fav=S.links.filter(x=>x.fav&&x.url).sort(so);
+function pc(p){const i=info(p),r=isRep(p);return `<button class="card" data-plan="${p.id}" style="margin-bottom:12px"><div class="ph"><b>${E(p.title||'Untitled plan')}</b>${r?'<span class="badge bl">Daily</span>':i.n?`<span class="s">${i.d>0?`Day ${i.d} of ${i.n}`:'Starts '+nd(p.start_date)}</span>`:''}</div>${p.sub?`<p class="m">${E(p.sub)}</p>`:''}${i.total?`<div class="bar"><i style="width:${Math.round(i.done/i.total*100)}%"></i></div><p class="m">${i.done} of ${i.total} tasks done${r?' today':''}</p>`:''}</button>`}
+function home(){const p=S.profile,g=S.goals,l=S.log[day()]||{done:[],emails:0},dl=S.daily.slice().sort(so),em=l.emails>=g.emails,ph=String(p.phone||'').replace(/\D/g,''),run=S.plans.filter(x=>x.end_date&&day()<=x.end_date&&!isRep(x)).sort(so),fav=S.links.filter(x=>x.fav&&x.url).sort(so);
+const reps=S.plans.filter(isRep).sort(so).map(x=>({p:x,ts:tk(x.id)})).filter(x=>x.ts.length),all=[...dl,...reps.flatMap(x=>x.ts)];
+const dn=all.filter(t=>l.done.includes(t.id)).length+(em?1:0),tot=all.length+1;
 const cb=(h,t,i)=>`<a class="cb ${h?'':'off'}" ${h?`href="${E(h)}" target="_blank" rel="noopener"`:''}>${i}${t}</a>`,rs=n=>'₹'+(n||0).toLocaleString('en-IN');
+const dr=t=>{const on=l.done.includes(t.id);return `<button class="row" data-day="${t.id}"><span class="ck ${on?'on':''}">${IC.check}</span><span class="t ${on?'done':''}">${E(t.title)}</span></button>`};
 return hdr()+`<main class="wrap"><h1>${E(p.name)}</h1><p class="sub">${E(p.tagline)}</p>
 <div class="card"><div class="who"><span class="av lg">${E(ini(p.name))}</span><div><b>${E(p.founder)}</b><span class="s">${E(p.role)} · ${E(p.city)}</span></div></div><div class="cbs">${cb(p.email&&'mailto:'+p.email,'Email',IC.mail)}${cb(ph&&'tel:+'+ph,'Call',IC.phone)}${cb(ph&&'https://wa.me/'+ph,'WhatsApp',IC.chat)}${cb(p.website,'Website',IC.globe)}</div></div>
 <p class="sec">Today<button data-open="daily">Edit</button></p>
-<div class="card"><div class="big"><svg class="ring" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5" stroke="#f2f2f7"/><circle cx="18" cy="18" r="15.5" stroke="#34c759" stroke-dasharray="${(dn/tot*97.4).toFixed(1)} 97.4"/></svg><div><b>${dn} of ${tot}</b><span class="s">${dn===tot?'All done today':'daily tasks done'}</span></div></div></div>
-<div class="group">${dl.map(t=>{const on=l.done.includes(t.id);return `<button class="row" data-day="${t.id}"><span class="ck ${on?'on':''}">${IC.check}</span><span class="t ${on?'done':''}">${E(t.title)}</span></button>`}).join('')}<div class="row"><span class="ck ${em?'on':''}">${IC.check}</span><span class="t ${em?'done':''}" style="flex:1">Outreach emails · ${l.emails}/${g.emails}</span><span class="step"><button data-em="-1">−</button><button data-em="1">+</button></span></div></div>
+<div class="card"><div class="big"><svg class="ring" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5" stroke="#f2f2f7"/><circle cx="18" cy="18" r="15.5" stroke="#34c759" stroke-dasharray="${(dn/tot*97.4).toFixed(1)} 97.4"/></svg><div><b>${dn} of ${tot}</b><span class="s">${dn===tot?'All done today':'tasks done today'}</span></div></div></div>
+<div class="group">${dl.map(dr).join('')}<div class="row"><span class="ck ${em?'on':''}">${IC.check}</span><span class="t ${em?'done':''}" style="flex:1">Outreach emails · ${l.emails}/${g.emails}</span><span class="step"><button data-em="-1">−</button><button data-em="1">+</button></span></div></div>
+${reps.map(x=>`<p class="sec">${E(x.p.title)}<button data-plan="${x.p.id}">Edit</button></p><div class="group">${x.ts.map(dr).join('')}</div>`).join('')}
 ${run.length?'<p class="sec">Running plans</p>'+run.map(pc).join('')+'<div style="height:12px"></div>':''}
 <p class="sec">Goal</p><div class="card"><div class="ph"><div><b style="font-size:24px">${g.clients} of ${g.target}</b><div class="s">paying clients</div></div><span class="step"><button data-cl="-1">−</button><button data-cl="1">+</button></span></div><div class="bar"><i style="width:${Math.min(100,g.clients/Math.max(1,g.target)*100)}%"></i></div><p class="m">Monthly revenue ${rs(g.clients*g.fee)} · at ${g.target} clients ${rs(g.target*g.fee)}</p></div>
 ${fav.length?'<p class="sec">Quick links</p><div class="qls">'+fav.map(x=>`<a class="ql" href="${E(x.url)}" target="_blank" rel="noopener"><span class="av sm" style="background:${GC[x.grp]||GC.Other}">${E(ini(x.title))}</span><span class="t">${E(x.title)}</span></a>`).join('')+'</div>':''}
@@ -163,21 +171,21 @@ function notes(){const s=q.toLowerCase(),L=S.notes.filter(n=>!s||[n.title,n.body
 const blue=t=>`<span class="t" style="color:#0071e3">${t}</span>`;
 const pages={home,
 links:()=>hdr('link')+`<main class="wrap"><h1>Links</h1><p class="sub">${S.links.filter(x=>x.url).length} saved · ${S.links.filter(x=>!x.url).length} to add</p>${srch('Search links')}<div id="list">${links()}</div></main>`,
-plans:()=>hdr('plan')+`<main class="wrap"><h1>Plans</h1><p class="sub">${S.plans.length} plans · ${S.tasks.filter(t=>!t.done).length} open tasks</p>${S.plans.slice().sort(so).map(pc).join('')||'<p class="empty">No plans yet. Tap +</p>'}</main>`,
+plans:()=>hdr('plan')+`<main class="wrap"><h1>Plans</h1><p class="sub">${S.plans.length} plans · ${S.plans.filter(isRep).length} repeat daily</p>${S.plans.slice().sort(so).map(pc).join('')||'<p class="empty">No plans yet. Tap +</p>'}</main>`,
 notes:()=>hdr('note')+`<main class="wrap"><h1>Notes</h1><p class="sub">${S.notes.length} notes</p>${srch('Search notes')}<div id="list">${notes()}</div></main>`,
-more:()=>hdr()+`<main class="wrap"><h1>More</h1><p class="sub">Settings and data</p><div class="group"><button class="row" data-open="profile">${blue('Business profile')}</button><button class="row" data-open="daily">${blue('Daily checklist')}</button><button class="row" data-open="goals">${blue('Goals')}</button></div><div class="group"><button class="row" data-x="refresh">${blue('Refresh from cloud')}</button><button class="row" data-x="backup">${blue('Download backup')}</button></div><p class="m" style="margin:-10px 4px">Saved in Supabase · same on phone and laptop · v4</p></main>`};
+more:()=>hdr()+`<main class="wrap"><h1>More</h1><p class="sub">Settings and data</p><div class="group"><button class="row" data-open="profile">${blue('Business profile')}</button><button class="row" data-open="daily">${blue('Daily checklist')}</button><button class="row" data-open="goals">${blue('Goals')}</button></div><div class="group"><button class="row" data-x="refresh">${blue('Refresh from cloud')}</button><button class="row" data-x="backup">${blue('Download backup')}</button></div><p class="m" style="margin:-10px 4px">Saved in Supabase · same on phone and laptop · v5</p></main>`};
 function render(){$('tabs').innerHTML='<div>'+[['home','Home',IC.home],['links','Links',IC.link],['plans','Plans',IC.plan],['notes','Notes',IC.note],['more','More',IC.more]].map(([k,l,i])=>`<button class="tab ${view===k?'on':''}" data-nav="${k}">${i}${l}</button>`).join('')+'</div>';app.innerHTML=pages[view]()}
 
 const F=(o,k,l,t='text')=>`<label class="f"><small>${l}</small><input type="${t}" data-f="${k}" value="${E(o[k])}" autocomplete="off"></label>`;
 const A=(o,k,l,c='')=>`<label class="f"><small>${l}</small><textarea class="${c}" data-f="${k}">${E(o[k])}</textarea></label>`;
 const G=(o,k,l)=>`<label class="f sw"><span>${l}</span><input type="checkbox" class="tg" data-f="${k}" ${o[k]?'checked':''}></label>`;
-const trows=(list,ck)=>list.map(t=>`<div class="row">${ck?`<button class="ck ${t.done?'on':''}" data-tc="${t.id}">${IC.check}</button>`:''}<input class="tin ${t.done?'done':''}" data-tt="${t.id}" value="${E(t.title)}"><button class="x" data-td="${t.id}">×</button></div>`).join('')+`<div class="row"><input class="tin" id="nt" placeholder="+ Add a task" enterkeyhint="done"><button style="color:#0071e3;font-weight:600" data-x="addt">Add</button></div>`;
+const trows=(list,ck)=>list.map(t=>{const dn=ck&&tDone(t);return `<div class="row">${ck?`<button class="ck ${dn?'on':''}" data-tc="${t.id}">${IC.check}</button>`:''}<input class="tin ${dn?'done':''}" data-tt="${t.id}" value="${E(t.title)}"><button class="x" data-td="${t.id}">×</button></div>`}).join('')+`<div class="row"><input class="tin" id="nt" placeholder="+ Add a task" enterkeyhint="done"><button style="color:#0071e3;font-weight:600" data-x="addt">Add</button></div>`;
 function rs(keep){if(!sheet){sh.innerHTML='';document.body.classList.remove('lock');return}document.body.classList.add('lock');const b0=sh.querySelector('.sbody'),y=keep&&b0?b0.scrollTop:0,{k,o}=sheet;let t,b;
 if(k==='link'){t='Link';b=`${o.url?`<div class="acts"><a class="act" href="${E(o.url)}" target="_blank" rel="noopener">Open</a><button class="act" data-x="copy">Copy</button></div>`:''}<div class="group">${F(o,'title','Name')}${F(o,'url','Link','url')}<label class="f"><small>Group</small><select data-f="grp">${GR.map(g=>`<option ${g===(o.grp||'Other')?'selected':''}>${g}</option>`).join('')}</select></label>${F(o,'note','Note')}</div><div class="group">${G(o,'fav','Show on Home')}</div><button class="del" data-x="del">Delete link</button>`}
-else if(k==='plan'){const i=info(o);t='Plan';b=`<div class="group">${F(o,'title','Plan name')}${F(o,'sub','Short description')}${F(o,'start_date','Start date','date')}${F(o,'end_date','End date','date')}</div><p class="sec">Tasks · ${i.done} of ${i.total} done</p><div class="group">${trows(tk(o.id),1)}</div><div class="group">${A(o,'notes','Notes')}</div><button class="del" data-x="del">Delete plan</button>`}
+else if(k==='plan'){const i=info(o),r=isRep(o);t='Plan';b=`<div class="group"><label class="f sw"><span>Repeat every day<span class="s" style="display:block;white-space:normal">Tasks show on Home and reset every morning</span></span><input type="checkbox" class="tg" data-rep="1" ${r?'checked':''}></label></div><div class="group">${F(o,'title','Plan name')}${F(o,'sub','Short description')}${F(o,'start_date','Start date','date')}${F(o,'end_date','End date','date')}</div><p class="sec">Tasks · ${i.done} of ${i.total} done${r?' today':''}</p><div class="group">${trows(tk(o.id),1)}</div><div class="group">${A(o,'notes','Notes')}</div><button class="del" data-x="del">Delete plan</button>`}
 else if(k==='note'){t='Note';b=`<div class="group">${F(o,'title','Title')}</div><div class="group">${A(o,'body','Note','tall')}</div><div class="group">${G(o,'pinned','Pin to top')}</div><button class="del" data-x="del">Delete note</button>`}
 else if(k==='profile'){t='Business profile';b=`<div class="group">${[['name','Business name'],['tagline','Tagline'],['founder','Founder'],['role','Role'],['city','City'],['email','Email'],['phone','Phone / WhatsApp'],['website','Website']].map(([a,c])=>F(o,a,c)).join('')}</div><div class="group">${A(o,'goal','Long-term goal')}</div>`}
-else if(k==='daily'){t='Daily checklist';b=`<div class="group">${trows(S.daily.slice().sort(so),0)}</div><div class="group">${F(S.goals,'emails','Outreach emails per day','number')}</div>`}
+else if(k==='daily'){t='Daily checklist';b=`<div class="group">${trows(S.daily.slice().sort(so),0)}</div><div class="group">${F(S.goals,'emails','Outreach emails per day','number')}</div><p class="m" style="margin:-12px 4px 0">Ticks reset every morning. To add a whole plan to your day, open it in Plans and switch on "Repeat every day".</p>`}
 else{t='Goals';b=`<div class="group">${F(o,'clients','Paying clients now','number')}${F(o,'target','Client target','number')}${F(o,'fee','Average monthly fee (₹)','number')}${F(o,'emails','Outreach emails per day','number')}</div>`}
 sh.innerHTML=`<div class="scrim" data-x="close"></div><section class="sheet"><div class="sbar"><b>${t}</b><button data-x="close">Done</button></div><div class="sbody">${b}</div></section>`;if(keep)sh.querySelector('.sbody').scrollTop=y}
 function openS(k,o,isNew){if(!o)return;sheet={k,o,isNew};rs();history.pushState({s:1},'')}
@@ -186,6 +194,7 @@ if(isNew&&(k==='link'?!o.title&&!o.url:k==='note'?!o.title&&!o.body:k==='plan'?!
 sheet=null;rs();render()}
 function closeS(){fin();if(history.state&&history.state.s)history.back()}
 function sv(){const {k,o}=sheet;if(k==='link')put(T.li,o);else if(k==='plan')put(T.pl,o);else if(k==='note'){o.updated_at=new Date().toISOString();put(T.no,o)}else if(k==='profile')put(T.st,{key:'profile',value:S.profile});else put(T.st,{key:'goals',value:S.goals})}
+function togLog(id){const l=lgT(),i=l.done.indexOf(id);if(i<0)l.done.push(id);else l.done.splice(i,1);put(T.lg,l,300)}
 async function addT(){const i=$('nt'),v=i&&i.value.trim();if(!v)return;let t;if(sheet.k==='plan'){if(sheet.ready)await sheet.ready;t={id:uid(),plan_id:sheet.o.id,title:v,done:false,sort:Date.now()};S.tasks.push(t);put(T.ta,t,0)}else{t={id:uid(),title:v,sort:Date.now()};S.daily.push(t);put(T.da,t,0)}rs(1);$('nt').focus()}
 
 document.addEventListener('click',async e=>{const el=e.target.closest('[data-nav],[data-new],[data-open],[data-plan],[data-note],[data-link],[data-day],[data-em],[data-cl],[data-tc],[data-td],[data-x]');if(!el)return;const d=el.dataset;
@@ -195,16 +204,16 @@ else if(d.open)openS(d.open,d.open==='profile'?S.profile:S.goals);
 else if(d.plan)openS('plan',S.plans.find(x=>x.id===d.plan));
 else if(d.note)openS('note',S.notes.find(x=>x.id===d.note));
 else if(d.link){e.preventDefault();openS('link',S.links.find(x=>x.id===d.link))}
-else if(d.day){const l=lgT(),i=l.done.indexOf(d.day);if(i<0)l.done.push(d.day);else l.done.splice(i,1);put(T.lg,l,300);render()}
+else if(d.day){togLog(d.day);render()}
 else if(d.em){const l=lgT();l.emails=Math.max(0,l.emails+Number(d.em));put(T.lg,l,400);render()}
 else if(d.cl){S.goals.clients=Math.max(0,(Number(S.goals.clients)||0)+Number(d.cl));put(T.st,{key:'goals',value:S.goals},400);render()}
-else if(d.tc){const t=S.tasks.find(x=>x.id===d.tc);if(t){t.done=!t.done;put(T.ta,t,0);rs(1)}}
+else if(d.tc){const t=S.tasks.find(x=>x.id===d.tc);if(t){if(isRep(S.plans.find(x=>x.id===t.plan_id)))togLog(t.id);else{t.done=!t.done;put(T.ta,t,0)}rs(1)}}
 else if(d.td){const a=sheet.k==='daily'?S.daily:S.tasks,i=a.findIndex(x=>x.id===d.td);if(i>=0){a.splice(i,1);drop(sheet.k==='daily'?T.da:T.ta,d.td);rs(1)}}
 else{const x=d.x;
 if(x==='close')closeS();
 else if(x==='addt')addT();
 else if(x==='copy'){try{await navigator.clipboard.writeText(sheet.o.url);toast('Link copied')}catch(_){toast('Could not copy',true)}}
-else if(x==='del'){const {k,o}=sheet;if(!confirm('Delete this '+k+'?'))return;const a=k==='link'?S.links:k==='note'?S.notes:S.plans;a.splice(a.indexOf(o),1);if(k==='plan')S.tasks=S.tasks.filter(t=>t.plan_id!==o.id);drop(k==='link'?T.li:k==='note'?T.no:T.pl,o.id);sheet=null;rs();render();if(history.state&&history.state.s)history.back();toast('Deleted')}
+else if(x==='del'){const {k,o}=sheet;if(!confirm('Delete this '+k+'?'))return;const a=k==='link'?S.links:k==='note'?S.notes:S.plans;a.splice(a.indexOf(o),1);if(k==='plan'){S.tasks=S.tasks.filter(t=>t.plan_id!==o.id);if(isRep(o)){S.rep=S.rep.filter(id=>id!==o.id);put(T.st,{key:'repeat',value:{ids:S.rep}},0)}}drop(k==='link'?T.li:k==='note'?T.no:T.pl,o.id);sheet=null;rs();render();if(history.state&&history.state.s)history.back();toast('Deleted')}
 else if(x==='refresh'){flush();try{await load(1);render();toast('Up to date')}catch(err){toast(err.message,true)}}
 else if(x==='backup'){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(S,null,2)],{type:'application/json'}));a.download='GS Master backup '+day()+'.json';document.body.appendChild(a);a.click();a.remove()}
 else if(x==='retry')boot()}});
@@ -212,10 +221,12 @@ document.addEventListener('input',e=>{const el=e.target;if(el.id==='q'){q=el.val
 if(!sheet||el.type==='checkbox'||el.tagName==='SELECT')return;
 if(el.dataset.tt){const t=(sheet.k==='daily'?S.daily:S.tasks).find(x=>x.id===el.dataset.tt);if(t){t.title=el.value;put(sheet.k==='daily'?T.da:T.ta,t)}return}
 const k=el.dataset.f;if(!k)return;const o=sheet.k==='daily'?S.goals:sheet.o;o[k]=el.type==='number'?(Number(el.value)||0):el.type==='date'?(el.value||null):el.value;sv()});
-document.addEventListener('change',e=>{const el=e.target;if(!sheet||!el.dataset.f)return;if(el.type==='checkbox'){sheet.o[el.dataset.f]=el.checked;sv()}else if(el.tagName==='SELECT'){sheet.o[el.dataset.f]=el.value;sv()}});
+document.addEventListener('change',e=>{const el=e.target;if(!sheet)return;
+if(el.dataset.rep){const id=sheet.o.id;S.rep=el.checked?[...new Set([...S.rep,id])]:S.rep.filter(x=>x!==id);put(T.st,{key:'repeat',value:{ids:S.rep}},0);rs(1);toast(el.checked?'Tasks will show every day':'Repeat turned off');return}
+if(!el.dataset.f)return;if(el.type==='checkbox'){sheet.o[el.dataset.f]=el.checked;sv()}else if(el.tagName==='SELECT'){sheet.o[el.dataset.f]=el.value;sv()}});
 document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id==='nt'){e.preventDefault();addT()}if(e.key==='Escape'&&sheet)closeS()});
 addEventListener('popstate',()=>{if(sheet)fin()});
-document.addEventListener('visibilitychange',()=>{if(document.hidden)flush()});
+document.addEventListener('visibilitychange',()=>{if(document.hidden)flush();else if(S&&!sheet)render()});
 async function boot(){app.innerHTML='<p class="empty">Loading…</p>';try{await load();render()}catch(err){app.innerHTML=`<div class="empty"><b>Couldn't load</b><p>${E(/schema cache|does not exist|Could not find/i.test(err.message)?'Run the gsm_ SQL setup in Supabase first.':err.message)}</p><button class="act" data-x="retry">Try again</button></div>`}}
 boot();
 })();
